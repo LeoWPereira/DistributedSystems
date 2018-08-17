@@ -1,6 +1,6 @@
 /**
  ******************************************************************************
- * @file   	Trabalho02.java
+ * @file   	configs.java
  * @author	Leonardo Winter Pereira
  * @author 	Luis Felipe Mazzuchetti Ortiz
  * @version v1.0
@@ -9,16 +9,13 @@
  ******************************************************************************
  */
 
-import Communication.MultiCast_Manager;
-
-public class Trabalho02 
+/**
+ * @name	configs
+ * @brief
+ * 
+ *
+ */
+public class configs 
 {
-	public static void main(String[] args) 
-	{
-		System.out.println("Bem-vinda professora Ana Cristina!");
-		
-		System.out.println("\nVamos começar o trabalho 02?\n");
-		
-		return;
-	}
+
 }

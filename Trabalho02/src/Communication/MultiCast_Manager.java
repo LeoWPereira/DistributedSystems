@@ -1,6 +1,6 @@
 /**
  ******************************************************************************
- * @file   	Trabalho02.java
+ * @file   	MultiCast_Manager.java
  * @author	Leonardo Winter Pereira
  * @author 	Luis Felipe Mazzuchetti Ortiz
  * @version v1.0
@@ -9,16 +9,15 @@
  ******************************************************************************
  */
 
-import Communication.MultiCast_Manager;
+package Communication;
 
-public class Trabalho02 
+/**
+ * @name	MultiCast_Manager
+ * @brief
+ * 
+ *
+ */
+public class MultiCast_Manager 
 {
-	public static void main(String[] args) 
-	{
-		System.out.println("Bem-vinda professora Ana Cristina!");
-		
-		System.out.println("\nVamos começar o trabalho 02?\n");
-		
-		return;
-	}
+
 }
