@@ -34,6 +34,12 @@ public class Trabalho02
 	private static Scanner scanKeyboard = new Scanner(System.in);
 	
 	/**
+	 * @name	multiCast
+	 * @brief
+	 */
+	public static MultiCast_Manager multiCast;
+	
+	/**
 	 * @name	communicationPort
 	 * @brief
 	 */
@@ -46,10 +52,16 @@ public class Trabalho02
 	public static String communicationGroup = "224.0.0.10";
 	
 	/**
-	 * @name	multiCast
+	 * @name	minimumPeers
 	 * @brief
 	 */
-	public static MultiCast_Manager multiCast;
+	public static int minimumPeers = 3;
+	
+	/**
+	 * @name	debugMode
+	 * @brief
+	 */
+	public static boolean debugMode = false;
 
 	/**
 	 * @name
@@ -69,9 +81,23 @@ public class Trabalho02
 		
 		configGroup();
 		
+		configMinimumPeersQuantity();
+		
+		multiCast = new MultiCast_Manager(communicationPort, 
+						  				  communicationGroup,
+						  				  debugMode);
+		
+		multiCast.start();
+		
 		if(testMultiCastSocket())
 		{
 			System.out.println("\nÓtimo. O Socket MultiCast foi configurado com êxito!\n");
+			
+			//subscribe
+			
+			// request public keys
+			
+			waitForPeers();
 		}
 		
 		else
@@ -137,6 +163,28 @@ public class Trabalho02
 		
 		return;
 	}
+	
+	/**
+	 * @name	configPort
+	 * @brief	
+	 * @return
+	 */
+	public static void configMinimumPeersQuantity()
+	{
+		int minPeers = 0;
+		
+		System.out.println("Quantos Peers devem se registrar antes da aplicação iniciar (O padrão é 3)?");
+		System.out.println("Caso queira manter o padrão, digite 0");
+		
+		minPeers = scanKeyboard.nextInt();
+		
+		if(0 != minPeers)
+		{
+			minimumPeers = minPeers;
+		}
+		
+		return;
+	}
 
 	/**
 	 * @name	testMultiCastSocket
@@ -149,16 +197,12 @@ public class Trabalho02
 		
 		int tempoRestante = 3;
 		
-		multiCast = new MultiCast_Manager(communicationPort, 
-										  communicationGroup);
-		
-		multiCast.start();
-		
 		System.out.println("\nMuito obrigado! Aguarde alguns instantes para que eu possa testar suas configurações");
 	
-		sd_message = new SD_Message(null,
-									SD_Message.Types.TEST,
-									null);
+		sd_message = new SD_Message(SD_Message.Types.TEST,
+									null,
+									null,
+									debugMode);
 		
 		multiCast.sendMessage(sd_message.mountMessage());
 	
@@ -177,6 +221,29 @@ public class Trabalho02
 		}
 		
 		return false;
+	}
+	
+	public static void waitForPeers() throws InterruptedException
+	{
+		int tempoRestante = 60;
+		
+		System.out.println("\nAguarde até " + minimumPeers + " peers se conectarem (Timeout de " + tempoRestante + " segundos)!\n");
+		
+		while(0 < tempoRestante)
+		{
+			TimeUnit.SECONDS.sleep(1);
+			
+			System.out.print(".");
+			
+			if(multiCast.getPeers().size() == minimumPeers)
+			{
+				break;
+			}
+			
+			tempoRestante--;
+		}
+		
+		return;
 	}
 
 	/**
@@ -206,5 +273,4 @@ public class Trabalho02
 		
 		return;
 	}
-	
 }

@@ -1,4 +1,3 @@
-package Communication;
 /**
  ******************************************************************************
  * @file   	SD_Message.java
@@ -10,6 +9,8 @@ package Communication;
  ******************************************************************************
  */
 
+package Communication;
+
 /**
  * @name 	SD_Message
  * @brief
@@ -19,12 +20,22 @@ package Communication;
 public class SD_Message 
 {
 	/**
+	 * @name	debugMode
+	 * @brief
+	 */
+	private boolean debugMode;
+	
+	/**
 	 * @name	Types
 	 * @brief
 	 */
 	public enum Types
 	{
-		TEST(new Integer('T'));
+		TEST(new Integer('T')),
+		SUBSCRIBE(new Integer('S')),
+		UNSUBSCRIBE(new Integer('U')),
+		REPLY_PUBLIC_KEY(new Integer('R')),
+		REQUEST_RESOURCE(new Integer('Q'));
 		
 		private final byte byteValue;
 		
@@ -40,18 +51,6 @@ public class SD_Message
 			return this.byteValue;
 		}
 	}
-	
-	/**
-	 * @name	publicKey
-	 * @brief
-	 */
-	private byte[] publicKey;
-	
-	/**
-	 * @name	data
-	 * @brief
-	 */
-	private byte[] data;
 
 	/**
 	 * @name	type
@@ -59,33 +58,30 @@ public class SD_Message
 	 */
 	private Types type;
 	
-	public SD_Message(byte[] _publicKey,
-					  Types  _type,
-					  byte[] _data)
-	{
-		this.publicKey	= _publicKey;
-		this.type		= _type;
-		this.data 		= _data;
-		
-		return;
-	}
+	/**
+	 * @name	uniqueID
+	 * @brief
+	 */
+	private byte[] uniqueID;
 	
 	/**
-	 * @name	getPublicKey
+	 * @name	data
 	 * @brief
 	 */
-	public byte[] getPublicKey() 
-	{
-		return publicKey;
-	}
+	private byte[] data;
 
-	/**
-	 * @name	getData
-	 * @brief
-	 */
-	public byte[] getData() 
+	public SD_Message(Types  	_type,
+					  byte[] 	_uniqueID,
+					  byte[] 	_data,
+					  boolean	_debugMode)
 	{
-		return data;
+		this.type		= _type;
+		this.uniqueID	= _uniqueID;
+		this.data 		= _data;
+		
+		this.debugMode	= _debugMode;
+		
+		return;
 	}
 
 	/**
@@ -94,9 +90,31 @@ public class SD_Message
 	 */
 	public Types getType() 
 	{
-		return type;
+		return this.type;
 	}
 	
+	/**
+	 * @name	getUniqueID
+	 * @brief
+	 */
+	public byte[] getUniqueID() 
+	{
+		return this.uniqueID;
+	}
+	
+	/**
+	 * @name	getData
+	 * @brief
+	 */
+	public byte[] getData() 
+	{
+		return this.data;
+	}
+	
+	/**
+	 * @name	mountMessage
+	 * @brief
+	 */
 	public byte[] mountMessage()
 	{
 		byte[] mountedMessage = null;

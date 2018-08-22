@@ -17,11 +17,13 @@ import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.SocketException;
 import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * @name 	MultiCast_Manager
+ * @name MultiCast_Manager
  * @brief
  * 
  *
@@ -29,108 +31,170 @@ import java.util.logging.Logger;
 public class MultiCast_Manager extends Thread 
 {
 	/**
-	 * @name	communicationPort
+	 * @name	peers
+	 * @brief	Hash Map with the key as a uniqueID (as byte[])
+	 * 			and a value as the public Key (also as a byte[])
+	 */
+	private Map<byte[], byte[]> peers;
+	
+	/**
+	 * @name communicationPort
 	 * @brief
 	 */
 	private int communicationPort;
-	
+
 	/**
-	 * @name	communicationGroup
+	 * @name communicationGroup
 	 * @brief
 	 */
 	private InetAddress communicationGroup;
-	
+
 	/**
-	 * @name	MulticastSocket
+	 * @name MulticastSocket
 	 * @brief
 	 */
 	private MulticastSocket socket;
-	
+
 	/**
-	 * @name	sizeOfBuffer
-	 * @brief	Each message can store until 500 bytes, we are using way less than this
+	 * @name sizeOfBuffer
+	 * @brief Each message can store until 500 bytes, we are using way less than
+	 *        this
 	 */
 	private int sizeOfBuffer = 500;
-	
+
 	/**
-	 * @name	connectionOK
+	 * @name connectionOK
 	 * @brief
 	 */
 	private boolean connectionOK = false;
 	
 	/**
-	 * @name	MultiCast_Manager
+	 * @name	debugMode
 	 * @brief
-	 * @param 	_communicationPort
-	 * @param	_communcationGroup
 	 */
-	public MultiCast_Manager(int _communicationPort,
-							 String _communcationGroup)
+	private boolean debugMode;
+
+	/**
+	 * @name MultiCast_Manager
+	 * @brief
+	 * @param _communicationPort
+	 * @param _communcationGroup
+	 */
+	public MultiCast_Manager(int 		_communicationPort, 
+							 String		_communcationGroup,
+							 boolean	_debugMode) 
 	{
+		this.peers				= new HashMap<byte[], byte[]>();
+		
 		this.communicationPort 	= _communicationPort;
+
+		this.debugMode			= _debugMode;
 		
 		try
 		{
 			this.communicationGroup = InetAddress.getByName(_communcationGroup);
-			
-			socket					= new MulticastSocket(_communicationPort);
-			
+
+			socket = new MulticastSocket(_communicationPort);
+
 			socket.joinGroup(this.communicationGroup);
 		}
-		
-		catch(SocketException e)
+
+		catch (SocketException e) 
 		{
 			System.out.println("Socket: " + e.getMessage());
 		}
-		
-		catch(IOException e)
+
+		catch (IOException e) 
 		{
 			System.out.println("IO: " + e.getMessage());
 		}
-		
+
 		return;
 	}
 
 	/**
-	 * @name	run
+	 * @name 	getConnectionStatus
+	 * @brief
+	 */
+	public boolean getConnectionStatus() 
+	{
+		return this.connectionOK;
+	}
+	
+	/**
+	 * @name 	getPeers
+	 * @brief
+	 */
+	public Map<byte[], byte[]> getPeers()
+	{
+		return this.peers;
+	}
+
+	/**
+	 * @name run
 	 * @brief
 	 */
 	public void run() 
 	{
 		DatagramPacket receivedPacket = null;
-		
+
 		byte[] buffer = null;
 		byte[] receivedMessage = null;
-				
-		while(true)
+
+		while (true) 
 		{
-			try
+			try 
 			{
 				buffer = new byte[sizeOfBuffer];
-				
-				receivedPacket = new DatagramPacket(buffer,
+
+				receivedPacket = new DatagramPacket(buffer, 
 													buffer.length);
-				
+
 				socket.receive(receivedPacket);
-				
+
 				receivedMessage = receivedPacket.getData();
-				
-				//***************************************************
+
+				// **************************************************
 				// From this point on, decode the received message //
-				//***************************************************
-				
-				if(SD_Message.Types.TEST.getByteValue() == receivedMessage[0])
+				// **************************************************
+
+				if (SD_Message.Types.TEST.getByteValue() == receivedMessage[0]) 
 				{
+					if(this.debugMode)
+					{
+						System.out.println("Mensagem Recebida de teste");
+					}
+					
 					this.testMultiCastSocket_Callback();
 				}
-				
-				else
+
+				else if (SD_Message.Types.SUBSCRIBE.getByteValue() == receivedMessage[0]) 
 				{
-					
+					this.subscribe_Callback();
+				}
+
+				else if (SD_Message.Types.UNSUBSCRIBE.getByteValue() == receivedMessage[0]) 
+				{
+					this.unsubscribe_Callback();
+				}
+
+				else if (SD_Message.Types.REPLY_PUBLIC_KEY.getByteValue() == receivedMessage[0]) 
+				{
+					this.replyPublicKey_Callback();
+				}
+
+				else if (SD_Message.Types.REQUEST_RESOURCE.getByteValue() == receivedMessage[0]) 
+				{
+					this.requestResource_Callback();
+				}
+
+				else 
+				{
+					System.out.println("Tipo de Mensagem não reconhecido!");
 				}
 			}
-			
-			catch(IOException ex)
+
+			catch (IOException ex) 
 			{
 				Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
 			}
@@ -140,7 +204,7 @@ public class MultiCast_Manager extends Thread
 	/**
 	 * @name
 	 * @brief
-	 * @param	_message
+	 * @param _message
 	 * @return
 	 */
 	public boolean sendMessage(byte[] _message) 
@@ -149,16 +213,16 @@ public class MultiCast_Manager extends Thread
 
 		DatagramPacket messageOut = new DatagramPacket(_message, 
 													   _message.length, 
-													   this.communicationGroup, 
+													   this.communicationGroup,
 													   this.communicationPort);
 
 		try 
 		{
 			this.socket.send(messageOut);
-			
+
 			returnValue = true;
 		}
-		
+
 		catch (IOException ex) 
 		{
 			Logger.getLogger(MultiCast_Manager.class.getName()).log(Level.SEVERE, 
@@ -168,20 +232,121 @@ public class MultiCast_Manager extends Thread
 
 		return returnValue;
 	}
-	
+
 	/**
 	 * @name	testMultiCastSocket_Callback
 	 * @brief
 	 */
 	public void testMultiCastSocket_Callback()
 	{
+		//*****************************************
+		// Check if the message sender is myself //
+		//*****************************************
+		
+		if(true)
+		{
+			
+		}
+		
+		else
+		{
+			// Ignore message
+		}
+		
 		connectionOK = true;
 		
 		return;
 	}
-	
-	public boolean getConnectionStatus()
+
+	/**
+	 * @name	subscribe_Callback
+	 * @brief
+	 */
+	public void subscribe_Callback()
 	{
-		return this.connectionOK;
+		//*****************************************
+		// Check if the message sender is myself //
+		//*****************************************
+		
+		if(true)
+		{
+			// Ignore message
+		}
+		
+		else
+		{
+			
+		}
+				
+		return;
+	}
+
+	/**
+	 * @name unsubscribe_Callback
+	 * @brief
+	 */
+	public void unsubscribe_Callback() 
+	{
+		//*****************************************
+		// Check if the message sender is myself //
+		//*****************************************
+		
+		if(true)
+		{
+			// Ignore message
+		}
+		
+		else
+		{
+			
+		}
+		
+		return;
+	}
+
+	/**
+	 * @name replyPublicKey_Callback
+	 * @brief
+	 */
+	public void replyPublicKey_Callback() 
+	{
+		//*****************************************
+		// Check if the message sender is myself //
+		//*****************************************
+		
+		if(true)
+		{
+			// Ignore message
+		}
+		
+		else
+		{
+			
+		}
+		
+		return;
+	}
+
+	/**
+	 * @name requestResource_Callback
+	 * @brief
+	 */
+	public void requestResource_Callback() 
+	{
+		//*****************************************
+		// Check if the message sender is myself //
+		//*****************************************
+		
+		if(true)
+		{
+			// Ignore message
+		}
+		
+		else
+		{
+			
+		}
+				
+		return;
 	}
 }
