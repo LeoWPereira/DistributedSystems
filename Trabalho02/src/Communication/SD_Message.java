@@ -35,7 +35,8 @@ public class SD_Message
 		SUBSCRIBE(new Integer('S')),
 		UNSUBSCRIBE(new Integer('U')),
 		REPLY_PUBLIC_KEY(new Integer('R')),
-		REQUEST_RESOURCE(new Integer('Q'));
+		REQUEST_RESOURCE(new Integer('Q')),
+		REQUEST_PUBLIC_KEY(new Integer('K'));
 		
 		private final byte byteValue;
 		
@@ -62,7 +63,7 @@ public class SD_Message
 	 * @name	uniqueID
 	 * @brief
 	 */
-	private byte[] uniqueID;
+	private byte uniqueID;
 	
 	/**
 	 * @name	data
@@ -70,8 +71,16 @@ public class SD_Message
 	 */
 	private byte[] data;
 
+	/**
+	 * @name	SD_Message
+	 * @param	_type
+	 * @param	_uniqueID
+	 * @param	_data
+	 * @param	_debugMode
+	 * @brief
+	 */
 	public SD_Message(Types  	_type,
-					  byte[] 	_uniqueID,
+					  byte 		_uniqueID,
 					  byte[] 	_data,
 					  boolean	_debugMode)
 	{
@@ -97,7 +106,7 @@ public class SD_Message
 	 * @name	getUniqueID
 	 * @brief
 	 */
-	public byte[] getUniqueID() 
+	public byte getUniqueID() 
 	{
 		return this.uniqueID;
 	}
