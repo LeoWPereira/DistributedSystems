@@ -17,6 +17,7 @@ import javax.crypto.Cipher;
 
 import Communication.MultiCast_Manager;
 import Communication.SD_Message;
+import Security.Crypto;
 
 /**
  * @name 	Trabalho02
@@ -54,44 +55,15 @@ public class Trabalho02
 	 * @name
 	 * @brief
 	 */
-	public static KeyPair keyPair;
-	
-	/**
-	 * @name
-	 * @brief
-	 */
-	public static PrivateKey priv;
-	
-	/**
-	 * @name
-	 * @brief
-	 */
-	public static PublicKey pub;
-
-	/**
-	 * @name
-	 * @brief
-	 */
-	public static byte[] privByte;
-
-	/**
-	 * @name
-	 * @brief
-	 */
-	public static byte[] pubByte;
-
-	/**
-	 * @name
-	 * @brief
-	 */
-	public static byte[] signature;
+	private static Crypto cryptography;
 	
 	/**
 	 * @name	main
 	 * @brief
 	 * @param args
+	 * @throws Exception 
 	 */
-	public static void main(String[] args) throws InterruptedException 
+	public static void main(String[] args) throws Exception 
 	{
 		configPort();
 		
@@ -107,39 +79,8 @@ public class Trabalho02
 			System.out.println("\nTimeout de configuração do Socket MultiCast. Favor tentar novamente!\n");
 		}
 		
-    	try 
-    	{
-    		// Gera par de chaves
-			generateKeyPair();
-			
-			// Gera assinatura para a mensagem
-	    	signature = generateSignature("Teste");
-
-	    	// verifica assinatura
-	    	System.out.println("Assinatura: " +
-	    		   (verifySignature("Teste", signature, pub) ? "OK" : "NOK"));
-		} 
-    	catch (NoSuchAlgorithmException e1) 
-    	{
-			e1.printStackTrace();
-		}
-	    
-	    
-        try 
-        {
-        	// Criptografa mensagem
-            byte[] encryptedMsg = encrypt(priv, "Mensagem Exemplo");
-            System.out.println(new String(encryptedMsg));
-			
-			// Decriptografa mensagem
-	        byte[] decryptedMsg = decrypt(pub, encryptedMsg);                                 
-	        System.out.println(new String(decryptedMsg));
-		} 
-        catch (Exception e) 
-        {
-			e.printStackTrace();
-		}     
-        
+    	testCryptography();
+    	
 		return;
 	}
 	
@@ -239,125 +180,31 @@ public class Trabalho02
 	}
 
 	/**
-	 * @name	
+	 * @name	testCryptography
 	 * @brief	
 	 * @return
-	 * @throws NoSuchAlgorithmException 
+	 * @throws Exception 
 	 */
-	public static void generateKeyPair() throws NoSuchAlgorithmException
+	public static void testCryptography() throws Exception
 	{
-		// Inicializa par de chaves
-    	keyPair = initializeKeyPair();
-    	// Separa chave privada e pública
-    	priv = keyPair.getPrivate();
-    	pub = keyPair.getPublic();
-    	// Armazena as chaves em array de bytes
-    	privByte = priv.getEncoded();
-    	pubByte = pub.getEncoded();
+		cryptography = new Crypto();
+    		
+		byte[] sign;
+		// Gera assinatura para a mensagem
+		sign = cryptography.generateSignature("Teste");
+
+    	// verifica assinatura
+    	System.out.println("Assinatura: " +
+    		   (cryptography.verifySignature("Teste", sign, cryptography.getPublicKey()) ? "OK" : "NOK"));
+
+    	// Criptografa mensagem
+    	byte[] encryptedMsg = cryptography.encrypt("Mensagem Exemplo");
+    	System.out.println(new String(encryptedMsg));
+    	
+		// Decriptografa mensagem
+    	System.out.println(new String(cryptography.decrypt(cryptography.getPublicKey(), encryptedMsg)));
 		
 		return;
 	}
-
-	/**
-	 * @name	
-	 * @brief	
-	 * @return
-	 */
-	public static KeyPair initializeKeyPair() throws NoSuchAlgorithmException 
-	{
-        final int keySize = 1024;
-        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-        keyPairGenerator.initialize(keySize);      
-        return keyPairGenerator.genKeyPair();
-    }
 	
-	/**
-	 * @name	
-	 * @brief	
-	 * @return
-	 */
-	public static byte[] encrypt(PrivateKey privateKey, String message) throws Exception 
-	{
-        Cipher cipher = Cipher.getInstance("RSA");  
-        cipher.init(Cipher.ENCRYPT_MODE, privateKey);  
-
-        return cipher.doFinal(message.getBytes());  
-    }
-    
-    /**
-	 * @name	
-	 * @brief	
-	 * @return
-	 */
-    public static byte[] decrypt(PublicKey publicKey, byte [] encrypted) throws Exception 
-    {
-        Cipher cipher = Cipher.getInstance("RSA");  
-        cipher.init(Cipher.DECRYPT_MODE, publicKey);
-        
-        return cipher.doFinal(encrypted);
-    }
-
-    /**
-	 * @name	
-	 * @brief	
-	 * @return
-	 */
-    public static byte[] generateSignature(String stringToBeSigned)
-    {
-    	byte[] byteToBeSigned = new byte[1024];
-    	Signature sign;
-    	byte[] signature = null;
-
-    	// Convert string to byte[]
-    	byteToBeSigned = stringToBeSigned.getBytes();
-    	
-    	// Assinatura digital
-    	try 
-    	{
-		    // Cria instância de assinatura digital com SHA256
-			sign = Signature.getInstance("SHA256withRSA");
-			// Inicializa com chave privata gerada
-	    	sign.initSign(priv);
-	    	// Utiliza o byte de exemplo para assinar
-		    sign.update(byteToBeSigned);
-		    signature = sign.sign();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    	
-    	return signature;
-    }
-
-    /**
-	 * @name	
-	 * @brief	
-	 * @return
-	 */
-    public static boolean verifySignature(String signedString, byte[] sign, PublicKey pubKey)
-    {
-    	boolean signatureVerification = false;
-    	byte[] signedByte;	
-    	Signature signVerify = null;
-
-    	// Convert string to byte[]
-    	signedByte = signedString.getBytes();
-
-    	// Verificar assinatura digital
-    	try 
-    	{
-    		signVerify = Signature.getInstance("SHA256withRSA");
-		    signVerify.initVerify(pubKey);
-		    signVerify.update(signedByte); 	    
-	
-		    // Verifica se a assinatura esta correta
-		    signatureVerification = signVerify.verify(sign);
-		
-			signVerify = Signature.getInstance("SHA256withRSA");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	    return signatureVerification;
-    }
 }
