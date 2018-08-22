@@ -16,29 +16,36 @@ import java.security.*;
 import javax.crypto.Cipher;
 
 import Communication.MultiCast_Manager;
+import Communication.SD_Message;
 
+/**
+ * @name 	Trabalho02
+ * @brief
+ * 
+ *
+ */
 public class Trabalho02 
 {
 	/**
-	 * @name
+	 * @name	scanKeyboard
 	 * @brief
 	 */
 	private static Scanner scanKeyboard = new Scanner(System.in);
 	
 	/**
-	 * @name
+	 * @name	communicationPort
 	 * @brief
 	 */
 	public static int communicationPort = 6689;
 	
 	/**
-	 * @name
+	 * @name	communicationGroup
 	 * @brief
 	 */
 	public static String communicationGroup = "224.0.0.10";
 	
 	/**
-	 * @name
+	 * @name	multiCast
 	 * @brief
 	 */
 	public static MultiCast_Manager multiCast;
@@ -80,7 +87,7 @@ public class Trabalho02
 	public static byte[] signature;
 	
 	/**
-	 * @name
+	 * @name	main
 	 * @brief
 	 * @param args
 	 */
@@ -92,7 +99,12 @@ public class Trabalho02
 		
 		if(testMultiCastSocket())
 		{
-			
+			System.out.println("\nÓtimo. O Socket MultiCast foi configurado com êxito!\n");
+		}
+		
+		else
+		{
+			System.out.println("\nTimeout de configuração do Socket MultiCast. Favor tentar novamente!\n");
 		}
 		
     	try 
@@ -132,7 +144,7 @@ public class Trabalho02
 	}
 	
 	/**
-	 * @name	
+	 * @name	configPort
 	 * @brief	
 	 * @return
 	 */
@@ -154,7 +166,7 @@ public class Trabalho02
 	}
 	
 	/**
-	 * @name	
+	 * @name	configGroup
 	 * @brief	
 	 * @return
 	 */
@@ -186,15 +198,15 @@ public class Trabalho02
 	}
 
 	/**
-	 * @name	
+	 * @name	testMultiCastSocket
 	 * @brief	
 	 * @return
 	 */
 	public static boolean testMultiCastSocket() throws InterruptedException
 	{
-		boolean returnValue = false;
+		SD_Message sd_message;
 		
-		int tempoRestante = 2;
+		int tempoRestante = 3;
 		
 		multiCast = new MultiCast_Manager(communicationPort, 
 										  communicationGroup);
@@ -202,19 +214,28 @@ public class Trabalho02
 		multiCast.start();
 		
 		System.out.println("\nMuito obrigado! Aguarde alguns instantes para que eu possa testar suas configurações");
+	
+		sd_message = new SD_Message(null,
+									SD_Message.Types.TEST,
+									null);
 		
+		multiCast.sendMessage(sd_message.mountMessage());
+	
 		while(0 < tempoRestante)
 		{
 			TimeUnit.SECONDS.sleep(1);
 			
 			System.out.println(".\n");
 			
+			if(multiCast.getConnectionStatus())
+			{
+				return true;
+			}
+			
 			tempoRestante--;
 		}
 		
-		
-		
-		return returnValue;
+		return false;
 	}
 
 	/**

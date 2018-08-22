@@ -16,11 +16,12 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.SocketException;
+import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * @name MultiCast_Manager
+ * @name 	MultiCast_Manager
  * @brief
  * 
  *
@@ -28,26 +29,40 @@ import java.util.logging.Logger;
 public class MultiCast_Manager extends Thread 
 {
 	/**
-	 * @name
+	 * @name	communicationPort
 	 * @brief
 	 */
 	private int communicationPort;
 	
 	/**
-	 * @name
+	 * @name	communicationGroup
 	 * @brief
 	 */
 	private InetAddress communicationGroup;
 	
 	/**
-	 * @name
+	 * @name	MulticastSocket
 	 * @brief
 	 */
 	private MulticastSocket socket;
 	
 	/**
-	 * @name
+	 * @name	sizeOfBuffer
+	 * @brief	Each message can store until 500 bytes, we are using way less than this
+	 */
+	private int sizeOfBuffer = 500;
+	
+	/**
+	 * @name	connectionOK
 	 * @brief
+	 */
+	private boolean connectionOK = false;
+	
+	/**
+	 * @name	MultiCast_Manager
+	 * @brief
+	 * @param 	_communicationPort
+	 * @param	_communcationGroup
 	 */
 	public MultiCast_Manager(int _communicationPort,
 							 String _communcationGroup)
@@ -77,18 +92,55 @@ public class MultiCast_Manager extends Thread
 	}
 
 	/**
-	 * @name
+	 * @name	run
 	 * @brief
 	 */
 	public void run() 
 	{
-		return;
+		DatagramPacket receivedPacket = null;
+		
+		byte[] buffer = null;
+		byte[] receivedMessage = null;
+				
+		while(true)
+		{
+			try
+			{
+				buffer = new byte[sizeOfBuffer];
+				
+				receivedPacket = new DatagramPacket(buffer,
+													buffer.length);
+				
+				socket.receive(receivedPacket);
+				
+				receivedMessage = receivedPacket.getData();
+				
+				//***************************************************
+				// From this point on, decode the received message //
+				//***************************************************
+				
+				if(SD_Message.Types.TEST.getByteValue() == receivedMessage[0])
+				{
+					this.testMultiCastSocket_Callback();
+				}
+				
+				else
+				{
+					
+				}
+			}
+			
+			catch(IOException ex)
+			{
+				Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
 	}
 
 	/**
 	 * @name
 	 * @brief
-	 * @param _message
+	 * @param	_message
 	 * @return
 	 */
 	public boolean sendMessage(byte[] _message) 
@@ -115,5 +167,21 @@ public class MultiCast_Manager extends Thread
 		}
 
 		return returnValue;
+	}
+	
+	/**
+	 * @name	testMultiCastSocket_Callback
+	 * @brief
+	 */
+	public void testMultiCastSocket_Callback()
+	{
+		connectionOK = true;
+		
+		return;
+	}
+	
+	public boolean getConnectionStatus()
+	{
+		return this.connectionOK;
 	}
 }
