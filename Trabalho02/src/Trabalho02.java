@@ -13,7 +13,14 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import Communication.MultiCast_Manager;
+import Communication.SD_Message;
 
+/**
+ * @name 	Trabalho02
+ * @brief
+ * 
+ *
+ */
 public class Trabalho02 
 {
 	/**
@@ -57,7 +64,12 @@ public class Trabalho02
 		
 		if(testMultiCastSocket())
 		{
-			
+			System.out.println("\nÓtimo. O Socket MultiCast foi configurado com êxito!\n");
+		}
+		
+		else
+		{
+			System.out.println("\nTimeout de configuração do Socket MultiCast. Favor tentar novamente!\n");
 		}
 		
 		return;
@@ -124,9 +136,9 @@ public class Trabalho02
 	 */
 	public static boolean testMultiCastSocket() throws InterruptedException
 	{
-		boolean returnValue = false;
+		SD_Message sd_message;
 		
-		int tempoRestante = 2;
+		int tempoRestante = 3;
 		
 		multiCast = new MultiCast_Manager(communicationPort, 
 										  communicationGroup);
@@ -134,18 +146,27 @@ public class Trabalho02
 		multiCast.start();
 		
 		System.out.println("\nMuito obrigado! Aguarde alguns instantes para que eu possa testar suas configurações");
+	
+		sd_message = new SD_Message(null,
+									SD_Message.Types.TEST,
+									null);
 		
+		multiCast.sendMessage(sd_message.mountMessage());
+	
 		while(0 < tempoRestante)
 		{
 			TimeUnit.SECONDS.sleep(1);
 			
 			System.out.println(".\n");
 			
+			if(multiCast.getConnectionStatus())
+			{
+				return true;
+			}
+			
 			tempoRestante--;
 		}
 		
-		
-		
-		return returnValue;
+		return false;
 	}
 }

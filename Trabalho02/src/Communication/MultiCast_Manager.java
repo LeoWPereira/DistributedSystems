@@ -20,9 +20,8 @@ import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
- * @name MultiCast_Manager
+ * @name 	MultiCast_Manager
  * @brief
  * 
  *
@@ -52,6 +51,12 @@ public class MultiCast_Manager extends Thread
 	 * @brief	Each message can store until 500 bytes, we are using way less than this
 	 */
 	private int sizeOfBuffer = 500;
+	
+	/**
+	 * @name	connectionOK
+	 * @brief
+	 */
+	private boolean connectionOK = false;
 	
 	/**
 	 * @name	MultiCast_Manager
@@ -113,6 +118,16 @@ public class MultiCast_Manager extends Thread
 				//***************************************************
 				// From this point on, decode the received message //
 				//***************************************************
+				
+				if(SD_Message.Types.TEST.getByteValue() == receivedMessage[0])
+				{
+					this.testMultiCastSocket_Callback();
+				}
+				
+				else
+				{
+					
+				}
 			}
 			
 			catch(IOException ex)
@@ -152,5 +167,21 @@ public class MultiCast_Manager extends Thread
 		}
 
 		return returnValue;
+	}
+	
+	/**
+	 * @name	testMultiCastSocket_Callback
+	 * @brief
+	 */
+	public void testMultiCastSocket_Callback()
+	{
+		connectionOK = true;
+		
+		return;
+	}
+	
+	public boolean getConnectionStatus()
+	{
+		return this.connectionOK;
 	}
 }
