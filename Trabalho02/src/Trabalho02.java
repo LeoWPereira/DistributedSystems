@@ -17,31 +17,31 @@ import Communication.MultiCast_Manager;
 public class Trabalho02 
 {
 	/**
-	 * @name
+	 * @name	scanKeyboard
 	 * @brief
 	 */
 	private static Scanner scanKeyboard = new Scanner(System.in);
 	
 	/**
-	 * @name
+	 * @name	communicationPort
 	 * @brief
 	 */
 	public static int communicationPort = 6689;
 	
 	/**
-	 * @name
+	 * @name	communicationGroup
 	 * @brief
 	 */
 	public static String communicationGroup = "224.0.0.10";
 	
 	/**
-	 * @name
+	 * @name	multiCast
 	 * @brief
 	 */
 	public static MultiCast_Manager multiCast;
 	
 	/**
-	 * @name
+	 * @name	main
 	 * @brief
 	 * @param args
 	 */
@@ -64,7 +64,7 @@ public class Trabalho02
 	}
 	
 	/**
-	 * @name	
+	 * @name	configPort
 	 * @brief	
 	 * @return
 	 */
@@ -86,7 +86,7 @@ public class Trabalho02
 	}
 	
 	/**
-	 * @name	
+	 * @name	configGroup
 	 * @brief	
 	 * @return
 	 */
@@ -118,7 +118,7 @@ public class Trabalho02
 	}
 
 	/**
-	 * @name	
+	 * @name	testMultiCastSocket
 	 * @brief	
 	 * @return
 	 */
