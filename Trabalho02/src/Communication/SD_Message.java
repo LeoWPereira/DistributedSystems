@@ -22,12 +22,6 @@ import java.io.ByteArrayOutputStream;
 public class SD_Message 
 {
 	/**
-	 * @name	debugMode
-	 * @brief
-	 */
-	private boolean debugMode;
-	
-	/**
 	 * @name	Types
 	 * @brief
 	 */
@@ -83,14 +77,11 @@ public class SD_Message
 	 */
 	public SD_Message(Types  	_type,
 					  byte 		_uniqueID,
-					  byte[] 	_data,
-					  boolean	_debugMode)
+					  byte[] 	_data)
 	{
 		this.type		= _type;
 		this.uniqueID	= _uniqueID;
 		this.data 		= _data;
-		
-		this.debugMode	= _debugMode;
 		
 		return;
 	}
@@ -135,21 +126,38 @@ public class SD_Message
 		
 		return mountedMessage;
 	}
+	
+	/**
+	 * @name	demountMessage
+	 * @brief	
+	 * @param 	_message
+	 */
+	public void demountMessage(byte[]	_message)
+	{
+		return;
+	}
 
 	/**
 	 * @name	append
 	 * @brief	Função não autoral para cópia de array de bytes
 	 */
-	public static final byte[] append(final byte[]... arrays) 
+	public final byte[] append(final byte[]... _arrays) 
 	{
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
-        if (arrays != null) {
-            for (final byte[] array : arrays) {
-                if (array != null) {
-                    out.write(array, 0, array.length);
+        
+        if(_arrays != null) 
+        {
+            for(final byte[] array : _arrays) 
+            {
+                if (array != null) 
+                {
+                    out.write(array, 
+                    		0, 
+                    		array.length);
                 }
             }
         }
+        
         return out.toByteArray();
     }
 }

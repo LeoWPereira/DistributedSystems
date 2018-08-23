@@ -1,8 +1,19 @@
+/**
+ ******************************************************************************
+ * @file   	ProcessClass.java
+ * @author	Leonardo Winter Pereira
+ * @author 	Luis Felipe Mazzuchetti Ortiz
+ * @version v1.0
+ * @date    16 de ago de 2018
+ * @brief
+ ******************************************************************************
+ */
+
 package Process;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
+import Database.PeerList;
 import Security.Crypto;
 
 /**
@@ -16,19 +27,25 @@ public class ProcessClass
 	 * @brief
 	 */
 	private Scanner scanKeyboard = new Scanner(System.in);
-	
-	/**
-	 * @name
-	 * @brief
-	 */
-	private static Crypto cryptography;
-	
+
 	/**
 	 * @name	processID
 	 * @brief	
 	 */
 	private byte processID = 0;
+	
+	/**
+	 * @name
+	 * @brief
+	 */
+	private Crypto cryptography;
 
+	/**
+	 * @name	peerList
+	 * @brief
+	 */
+	private PeerList peerList;
+	
 	/**
 	 * @name	getProcessID
 	 * @brief	
@@ -44,7 +61,16 @@ public class ProcessClass
 	 */
 	public Crypto getCriptography() 
 	{
-		return cryptography;
+		return this.cryptography;
+	}
+	
+	/**
+	 * @name	getPeerList
+	 * @brief	
+	 */
+	public PeerList getPeerList() 
+	{
+		return this.peerList;
 	}
 	
 	/**
@@ -57,12 +83,14 @@ public class ProcessClass
 	}
 	
 	/**
-	 * @name	
+	 * @name	ProcessClass
 	 * @brief
 	 */
 	public ProcessClass() throws Exception
 	{
-		cryptography = new Crypto();
+		this.cryptography 	= new Crypto();
+		
+		this.peerList		= new PeerList();
 		
 		byte[] sign;
 		

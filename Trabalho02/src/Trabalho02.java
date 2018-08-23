@@ -1,4 +1,3 @@
-
 /**
  ******************************************************************************
  * @file   	Trabalho02.java
@@ -61,6 +60,10 @@ public class Trabalho02
 	 */
 	public static int minimumPeers = 3;
 	
+	/**
+	 * @name	deltaTime
+	 * @brief	value in seconds
+	 */
 	public static int deltaTime = 2;
 	
 	/**
@@ -206,8 +209,7 @@ public class Trabalho02
 	
 		sd_message = new SD_Message(SD_Message.Types.TEST,
 									(byte)0,
-									null,
-									debugMode);
+									null);
 		
 		multiCast.sendMessage(sd_message.mountMessage());
 	
@@ -238,8 +240,7 @@ public class Trabalho02
 		
 		sd_message = new SD_Message(SD_Message.Types.REQUEST_PUBLIC_KEY, 
 									(byte)0, 
-									null, 
-									debugMode);
+									null);
 		
 		multiCast.sendMessage(sd_message.mountMessage());
 		
@@ -258,7 +259,7 @@ public class Trabalho02
 			
 			System.out.print(".");
 			
-			if(multiCast.getPeers().size() == minimumPeers)
+			if(process.getPeerList().getPeerListSize() == minimumPeers)
 			{
 				break;
 			}

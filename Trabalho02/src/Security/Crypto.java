@@ -1,4 +1,3 @@
-
 /**
  ******************************************************************************
  * @file    Crypto.java
@@ -12,194 +11,213 @@
 
 package Security;
 
-import java.security.InvalidAlgorithmParameterException;
 import java.security.*;
 import javax.crypto.Cipher;
 
-/*
-* Classe responsável por gerar e armazenas a chave pública e privada de cada processo.
-* Além disso, realiza operações de criptografia e assinatura digital.
- */
-
 /**
- * @name
+ * @name	Crypto
  * @brief
  */
-public class Crypto {
-    
+public class Crypto 
+{    
+	private final int keySize = 1024;
+	
     /**
-     * @name
+     * @name	keyPair
      * @brief
      */
-    private static KeyPair keyPair;
+    private KeyPair keyPair;
     
     /**
-     * @name
+     * @name	privKey
      * @brief
      */
-    private static PrivateKey privKey;
+    private PrivateKey privKey;
     
     /**
-     * @name
+     * @name	pubKey
      * @brief
      */
-    private static PublicKey pubKey;
+    private PublicKey pubKey;
 
     /**
-     * @name
+     * @name	privKeyByte
      * @brief
      */
-    private static byte[] privKeyByte;
+    private byte[] privKeyByte;
 
     /**
-     * @name
+     * @name	pubKeyByte
      * @brief
      */
-    private static byte[] pubKeyByte;
+    private byte[] pubKeyByte;
     
     /**
-     * @name
+     * @name	Crypto
      * @brief
      */
-    public Crypto() throws NoSuchAlgorithmException {
-        // Gera par de chaves
+    public Crypto() throws NoSuchAlgorithmException 
+    {
         generateKeyPair();
+        
+        return;
     }
     
     /**
-     * @name    
+     * @name	getPublicKeyByte
      * @brief   
      * @return
      */
-    public byte[] getPublicKeyByte() {
-        return pubKeyByte;
+    public byte[] getPublicKeyByte() 
+    {
+        return this.pubKeyByte;
     }
 
     /**
-     * @name    
+     * @name    getPrivateKeyByte
      * @brief   
      * @return
      */
-    public byte[] getPrivateKeyByte() {
-        return privKeyByte;
+    public byte[] getPrivateKeyByte() 
+    {
+        return this.privKeyByte;
     }
 
     /**
-     * @name    
+     * @name    getPublicKey
      * @brief   
      * @return
      */
-    public PublicKey getPublicKey() {
+    public PublicKey getPublicKey() 
+    {
         return this.pubKey;
     }
 
     /**
-     * @name    
+     * @name    getPrivateKey
      * @brief   
      * @return
      */
-    public PrivateKey getPrivateKey() {
+    public PrivateKey getPrivateKey() 
+    {
         return this.privKey;
     }
 
     /**
-     * @name    
+     * @name    generateKeyPair
      * @brief   
      * @return
      * @throws NoSuchAlgorithmException 
      */
-    public static void generateKeyPair() throws NoSuchAlgorithmException
+    public void generateKeyPair() throws NoSuchAlgorithmException
     {
-        // Inicializa par de chaves
-        keyPair = initializeKeyPair();
-        // Separa chave privada e pública
-        privKey = keyPair.getPrivate();
-        pubKey = keyPair.getPublic();
-        // Armazena as chaves em array de bytes
-        privKeyByte = privKey.getEncoded();
-        pubKeyByte = pubKey.getEncoded();
+    	this.keyPair = initializeKeyPair();
+        
+        // Get the private and public keys
+    	this.privKey	= keyPair.getPrivate();
+    	this.pubKey 	= keyPair.getPublic();
+        
+        // Get the byte[] array from the keys
+    	this.privKeyByte	= privKey.getEncoded();
+    	this.pubKeyByte 	= pubKey.getEncoded();
         
         return;
     }
 
     /**
-     * @name    
+     * @name    initializeKeyPair
      * @brief   
      * @return
      */
-    public static KeyPair initializeKeyPair() throws NoSuchAlgorithmException 
+    public KeyPair initializeKeyPair() throws NoSuchAlgorithmException 
     {
-        final int keySize = 1024;
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-        keyPairGenerator.initialize(keySize);      
+        
+        keyPairGenerator.initialize(this.keySize);      
+        
         return keyPairGenerator.genKeyPair();
     }
     
     /**
-     * @name    
+     * @name    encrypt
      * @brief   
+     * @param	_message
      * @return
      */
-    public static byte[] encrypt(String message) throws Exception 
+    public byte[] encrypt(String	_message) throws Exception 
     {
         Cipher cipher = Cipher.getInstance("RSA");  
-        cipher.init(Cipher.ENCRYPT_MODE, privKey);  
+        
+        cipher.init(Cipher.ENCRYPT_MODE, 
+        			this.privKey);  
 
-        return cipher.doFinal(message.getBytes());  
+        return cipher.doFinal(_message.getBytes());  
     }
 
     /**
-     * @name    
-     * @brief   
+     * @name    encryptByte
+     * @brief  	
+     * @param	_messageByte 
      * @return
      */
-    public static byte[] encryptByte(byte[] messageByte) throws Exception 
+    public byte[] encryptByte(byte[]	_messageByte) throws Exception 
     {
         Cipher cipher = Cipher.getInstance("RSA");  
-        cipher.init(Cipher.ENCRYPT_MODE, privKey);  
+        
+        cipher.init(Cipher.ENCRYPT_MODE, 
+        			this.privKey);  
 
-        return cipher.doFinal(messageByte);  
+        return cipher.doFinal(_messageByte);  
     }
     
     /**
-     * @name    
+     * @name    decrypt
      * @brief   
+     * @param	_publicKey
+     * @param	_encrypted
      * @return
      */
-    public static byte[] decrypt(PublicKey publicKey, byte [] encrypted) throws Exception 
+    public byte[] decrypt(PublicKey	_publicKey, 
+    					  byte[] 	_encrypted) throws Exception 
     {
         Cipher cipher = Cipher.getInstance("RSA");  
-        cipher.init(Cipher.DECRYPT_MODE, publicKey);
         
-        return cipher.doFinal(encrypted);
+        cipher.init(Cipher.DECRYPT_MODE, 
+        			_publicKey);
+        
+        return cipher.doFinal(_encrypted);
     }
 
     /**
-     * @name    
+     * @name    generateSignature
      * @brief   
+     * @param	_stringToBeSigned
      * @return
      */
-    public static byte[] generateSignature(String stringToBeSigned)
+    public byte[] generateSignature(String _stringToBeSigned)
     {
-        byte[] byteToBeSigned = new byte[1024];
-        Signature sign;
-        byte[] signature = null;
-
-        // Convert string to byte[]
-        byteToBeSigned = stringToBeSigned.getBytes();
+        byte[] byteToBeSigned 	= new byte[1024];
+        byte[] signature		= null;
         
-        // Assinatura digital
+        Signature sign;
+        
+        // Convert string to byte[]
+        byteToBeSigned = _stringToBeSigned.getBytes();
+        
+        // Digital Signature
         try 
         {
-            // Cria instância de assinatura digital com SHA256
             sign = Signature.getInstance("SHA256withRSA");
-            // Inicializa com chave privata gerada
-            sign.initSign(privKey);
-            // Utiliza o byte de exemplo para assinar
-            sign.update(byteToBeSigned);
-            signature = sign.sign();
+            
+            sign.initSign(this.privKey);
 
-        } catch (Exception e) {
+            sign.update(byteToBeSigned);
+            
+            signature = sign.sign();
+        } 
+        
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
         
@@ -207,31 +225,42 @@ public class Crypto {
     }
 
     /**
-     * @name    
-     * @brief   
+     * @name    verifySignature
+     * @brief 
+     * @param	_signedString
+     * @param	_sign
+     * @param	_pubKey
      * @return
      */
-    public static boolean verifySignature(String signedString, byte[] sign, PublicKey pubKey)
+    public boolean verifySignature(String		_signedString, 
+    							   byte[] 		_sign, 
+    							   PublicKey	_pubKey)
     {
         boolean signatureVerification = false;
-        byte[] signedByte;  
+        
+        byte[] signedByte;
+        
         Signature signVerify = null;
 
         // Convert string to byte[]
-        signedByte = signedString.getBytes();
+        signedByte = _signedString.getBytes();
 
-        // Verificar assinatura digital
+        // Verify Digital Signature
         try 
         {
             signVerify = Signature.getInstance("SHA256withRSA");
-            signVerify.initVerify(pubKey);
+            
+            signVerify.initVerify(this.pubKey);
+            
             signVerify.update(signedByte);      
     
-            // Verifica se a assinatura esta correta
-            signatureVerification = signVerify.verify(sign);
+            signatureVerification = signVerify.verify(_sign);
         
             signVerify = Signature.getInstance("SHA256withRSA");
-        } catch (Exception e) {
+        }
+        
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
 

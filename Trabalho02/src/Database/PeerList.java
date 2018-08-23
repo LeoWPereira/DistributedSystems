@@ -8,6 +8,7 @@
  * @brief
  ******************************************************************************
  */
+
 package Database;
 
 import java.util.ArrayList;
@@ -24,59 +25,84 @@ public class PeerList
      * @name    peerList
      * @brief
      */
-    private static ArrayList<Peer> peerList = new ArrayList<Peer>();
+    private ArrayList<Peer> peerList = new ArrayList<Peer>();
 
     /**
      * @name    ListaPeer
      * @brief
      */
-    public PeerList() {}
+    public PeerList()
+    {
+    	return;
+    }
 
     /**
      * @name    insertPeer
+     * @param	_idPeer
+     * @param	_publicKeyByte
      * @brief
      */
-    public void insertPeer(int idPeer, byte[] publicKeyByte) 
+    public void insertPeer(int		_idPeer, 
+    					   byte[]	_publicKeyByte) 
     {
-        peerList.add(new Peer(idPeer, publicKeyByte));
-        System.out.println("Peer adicionado com ID " + idPeer + " e chave pública " + publicKeyByte + '\n');
+        this.peerList.add(new Peer(_idPeer, 
+        					  	   _publicKeyByte));
+        
+        System.out.println("Peer adicionado com ID " + _idPeer + " e chave publica " + _publicKeyByte + '\n');
+        
+        return;
     }
 
     /**
      * @name    removePeer
      * @brief
+     * @param	_idPeer
      */
-    public void removePeer(int idPeer) 
+    public void removePeer(int	_idPeer) 
     {
-        Peer peer = findPeerById(idPeer);
+        Peer peer = findPeerById(_idPeer);
+        
         this.peerList.remove(peer);
-        System.out.println("Peer com ID" + peer.getId() + "removido.");
+        
+        System.out.println("Peer com ID" + peer.getId() + "removido\n");
 
+        return;
     }
 
     /**
      * @name    findPeerById
      * @brief
+     * @param	_idPeer
      */
-    public Peer findPeerById(int idPeer) {
-        for (int i = 0; i < this.peerList.size(); i++) {
-            if ((this.peerList.get(i).getId() == idPeer)) {
+    public Peer findPeerById(int	_idPeer) 
+    {
+        for(int i = 0; i < this.peerList.size(); i++) 
+        {
+            if((this.peerList.get(i).getId() == _idPeer)) 
+            {
                 return this.peerList.get(i);
             }
         }
-        System.out.println("Peer não foi encontrado");
+        
+        System.out.println("Peer nao foi encontrado.");
+        
         return null;
     }
     
      /**
      * @name    getPublicKeyByte
      * @brief
+     * @param	_idPeer
      */
-    public byte[] getPublicKeyByte(int idPeer) {
-        Peer peer = findPeerById(idPeer);
-        if (peer != null) {
+    public byte[] getPublicKeyByte(int	_idPeer) 
+    {
+        Peer peer = findPeerById(_idPeer);
+        
+        if (peer != null) 
+        {
             return peer.getPublicKeyByte();
         }
+        
         return null;
     }
 

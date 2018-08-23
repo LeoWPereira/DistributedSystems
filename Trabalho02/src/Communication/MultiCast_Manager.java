@@ -35,13 +35,6 @@ import Process.ProcessClass;
 public class MultiCast_Manager extends Thread 
 {
 	/**
-	 * @name	peers
-	 * @brief	Hash Map with the key as a uniqueID (as byte[])
-	 * 			and a value as the public Key (also as a byte[])
-	 */
-	private Map<byte[], byte[]> peers;
-	
-	/**
 	 * @name communicationPort
 	 * @brief
 	 */
@@ -97,8 +90,6 @@ public class MultiCast_Manager extends Thread
 	{
 		this.process			= _process;
 		
-		this.peers				= new HashMap<byte[], byte[]>();
-		
 		this.communicationPort 	= _communicationPort;
 
 		this.debugMode			= _debugMode;
@@ -134,15 +125,6 @@ public class MultiCast_Manager extends Thread
 		return this.connectionOK;
 	}
 	
-	/**
-	 * @name 	getPeers
-	 * @brief
-	 */
-	public Map<byte[], byte[]> getPeers()
-	{
-		return this.peers;
-	}
-
 	/**
 	 * @name run
 	 * @brief
@@ -398,8 +380,7 @@ public class MultiCast_Manager extends Thread
 		{
 			SD_Message sd_message = new SD_Message(SD_Message.Types.REPLY_PUBLIC_KEY,
 												   this.process.getProcessID(),
-												   this.process.getCriptography().getPublicKeyByte(),
-												   debugMode);
+												   this.process.getCriptography().getPublicKeyByte());
 			
 			sendMessage(sd_message.mountMessage());
 		}

@@ -11,16 +11,14 @@
 
 package Database;
 
-import java.security.PrivateKey;
-
 /**
  * @name    Peer
  * @brief
  * 
  *
  */
-public class Peer {
-
+public class Peer 
+{
     /**
      * @name    id
      * @brief
@@ -36,10 +34,17 @@ public class Peer {
     /**
      * @name    Peer
      * @brief
+     * @param	_id
+     * @param	_publicKeyByte
      */
-    public Peer( int id, byte[] publicKeyByte) {
-        this.id = id;
-        this.publicKeyByte = publicKeyByte;
+    public Peer(int		_id, 
+    			byte[] 	_publicKeyByte) 
+    {
+        this.id = _id;
+        
+        this.publicKeyByte = _publicKeyByte;
+        
+        return;
     }
 
     /**
@@ -47,12 +52,18 @@ public class Peer {
      * @brief   
      * @return
      */
-    public int getId() {return id;}  
+    public int getId() 
+    {
+    	return this.id;
+	}  
 
     /**
      * @name    getPublicKeyByte
      * @brief   
      * @return
      */
-    public byte[] getPublicKeyByte(){return publicKeyByte;}
+    public byte[] getPublicKeyByte()
+    {
+    	return publicKeyByte;
+    }
 }
