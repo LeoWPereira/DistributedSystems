@@ -11,6 +11,8 @@
 
 package Communication;
 
+import java.io.ByteArrayOutputStream;
+
 /**
  * @name 	SD_Message
  * @brief
@@ -126,10 +128,28 @@ public class SD_Message
 	 */
 	public byte[] mountMessage()
 	{
-		byte[] mountedMessage = null;
-		
-		mountedMessage = new byte[]{this.getType().getByteValue()};
+		// Monta mensagem - Tipo de mensagem, ID Unico
+        byte[] initMessage = new byte[]{type.getByteValue(), uniqueID};     
+        // Dados
+        byte[] mountedMessage = append(initMessage, data);
 		
 		return mountedMessage;
 	}
+
+	/**
+	 * @name	append
+	 * @brief	Função não autoral para cópia de array de bytes
+	 */
+	public static final byte[] append(final byte[]... arrays) 
+	{
+        final ByteArrayOutputStream out = new ByteArrayOutputStream();
+        if (arrays != null) {
+            for (final byte[] array : arrays) {
+                if (array != null) {
+                    out.write(array, 0, array.length);
+                }
+            }
+        }
+        return out.toByteArray();
+    }
 }

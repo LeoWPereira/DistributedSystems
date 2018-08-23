@@ -17,10 +17,12 @@ import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.SocketException;
 import java.sql.Connection;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static java.util.Arrays.copyOfRange;
 
 import Process.ProcessClass;
 
@@ -325,10 +327,22 @@ public class MultiCast_Manager extends Thread
 		//*****************************************
 		// Check if the message sender is myself //
 		//*****************************************
+		int msgType;
+		int uniqueID;
+		byte[] data;
+		boolean equal;
 		
 		if(true)
 		{
-			// Ignore message
+			msgType = (int) _message[0];
+			uniqueID = (int) _message[1];
+			data = copyOfRange(_message, 2, (_message.length - 1));
+			
+			System.out.println("tipo:" + msgType + " id: " + uniqueID + " data: " + new String(data)+ "\n");
+			
+			equal = Arrays.equals(this.process.getCriptography().getPublicKeyByte(), data);
+			
+			System.out.println("equal:" + equal + "\n");
 		}
 		
 		else
@@ -372,7 +386,7 @@ public class MultiCast_Manager extends Thread
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(0 == this.process.getProcessID())
+		if(0 != this.process.getProcessID())
 		{
 			if(debugMode)
 			{
