@@ -12,11 +12,9 @@
 
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-import java.security.*;
-import javax.crypto.Cipher;
-
 import Communication.MultiCast_Manager;
 import Communication.SD_Message;
+import Process.ProcessClass;
 import Security.Crypto;
 
 /**
@@ -40,6 +38,12 @@ public class Trabalho02
 	public static MultiCast_Manager multiCast;
 	
 	/**
+	 * @name	process
+	 * @brief
+	 */
+	public static ProcessClass process;
+	
+	/**
 	 * @name	communicationPort
 	 * @brief
 	 */
@@ -57,17 +61,13 @@ public class Trabalho02
 	 */
 	public static int minimumPeers = 3;
 	
+	public static int deltaTime = 2;
+	
 	/**
 	 * @name	debugMode
 	 * @brief
 	 */
-	public static boolean debugMode = false;
-
-	/**
-	 * @name
-	 * @brief
-	 */
-	private static Crypto cryptography;
+	public static boolean debugMode = true;
 	
 	/**
 	 * @name	main
@@ -83,9 +83,12 @@ public class Trabalho02
 		
 		configMinimumPeersQuantity();
 		
-		multiCast = new MultiCast_Manager(communicationPort, 
-						  				  communicationGroup,
-						  				  debugMode);
+		process 	= new ProcessClass();
+		
+		multiCast 	= new MultiCast_Manager(process,
+											communicationPort, 
+						  				    communicationGroup,
+						  				    debugMode);
 		
 		multiCast.start();
 		
@@ -93,9 +96,13 @@ public class Trabalho02
 		{
 			System.out.println("\nÓtimo. O Socket MultiCast foi configurado com êxito!\n");
 			
-			//subscribe
+			requestPeers();
 			
-			// request public keys
+			TimeUnit.SECONDS.sleep(deltaTime);
+			
+			process.configProcess();
+			
+			//subscribe
 			
 			waitForPeers();
 		}
@@ -105,8 +112,6 @@ public class Trabalho02
 			System.out.println("\nTimeout de configuração do Socket MultiCast. Favor tentar novamente!\n");
 		}
 		
-    	testCryptography();
-    	
 		return;
 	}
 	
@@ -165,7 +170,7 @@ public class Trabalho02
 	}
 	
 	/**
-	 * @name	configPort
+	 * @name	configMinimumPeersQuantity
 	 * @brief	
 	 * @return
 	 */
@@ -200,7 +205,7 @@ public class Trabalho02
 		System.out.println("\nMuito obrigado! Aguarde alguns instantes para que eu possa testar suas configurações");
 	
 		sd_message = new SD_Message(SD_Message.Types.TEST,
-									null,
+									(byte)0,
 									null,
 									debugMode);
 		
@@ -223,6 +228,24 @@ public class Trabalho02
 		return false;
 	}
 	
+	/**
+	 * @name	requestPeers
+	 * @brief	
+	 */
+	public static void requestPeers()
+	{
+		SD_Message sd_message;
+		
+		sd_message = new SD_Message(SD_Message.Types.REQUEST_PUBLIC_KEY, 
+									(byte)0, 
+									null, 
+									debugMode);
+		
+		multiCast.sendMessage(sd_message.mountMessage());
+		
+		return;
+	}
+	
 	public static void waitForPeers() throws InterruptedException
 	{
 		int tempoRestante = 60;
@@ -242,34 +265,6 @@ public class Trabalho02
 			
 			tempoRestante--;
 		}
-		
-		return;
-	}
-
-	/**
-	 * @name	testCryptography
-	 * @brief	
-	 * @return
-	 * @throws Exception 
-	 */
-	public static void testCryptography() throws Exception
-	{
-		cryptography = new Crypto();
-    		
-		byte[] sign;
-		// Gera assinatura para a mensagem
-		sign = cryptography.generateSignature("Teste");
-
-    	// verifica assinatura
-    	System.out.println("Assinatura: " +
-    		   (cryptography.verifySignature("Teste", sign, cryptography.getPublicKey()) ? "OK" : "NOK"));
-
-    	// Criptografa mensagem
-    	byte[] encryptedMsg = cryptography.encrypt("Mensagem Exemplo");
-    	System.out.println(new String(encryptedMsg));
-    	
-		// Decriptografa mensagem
-    	System.out.println(new String(cryptography.decrypt(cryptography.getPublicKey(), encryptedMsg)));
 		
 		return;
 	}

@@ -22,6 +22,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import Process.ProcessClass;
+
 /**
  * @name MultiCast_Manager
  * @brief
@@ -56,6 +58,12 @@ public class MultiCast_Manager extends Thread
 	private MulticastSocket socket;
 
 	/**
+	 * @name 	process
+	 * @brief
+	 */
+	private ProcessClass process;
+	
+	/**
 	 * @name sizeOfBuffer
 	 * @brief Each message can store until 500 bytes, we are using way less than
 	 *        this
@@ -80,10 +88,13 @@ public class MultiCast_Manager extends Thread
 	 * @param _communicationPort
 	 * @param _communcationGroup
 	 */
-	public MultiCast_Manager(int 		_communicationPort, 
-							 String		_communcationGroup,
-							 boolean	_debugMode) 
+	public MultiCast_Manager(ProcessClass	_process,
+							 int 			_communicationPort, 
+							 String			_communcationGroup,
+							 boolean		_debugMode) 
 	{
+		this.process			= _process;
+		
 		this.peers				= new HashMap<byte[], byte[]>();
 		
 		this.communicationPort 	= _communicationPort;
@@ -162,7 +173,7 @@ public class MultiCast_Manager extends Thread
 				{
 					if(this.debugMode)
 					{
-						System.out.println("Mensagem Recebida de teste");
+						System.out.println("Mensagem Recebida do tipo TEST");
 					}
 					
 					this.testMultiCastSocket_Callback();
@@ -180,12 +191,27 @@ public class MultiCast_Manager extends Thread
 
 				else if (SD_Message.Types.REPLY_PUBLIC_KEY.getByteValue() == receivedMessage[0]) 
 				{
-					this.replyPublicKey_Callback();
+					if(this.debugMode)
+					{
+						System.out.println("Mensagem Recebida do tipo REPLY_PUBLIC_KEY");
+					}
+					
+					this.replyPublicKey_Callback(receivedMessage);
 				}
 
 				else if (SD_Message.Types.REQUEST_RESOURCE.getByteValue() == receivedMessage[0]) 
 				{
 					this.requestResource_Callback();
+				}
+				
+				else if (SD_Message.Types.REQUEST_PUBLIC_KEY.getByteValue() == receivedMessage[0]) 
+				{
+					if(this.debugMode)
+					{
+						System.out.println("Mensagem Recebida do tipo REQUEST_PUBLIC_KEY");
+					}
+					
+					this.requestPublicKey_Callback(receivedMessage);
 				}
 
 				else 
@@ -238,21 +264,7 @@ public class MultiCast_Manager extends Thread
 	 * @brief
 	 */
 	public void testMultiCastSocket_Callback()
-	{
-		//*****************************************
-		// Check if the message sender is myself //
-		//*****************************************
-		
-		if(true)
-		{
-			
-		}
-		
-		else
-		{
-			// Ignore message
-		}
-		
+	{	
 		connectionOK = true;
 		
 		return;
@@ -308,7 +320,7 @@ public class MultiCast_Manager extends Thread
 	 * @name replyPublicKey_Callback
 	 * @brief
 	 */
-	public void replyPublicKey_Callback() 
+	public void replyPublicKey_Callback(byte[] _message) 
 	{
 		//*****************************************
 		// Check if the message sender is myself //
@@ -345,6 +357,37 @@ public class MultiCast_Manager extends Thread
 		else
 		{
 			
+		}
+				
+		return;
+	}
+	
+	/**
+	 * @name requestPublicKey_Callback
+	 * @brief
+	 */
+	public void requestPublicKey_Callback(byte[] _message) 
+	{
+		//*****************************************
+		// Check if the message sender is myself //
+		//*****************************************
+		
+		if(0 == this.process.getProcessID())
+		{
+			if(debugMode)
+			{
+				System.out.println("Sou eu enviando, não preciso fazer nada!");
+			}
+		}
+		
+		else
+		{
+			SD_Message sd_message = new SD_Message(SD_Message.Types.REPLY_PUBLIC_KEY,
+												   this.process.getProcessID(),
+												   this.process.getCriptography().getPublicKeyByte(),
+												   debugMode);
+			
+			sendMessage(sd_message.mountMessage());
 		}
 				
 		return;
