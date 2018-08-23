@@ -18,8 +18,6 @@ import java.net.MulticastSocket;
 import java.net.SocketException;
 import java.sql.Connection;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static java.util.Arrays.copyOfRange;
@@ -157,7 +155,7 @@ public class MultiCast_Manager extends Thread
 				{
 					if(this.debugMode)
 					{
-						System.out.println("Mensagem Recebida do tipo TEST");
+						System.out.println("\nMensagem Recebida do tipo TEST");
 					}
 					
 					this.testMultiCastSocket_Callback();
@@ -165,19 +163,29 @@ public class MultiCast_Manager extends Thread
 
 				else if (SD_Message.Types.SUBSCRIBE.getByteValue() == receivedMessage[0]) 
 				{
-					this.subscribe_Callback();
+					if(this.debugMode)
+					{
+						System.out.println("\nMensagem Recebida do tipo SUBSCRIBE");
+					}
+					
+					this.subscribe_Callback(receivedMessage);
 				}
 
 				else if (SD_Message.Types.UNSUBSCRIBE.getByteValue() == receivedMessage[0]) 
 				{
-					this.unsubscribe_Callback();
+					if(this.debugMode)
+					{
+						System.out.println("\nMensagem Recebida do tipo UNSUBSCRIBE");
+					}
+					
+					this.unsubscribe_Callback(receivedMessage);
 				}
 
 				else if (SD_Message.Types.REPLY_PUBLIC_KEY.getByteValue() == receivedMessage[0]) 
 				{
 					if(this.debugMode)
 					{
-						System.out.println("Mensagem Recebida do tipo REPLY_PUBLIC_KEY");
+						System.out.println("\nMensagem Recebida do tipo REPLY_PUBLIC_KEY");
 					}
 					
 					this.replyPublicKey_Callback(receivedMessage);
@@ -185,14 +193,19 @@ public class MultiCast_Manager extends Thread
 
 				else if (SD_Message.Types.REQUEST_RESOURCE.getByteValue() == receivedMessage[0]) 
 				{
-					this.requestResource_Callback();
+					if(this.debugMode)
+					{
+						System.out.println("\nMensagem Recebida do tipo REQUEST_RESOURCE");
+					}
+					
+					this.requestResource_Callback(receivedMessage);
 				}
 				
 				else if (SD_Message.Types.REQUEST_PUBLIC_KEY.getByteValue() == receivedMessage[0]) 
 				{
 					if(this.debugMode)
 					{
-						System.out.println("Mensagem Recebida do tipo REQUEST_PUBLIC_KEY");
+						System.out.println("\nMensagem Recebida do tipo REQUEST_PUBLIC_KEY");
 					}
 					
 					this.requestPublicKey_Callback(receivedMessage);
@@ -200,7 +213,7 @@ public class MultiCast_Manager extends Thread
 
 				else 
 				{
-					System.out.println("Tipo de Mensagem não reconhecido!");
+					System.out.println("\nTipo de Mensagem não reconhecido!");
 				}
 			}
 
@@ -245,11 +258,15 @@ public class MultiCast_Manager extends Thread
 
 	/**
 	 * @name	testMultiCastSocket_Callback
-	 * @brief
+	 * @brief	This method is only used at the start of the application
+	 * 			What it does is, whenever it receives a TEST message, it will 
+	 * 			set its private connectionOK member.
+	 * 			This way, the tester method can only look to this member and see if 
+	 * 			the process is correctly connected to the server
 	 */
 	public void testMultiCastSocket_Callback()
 	{	
-		connectionOK = true;
+		this.connectionOK = true;
 		
 		return;
 	}
@@ -258,7 +275,7 @@ public class MultiCast_Manager extends Thread
 	 * @name	subscribe_Callback
 	 * @brief
 	 */
-	public void subscribe_Callback()
+	public void subscribe_Callback(byte[]	_message)
 	{
 		//*****************************************
 		// Check if the message sender is myself //
@@ -278,10 +295,10 @@ public class MultiCast_Manager extends Thread
 	}
 
 	/**
-	 * @name unsubscribe_Callback
+	 * @name 	unsubscribe_Callback
 	 * @brief
 	 */
-	public void unsubscribe_Callback() 
+	public void unsubscribe_Callback(byte[]	_message) 
 	{
 		//*****************************************
 		// Check if the message sender is myself //
@@ -301,21 +318,22 @@ public class MultiCast_Manager extends Thread
 	}
 
 	/**
-	 * @name replyPublicKey_Callback
+	 * @name 	replyPublicKey_Callback
 	 * @brief
 	 */
-	public void replyPublicKey_Callback(byte[] _message) 
+	public void replyPublicKey_Callback(byte[]	_message) 
 	{
+		SD_Message sd_message = new SD_Message();
+		
+		sd_message.demountMessage(_message);
+		
 		//*****************************************
 		// Check if the message sender is myself //
 		//*****************************************
-		int msgType;
-		int uniqueID;
-		byte[] data;
-		boolean equal;
 		
 		if(true)
 		{
+			/*
 			msgType = (int) _message[0];
 			uniqueID = (int) _message[1];
 			data = copyOfRange(_message, 2, (_message.length - 1));
@@ -325,6 +343,7 @@ public class MultiCast_Manager extends Thread
 			equal = Arrays.equals(this.process.getCriptography().getPublicKeyByte(), data);
 			
 			System.out.println("equal:" + equal + "\n");
+			*/
 		}
 		
 		else
@@ -336,10 +355,10 @@ public class MultiCast_Manager extends Thread
 	}
 
 	/**
-	 * @name requestResource_Callback
+	 * @name 	requestResource_Callback
 	 * @brief
 	 */
-	public void requestResource_Callback() 
+	public void requestResource_Callback(byte[]	_message) 
 	{
 		//*****************************************
 		// Check if the message sender is myself //
@@ -359,10 +378,10 @@ public class MultiCast_Manager extends Thread
 	}
 	
 	/**
-	 * @name requestPublicKey_Callback
+	 * @name 	requestPublicKey_Callback
 	 * @brief
 	 */
-	public void requestPublicKey_Callback(byte[] _message) 
+	public void requestPublicKey_Callback(byte[]	_message) 
 	{
 		//*****************************************
 		// Check if the message sender is myself //

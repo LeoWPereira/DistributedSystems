@@ -85,6 +85,11 @@ public class SD_Message
 		
 		return;
 	}
+	
+	public SD_Message()
+	{
+		return;
+	}
 
 	/**
 	 * @name	getType
@@ -115,21 +120,41 @@ public class SD_Message
 	
 	/**
 	 * @name	mountMessage
-	 * @brief
+	 * @brief	Message structure:
+	 * 			- Type (single byte)
+	 * 			- Unique ID (single byte)
+	 * 			- Data length
+	 * 			- Data (with Data length size)
 	 */
 	public byte[] mountMessage()
 	{
-		// Monta mensagem - Tipo de mensagem, ID Unico
-        byte[] initMessage = new byte[]{type.getByteValue(), uniqueID};     
-        // Dados
-        byte[] mountedMessage = append(initMessage, data);
+		// Byte version of data length
+		Integer dataLength	= new Integer(0);
+				
+		if(null != this.data)
+		{
+			dataLength = this.data.length;
+		}
 		
+        byte[] initMessage 	= new byte[]{this.type.getByteValue(), 
+        								 this.uniqueID,
+        								 dataLength.byteValue()};
+        
+        byte[] mountedMessage = append(initMessage, 
+        							   this.data);
+
+        System.out.println("Tipo: " + this.type.getByteValue() + "\nUnique ID: " + this.uniqueID + "\nData Length: " + dataLength + "\nData: " + this.data);
+        
 		return mountedMessage;
 	}
 	
 	/**
 	 * @name	demountMessage
-	 * @brief	
+	 * @brief	Message structure:
+	 * 			- Type (single byte)
+	 * 			- Unique ID (single byte)
+	 * 			- Data length
+	 * 			- Data (with Data length size)
 	 * @param 	_message
 	 */
 	public void demountMessage(byte[]	_message)
@@ -139,7 +164,7 @@ public class SD_Message
 
 	/**
 	 * @name	append
-	 * @brief	Função não autoral para cópia de array de bytes
+	 * @brief	We do NOT own this method
 	 */
 	public final byte[] append(final byte[]... _arrays) 
 	{

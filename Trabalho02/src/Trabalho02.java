@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 import Communication.MultiCast_Manager;
 import Communication.SD_Message;
 import Process.ProcessClass;
-import Security.Crypto;
 
 /**
  * @name 	Trabalho02
@@ -97,7 +96,7 @@ public class Trabalho02
 		
 		if(testMultiCastSocket())
 		{
-			System.out.println("\n”timo. O Socket MultiCast foi configurado com Íxito!\n");
+			System.out.println("”timo. O Socket MultiCast foi configurado com Íxito!\n");
 			
 			requestPeers();
 			
