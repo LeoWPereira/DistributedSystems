@@ -207,7 +207,7 @@ public class Trabalho02
 		System.out.println("\nMuito obrigado! Aguarde alguns instantes para que eu possa testar suas configurações");
 	
 		sd_message = new SD_Message(SD_Message.Types.TEST,
-									(byte)0,
+									0,
 									null);
 		
 		multiCast.sendMessage(sd_message.mountMessage());
@@ -238,7 +238,7 @@ public class Trabalho02
 		SD_Message sd_message;
 		
 		sd_message = new SD_Message(SD_Message.Types.REQUEST_PUBLIC_KEY, 
-									(byte)0, 
+									0, 
 									null);
 		
 		multiCast.sendMessage(sd_message.mountMessage());

@@ -12,6 +12,8 @@
 package Communication;
 
 import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
+import java.util.Arrays;
 
 /**
  * @name 	SD_Message
@@ -57,15 +59,21 @@ public class SD_Message
 	
 	/**
 	 * @name	uniqueID
-	 * @brief
+	 * @brief	4 bytes Unique ID
 	 */
-	private byte uniqueID;
+	private int uniqueID;
 	
 	/**
 	 * @name	data
-	 * @brief
+	 * @brief	
 	 */
 	private byte[] data;
+	
+	/**
+	 * @name	dataLength
+	 * @brief	4 bytes data Length
+	 */
+	private int dataLength;
 
 	/**
 	 * @name	SD_Message
@@ -76,12 +84,19 @@ public class SD_Message
 	 * @brief
 	 */
 	public SD_Message(Types  	_type,
-					  byte 		_uniqueID,
+					  int 		_uniqueID,
 					  byte[] 	_data)
 	{
 		this.type		= _type;
 		this.uniqueID	= _uniqueID;
 		this.data 		= _data;
+		
+		this.dataLength	= 0;
+		
+		if(null != this.data)
+		{
+			dataLength = this.data.length;
+		}
 		
 		return;
 	}
@@ -104,7 +119,7 @@ public class SD_Message
 	 * @name	getUniqueID
 	 * @brief
 	 */
-	public byte getUniqueID() 
+	public int getUniqueID() 
 	{
 		return this.uniqueID;
 	}
@@ -119,6 +134,15 @@ public class SD_Message
 	}
 	
 	/**
+	 * @name	getDataLength
+	 * @brief
+	 */
+	public int getDataLength() 
+	{
+		return this.dataLength;
+	}
+	
+	/**
 	 * @name	mountMessage
 	 * @brief	Message structure:
 	 * 			- Type (single byte)
@@ -128,20 +152,16 @@ public class SD_Message
 	 */
 	public byte[] mountMessage()
 	{
-		// Byte version of data length
-		Integer dataLength	= new Integer(0);
-				
-		if(null != this.data)
-		{
-			dataLength = this.data.length;
-		}
-		
-        byte[] initMessage 	= new byte[]{this.type.getByteValue(), 
-        								 this.uniqueID,
-        								 dataLength.byteValue()};
+        byte[] initMessage 	= new byte[]{this.type.getByteValue()};
         
-        byte[] mountedMessage = append(initMessage, 
-        							   this.data);
+        byte[] mountedMessage = append(initMessage,
+        							   ByteBuffer.allocate(4).putInt(this.uniqueID).array());
+        
+        mountedMessage = append(mountedMessage, 
+        					    ByteBuffer.allocate(4).putInt(this.dataLength).array());
+        
+        mountedMessage = append(mountedMessage, 
+        					    this.data);
 
         System.out.println("Tipo: " + this.type.getByteValue() + "\nUnique ID: " + this.uniqueID + "\nData Length: " + dataLength + "\nData: " + this.data);
         
@@ -159,6 +179,61 @@ public class SD_Message
 	 */
 	public void demountMessage(byte[]	_message)
 	{
+		System.out.println("Estou em demountMessage: size = " + _message.length);
+		//***************
+		// Decode Type //
+		//***************
+		
+		if (SD_Message.Types.TEST.getByteValue() == _message[0]) 
+		{
+			this.type = SD_Message.Types.TEST;
+		}
+
+		else if (SD_Message.Types.SUBSCRIBE.getByteValue() == _message[0]) 
+		{
+			this.type = SD_Message.Types.SUBSCRIBE;
+		}
+
+		else if (SD_Message.Types.UNSUBSCRIBE.getByteValue() == _message[0]) 
+		{
+			this.type = SD_Message.Types.UNSUBSCRIBE;
+		}
+
+		else if (SD_Message.Types.REPLY_PUBLIC_KEY.getByteValue() == _message[0]) 
+		{
+			this.type = SD_Message.Types.REPLY_PUBLIC_KEY;
+		}
+
+		else if (SD_Message.Types.REQUEST_RESOURCE.getByteValue() == _message[0]) 
+		{
+			this.type = SD_Message.Types.REQUEST_RESOURCE;
+		}
+		
+		else if (SD_Message.Types.REQUEST_PUBLIC_KEY.getByteValue() == _message[0]) 
+		{
+			this.type = SD_Message.Types.REQUEST_PUBLIC_KEY;
+		}
+		
+		//*************
+		// Unique ID //
+		//*************
+		
+		this.uniqueID = _message[1] << 24 | (_message[2] & 0xff) << 16 | (_message[3] & 0xff) << 8 | (_message[4] & 0xff);
+		
+		//***************
+		// Data Length //
+		//***************
+		
+		this.dataLength = _message[5] << 24 | (_message[6] & 0xff) << 16 | (_message[7] & 0xff) << 8 | (_message[8] & 0xff);
+		
+		//********
+		// Data //
+		//********
+		
+		this.data = Arrays.copyOfRange(_message, 
+									   9, 
+									   (_message.length));
+		
 		return;
 	}
 

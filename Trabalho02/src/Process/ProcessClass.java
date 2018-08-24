@@ -32,7 +32,7 @@ public class ProcessClass
 	 * @name	processID
 	 * @brief	
 	 */
-	private byte processID = 0;
+	private int processID = 0;
 	
 	/**
 	 * @name
@@ -50,7 +50,7 @@ public class ProcessClass
 	 * @name	getProcessID
 	 * @brief	
 	 */
-	public byte getProcessID() 
+	public int getProcessID() 
 	{
 		return processID;
 	}
@@ -77,7 +77,7 @@ public class ProcessClass
 	 * @name	setProcessID
 	 * @brief	
 	 */
-	public void setProcessID(byte processID) 
+	public void setProcessID(int processID) 
 	{
 		this.processID = processID;
 	}
@@ -121,7 +121,7 @@ public class ProcessClass
 	 */
 	public void configProcess()
 	{
-		Integer id = 0;
+		int id = 0;
 		
 		System.out.println("\nDigite um ID para você:");
 		System.out.println("Ele será verificado para ser único no Multi Cast");
@@ -135,7 +135,7 @@ public class ProcessClass
 			{
 				System.out.println("ID configurado com êxito!");
 				
-				processID = id.byteValue();
+				processID = id;
 				
 				break;
 			}

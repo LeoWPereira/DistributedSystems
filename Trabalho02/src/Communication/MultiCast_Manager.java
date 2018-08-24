@@ -58,10 +58,10 @@ public class MultiCast_Manager extends Thread
 	
 	/**
 	 * @name sizeOfBuffer
-	 * @brief Each message can store until 500 bytes, we are using way less than
+	 * @brief Each message can store until 1024 bytes, we are using way less than
 	 *        this
 	 */
-	private int sizeOfBuffer = 500;
+	private int sizeOfBuffer = 1024;
 
 	/**
 	 * @name connectionOK
@@ -131,27 +131,26 @@ public class MultiCast_Manager extends Thread
 	{
 		DatagramPacket receivedPacket = null;
 
-		byte[] buffer = null;
-		byte[] receivedMessage = null;
-
 		while (true) 
 		{
 			try 
 			{
-				buffer = new byte[sizeOfBuffer];
-
+				byte[] buffer = new byte[2048];
+				
 				receivedPacket = new DatagramPacket(buffer, 
 													buffer.length);
 
 				socket.receive(receivedPacket);
 
-				receivedMessage = receivedPacket.getData();
+				buffer = receivedPacket.getData();
+								
+				System.out.println("Mensagem em run: " + buffer + " com tamanho: " + receivedPacket.getLength());
 
 				// **************************************************
 				// From this point on, decode the received message //
 				// **************************************************
 
-				if (SD_Message.Types.TEST.getByteValue() == receivedMessage[0]) 
+				if (SD_Message.Types.TEST.getByteValue() == buffer[0]) 
 				{
 					if(this.debugMode)
 					{
@@ -161,54 +160,54 @@ public class MultiCast_Manager extends Thread
 					this.testMultiCastSocket_Callback();
 				}
 
-				else if (SD_Message.Types.SUBSCRIBE.getByteValue() == receivedMessage[0]) 
+				else if (SD_Message.Types.SUBSCRIBE.getByteValue() == buffer[0]) 
 				{
 					if(this.debugMode)
 					{
 						System.out.println("\nMensagem Recebida do tipo SUBSCRIBE");
 					}
 					
-					this.subscribe_Callback(receivedMessage);
+					this.subscribe_Callback(buffer);
 				}
 
-				else if (SD_Message.Types.UNSUBSCRIBE.getByteValue() == receivedMessage[0]) 
+				else if (SD_Message.Types.UNSUBSCRIBE.getByteValue() == buffer[0]) 
 				{
 					if(this.debugMode)
 					{
 						System.out.println("\nMensagem Recebida do tipo UNSUBSCRIBE");
 					}
 					
-					this.unsubscribe_Callback(receivedMessage);
+					this.unsubscribe_Callback(buffer);
 				}
 
-				else if (SD_Message.Types.REPLY_PUBLIC_KEY.getByteValue() == receivedMessage[0]) 
+				else if (SD_Message.Types.REPLY_PUBLIC_KEY.getByteValue() == buffer[0]) 
 				{
 					if(this.debugMode)
 					{
 						System.out.println("\nMensagem Recebida do tipo REPLY_PUBLIC_KEY");
 					}
 					
-					this.replyPublicKey_Callback(receivedMessage);
+					this.replyPublicKey_Callback(buffer);
 				}
 
-				else if (SD_Message.Types.REQUEST_RESOURCE.getByteValue() == receivedMessage[0]) 
+				else if (SD_Message.Types.REQUEST_RESOURCE.getByteValue() == buffer[0]) 
 				{
 					if(this.debugMode)
 					{
 						System.out.println("\nMensagem Recebida do tipo REQUEST_RESOURCE");
 					}
 					
-					this.requestResource_Callback(receivedMessage);
+					this.requestResource_Callback(buffer);
 				}
 				
-				else if (SD_Message.Types.REQUEST_PUBLIC_KEY.getByteValue() == receivedMessage[0]) 
+				else if (SD_Message.Types.REQUEST_PUBLIC_KEY.getByteValue() == buffer[0]) 
 				{
 					if(this.debugMode)
 					{
 						System.out.println("\nMensagem Recebida do tipo REQUEST_PUBLIC_KEY");
 					}
 					
-					this.requestPublicKey_Callback(receivedMessage);
+					this.requestPublicKey_Callback(buffer);
 				}
 
 				else 
@@ -234,6 +233,8 @@ public class MultiCast_Manager extends Thread
 	{
 		boolean returnValue = false;
 
+		System.out.println("Mensagem em sendMessage: " + _message + " com tamanho: " + _message.length);
+		
 		DatagramPacket messageOut = new DatagramPacket(_message, 
 													   _message.length, 
 													   this.communicationGroup,
@@ -333,17 +334,11 @@ public class MultiCast_Manager extends Thread
 		
 		if(true)
 		{
-			/*
-			msgType = (int) _message[0];
-			uniqueID = (int) _message[1];
-			data = copyOfRange(_message, 2, (_message.length - 1));
-			
-			System.out.println("tipo:" + msgType + " id: " + uniqueID + " data: " + new String(data)+ "\n");
-			
-			equal = Arrays.equals(this.process.getCriptography().getPublicKeyByte(), data);
-			
-			System.out.println("equal:" + equal + "\n");
-			*/
+			if(this.debugMode)
+			{
+				System.out.println("Mensagem: " + _message + "\nTipo: " + sd_message.getType().getByteValue() + "\nUnique ID: " + sd_message.getUniqueID() + "\nData Length: " + sd_message.getDataLength() + "\nData: " + sd_message.getData());
+			}
+
 		}
 		
 		else
@@ -387,7 +382,7 @@ public class MultiCast_Manager extends Thread
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(0 != this.process.getProcessID())
+		if(0 == this.process.getProcessID())
 		{
 			if(debugMode)
 			{
@@ -399,7 +394,7 @@ public class MultiCast_Manager extends Thread
 		{
 			SD_Message sd_message = new SD_Message(SD_Message.Types.REPLY_PUBLIC_KEY,
 												   this.process.getProcessID(),
-												   this.process.getCriptography().getPublicKeyByte());
+												   /*this.process.getCriptography().getPublicKeyByte()*/"Meu nome e Leo".getBytes());
 			
 			sendMessage(sd_message.mountMessage());
 		}
