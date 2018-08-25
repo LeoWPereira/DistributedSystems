@@ -64,6 +64,12 @@ public class Trabalho02
 	 * @brief	value in seconds
 	 */
 	public static int deltaTime = 2;
+
+	/**
+	 * @name	qtyResources
+	 * @brief
+	 */
+	public static int qtyResources = 2;
 	
 	/**
 	 * @name	debugMode
@@ -85,7 +91,7 @@ public class Trabalho02
 		
 		configMinimumPeersQuantity();
 		
-		process 	= new ProcessClass();
+		process 	= new ProcessClass(qtyResources);
 		
 		multiCast 	= new MultiCast_Manager(process,
 											communicationPort, 
@@ -113,7 +119,7 @@ public class Trabalho02
 			{
 				int option = 0;
 
-				System.out.println("Por favor, escolha uma da opções a seguir:\n 1 - Alocar recurso de número 1\n2 - Alocar recurso de número 2\n 3 - Encerrar processo");
+				System.out.println("Por favor, escolha uma da opções a seguir:\n1 - Alocar recurso de número 1\n2 - Alocar recurso de número 2\n3 - Encerrar processo");
 				option = scanKeyboard.nextInt();
 
 				switch(option)

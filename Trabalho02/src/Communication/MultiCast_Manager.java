@@ -418,7 +418,7 @@ public class MultiCast_Manager extends Thread
 										this.process.getProcessID(),
 										this.process.getCriptography().getPublicKeyByte());
 		
-			multiCast.sendMessage(sd_message.mountMessage());
+			sendMessage(sd_message.mountMessage());
 		}
 				
 		return;

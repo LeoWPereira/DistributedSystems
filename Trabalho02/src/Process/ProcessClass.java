@@ -14,6 +14,7 @@ package Process;
 import java.util.Scanner;
 
 import Database.PeerList;
+import Database.ResourceList;
 import Security.Crypto;
 
 /**
@@ -45,6 +46,12 @@ public class ProcessClass
 	 * @brief
 	 */
 	private PeerList peerList;
+
+	/**
+	 * @name	resourceList
+	 * @brief
+	 */
+	private ResourceList resourceList;
 	
 	/**
 	 * @name	getProcessID
@@ -72,6 +79,15 @@ public class ProcessClass
 	{
 		return this.peerList;
 	}
+
+	/**
+	 * @name	getResourceList
+	 * @brief	
+	 */
+	public ResourceList getResourceList() 
+	{
+		return this.resourceList;
+	}
 	
 	/**
 	 * @name	setProcessID
@@ -86,11 +102,15 @@ public class ProcessClass
 	 * @name	ProcessClass
 	 * @brief
 	 */
-	public ProcessClass() throws Exception
+	public ProcessClass(int qtyResources) throws Exception
 	{
 		this.cryptography 	= new Crypto();
 		
 		this.peerList		= new PeerList();
+
+		this.resourceList   = new ResourceList();
+
+		addResources(qtyResources);
 		
 		return;
 	}
@@ -126,6 +146,22 @@ public class ProcessClass
 				System.out.println("ID já utilizado, escolha outro:");
 			}
 		} while(true);
+		
+		return;
+	}
+
+	/**
+	 * @name	addResources
+	 * @brief	
+	 * @return
+	 */
+	public void addResources(int _qtyResources)
+	{
+		// Add resources to this process list
+		for(int i = 1; i <= _qtyResources; i++)
+		{
+			this.resourceList.insertResource(i);
+		}
 		
 		return;
 	}

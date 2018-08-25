@@ -28,7 +28,7 @@ public class PeerList
     private ArrayList<Peer> peerList = new ArrayList<Peer>();
 
     /**
-     * @name    ListaPeer
+     * @name    PeerList
      * @brief
      */
     public PeerList()
