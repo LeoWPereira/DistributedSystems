@@ -339,6 +339,7 @@ public class MultiCast_Manager extends Thread
 				System.out.println("Mensagem: " + _message + "\nTipo: " + sd_message.getType().getByteValue() + "\nUnique ID: " + sd_message.getUniqueID() + "\nData Length: " + sd_message.getDataLength() + "\nData: " + sd_message.getData());
 			}
 
+			this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData());
 		}
 		
 		else
@@ -382,7 +383,7 @@ public class MultiCast_Manager extends Thread
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(0 == this.process.getProcessID())
+		if(0 != this.process.getProcessID())
 		{
 			if(debugMode)
 			{
@@ -394,7 +395,7 @@ public class MultiCast_Manager extends Thread
 		{
 			SD_Message sd_message = new SD_Message(SD_Message.Types.REPLY_PUBLIC_KEY,
 												   this.process.getProcessID(),
-												   /*this.process.getCriptography().getPublicKeyByte()*/"Meu nome e Leo".getBytes());
+												   this.process.getCriptography().getPublicKeyByte());
 			
 			sendMessage(sd_message.mountMessage());
 		}
