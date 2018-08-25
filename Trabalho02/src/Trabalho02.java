@@ -104,8 +104,8 @@ public class Trabalho02
 			
 			process.configProcess();
 			
-			//subscribe
-			
+			subscribePeer();
+
 			waitForPeers();
 		}
 		
@@ -240,6 +240,23 @@ public class Trabalho02
 		sd_message = new SD_Message(SD_Message.Types.REQUEST_PUBLIC_KEY, 
 									0, 
 									null);
+		
+		multiCast.sendMessage(sd_message.mountMessage());
+		
+		return;
+	}
+
+	/**
+	 * @name	subscribePeer
+	 * @brief	
+	 */
+	public static void subscribePeer()
+	{
+		SD_Message sd_message;
+		
+		sd_message = new SD_Message(SD_Message.Types.SUBSCRIBE, 
+									process.getProcessID(), 
+									process.getCriptography().getPublicKeyByte());
 		
 		multiCast.sendMessage(sd_message.mountMessage());
 		

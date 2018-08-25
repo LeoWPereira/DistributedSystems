@@ -271,18 +271,28 @@ public class MultiCast_Manager extends Thread
 	 */
 	public void subscribe_Callback(byte[]	_message)
 	{
+		SD_Message sd_message = new SD_Message();
+		
+		sd_message.demountMessage(_message);
+		
 		//*****************************************
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(true)
+		if(sd_message.getUniqueID() == this.process.getProcessID())
 		{
-			// Ignore message
+			if(debugMode)
+			{
+				System.out.println("Sou eu enviando, não preciso fazer nada!");
+			}
 		}
-		
 		else
 		{
-			
+			// Checks if the peer is already in the list
+			if(this.process.getPeerList().findPeerById(sd_message.getUniqueID()) == null)
+			{
+				this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData());
+			}
 		}
 				
 		return;
@@ -294,18 +304,25 @@ public class MultiCast_Manager extends Thread
 	 */
 	public void unsubscribe_Callback(byte[]	_message) 
 	{
+		SD_Message sd_message = new SD_Message();
+		
+		sd_message.demountMessage(_message);
+		
 		//*****************************************
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(true)
+		if(sd_message.getUniqueID() == this.process.getProcessID())
 		{
-			// Ignore message
+			if(debugMode)
+			{
+				System.out.println("Sou eu enviando, não preciso fazer nada!");
+			}
 		}
 		
 		else
 		{
-			
+			this.process.getPeerList().removePeer(sd_message.getUniqueID());
 		}
 		
 		return;
@@ -370,11 +387,15 @@ public class MultiCast_Manager extends Thread
 	 */
 	public void requestPublicKey_Callback(byte[]	_message) 
 	{
+		SD_Message sd_message = new SD_Message();
+		
+		sd_message.demountMessage(_message);
+		
 		//*****************************************
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(0 == this.process.getProcessID())
+		if(sd_message.getUniqueID() == this.process.getProcessID())
 		{
 			if(debugMode)
 			{
@@ -384,11 +405,11 @@ public class MultiCast_Manager extends Thread
 		
 		else
 		{
-			SD_Message sd_message = new SD_Message(SD_Message.Types.REPLY_PUBLIC_KEY,
+			SD_Message sd_message_send = new SD_Message(SD_Message.Types.REPLY_PUBLIC_KEY,
 												   this.process.getProcessID(),
 												   this.process.getCriptography().getPublicKeyByte());
 			
-			sendMessage(sd_message.mountMessage());
+			sendMessage(sd_message_send.mountMessage());
 		}
 				
 		return;

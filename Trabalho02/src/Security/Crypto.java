@@ -12,6 +12,8 @@
 package Security;
 
 import java.security.*;
+import java.security.spec.X509EncodedKeySpec;
+
 import javax.crypto.Cipher;
 
 /**
@@ -229,12 +231,13 @@ public class Crypto
      * @brief 
      * @param	_signedString
      * @param	_sign
-     * @param	_pubKey
+     * @param	_pubKeyByte
      * @return
+     * @throws Exception 
      */
     public boolean verifySignature(String		_signedString, 
     							   byte[] 		_sign, 
-    							   PublicKey	_pubKey)
+    							   byte[]	   _pubKeyByte) throws Exception
     {
         boolean signatureVerification = false;
         
@@ -245,12 +248,17 @@ public class Crypto
         // Convert string to byte[]
         signedByte = _signedString.getBytes();
 
+        // Convert byte array to public key
+        KeyFactory kf = KeyFactory.getInstance("RSA"); 
+        X509EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(_pubKeyByte);
+        PublicKey _pubKey = kf.generatePublic(publicKeySpec);
+
         // Verify Digital Signature
         try 
         {
             signVerify = Signature.getInstance("SHA256withRSA");
             
-            signVerify.initVerify(this.pubKey);
+            signVerify.initVerify(_pubKey);
             
             signVerify.update(signedByte);      
     
