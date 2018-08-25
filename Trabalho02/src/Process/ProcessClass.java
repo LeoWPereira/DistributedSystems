@@ -112,7 +112,7 @@ public class ProcessClass
 			id = scanKeyboard.nextInt();
 			
 			// Verify process ID
-			if(true)
+			if(null == this.peerList.findPeerById(id))
 			{
 				System.out.println("ID configurado com êxito!");
 				

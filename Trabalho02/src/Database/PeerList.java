@@ -84,8 +84,6 @@ public class PeerList
             }
         }
         
-        System.out.println("Peer nao foi encontrado.");
-        
         return null;
     }
     
