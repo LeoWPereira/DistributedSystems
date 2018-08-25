@@ -371,7 +371,7 @@ public class MultiCast_Manager extends Thread
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(0 != this.process.getProcessID())
+		if(0 == this.process.getProcessID())
 		{
 			if(debugMode)
 			{
