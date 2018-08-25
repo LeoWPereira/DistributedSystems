@@ -273,13 +273,13 @@ public class MultiCast_Manager extends Thread
 	{
 		SD_Message sd_message = new SD_Message();
 		
-		sd_message.demountMessage(_message);
+		sd_message.demountMessage(_message, false);
 		
 		//*****************************************
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(sd_message.getUniqueID() == this.process.getProcessID())
+		if(sd_message.getUniqueID() != this.process.getProcessID())
 		{
 			if(debugMode)
 			{
@@ -306,13 +306,13 @@ public class MultiCast_Manager extends Thread
 	{
 		SD_Message sd_message = new SD_Message();
 		
-		sd_message.demountMessage(_message);
+		sd_message.demountMessage(_message, true);
 		
 		//*****************************************
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(sd_message.getUniqueID() == this.process.getProcessID())
+		if(sd_message.getUniqueID() != this.process.getProcessID())
 		{
 			if(debugMode)
 			{
@@ -322,7 +322,16 @@ public class MultiCast_Manager extends Thread
 		
 		else
 		{
-			this.process.getPeerList().removePeer(sd_message.getUniqueID());
+			try
+			{
+				// Verify if the signature is correct
+				if(this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
+				{
+					// remove peer from this process peer list
+					this.process.getPeerList().removePeer(sd_message.getUniqueID());
+				}
+			}
+			catch(Exception e){}	
 		}
 		
 		return;
@@ -336,13 +345,13 @@ public class MultiCast_Manager extends Thread
 	{
 		SD_Message sd_message = new SD_Message();
 		
-		sd_message.demountMessage(_message);
+		sd_message.demountMessage(_message, false);
 		
 		//*****************************************
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(sd_message.getUniqueID() == this.process.getProcessID())
+		if(sd_message.getUniqueID() != this.process.getProcessID())
 		{
 			if(debugMode)
 			{
@@ -389,13 +398,13 @@ public class MultiCast_Manager extends Thread
 	{
 		SD_Message sd_message = new SD_Message();
 		
-		sd_message.demountMessage(_message);
+		sd_message.demountMessage(_message, false);
 		
 		//*****************************************
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(sd_message.getUniqueID() == this.process.getProcessID())
+		if(sd_message.getUniqueID() != this.process.getProcessID())
 		{
 			if(debugMode)
 			{
@@ -405,11 +414,11 @@ public class MultiCast_Manager extends Thread
 		
 		else
 		{
-			SD_Message sd_message_send = new SD_Message(SD_Message.Types.REPLY_PUBLIC_KEY,
-												   this.process.getProcessID(),
-												   this.process.getCriptography().getPublicKeyByte());
-			
-			sendMessage(sd_message_send.mountMessage());
+			sd_message = new SD_Message(SD_Message.Types.REPLY_PUBLIC_KEY,
+										this.process.getProcessID(),
+										this.process.getCriptography().getPublicKeyByte());
+		
+			multiCast.sendMessage(sd_message.mountMessage());
 		}
 				
 		return;

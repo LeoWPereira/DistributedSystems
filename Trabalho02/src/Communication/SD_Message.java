@@ -76,6 +76,18 @@ public class SD_Message
 	private int dataLength;
 
 	/**
+	 * @name	signature
+	 * @brief	
+	 */
+	private byte[] signature;
+	
+	/**
+	 * @name	signatureLength
+	 * @brief	4 bytes signature Length
+	 */
+	private int signatureLength;
+
+	/**
 	 * @name	SD_Message
 	 * @param	_type
 	 * @param	_uniqueID
@@ -141,6 +153,24 @@ public class SD_Message
 	{
 		return this.dataLength;
 	}
+
+	/**
+	 * @name	getSignature
+	 * @brief
+	 */
+	public byte[] getSignature() 
+	{
+		return this.signature;
+	}
+	
+	/**
+	 * @name	getSignatureLength
+	 * @brief
+	 */
+	public int getSignatureLength() 
+	{
+		return this.signatureLength;
+	}
 	
 	/**
 	 * @name	mountMessage
@@ -174,8 +204,9 @@ public class SD_Message
 	 * 			- Data length
 	 * 			- Data (with Data length size)
 	 * @param 	_message
+	 *			_messagedSigned
 	 */
-	public void demountMessage(byte[]	_message)
+	public void demountMessage(byte[]	_message, boolean _messagedSigned)
 	{
 		//***************
 		// Decode Type //
@@ -230,6 +261,25 @@ public class SD_Message
 		this.data = Arrays.copyOfRange(_message, 
 									   9, 
 									   (9 + this.dataLength));
+
+		if(_messagedSigned)
+		{
+			int firstSignatureByte = 9 + this.dataLength;
+			//********************
+			// Signature Length //
+			//********************
+			
+			this.signatureLength = _message[firstSignatureByte] << 24 | (_message[firstSignatureByte + 1] & 0xff) << 16 | 
+									(_message[firstSignatureByte + 2] & 0xff) << 8 | (_message[firstSignatureByte + 3] & 0xff);
+			
+			//*************
+			// Signature //
+			//*************
+			
+			this.signature = Arrays.copyOfRange(_message, 
+										   firstSignatureByte + 4, 
+										   (firstSignatureByte + 4 + this.signatureLength));
+		}	
 		
 		return;
 	}
@@ -257,4 +307,37 @@ public class SD_Message
         
         return out.toByteArray();
     }
+
+    /**
+	 * @name	appendSignature
+	 * @brief	Message structure:
+	 * 			- Type (single byte)
+	 * 			- Unique ID (single byte)
+	 * 			- Data length
+	 * 			- Data (with Data length size)
+	 * 			- Signature length
+	 * 			- Signature
+	 */
+	public byte[] appendSignature(byte[] _message, byte[] _signature)
+	{
+		byte[] signedMessage = _message;
+
+		/*******************
+		* Signature Length *
+		*******************/
+		this.signatureLength = _signature.length;
+
+        signedMessage = append(signedMessage, 
+        					    ByteBuffer.allocate(4).putInt(this.signatureLength).array());
+
+        /************
+		* Signature *
+		************/
+		this.signature = _signature;
+        
+        signedMessage = append(signedMessage, 
+        					    this.signature);
+        
+		return signedMessage;
+	}
 }

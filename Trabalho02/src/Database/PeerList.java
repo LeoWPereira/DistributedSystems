@@ -64,7 +64,7 @@ public class PeerList
         
         this.peerList.remove(peer);
         
-        System.out.println("Peer com ID" + peer.getId() + "removido\n");
+        System.out.println("Peer com ID " + peer.getId() + " removido da lista de Peers.\n");
 
         return;
     }

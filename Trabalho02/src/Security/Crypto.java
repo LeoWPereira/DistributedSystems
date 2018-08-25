@@ -16,6 +16,8 @@ import java.security.spec.X509EncodedKeySpec;
 
 import javax.crypto.Cipher;
 
+import Communication.SD_Message;
+
 /**
  * @name	Crypto
  * @brief
@@ -193,18 +195,14 @@ public class Crypto
     /**
      * @name    generateSignature
      * @brief   
-     * @param	_stringToBeSigned
+     * @param	_byteToBeSigned
      * @return
      */
-    public byte[] generateSignature(String _stringToBeSigned)
+    public byte[] generateSignature(byte[] _byteToBeSigned)
     {
-        byte[] byteToBeSigned 	= new byte[1024];
+        byte[] byteToBeSigned 	= _byteToBeSigned;
         byte[] signature		= null;
-        
         Signature sign;
-        
-        // Convert string to byte[]
-        byteToBeSigned = _stringToBeSigned.getBytes();
         
         // Digital Signature
         try 
@@ -229,14 +227,13 @@ public class Crypto
     /**
      * @name    verifySignature
      * @brief 
-     * @param	_signedString
+     * @param	_message
      * @param	_sign
      * @param	_pubKeyByte
      * @return
      * @throws Exception 
      */
-    public boolean verifySignature(String		_signedString, 
-    							   byte[] 		_sign, 
+    public boolean verifySignature(SD_Message   _message, 
     							   byte[]	   _pubKeyByte) throws Exception
     {
         boolean signatureVerification = false;
@@ -246,7 +243,7 @@ public class Crypto
         Signature signVerify = null;
 
         // Convert string to byte[]
-        signedByte = _signedString.getBytes();
+        signedByte = _message.mountMessage();
 
         // Convert byte array to public key
         KeyFactory kf = KeyFactory.getInstance("RSA"); 
@@ -262,7 +259,7 @@ public class Crypto
             
             signVerify.update(signedByte);      
     
-            signatureVerification = signVerify.verify(_sign);
+            signatureVerification = signVerify.verify(_message.getSignature());
         
             signVerify = Signature.getInstance("SHA256withRSA");
         }

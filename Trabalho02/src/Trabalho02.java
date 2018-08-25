@@ -106,7 +106,38 @@ public class Trabalho02
 			
 			subscribePeer();
 
-			waitForPeers();
+			//waitForPeers();
+
+			// Rotina da aplicação
+			while(true)
+			{
+				int option = 0;
+
+				System.out.println("Por favor, escolha uma da opções a seguir:\n 1 - Alocar recurso de número 1\n2 - Alocar recurso de número 2\n 3 - Encerrar processo");
+				option = scanKeyboard.nextInt();
+
+				switch(option)
+				{
+					case 1:
+						// Allocates resource 1
+					break;
+
+					case 2:
+					{
+						// Allocates resource 2
+
+					}
+					break;
+
+					case 3:
+					{
+						// Exit application
+						// Send unsubscribe message
+						unsubscribePeer();
+					}
+					break;
+				}
+			}
 		}
 		
 		else
@@ -260,6 +291,42 @@ public class Trabalho02
 		
 		multiCast.sendMessage(sd_message.mountMessage());
 		
+		return;
+	}
+
+	/**
+	 * @name	unsubscribePeer
+	 * @brief	
+	 */
+	public static void unsubscribePeer()
+	{
+		sendSignedMessage(SD_Message.Types.UNSUBSCRIBE, 
+									process.getProcessID(), 
+									null);
+
+		System.out.println("Fechando aplicação");	
+		return;
+	}
+
+	/**
+	 * @name 	sendSignedMessage
+	 * @brief	Mounts a message, signs it and sends it
+	 */
+	public static void sendSignedMessage(SD_Message.Types _type, int _processId, byte[] _pubKey) 
+	{
+		byte[] signature;
+		byte[] mountedMessage;
+
+		SD_Message sd_message = new SD_Message(_type,
+											_processId,
+											_pubKey);
+
+		mountedMessage = sd_message.mountMessage();
+
+		signature = process.getCriptography().generateSignature(mountedMessage);
+
+		multiCast.sendMessage(sd_message.appendSignature(mountedMessage, signature));
+				
 		return;
 	}
 	
