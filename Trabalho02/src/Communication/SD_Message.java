@@ -232,7 +232,7 @@ public class SD_Message
 		
 		this.data = Arrays.copyOfRange(_message, 
 									   9, 
-									   (_message.length));
+									   (9 + this.dataLength));
 		
 		return;
 	}
