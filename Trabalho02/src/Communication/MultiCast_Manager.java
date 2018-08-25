@@ -325,14 +325,17 @@ public class MultiCast_Manager extends Thread
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(true)
+		if(sd_message.getUniqueID() == this.process.getProcessID())
 		{
-			this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData());
+			if(debugMode)
+			{
+				System.out.println("Sou eu enviando, não preciso fazer nada!");
+			}
 		}
 		
 		else
 		{
-			
+			this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData());
 		}
 		
 		return;
@@ -371,7 +374,7 @@ public class MultiCast_Manager extends Thread
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(0 != this.process.getProcessID())
+		if(0 == this.process.getProcessID())
 		{
 			if(debugMode)
 			{
