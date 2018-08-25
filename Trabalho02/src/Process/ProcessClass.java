@@ -92,25 +92,6 @@ public class ProcessClass
 		
 		this.peerList		= new PeerList();
 		
-		/*
-		byte[] sign;
-		
-		// Gera assinatura para a mensagem
-		sign = cryptography.generateSignature("Teste");
-
-    	// verifica assinatura
-    	System.out.println("Assinatura: " +
-    		   (cryptography.verifySignature("Teste", sign, cryptography.getPublicKey()) ? "OK" : "NOK"));
-
-    	// Criptografa mensagem
-    	byte[] encryptedMsg = cryptography.encrypt("Mensagem Exemplo");
-    	
-    	System.out.println(new String(encryptedMsg));
-    	
-		// Decriptografa mensagem
-    	System.out.println(new String(cryptography.decrypt(cryptography.getPublicKey(), encryptedMsg)));
-		*/
-		
 		return;
 	}
 	

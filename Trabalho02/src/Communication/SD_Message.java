@@ -162,8 +162,6 @@ public class SD_Message
         
         mountedMessage = append(mountedMessage, 
         					    this.data);
-
-        System.out.println("Tipo: " + this.type.getByteValue() + "\nUnique ID: " + this.uniqueID + "\nData Length: " + dataLength + "\nData: " + this.data);
         
 		return mountedMessage;
 	}
@@ -179,7 +177,6 @@ public class SD_Message
 	 */
 	public void demountMessage(byte[]	_message)
 	{
-		System.out.println("Estou em demountMessage: size = " + _message.length);
 		//***************
 		// Decode Type //
 		//***************

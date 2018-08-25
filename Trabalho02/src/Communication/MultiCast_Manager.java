@@ -17,11 +17,8 @@ import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.SocketException;
 import java.sql.Connection;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static java.util.Arrays.copyOfRange;
-
 import Process.ProcessClass;
 
 /**
@@ -135,7 +132,7 @@ public class MultiCast_Manager extends Thread
 		{
 			try 
 			{
-				byte[] buffer = new byte[2048];
+				byte[] buffer = new byte[sizeOfBuffer];
 				
 				receivedPacket = new DatagramPacket(buffer, 
 													buffer.length);
@@ -144,8 +141,6 @@ public class MultiCast_Manager extends Thread
 
 				buffer = receivedPacket.getData();
 								
-				System.out.println("Mensagem em run: " + buffer + " com tamanho: " + receivedPacket.getLength());
-
 				// **************************************************
 				// From this point on, decode the received message //
 				// **************************************************
@@ -233,8 +228,6 @@ public class MultiCast_Manager extends Thread
 	{
 		boolean returnValue = false;
 
-		System.out.println("Mensagem em sendMessage: " + _message + " com tamanho: " + _message.length);
-		
 		DatagramPacket messageOut = new DatagramPacket(_message, 
 													   _message.length, 
 													   this.communicationGroup,
@@ -334,11 +327,6 @@ public class MultiCast_Manager extends Thread
 		
 		if(true)
 		{
-			if(this.debugMode)
-			{
-				System.out.println("Mensagem: " + _message + "\nTipo: " + sd_message.getType().getByteValue() + "\nUnique ID: " + sd_message.getUniqueID() + "\nData Length: " + sd_message.getDataLength() + "\nData: " + sd_message.getData());
-			}
-
 			this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData());
 		}
 		
