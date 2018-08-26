@@ -121,12 +121,13 @@ public class Trabalho02
 			{
 				int option = 0;
 
-				System.out.println("Por favor, escolha uma da opções a seguir:\n1 - Alocar recurso \n2 - Encerrar processo");
+				System.out.println("Por favor, escolha uma da opções a seguir:\n1 - Alocar recurso\n2 - Liberar recurso\n3 - Encerrar processo");
 				option = scanKeyboard.nextInt();
 
 				switch(option)
 				{
 					case 1:
+					{
 						System.out.println("Qual recurso deseja alocar? (" + process.getResourceList().getResourceListSize() + " disponíveis) -- Digite 0 para voltar\n");
 						
 						option = scanKeyboard.nextInt();
@@ -135,17 +136,31 @@ public class Trabalho02
 						{
 							requestResource(option);
 						}
-						
-						break;
+					}
+					break;
 
 					case 2:
+					{
+						System.out.println("Qual recurso deseja alocar? (" + process.getResourceList().getResourceListSize() + " disponíveis) -- Digite 0 para voltar\n");
+						
+						option = scanKeyboard.nextInt();
+						
+						if(option != 0)
+						{
+							freeResource(option);
+						}
+					}	
+					break;
+
+					case 3:
+					{
 						// Send unsubscribe message
 						unsubscribePeer();
 						
 						// Exit application
 						return;	
 					}	
-					default:
+				default:
 						System.out.println("Opção não definida. Escolha novamente:");
 						
 						break;
@@ -417,6 +432,29 @@ public class Trabalho02
 
 		}
 		
+		return;
+	}
+
+	/**
+	 * @name 	freeResource
+	 * @brief	Free resource of ID _resourceId
+	 */
+	public static void freeResource(int _resourceId) 
+	{
+		Resource.Status resourceStatus;
+
+		resourceStatus = process.getResourceList().getResourceStatus(_resourceId);
+
+		if(Resource.Status.HELD == resourceStatus)
+		{
+			process.getResourceList().setResourceStatus(_resourceId, Resource.Status.FREE);
+			System.out.println("Recurso " + _resourceId + "liberado com sucesso.");
+		}
+		else
+		{
+			System.out.println("Recurso " + _resourceId + "não se encontra alocado.");
+		}
+				
 		return;
 	}
 }
