@@ -169,12 +169,7 @@ public class MultiCast_Manager extends Thread
 				}
 
 				else if (SD_Message.Types.REPLY_RESOURCE_STATUS.getByteValue() == buffer[0]) 
-				{
-					if(this.debugMode)
-					{
-						System.out.println("\nMensagem Recebida do tipo REPLY_RESOURCE_STATUS");
-					}
-					
+				{	
 					this.replyResourceStatus_Callback(buffer);
 				}
 
@@ -370,6 +365,7 @@ public class MultiCast_Manager extends Thread
 	/**
 	 * @name 	replyResourceStatus_Callback
 	 * @brief
+	 * @param	_message
 	 */
 	public void replyResourceStatus_Callback(byte[]	_message) 
 	{
@@ -381,7 +377,7 @@ public class MultiCast_Manager extends Thread
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(sd_message.getUniqueID() != this.process.getProcessID())
+		if(checkIfSenderIsMyself(sd_message.getUniqueID()))
 		{
 			if(debugMode)
 			{
@@ -391,14 +387,23 @@ public class MultiCast_Manager extends Thread
 		
 		else
 		{
+			System.out.println("\nMensagem Recebida do tipo REPLY_RESOURCE_STATUS");
+			
 			byte[] data = sd_message.getData();
+			
 			int resourceId = data[0] << 24 | (data[1] & 0xff) << 16 | (data[2] & 0xff) << 8 | (data[3] & 0xff);
+			
 			int peerId = sd_message.getUniqueID();
+			
 			byte resourceStatus = data[4];
 
-			this.process.getResourceManager().setResourceStatusByPeerId(peerId, resourceId, resourceStatus);
+			this.process.getResourceManager().setResourceStatusByPeerId(peerId, 
+																		resourceId, 
+																		resourceStatus);
+			
 			// Message received, response is ok
-			this.process.getResourceManager().setStatusResponseByPeerId(peerId, true);
+			this.process.getResourceManager().setStatusResponseByPeerId(peerId, 
+																		true);
 		}
 		
 		return;
@@ -429,28 +434,37 @@ public class MultiCast_Manager extends Thread
 		
 		else
 		{
+			System.out.println("\nMensagem Recebida do tipo REQUEST_RESOURCE");
+			
 			try
 			{
 				// Verify if the signature is correct
 				if(this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
 				{
 					byte[] data = sd_message.getData();
+					
 					int resourceId = data[0] << 24 | (data[1] & 0xff) << 16 | (data[2] & 0xff) << 8 | (data[3] & 0xff);
+					
 					byte[] resourceStatus = new byte[1];
+					
 					resourceStatus[0] = this.process.getResourceList().getResourceStatus(resourceId).getByteValue();
 
 					// Mount message
 					data = new byte[5];
+					
 					data = ByteBuffer.allocate(4).putInt(resourceId).array();
+					
 					data = sd_message.append(data, resourceStatus);
 
 					sendSignedMessage(SD_Message.Types.REPLY_RESOURCE_STATUS,
-								process.getProcessID(), 
-								data);
+									  process.getProcessID(), 
+									  data);
 				}
 			}
-			catch(Exception e){}	
-			System.out.println("\nMensagem Recebida do tipo REQUEST_RESOURCE");
+			catch(Exception e)
+			{
+				
+			}
 		}
 				
 		return;
@@ -508,20 +522,23 @@ public class MultiCast_Manager extends Thread
 	 * @name 	sendSignedMessage
 	 * @brief	Mounts a message, signs it and sends it
 	 */
-	public void sendSignedMessage(SD_Message.Types _type, int _processId, byte[] _data) 
+	public void sendSignedMessage(SD_Message.Types	_type, 
+								  int 				_processId, 
+								  byte[] 			_data) 
 	{
 		byte[] signature;
 		byte[] mountedMessage;
 
 		SD_Message sd_message = new SD_Message(_type,
-											_processId,
-											_data);
+											   _processId,
+											   _data);
 
 		mountedMessage = sd_message.mountMessage();
 
 		signature = process.getCriptography().generateSignature(mountedMessage);
 
-		sendMessage(sd_message.appendSignature(mountedMessage, signature));
+		sendMessage(sd_message.appendSignature(mountedMessage, 
+											   signature));
 				
 		return;
 	}

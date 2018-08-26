@@ -11,10 +11,6 @@
 
 package Database;
 
-import java.util.ArrayList;
-
-import Database.Resource.Status;
-
 /**
  * @name    ResourceManager
  * @brief
@@ -38,9 +34,11 @@ public class ResourceManager
     /**
      * @name    ResourceManager
      * @brief
+     * @param	_peerList
+     * @param	_qtyResources
      */
-    public ResourceManager(PeerList _peerList,
-                        int _qtyResources)
+    public ResourceManager(PeerList	_peerList,
+                           int 		_qtyResources)
     {
         this.peerList = _peerList;
 
@@ -52,26 +50,30 @@ public class ResourceManager
     /**
      * @name    setResourceStatusByPeerId
      * @brief
-     * @return 
+     * @param	_peerId
+     * @param	_resourceId
+     * @param	_resourceStatus 
      */
-    public void setResourceStatusByPeerId(int _peerId,
-                                        int _resourceId,
-                                        byte _resourceStatus) 
+    public void setResourceStatusByPeerId(int	_peerId,
+                                          int 	_resourceId,
+                                          byte 	_resourceStatus) 
     {
         Peer peer = this.peerList.findPeerById(_peerId);
+        
         Resource.Status resourceStatus = null;
 
-        if (Resource.Status.FREE.getByteValue() == _resourceStatus) 
+        if(Resource.Status.FREE.getByteValue() == _resourceStatus) 
         {
             resourceStatus = Resource.Status.FREE;
         }
 
-        else if (Resource.Status.HELD.getByteValue() == _resourceStatus) 
+        else if(Resource.Status.HELD.getByteValue() == _resourceStatus) 
         {
             resourceStatus = Resource.Status.HELD;
         }
 
-        peer.getResourceList().setResourceStatus(_resourceId, resourceStatus);
+        peer.getResourceList().setResourceStatus(_resourceId, 
+        										 resourceStatus);
         
         return;
     }
@@ -98,11 +100,13 @@ public class ResourceManager
     public boolean checkPeersResponse() 
     {
         boolean receivedAllReplies = true;
+     
         boolean peerStatusResponse;
 
         for(int i = 0; i < this.peerList.getPeerListSize(); i++)
         {
             peerStatusResponse = this.peerList.getPeerByIndex(i).getStatusResponse();
+         
             if(!peerStatusResponse)
             {
                 receivedAllReplies = false;
@@ -118,7 +122,7 @@ public class ResourceManager
      * @param   _idResource
      * @return 
      */
-    public boolean checkResourceAvailability(int _idResource) 
+    public boolean checkResourceAvailability(int	_idResource) 
     {
         boolean resourceAvailable = true;
 

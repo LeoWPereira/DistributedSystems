@@ -121,7 +121,8 @@ public class Trabalho02
 			{
 				int option = 0;
 
-				System.out.println("Por favor, escolha uma da opções a seguir:\n1 - Alocar recurso \n2 - Encerrar processo");
+				System.out.println("Por favor, escolha uma das opções a seguir:\n1 - Alocar recurso \n2 - Encerrar processo");
+				
 				option = scanKeyboard.nextInt();
 
 				switch(option)
@@ -144,7 +145,7 @@ public class Trabalho02
 						
 						// Exit application
 						return;	
-					}	
+					
 					default:
 						System.out.println("Opção não definida. Escolha novamente:");
 						
@@ -380,9 +381,16 @@ public class Trabalho02
 		return;
 	}
 
-	public static void waitForReplies(int _resourceId) throws InterruptedException
+	/**
+	 * @name	waitForReplies
+	 * @brief
+	 * @param 	_resourceId
+	 * @throws 	InterruptedException
+	 */
+	public static void waitForReplies(int	_resourceId) throws InterruptedException
 	{
 		int remainingTime = deltaTime;
+		
 		boolean receivedAllReplies = false;
 		
 		System.out.println("\nAguardando até " + remainingTime + " segundos pelas respostas\n");
@@ -404,7 +412,9 @@ public class Trabalho02
 			if (process.getResourceManager().checkResourceAvailability(_resourceId))
 			{
 				// Allocate resource
-				process.getResourceList().setResourceStatus(_resourceId, Resource.Status.HELD);
+				process.getResourceList().setResourceStatus(_resourceId, 
+															Resource.Status.HELD);
+				
 				System.out.println("Recurso " + _resourceId + " alocado com sucesso.");
 			}
 			else
