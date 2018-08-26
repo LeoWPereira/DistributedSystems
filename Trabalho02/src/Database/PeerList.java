@@ -46,12 +46,15 @@ public class PeerList
     					   byte[]	_publicKeyByte,
                            int      _qtyResources) 
     {
-        this.peerList.add(new Peer(_idPeer, 
-        					  	   _publicKeyByte,
-                                   _qtyResources));
-        
-        System.out.println("Peer adicionado com ID " + _idPeer + " e chave publica " + _publicKeyByte + '\n');
-        
+    	if(null == this.findPeerById(_idPeer))
+    	{
+	        this.peerList.add(new Peer(_idPeer, 
+	        					  	   _publicKeyByte,
+	                                   _qtyResources));
+	        
+	        System.out.println("Peer adicionado com ID " + _idPeer + " e chave publica " + _publicKeyByte + '\n');
+    	}
+    	
         return;
     }
 

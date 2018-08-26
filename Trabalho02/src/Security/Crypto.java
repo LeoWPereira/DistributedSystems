@@ -228,13 +228,12 @@ public class Crypto
      * @name    verifySignature
      * @brief 
      * @param	_message
-     * @param	_sign
      * @param	_pubKeyByte
      * @return
      * @throws Exception 
      */
-    public boolean verifySignature(SD_Message   _message, 
-    							   byte[]	   _pubKeyByte) throws Exception
+    public boolean verifySignature(SD_Message  	_message, 
+    							   byte[]	   	_pubKeyByte) throws Exception
     {
         boolean signatureVerification = false;
         
@@ -247,7 +246,9 @@ public class Crypto
 
         // Convert byte array to public key
         KeyFactory kf = KeyFactory.getInstance("RSA"); 
+        
         X509EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(_pubKeyByte);
+        
         PublicKey _pubKey = kf.generatePublic(publicKeySpec);
 
         // Verify Digital Signature

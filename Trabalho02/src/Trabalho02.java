@@ -152,6 +152,12 @@ public class Trabalho02
 						break;
 
 					case 3:
+						// First, we should deallocate every resource the peer is using
+						for(int i = 1; i <= process.getResourceList().getResourceListSize(); i++)
+						{
+							freeResource(i);
+						}
+						
 						// Send unsubscribe message
 						unsubscribePeer();
 						
@@ -326,7 +332,7 @@ public class Trabalho02
 	 */
 	public static void unsubscribePeer()
 	{
-		multiCast.sendSignedMessage(SD_Message.Types.UNSUBSCRIBE, 
+		multiCast.sendSignedMessage(SD_Message.Types.UNSUBSCRIBE,
 									process.getProcessID(), 
 									null);
 
@@ -341,25 +347,33 @@ public class Trabalho02
 	 */
 	public static void requestResource(int _resourceId) 
 	{
-		byte[] resourceIdBytes;
-
-		// Before requesting a resource, clear all responses received before
-		process.getResourceManager().clearPreviousPeerData();
-
-		resourceIdBytes = ByteBuffer.allocate(4).putInt(_resourceId).array();
-
-		multiCast.sendSignedMessage(SD_Message.Types.REQUEST_RESOURCE, 
-									process.getProcessID(), 
-									resourceIdBytes);
-
-		try 
+		if(process.getResourceList().getResourceStatus(_resourceId) == Resource.Status.FREE)
 		{
-			waitForReplies(_resourceId);
-		} 
+			byte[] resourceIdBytes;
+
+			// Before requesting a resource, clear all responses received before
+			process.getResourceManager().clearPreviousPeerData();
+
+			resourceIdBytes = ByteBuffer.allocate(4).putInt(_resourceId).array();
+
+			multiCast.sendSignedMessage(SD_Message.Types.REQUEST_RESOURCE, 
+										process.getProcessID(), 
+										resourceIdBytes);
+
+			try 
+			{
+				waitForReplies(_resourceId);
+			} 
+			
+			catch (InterruptedException e) 
+			{
+				e.printStackTrace();
+			}
+		}
 		
-		catch (InterruptedException e) 
+		else
 		{
-			e.printStackTrace();
+			System.out.println("Recurso já está sendo utilizado ou já foi requisitado!");
 		}
 				
 		return;
@@ -407,13 +421,18 @@ public class Trabalho02
 		
 		System.out.println("\nAguardando até " + remainingTime + " segundos pelas respostas\n");
 		
-		while(remainingTime == 0 && !receivedAllReplies)
+		while(remainingTime != 0 && !receivedAllReplies)
 		{
+			receivedAllReplies = process.getResourceManager().checkPeersResponse();
+			
+			if(receivedAllReplies)
+			{
+				break;
+			}
+			
 			TimeUnit.SECONDS.sleep(1);
 			
 			System.out.print(".");
-			
-			receivedAllReplies = process.getResourceManager().checkPeersResponse();
 			
 			remainingTime--;
 		}
@@ -436,7 +455,7 @@ public class Trabalho02
 		}
 		else
 		{
-
+			
 		}
 		
 		return;
@@ -454,12 +473,15 @@ public class Trabalho02
 
 		if(Resource.Status.HELD == resourceStatus)
 		{
-			process.getResourceList().setResourceStatus(_resourceId, Resource.Status.FREE);
-			System.out.println("Recurso " + _resourceId + "liberado com sucesso.");
+			process.getResourceList().setResourceStatus(_resourceId, 
+														Resource.Status.FREE);
+			
+			System.out.println("Recurso " + _resourceId + " liberado com sucesso.");
 		}
+		
 		else
 		{
-			System.out.println("Recurso " + _resourceId + "não se encontra alocado.");
+			System.out.println("Recurso " + _resourceId + " não se encontra alocado.");
 		}
 				
 		return;

@@ -260,7 +260,8 @@ public class MultiCast_Manager extends Thread
 	{
 		SD_Message sd_message = new SD_Message();
 		
-		sd_message.demountMessage(_message, false);
+		sd_message.demountMessage(_message, 
+								  false);
 		
 		//*****************************************
 		// Check if the message sender is myself //
@@ -277,11 +278,9 @@ public class MultiCast_Manager extends Thread
 		{
 			System.out.println("\nMensagem Recebida do tipo SUBSCRIBE");
 			
-			// Checks if the peer is already in the list
-			if(null == this.process.getPeerList().findPeerById(sd_message.getUniqueID()))
-			{
-				this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData(), this.process.getQtyResources());
-			}
+			this.process.getPeerList().insertPeer(sd_message.getUniqueID(), 
+												  sd_message.getData(), 
+												  this.process.getQtyResources());
 		}
 				
 		return;
@@ -317,13 +316,16 @@ public class MultiCast_Manager extends Thread
 			try
 			{
 				// Verify if the signature is correct
-				if(this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
+				if(!this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
 				{
 					// remove peer from this process peer list
 					this.process.getPeerList().removePeer(sd_message.getUniqueID());
 				}
 			}
-			catch(Exception e){}	
+			catch(Exception e)
+			{
+				
+			}	
 		}
 		
 		return;
@@ -338,7 +340,8 @@ public class MultiCast_Manager extends Thread
 	{
 		SD_Message sd_message = new SD_Message();
 		
-		sd_message.demountMessage(_message, false);
+		sd_message.demountMessage(_message, 
+								  false);
 		
 		//*****************************************
 		// Check if the message sender is myself //
@@ -356,7 +359,9 @@ public class MultiCast_Manager extends Thread
 		{
 			System.out.println("\nMensagem Recebida do tipo REPLY_PUBLIC_KEY");
 
-			this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData(), this.process.getQtyResources());
+			this.process.getPeerList().insertPeer(sd_message.getUniqueID(), 
+												  sd_message.getData(), 
+												  this.process.getQtyResources());
 		}
 		
 		return;
@@ -371,7 +376,8 @@ public class MultiCast_Manager extends Thread
 	{
 		SD_Message sd_message = new SD_Message();
 		
-		sd_message.demountMessage(_message, true);
+		sd_message.demountMessage(_message, 
+								  true);
 		
 		//*****************************************
 		// Check if the message sender is myself //
@@ -439,7 +445,7 @@ public class MultiCast_Manager extends Thread
 			try
 			{
 				// Verify if the signature is correct
-				if(this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
+				if(!this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
 				{
 					byte[] data = sd_message.getData();
 					

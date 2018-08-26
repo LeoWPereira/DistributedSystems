@@ -14,6 +14,7 @@ package Communication;
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
+import java.util.Calendar;
 
 /**
  * @name 	SD_Message
@@ -201,7 +202,7 @@ public class SD_Message
         byte[] initMessage 	= new byte[]{this.type.getByteValue()};
         
         byte[] mountedMessage = append(initMessage,
-        							   ByteBuffer.allocate(4).putInt(this.timestamp).array());
+        							   ByteBuffer.allocate(4).putInt(Calendar.getInstance().get(Calendar.MILLISECOND)).array());
         
         mountedMessage = append(mountedMessage, 
 			    				ByteBuffer.allocate(4).putInt(this.uniqueID).array());
@@ -342,33 +343,32 @@ public class SD_Message
 
     /**
 	 * @name	appendSignature
-	 * @brief	Message structure:
-	 * 			- Type (single byte)
-	 * 			- Unique ID (single byte)
-	 * 			- Data length
-	 * 			- Data (with Data length size)
-	 * 			- Signature length
-	 * 			- Signature
+	 * @brief	
+	 * @param	_message
+	 * @param	_signature
 	 */
-	public byte[] appendSignature(byte[] _message, byte[] _signature)
+	public byte[] appendSignature(byte[]	_message, 
+								  byte[] 	_signature)
 	{
 		byte[] signedMessage = _message;
 
-		/*******************
-		* Signature Length *
-		*******************/
+		//*******************
+		// Signature Length *
+		//*******************
+		
 		this.signatureLength = _signature.length;
 
         signedMessage = append(signedMessage, 
-        					    ByteBuffer.allocate(4).putInt(this.signatureLength).array());
+        					   ByteBuffer.allocate(4).putInt(this.signatureLength).array());
 
-        /************
-		* Signature *
-		************/
+        //************
+		// Signature *
+		//************
+        
 		this.signature = _signature;
         
         signedMessage = append(signedMessage, 
-        					    this.signature);
+        					   this.signature);
         
 		return signedMessage;
 	}
