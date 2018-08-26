@@ -57,6 +57,20 @@ public class PeerList
     	
         return;
     }
+    
+    /**
+     * @name    insertPeer
+     * @param	_peer
+     * @brief
+     */
+    public void insertPeer(Peer	_peer) 
+    {
+        this.peerList.add(new Peer(_peer.getId(), 
+        					  	   _peer.getPublicKeyByte(),
+                                   0));
+    	
+        return;
+    }
 
     /**
      * @name    removePeer
@@ -116,6 +130,15 @@ public class PeerList
     public int getPeerListSize() 
     {
         return this.peerList.size();
+    }
+    
+    /**
+     * @name    getPeerList
+     * @brief
+     */
+    public ArrayList<Peer> getPeerList() 
+    {
+        return this.peerList;
     }
 
     /**
