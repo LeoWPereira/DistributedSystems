@@ -53,8 +53,6 @@ public class ResourceList
     {
         this.resourceList.add(new Resource(_idResource));
         
-        //System.out.println("\nRecurso adicionado com ID " + _idResource);
-        
         return;
     }
 
@@ -133,5 +131,23 @@ public class ResourceList
     public int getResourceListSize() 
     {
         return this.resourceList.size();
+    }
+    
+    /**
+     * @name    listAvailableResources
+     * @brief
+     */
+    public void listAvailableResources()
+    {
+    	System.out.println("\n********Recursos Disponíveis********");
+    	
+    	for(Resource resource : resourceList)
+    	{
+    		System.out.println("    - Recurso " + resource.getId());
+    	}
+    	
+    	System.out.println("************************************\n");
+    	
+    	return;
     }
 }

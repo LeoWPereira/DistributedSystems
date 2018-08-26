@@ -121,7 +121,7 @@ public class Trabalho02
 			{
 				int option = 0;
 
-				System.out.println("Por favor, escolha uma das opções a seguir:\n1 - Alocar recurso\n2 - Liberar recurso\n3 - Encerrar processo");
+				System.out.println("Por favor, escolha uma das opções a seguir:\n1 - Alocar recurso\n2 - Liberar recurso\n3 - Listar Recursos Disponíveis\n4 - Encerrar processo");
 
 				option = scanKeyboard.nextInt();
 
@@ -152,6 +152,11 @@ public class Trabalho02
 						break;
 
 					case 3:
+						process.getResourceList().listAvailableResources();
+						
+						break;
+						
+					case 4:
 						// First, we should deallocate every resource the peer is using
 						for(int i = 1; i <= process.getResourceList().getResourceListSize(); i++)
 						{

@@ -26,7 +26,8 @@ public class Resource
     public enum Status
     {
         FREE(new Integer('F')),
-        HELD(new Integer('H'));
+        HELD(new Integer('H')),
+    	WANTED(new Integer('W'));
         
         private final byte byteValue;
         

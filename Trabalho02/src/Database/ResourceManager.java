@@ -71,6 +71,11 @@ public class ResourceManager
         {
             resourceStatus = Resource.Status.HELD;
         }
+        
+        else if(Resource.Status.WANTED.getByteValue() == _resourceStatus) 
+        {
+            resourceStatus = Resource.Status.WANTED;
+        }
 
         peer.getResourceList().setResourceStatus(_resourceId, 
         										 resourceStatus);
