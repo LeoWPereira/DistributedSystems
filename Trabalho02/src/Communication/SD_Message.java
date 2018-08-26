@@ -59,6 +59,12 @@ public class SD_Message
 	private Types type;
 	
 	/**
+	 * @name	timestamp
+	 * @brief	Message Timestamp in milliseconds
+	 */
+	private int timestamp;
+	
+	/**
 	 * @name	uniqueID
 	 * @brief	4 bytes Unique ID
 	 */
@@ -129,6 +135,15 @@ public class SD_Message
 	}
 	
 	/**
+	 * @name	getTimestamp
+	 * @brief
+	 */
+	public int getTimestamp() 
+	{
+		return this.timestamp;
+	}
+	
+	/**
 	 * @name	getUniqueID
 	 * @brief
 	 */
@@ -186,7 +201,10 @@ public class SD_Message
         byte[] initMessage 	= new byte[]{this.type.getByteValue()};
         
         byte[] mountedMessage = append(initMessage,
-        							   ByteBuffer.allocate(4).putInt(this.uniqueID).array());
+        							   ByteBuffer.allocate(4).putInt(this.timestamp).array());
+        
+        mountedMessage = append(mountedMessage, 
+			    				ByteBuffer.allocate(4).putInt(this.uniqueID).array());
         
         mountedMessage = append(mountedMessage, 
         					    ByteBuffer.allocate(4).putInt(this.dataLength).array());
@@ -207,7 +225,8 @@ public class SD_Message
 	 * @param 	_message
 	 *			_messagedSigned
 	 */
-	public void demountMessage(byte[]	_message, boolean _messagedSigned)
+	public void demountMessage(byte[]	_message, 
+							   boolean 	_messagedSigned)
 	{
 		//***************
 		// Decode Type //
@@ -249,42 +268,49 @@ public class SD_Message
 		}
 		
 		//*************
+		// Timestamp //
+		//*************
+		
+		this.timestamp = _message[1] << 24 | (_message[2] & 0xff) << 16 | (_message[3] & 0xff) << 8 | (_message[4] & 0xff);
+		
+		//*************
 		// Unique ID //
 		//*************
 		
-		this.uniqueID = _message[1] << 24 | (_message[2] & 0xff) << 16 | (_message[3] & 0xff) << 8 | (_message[4] & 0xff);
+		this.uniqueID = _message[5] << 24 | (_message[6] & 0xff) << 16 | (_message[7] & 0xff) << 8 | (_message[8] & 0xff);
 		
 		//***************
 		// Data Length //
 		//***************
 		
-		this.dataLength = _message[5] << 24 | (_message[6] & 0xff) << 16 | (_message[7] & 0xff) << 8 | (_message[8] & 0xff);
+		this.dataLength = _message[9] << 24 | (_message[10] & 0xff) << 16 | (_message[11] & 0xff) << 8 | (_message[12] & 0xff);
 		
 		//********
 		// Data //
 		//********
 		
 		this.data = Arrays.copyOfRange(_message, 
-									   9, 
-									   (9 + this.dataLength));
+									   13, 
+									   (13 + this.dataLength));
 
 		if(_messagedSigned)
 		{
-			int firstSignatureByte = 9 + this.dataLength;
+			int firstSignatureByte = 13 + this.dataLength;
+			
 			//********************
 			// Signature Length //
 			//********************
 			
 			this.signatureLength = _message[firstSignatureByte] << 24 | (_message[firstSignatureByte + 1] & 0xff) << 16 | 
-									(_message[firstSignatureByte + 2] & 0xff) << 8 | (_message[firstSignatureByte + 3] & 0xff);
+								   (_message[firstSignatureByte + 2] & 0xff) << 8 | (_message[firstSignatureByte + 3] & 0xff);
 			
 			//*************
 			// Signature //
 			//*************
 			
 			this.signature = Arrays.copyOfRange(_message, 
-										   firstSignatureByte + 4, 
-										   (firstSignatureByte + 4 + this.signatureLength));
+										   		firstSignatureByte + 4, 
+										   		(firstSignatureByte + 4 + this.signatureLength));
 		}	
 		
 		return;

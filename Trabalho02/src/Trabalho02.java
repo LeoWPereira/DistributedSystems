@@ -127,17 +127,18 @@ public class Trabalho02
 				switch(option)
 				{
 					case 1:
-					{
 						System.out.println("Qual recurso deseja alocar? (" + process.getResourceList().getResourceListSize() + " disponíveis) -- Digite 0 para voltar\n");
+						
 						option = scanKeyboard.nextInt();
 
-						requestResource(option);
-					}
-					break;
+						if(option != 0)
+						{
+							requestResource(option);
+						}
+						
+						break;
 
 					case 2:
-					{
-						// Exit application
 						// Send unsubscribe message
 						unsubscribePeer();
 						
@@ -338,9 +339,13 @@ public class Trabalho02
 									process.getProcessID(), 
 									resourceIdBytes);
 
-		try {
+		try 
+		{
 			waitForReplies(_resourceId);
-		} catch (InterruptedException e) {
+		} 
+		
+		catch (InterruptedException e) 
+		{
 			e.printStackTrace();
 		}
 				
