@@ -32,17 +32,34 @@ public class Peer
     private byte[] publicKeyByte;
 
     /**
+     * @name    resourceList
+     * @brief
+     */
+    private ResourceList resourceList;
+
+    /**
+     * @name    statusResponse
+     * @brief
+     */
+    private boolean statusResponse;
+
+    /**
      * @name    Peer
      * @brief
      * @param	_id
      * @param	_publicKeyByte
      */
     public Peer(int		_id, 
-    			byte[] 	_publicKeyByte) 
+    			byte[] 	_publicKeyByte,
+                int     _qtyResources) 
     {
         this.id = _id;
         
         this.publicKeyByte = _publicKeyByte;
+        
+        this.resourceList = new ResourceList(_qtyResources);
+
+        this.statusResponse = false;
         
         return;
     }
@@ -66,4 +83,36 @@ public class Peer
     {
     	return publicKeyByte;
     }
+
+    /**
+     * @name    getResourceList
+     * @brief   
+     * @return
+     */
+    public ResourceList getResourceList()
+    {
+        return this.resourceList;
+    }
+
+    /**
+     * @name    getStatusResponse
+     * @brief   
+     * @return
+     */
+    public boolean getStatusResponse() 
+    {
+        return this.statusResponse;
+    }
+
+    /**
+     * @name    setStatusResponse
+     * @brief   
+     * @return
+     */
+    public void setStatusResponse(boolean _statusResponse) 
+    {
+        this.statusResponse = _statusResponse;
+
+        return;
+    }  
 }

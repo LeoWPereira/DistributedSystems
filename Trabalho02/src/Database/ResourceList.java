@@ -33,8 +33,14 @@ public class ResourceList
      * @name    ResourceList
      * @brief
      */
-    public ResourceList()
+    public ResourceList(int _qtyResources)
     {
+        // Add resources to this list
+        for(int i = 1; i <= _qtyResources; i++)
+        {
+            insertResource(i);
+        }
+        
     	return;
     }
 

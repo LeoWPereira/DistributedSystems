@@ -14,6 +14,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import Communication.MultiCast_Manager;
 import Communication.SD_Message;
+import Database.Resource;
 import Process.ProcessClass;
 
 /**
@@ -141,8 +142,8 @@ public class Trabalho02
 						unsubscribePeer();
 						
 						// Exit application
-						return;
-						
+						return;	
+					}	
 					default:
 						System.out.println("Opção não definida. Escolha novamente:");
 						
@@ -381,7 +382,7 @@ public class Trabalho02
 		
 		System.out.println("\nAguardando até " + remainingTime + " segundos pelas respostas\n");
 		
-		while(remainingTime == 0 || !receivedAllReplies)
+		while(remainingTime == 0 && !receivedAllReplies)
 		{
 			TimeUnit.SECONDS.sleep(1);
 			
@@ -397,7 +398,13 @@ public class Trabalho02
 			// Checks if the resource is available
 			if (process.getResourceManager().checkResourceAvailability(_resourceId))
 			{
-				System.out.println("Recurso " + _resourceId + "alocado.");
+				// Allocate resource
+				process.getResourceList().setResourceStatus(_resourceId, Resource.Status.HELD);
+				System.out.println("Recurso " + _resourceId + " alocado com sucesso.");
+			}
+			else
+			{
+				System.out.println("O recurso " + _resourceId + " já está sendo alocado por outro Peer.");
 			}
 		}
 		else

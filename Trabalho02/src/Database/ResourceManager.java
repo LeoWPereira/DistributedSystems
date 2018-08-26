@@ -24,10 +24,10 @@ import Database.Resource.Status;
 public class ResourceManager 
 {
     /**
-     * @name    peerStatusList
+     * @name    peerList
      * @brief
      */
-    private ArrayList<PeerStatus> peerStatusList = new ArrayList<PeerStatus>();
+    private PeerList peerList;
 
     /**
      * @name    qtyResources
@@ -42,13 +42,9 @@ public class ResourceManager
     public ResourceManager(PeerList _peerList,
                         int _qtyResources)
     {
-        this.qtyResources = _qtyResources;
+        this.peerList = _peerList;
 
-        // Add a peerStatus for each peer in the list   
-        for(int i = 0; i < _peerList.getPeerListSize(); i++)
-        {
-            peerStatusList.add(new PeerStatus(_peerList.getPeerByIndex(i).getId(), _qtyResources));
-        }
+        this.qtyResources = _qtyResources;
 
     	return;
     }
@@ -62,7 +58,7 @@ public class ResourceManager
                                         int _resourceId,
                                         byte _resourceStatus) 
     {
-        PeerStatus peerStatus = findPeerStatusById(_peerId);
+        Peer peer = this.peerList.findPeerById(_peerId);
         Resource.Status resourceStatus = null;
 
         if (Resource.Status.FREE.getByteValue() == _resourceStatus) 
@@ -75,27 +71,23 @@ public class ResourceManager
             resourceStatus = Resource.Status.HELD;
         }
 
-        peerStatus.getResourceList().setResourceStatus(_resourceId, resourceStatus);
+        peer.getResourceList().setResourceStatus(_resourceId, resourceStatus);
         
         return;
     }
 
     /**
-     * @name    findPeerStatusById
+     * @name    setStatusResponseByPeerId
      * @brief
-     * @param   _idPeerStatus
+     * @return 
      */
-    public PeerStatus findPeerStatusById(int _idPeerStatus) 
+    public void setStatusResponseByPeerId(int _peerId, boolean _statusResponse) 
     {
-        for(int i = 0; i < this.peerStatusList.size(); i++) 
-        {
-            if((this.peerStatusList.get(i).getPeerId() == _idPeerStatus)) 
-            {
-                return this.peerStatusList.get(i);
-            }
-        }
+        Peer peer = this.peerList.findPeerById(_peerId);
+
+        peer.setStatusResponse(_statusResponse);
         
-        return null;
+        return;
     }
 
     /**
@@ -106,30 +98,18 @@ public class ResourceManager
     public boolean checkPeersResponse() 
     {
         boolean receivedAllReplies = true;
+        boolean peerStatusResponse;
 
-        for(int i = 0; i < this.peerStatusList.size(); i++)
+        for(int i = 0; i < this.peerList.getPeerListSize(); i++)
         {
-            if(this.peerStatusList.get(i).getStatusResponse())
+            peerStatusResponse = this.peerList.getPeerByIndex(i).getStatusResponse();
+            if(!peerStatusResponse)
             {
                 receivedAllReplies = false;
             }
         }
         
         return receivedAllReplies;
-    }
-
-    /**
-     * @name    removePeerStatus
-     * @brief
-     * @param	_idPeerStatus
-     */
-    public void removePeerStatus(int	_idPeerStatus) 
-    {
-        PeerStatus peerStatus = findPeerStatusById(_idPeerStatus);
-        
-        this.peerStatusList.remove(peerStatus);
-
-        return;
     }
 
     /**
@@ -142,9 +122,9 @@ public class ResourceManager
     {
         boolean resourceAvailable = true;
 
-        for(int i = 0; i < this.peerStatusList.size(); i++)
+        for(int i = 0; i < this.peerList.getPeerListSize(); i++)
         {
-            if(Resource.Status.HELD == this.peerStatusList.get(i).getResourceList().getResourceStatus(_idResource))
+            if(Resource.Status.HELD == this.peerList.getPeerByIndex(i).getResourceList().getResourceStatus(_idResource))
             {
                 resourceAvailable = false;
             }
@@ -159,16 +139,16 @@ public class ResourceManager
      */
     public void clearPreviousPeerData() 
     {
-        for(int i = 0; i < this.peerStatusList.size(); i++)
+        for(int i = 0; i < this.peerList.getPeerListSize(); i++)
         {
             // Clear all resources status
             for(int k = 1; k <= this.qtyResources; k++)
             {
-                this.peerStatusList.get(i).getResourceList().setResourceStatus(k, Resource.Status.FREE);
+                this.peerList.getPeerByIndex(i).getResourceList().setResourceStatus(k, Resource.Status.FREE);
             }
 
             // Set response status to false
-            this.peerStatusList.get(i).setStatusResponse(false);
+            this.peerList.getPeerByIndex(i).setStatusResponse(false);
         }
         
         return;

@@ -43,10 +43,12 @@ public class PeerList
      * @brief
      */
     public void insertPeer(int		_idPeer, 
-    					   byte[]	_publicKeyByte) 
+    					   byte[]	_publicKeyByte,
+                           int      _qtyResources) 
     {
         this.peerList.add(new Peer(_idPeer, 
-        					  	   _publicKeyByte));
+        					  	   _publicKeyByte,
+                                   _qtyResources));
         
         System.out.println("Peer adicionado com ID " + _idPeer + " e chave publica " + _publicKeyByte + '\n');
         

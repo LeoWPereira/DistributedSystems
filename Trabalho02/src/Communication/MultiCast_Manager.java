@@ -16,6 +16,7 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.SocketException;
+import java.nio.ByteBuffer;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -284,7 +285,7 @@ public class MultiCast_Manager extends Thread
 			// Checks if the peer is already in the list
 			if(null == this.process.getPeerList().findPeerById(sd_message.getUniqueID()))
 			{
-				this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData());
+				this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData(), this.process.getQtyResources());
 			}
 		}
 				
@@ -360,7 +361,7 @@ public class MultiCast_Manager extends Thread
 		{
 			System.out.println("\nMensagem Recebida do tipo REPLY_PUBLIC_KEY");
 
-			this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData());
+			this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData(), this.process.getQtyResources());
 		}
 		
 		return;
@@ -396,6 +397,8 @@ public class MultiCast_Manager extends Thread
 			byte resourceStatus = data[4];
 
 			this.process.getResourceManager().setResourceStatusByPeerId(peerId, resourceId, resourceStatus);
+			// Message received, response is ok
+			this.process.getResourceManager().setStatusResponseByPeerId(peerId, true);
 		}
 		
 		return;
@@ -433,12 +436,17 @@ public class MultiCast_Manager extends Thread
 				{
 					byte[] data = sd_message.getData();
 					int resourceId = data[0] << 24 | (data[1] & 0xff) << 16 | (data[2] & 0xff) << 8 | (data[3] & 0xff);
-					byte[] resourceStatus = new byte[0];
+					byte[] resourceStatus = new byte[1];
 					resourceStatus[0] = this.process.getResourceList().getResourceStatus(resourceId).getByteValue();
+
+					// Mount message
+					data = new byte[5];
+					data = ByteBuffer.allocate(4).putInt(resourceId).array();
+					data = sd_message.append(data, resourceStatus);
 
 					sendSignedMessage(SD_Message.Types.REPLY_RESOURCE_STATUS,
 								process.getProcessID(), 
-								resourceStatus);
+								data);
 				}
 			}
 			catch(Exception e){}	

@@ -55,6 +55,12 @@ public class ProcessClass
 	private ResourceList resourceList;
 
 	/**
+	 * @name	qtyResources
+	 * @brief
+	 */
+	private int qtyResources;
+
+	/**
 	 * @name	resourceManager
 	 * @brief
 	 */
@@ -113,23 +119,32 @@ public class ProcessClass
 	{
 		this.processID = processID;
 	}
+
+	/**
+	 * @name	getQtyResources
+	 * @brief	
+	 */
+	public int getQtyResources() 
+	{
+		return this.qtyResources;
+	}
 	
 	/**
 	 * @name	ProcessClass
 	 * @brief
-	 * @param	qtyResources
+	 * @param	_qtyResources
 	 */
-	public ProcessClass(int qtyResources) throws Exception
+	public ProcessClass(int _qtyResources) throws Exception
 	{
 		this.cryptography 	 = new Crypto();
 		
 		this.peerList		 = new PeerList();
 
-		this.resourceList    = new ResourceList();
+		this.qtyResources   = _qtyResources;
 
-		this.resourceManager = new ResourceManager(this.peerList, qtyResources);
+		this.resourceList    = new ResourceList(this.qtyResources);
 
-		addResources(qtyResources);
+		this.resourceManager = new ResourceManager(this.peerList, this.qtyResources);
 		
 		return;
 	}
@@ -165,22 +180,6 @@ public class ProcessClass
 				System.out.println("ID já utilizado, escolha outro:");
 			}
 		} while(true);
-		
-		return;
-	}
-
-	/**
-	 * @name	addResources
-	 * @brief	
-	 * @param	__qtyResources
-	 */
-	public void addResources(int	_qtyResources)
-	{
-		// Add resources to this process list
-		for(int i = 1; i <= _qtyResources; i++)
-		{
-			this.resourceList.insertResource(i);
-		}
 		
 		return;
 	}
