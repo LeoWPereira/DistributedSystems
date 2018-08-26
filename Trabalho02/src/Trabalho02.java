@@ -9,6 +9,7 @@
  ******************************************************************************
  */
 
+import java.nio.ByteBuffer;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import Communication.MultiCast_Manager;
@@ -119,23 +120,19 @@ public class Trabalho02
 			{
 				int option = 0;
 
-				System.out.println("Por favor, escolha uma da opções a seguir:\n1 - Alocar recurso de número 1\n2 - Alocar recurso de número 2\n3 - Encerrar processo");
+				System.out.println("Por favor, escolha uma da opções a seguir:\n1 - Alocar recurso \n2 - Encerrar processo");
 				option = scanKeyboard.nextInt();
 
 				switch(option)
 				{
 					case 1:
-						// Allocates resource 1
+						System.out.println("Qual recurso deseja alocar? (" + process.getResourceList().getResourceListSize() + " disponíveis) -- Digite 0 para voltar\n");
+						option = scanKeyboard.nextInt();
+
+						requestResource(option);
 					break;
 
 					case 2:
-					{
-						// Allocates resource 2
-
-					}
-					break;
-
-					case 3:
 					{
 						// Exit application
 						// Send unsubscribe message
@@ -306,7 +303,7 @@ public class Trabalho02
 	 */
 	public static void unsubscribePeer()
 	{
-		sendSignedMessage(SD_Message.Types.UNSUBSCRIBE, 
+		multiCast.sendSignedMessage(SD_Message.Types.UNSUBSCRIBE, 
 									process.getProcessID(), 
 									null);
 
@@ -315,23 +312,27 @@ public class Trabalho02
 	}
 
 	/**
-	 * @name 	sendSignedMessage
-	 * @brief	Mounts a message, signs it and sends it
+	 * @name 	requestResource
+	 * @brief	Request resource of ID _resourceId
 	 */
-	public static void sendSignedMessage(SD_Message.Types _type, int _processId, byte[] _pubKey) 
+	public static void requestResource(int _resourceId) 
 	{
-		byte[] signature;
-		byte[] mountedMessage;
+		byte[] resourceIdBytes;
 
-		SD_Message sd_message = new SD_Message(_type,
-											_processId,
-											_pubKey);
+		// Before requesting a resource, clear all responses received before
+		process.getResourceManager().clearPreviousPeerData();
 
-		mountedMessage = sd_message.mountMessage();
+		resourceIdBytes = ByteBuffer.allocate(4).putInt(_resourceId).array();
 
-		signature = process.getCriptography().generateSignature(mountedMessage);
+		multiCast.sendSignedMessage(SD_Message.Types.REQUEST_RESOURCE, 
+									process.getProcessID(), 
+									resourceIdBytes);
 
-		multiCast.sendMessage(sd_message.appendSignature(mountedMessage, signature));
+		try {
+			waitForReplies(_resourceId);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 				
 		return;
 	}
@@ -354,6 +355,40 @@ public class Trabalho02
 			}
 			
 			tempoRestante--;
+		}
+		
+		return;
+	}
+
+	public static void waitForReplies(int _resourceId) throws InterruptedException
+	{
+		int remainingTime = deltaTime;
+		boolean receivedAllReplies = false;
+		
+		System.out.println("\nAguardando até " + remainingTime + " segundos pelas respostas\n");
+		
+		while(remainingTime == 0 || !receivedAllReplies)
+		{
+			TimeUnit.SECONDS.sleep(1);
+			
+			System.out.print(".");
+			
+			receivedAllReplies = process.getResourceManager().checkPeersResponse();
+			
+			remainingTime--;
+		}
+
+		if(receivedAllReplies)
+		{
+			// Checks if the resource is available
+			if (process.getResourceManager().checkResourceAvailability(_resourceId))
+			{
+				System.out.println("Recurso " + _resourceId + "alocado.");
+			}
+		}
+		else
+		{
+
 		}
 		
 		return;

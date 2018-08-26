@@ -104,6 +104,23 @@ public class ResourceList
     }
 
     /**
+     * @name    setResourceStatus
+     * @brief
+     * @param   _idResource
+     */
+    public void setResourceStatus(int _idResource, Resource.Status _status) 
+    {
+        Resource resource = findResourceById(_idResource);
+        
+        if (resource != null) 
+        {
+            resource.setResourceStatus(_status);
+        }
+        
+        return;
+    }
+
+    /**
      * @name    getResourceListSize
      * @brief
      */

@@ -112,4 +112,13 @@ public class PeerList
     {
         return this.peerList.size();
     }
+
+    /**
+     * @name    getPeerByIndex
+     * @brief
+     */
+    public Peer getPeerByIndex(int _index) 
+    {
+        return this.peerList.get(_index);
+    }
 }

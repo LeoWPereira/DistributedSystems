@@ -33,6 +33,7 @@ public class SD_Message
 		SUBSCRIBE(new Integer('S')),
 		UNSUBSCRIBE(new Integer('U')),
 		REPLY_PUBLIC_KEY(new Integer('R')),
+		REPLY_RESOURCE_STATUS(new Integer('C')),
 		REQUEST_RESOURCE(new Integer('Q')),
 		REQUEST_PUBLIC_KEY(new Integer('K'));
 		
@@ -230,6 +231,11 @@ public class SD_Message
 		else if (SD_Message.Types.REPLY_PUBLIC_KEY.getByteValue() == _message[0]) 
 		{
 			this.type = SD_Message.Types.REPLY_PUBLIC_KEY;
+		}
+
+		else if (SD_Message.Types.REPLY_RESOURCE_STATUS.getByteValue() == _message[0]) 
+		{
+			this.type = SD_Message.Types.REPLY_RESOURCE_STATUS;
 		}
 
 		else if (SD_Message.Types.REQUEST_RESOURCE.getByteValue() == _message[0]) 

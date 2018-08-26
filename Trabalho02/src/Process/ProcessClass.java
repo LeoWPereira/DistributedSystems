@@ -15,6 +15,7 @@ import java.util.Scanner;
 
 import Database.PeerList;
 import Database.ResourceList;
+import Database.ResourceManager;
 import Security.Crypto;
 
 /**
@@ -52,6 +53,12 @@ public class ProcessClass
 	 * @brief
 	 */
 	private ResourceList resourceList;
+
+	/**
+	 * @name	resourceManager
+	 * @brief
+	 */
+	private ResourceManager resourceManager;
 	
 	/**
 	 * @name	getProcessID
@@ -88,6 +95,15 @@ public class ProcessClass
 	{
 		return this.resourceList;
 	}
+
+	/**
+	 * @name	getResourceManager
+	 * @brief	
+	 */
+	public ResourceManager getResourceManager() 
+	{
+		return this.resourceManager;
+	}
 	
 	/**
 	 * @name	setProcessID
@@ -101,14 +117,17 @@ public class ProcessClass
 	/**
 	 * @name	ProcessClass
 	 * @brief
+	 * @param	qtyResources
 	 */
 	public ProcessClass(int qtyResources) throws Exception
 	{
-		this.cryptography 	= new Crypto();
+		this.cryptography 	 = new Crypto();
 		
-		this.peerList		= new PeerList();
+		this.peerList		 = new PeerList();
 
-		this.resourceList   = new ResourceList();
+		this.resourceList    = new ResourceList();
+
+		this.resourceManager = new ResourceManager(this.peerList, qtyResources);
 
 		addResources(qtyResources);
 		
