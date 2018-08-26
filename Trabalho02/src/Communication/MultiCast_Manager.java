@@ -147,61 +147,31 @@ public class MultiCast_Manager extends Thread
 
 				if (SD_Message.Types.TEST.getByteValue() == buffer[0]) 
 				{
-					if(this.debugMode)
-					{
-						System.out.println("\nMensagem Recebida do tipo TEST");
-					}
-					
 					this.testMultiCastSocket_Callback();
 				}
 
 				else if (SD_Message.Types.SUBSCRIBE.getByteValue() == buffer[0]) 
 				{
-					if(this.debugMode)
-					{
-						System.out.println("\nMensagem Recebida do tipo SUBSCRIBE");
-					}
-					
 					this.subscribe_Callback(buffer);
 				}
 
 				else if (SD_Message.Types.UNSUBSCRIBE.getByteValue() == buffer[0]) 
-				{
-					if(this.debugMode)
-					{
-						System.out.println("\nMensagem Recebida do tipo UNSUBSCRIBE");
-					}
-					
+				{					
 					this.unsubscribe_Callback(buffer);
 				}
 
 				else if (SD_Message.Types.REPLY_PUBLIC_KEY.getByteValue() == buffer[0]) 
 				{
-					if(this.debugMode)
-					{
-						System.out.println("\nMensagem Recebida do tipo REPLY_PUBLIC_KEY");
-					}
-					
 					this.replyPublicKey_Callback(buffer);
 				}
 
 				else if (SD_Message.Types.REQUEST_RESOURCE.getByteValue() == buffer[0]) 
 				{
-					if(this.debugMode)
-					{
-						System.out.println("\nMensagem Recebida do tipo REQUEST_RESOURCE");
-					}
-					
 					this.requestResource_Callback(buffer);
 				}
 				
 				else if (SD_Message.Types.REQUEST_PUBLIC_KEY.getByteValue() == buffer[0]) 
 				{
-					if(this.debugMode)
-					{
-						System.out.println("\nMensagem Recebida do tipo REQUEST_PUBLIC_KEY");
-					}
-					
 					this.requestPublicKey_Callback(buffer);
 				}
 
@@ -259,8 +229,16 @@ public class MultiCast_Manager extends Thread
 	 * 			the process is correctly connected to the server
 	 */
 	public void testMultiCastSocket_Callback()
-	{	
-		this.connectionOK = true;
+	{
+		if(!this.connectionOK)
+		{
+			if(this.debugMode)
+			{
+				System.out.println("\nMensagem Recebida do tipo TEST");
+			}
+			
+			this.connectionOK = true;
+		}
 		
 		return;
 	}
@@ -268,6 +246,7 @@ public class MultiCast_Manager extends Thread
 	/**
 	 * @name	subscribe_Callback
 	 * @brief
+	 * @param	_message
 	 */
 	public void subscribe_Callback(byte[]	_message)
 	{
@@ -279,7 +258,7 @@ public class MultiCast_Manager extends Thread
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(sd_message.getUniqueID() != this.process.getProcessID())
+		if(checkIfSenderIsMyself(sd_message.getUniqueID()))
 		{
 			if(debugMode)
 			{
@@ -288,8 +267,10 @@ public class MultiCast_Manager extends Thread
 		}
 		else
 		{
+			System.out.println("\nMensagem Recebida do tipo SUBSCRIBE");
+			
 			// Checks if the peer is already in the list
-			if(this.process.getPeerList().findPeerById(sd_message.getUniqueID()) == null)
+			if(null == this.process.getPeerList().findPeerById(sd_message.getUniqueID()))
 			{
 				this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData());
 			}
@@ -301,6 +282,7 @@ public class MultiCast_Manager extends Thread
 	/**
 	 * @name 	unsubscribe_Callback
 	 * @brief
+	 * @param	_message
 	 */
 	public void unsubscribe_Callback(byte[]	_message) 
 	{
@@ -312,7 +294,7 @@ public class MultiCast_Manager extends Thread
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(sd_message.getUniqueID() != this.process.getProcessID())
+		if(checkIfSenderIsMyself(sd_message.getUniqueID()))
 		{
 			if(debugMode)
 			{
@@ -322,6 +304,8 @@ public class MultiCast_Manager extends Thread
 		
 		else
 		{
+			System.out.println("\nMensagem Recebida do tipo UNSUBSCRIBE");
+			
 			try
 			{
 				// Verify if the signature is correct
@@ -340,6 +324,7 @@ public class MultiCast_Manager extends Thread
 	/**
 	 * @name 	replyPublicKey_Callback
 	 * @brief
+	 * @param	_message
 	 */
 	public void replyPublicKey_Callback(byte[]	_message) 
 	{
@@ -351,7 +336,7 @@ public class MultiCast_Manager extends Thread
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(sd_message.getUniqueID() != this.process.getProcessID())
+		if(checkIfSenderIsMyself(sd_message.getUniqueID()))
 		{
 			if(debugMode)
 			{
@@ -361,6 +346,8 @@ public class MultiCast_Manager extends Thread
 		
 		else
 		{
+			System.out.println("\nMensagem Recebida do tipo REPLY_PUBLIC_KEY");
+
 			this.process.getPeerList().insertPeer(sd_message.getUniqueID(), sd_message.getData());
 		}
 		
@@ -370,21 +357,26 @@ public class MultiCast_Manager extends Thread
 	/**
 	 * @name 	requestResource_Callback
 	 * @brief
+	 * @param	_message
 	 */
 	public void requestResource_Callback(byte[]	_message) 
 	{
+		SD_Message sd_message = new SD_Message();
+		
+		sd_message.demountMessage(_message, false);
+		
 		//*****************************************
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(true)
+		if(checkIfSenderIsMyself(sd_message.getUniqueID()))
 		{
 			// Ignore message
 		}
 		
 		else
 		{
-			
+			System.out.println("\nMensagem Recebida do tipo REQUEST_RESOURCE");
 		}
 				
 		return;
@@ -393,6 +385,7 @@ public class MultiCast_Manager extends Thread
 	/**
 	 * @name 	requestPublicKey_Callback
 	 * @brief
+	 * @param	_message
 	 */
 	public void requestPublicKey_Callback(byte[]	_message) 
 	{
@@ -404,7 +397,7 @@ public class MultiCast_Manager extends Thread
 		// Check if the message sender is myself //
 		//*****************************************
 		
-		if(sd_message.getUniqueID() != this.process.getProcessID())
+		if(checkIfSenderIsMyself(sd_message.getUniqueID()))
 		{
 			if(debugMode)
 			{
@@ -414,6 +407,8 @@ public class MultiCast_Manager extends Thread
 		
 		else
 		{
+			System.out.println("\nMensagem Recebida do tipo REQUEST_PUBLIC_KEY");
+			
 			sd_message = new SD_Message(SD_Message.Types.REPLY_PUBLIC_KEY,
 										this.process.getProcessID(),
 										this.process.getCriptography().getPublicKeyByte());
@@ -422,5 +417,16 @@ public class MultiCast_Manager extends Thread
 		}
 				
 		return;
+	}
+	
+	/**
+	 * @name	checkIfSenderIsMyself
+	 * @brief
+	 * @param 	_messageUniqueID
+	 * @return
+	 */
+	public boolean checkIfSenderIsMyself(int	_messageUniqueID)
+	{
+		return _messageUniqueID == this.process.getProcessID();
 	}
 }
