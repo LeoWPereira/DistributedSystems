@@ -47,7 +47,7 @@ public class ResourceList
     {
         this.resourceList.add(new Resource(_idResource));
         
-        System.out.println("Recurso adicionado com ID " + _idResource + '\n');
+        System.out.println("\nRecurso adicionado com ID " + _idResource);
         
         return;
     }

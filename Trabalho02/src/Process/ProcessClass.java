@@ -172,9 +172,9 @@ public class ProcessClass
 	/**
 	 * @name	addResources
 	 * @brief	
-	 * @return
+	 * @param	__qtyResources
 	 */
-	public void addResources(int _qtyResources)
+	public void addResources(int	_qtyResources)
 	{
 		// Add resources to this process list
 		for(int i = 1; i <= _qtyResources; i++)

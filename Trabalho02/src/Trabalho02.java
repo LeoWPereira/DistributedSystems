@@ -76,7 +76,7 @@ public class Trabalho02
 	 * @name	debugMode
 	 * @brief
 	 */
-	public static boolean debugMode = true;
+	public static boolean debugMode = false;
 	
 	/**
 	 * @name	main
@@ -115,7 +115,7 @@ public class Trabalho02
 
 			//waitForPeers();
 
-			// Rotina da aplicação
+			// App Routine
 			while(true)
 			{
 				int option = 0;
@@ -126,10 +126,12 @@ public class Trabalho02
 				switch(option)
 				{
 					case 1:
+					{
 						System.out.println("Qual recurso deseja alocar? (" + process.getResourceList().getResourceListSize() + " disponíveis) -- Digite 0 para voltar\n");
 						option = scanKeyboard.nextInt();
 
 						requestResource(option);
+					}
 					break;
 
 					case 2:
@@ -137,8 +139,14 @@ public class Trabalho02
 						// Exit application
 						// Send unsubscribe message
 						unsubscribePeer();
-					}
-					break;
+						
+						// Exit application
+						return;
+						
+					default:
+						System.out.println("Opção não definida. Escolha novamente:");
+						
+						break;
 				}
 			}
 		}
@@ -307,7 +315,8 @@ public class Trabalho02
 									process.getProcessID(), 
 									null);
 
-		System.out.println("Fechando aplicação");	
+		System.out.println("Fechando aplicação");
+		
 		return;
 	}
 
@@ -337,6 +346,11 @@ public class Trabalho02
 		return;
 	}
 	
+	/**
+	 * @name	waitForPeers
+	 * @brief	
+	 * @throws 	InterruptedException
+	 */
 	public static void waitForPeers() throws InterruptedException
 	{
 		int tempoRestante = 60;
