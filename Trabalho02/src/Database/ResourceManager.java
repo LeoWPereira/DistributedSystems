@@ -11,8 +11,6 @@
 
 package Database;
 
-import java.util.ArrayList;
-
 /**
  * @name    ResourceManager
  * @brief

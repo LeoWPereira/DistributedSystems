@@ -100,6 +100,7 @@ public class Trabalho02
 		multiCast 	= new MultiCast_Manager(process,
 											communicationPort, 
 						  				    communicationGroup,
+						  				    minimumPeers,
 						  				    debugMode);
 		
 		multiCast.start();
@@ -116,7 +117,7 @@ public class Trabalho02
 			
 			subscribePeer();
 
-			//waitForPeers();
+			waitForPeers();
 
 			// App Routine
 			while(true)
@@ -343,6 +344,8 @@ public class Trabalho02
 									process.getProcessID(), 
 									null);
 
+		multiCast.stop();
+		
 		System.out.println("Fechando aplicação");
 		
 		return;
@@ -403,7 +406,7 @@ public class Trabalho02
 			
 			System.out.print(".");
 			
-			if(process.getPeerList().getPeerListSize() == minimumPeers)
+			if((process.getPeerList().getPeerListSize() == (minimumPeers - 1)) || (multiCast.getInitialSetOK()))
 			{
 				break;
 			}
