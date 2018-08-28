@@ -347,7 +347,7 @@ public class MultiCast_Manager extends Thread
 			try
 			{
 				// Verify if the signature is correct
-				if(!this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
+				if(this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
 				{
 					// remove peer from this process peer list
 					this.process.getPeerList().removePeer(sd_message.getUniqueID());
@@ -482,7 +482,7 @@ public class MultiCast_Manager extends Thread
 			try
 			{
 				// Verify if the signature is correct
-				if(!this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
+				if(this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
 				{
 					byte[] data = sd_message.getData();
 					
