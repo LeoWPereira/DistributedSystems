@@ -261,8 +261,6 @@ public class Crypto
             signVerify.update(signedByte);      
     
             signatureVerification = signVerify.verify(_message.getSignature());
-        
-            signVerify = Signature.getInstance("SHA256withRSA");
         }
         
         catch (Exception e) 

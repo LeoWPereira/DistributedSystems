@@ -63,7 +63,7 @@ public class SD_Message
 	 * @name	timestamp
 	 * @brief	Message Timestamp in milliseconds
 	 */
-	private int timestamp;
+	private int timestamp = 0;
 	
 	/**
 	 * @name	uniqueID
@@ -199,11 +199,22 @@ public class SD_Message
 	 */
 	public byte[] mountMessage()
 	{
-        byte[] initMessage 	= new byte[]{this.type.getByteValue()};
-        
-        byte[] mountedMessage = append(initMessage,
+		
+		byte[] initMessage 	= new byte[]{this.type.getByteValue()};
+		
+		byte[] mountedMessage;
+			
+		if(this.timestamp == 0)
+		{
+			mountedMessage = append(initMessage,
         							   ByteBuffer.allocate(4).putInt(Calendar.getInstance().get(Calendar.MILLISECOND)).array());
-        
+		}
+		else
+		{
+			mountedMessage = append(initMessage,
+					   ByteBuffer.allocate(4).putInt(this.timestamp).array());
+		}
+		
         mountedMessage = append(mountedMessage, 
 			    				ByteBuffer.allocate(4).putInt(this.uniqueID).array());
         
