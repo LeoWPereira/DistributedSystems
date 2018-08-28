@@ -33,19 +33,19 @@ import Process.ProcessClass;
 public class MultiCast_Manager extends Thread 
 {
 	/**
-	 * @name communicationPort
+	 * @name 	communicationPort
 	 * @brief
 	 */
 	private int communicationPort;
 
 	/**
-	 * @name communicationGroup
+	 * @name 	communicationGroup
 	 * @brief
 	 */
 	private InetAddress communicationGroup;
 
 	/**
-	 * @name MulticastSocket
+	 * @name 	MulticastSocket
 	 * @brief
 	 */
 	private MulticastSocket socket;
@@ -57,17 +57,29 @@ public class MultiCast_Manager extends Thread
 	private ProcessClass process;
 	
 	/**
-	 * @name sizeOfBuffer
-	 * @brief Each message can store until 1024 bytes, we are using way less than
-	 *        this
+	 * @name 	sizeOfBuffer
+	 * @brief 	Each message can store until 1024 bytes, we are using way less than
+	 *        	this
 	 */
 	private int sizeOfBuffer = 1024;
 
 	/**
-	 * @name connectionOK
+	 * @name 	connectionOK
 	 * @brief
 	 */
 	private boolean connectionOK = false;
+	
+	/**
+	 * @name 	initialSetOK
+	 * @brief
+	 */
+	private boolean initialSetOK = false;
+	
+	/**
+	 * @name 	minimumPeers
+	 * @brief
+	 */
+	private int minimumPeers;
 	
 	/**
 	 * @name	debugMode
@@ -84,12 +96,15 @@ public class MultiCast_Manager extends Thread
 	public MultiCast_Manager(ProcessClass	_process,
 							 int 			_communicationPort, 
 							 String			_communcationGroup,
+							 int 			_minimumPeers,
 							 boolean		_debugMode) 
 	{
 		this.process			= _process;
 		
 		this.communicationPort 	= _communicationPort;
 
+		this.minimumPeers		= _minimumPeers;
+		
 		this.debugMode			= _debugMode;
 		
 		try
@@ -124,6 +139,15 @@ public class MultiCast_Manager extends Thread
 	}
 	
 	/**
+	 * @name 	getInitialSetOK
+	 * @brief
+	 */
+	public boolean getInitialSetOK() 
+	{
+		return this.initialSetOK;
+	}
+	
+	/**
 	 * @name run
 	 * @brief
 	 */
@@ -150,7 +174,7 @@ public class MultiCast_Manager extends Thread
 
 				if (SD_Message.Types.TEST.getByteValue() == buffer[0]) 
 				{
-					this.testMultiCastSocket_Callback();
+					this.testMultiCastSocket_Callback(buffer);
 				}
 
 				else if (SD_Message.Types.SUBSCRIBE.getByteValue() == buffer[0]) 
@@ -235,8 +259,9 @@ public class MultiCast_Manager extends Thread
 	 * 			set its private connectionOK member.
 	 * 			This way, the tester method can only look to this member and see if 
 	 * 			the process is correctly connected to the server
+	 * @param	_message
 	 */
-	public void testMultiCastSocket_Callback()
+	public void testMultiCastSocket_Callback(byte[]	_message)
 	{
 		if(!this.connectionOK)
 		{
@@ -281,6 +306,11 @@ public class MultiCast_Manager extends Thread
 			this.process.getPeerList().insertPeer(sd_message.getUniqueID(), 
 												  sd_message.getData(), 
 												  this.process.getQtyResources());
+			
+			if(process.getPeerList().getPeerListSize() == (this.minimumPeers - 1))
+			{
+				this.initialSetOK = true;
+			}
 		}
 				
 		return;
@@ -295,7 +325,8 @@ public class MultiCast_Manager extends Thread
 	{
 		SD_Message sd_message = new SD_Message();
 		
-		sd_message.demountMessage(_message, true);
+		sd_message.demountMessage(_message, 
+								  true);
 		
 		//*****************************************
 		// Check if the message sender is myself //
@@ -316,7 +347,7 @@ public class MultiCast_Manager extends Thread
 			try
 			{
 				// Verify if the signature is correct
-				if(this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
+				if(!this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
 				{
 					// remove peer from this process peer list
 					this.process.getPeerList().removePeer(sd_message.getUniqueID());
@@ -362,6 +393,11 @@ public class MultiCast_Manager extends Thread
 			this.process.getPeerList().insertPeer(sd_message.getUniqueID(), 
 												  sd_message.getData(), 
 												  this.process.getQtyResources());
+			
+			if((process.getPeerList().getPeerListSize() == (this.minimumPeers - 1)) || (sd_message.getData()[sd_message.getDataLength() - 1] == '1'))
+			{
+				this.initialSetOK = true;
+			}
 		}
 		
 		return;
@@ -424,7 +460,8 @@ public class MultiCast_Manager extends Thread
 	{
 		SD_Message sd_message = new SD_Message();
 		
-		sd_message.demountMessage(_message, true);
+		sd_message.demountMessage(_message, 
+								  true);
 		
 		//*****************************************
 		// Check if the message sender is myself //
@@ -445,7 +482,7 @@ public class MultiCast_Manager extends Thread
 			try
 			{
 				// Verify if the signature is correct
-				if(this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
+				if(!this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
 				{
 					byte[] data = sd_message.getData();
 					
@@ -485,7 +522,8 @@ public class MultiCast_Manager extends Thread
 	{
 		SD_Message sd_message = new SD_Message();
 		
-		sd_message.demountMessage(_message, false);
+		sd_message.demountMessage(_message, 
+								  false);
 		
 		//*****************************************
 		// Check if the message sender is myself //
@@ -503,9 +541,22 @@ public class MultiCast_Manager extends Thread
 		{
 			System.out.println("\nMensagem Recebida do tipo REQUEST_PUBLIC_KEY");
 			
+			byte[] data;
+			
+			if(this.getInitialSetOK())
+			{
+				data = new byte[]{'1'};
+			}
+			
+			else
+			{
+				data = new byte[]{'0'};
+			}
+			
 			sd_message = new SD_Message(SD_Message.Types.REPLY_PUBLIC_KEY,
 										this.process.getProcessID(),
-										this.process.getCriptography().getPublicKeyByte());
+										sd_message.append(this.process.getCriptography().getPublicKeyByte(),
+														  data));
 		
 			sendMessage(sd_message.mountMessage());
 		}

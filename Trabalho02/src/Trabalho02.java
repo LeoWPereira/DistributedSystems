@@ -14,6 +14,8 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import Communication.MultiCast_Manager;
 import Communication.SD_Message;
+import Database.Peer;
+import Database.PeerList;
 import Database.Resource;
 import Process.ProcessClass;
 
@@ -98,6 +100,7 @@ public class Trabalho02
 		multiCast 	= new MultiCast_Manager(process,
 											communicationPort, 
 						  				    communicationGroup,
+						  				    minimumPeers,
 						  				    debugMode);
 		
 		multiCast.start();
@@ -114,7 +117,7 @@ public class Trabalho02
 			
 			subscribePeer();
 
-			//waitForPeers();
+			waitForPeers();
 
 			// App Routine
 			while(true)
@@ -341,6 +344,8 @@ public class Trabalho02
 									process.getProcessID(), 
 									null);
 
+		multiCast.stop();
+		
 		System.out.println("Fechando aplicação");
 		
 		return;
@@ -401,7 +406,7 @@ public class Trabalho02
 			
 			System.out.print(".");
 			
-			if(process.getPeerList().getPeerListSize() == minimumPeers)
+			if((process.getPeerList().getPeerListSize() == (minimumPeers - 1)) || (multiCast.getInitialSetOK()))
 			{
 				break;
 			}
@@ -420,6 +425,8 @@ public class Trabalho02
 	 */
 	public static void waitForReplies(int	_resourceId) throws InterruptedException
 	{
+		PeerList unansweredPeerList = new PeerList();
+		
 		int remainingTime = deltaTime;
 		
 		boolean receivedAllReplies = false;
@@ -428,10 +435,12 @@ public class Trabalho02
 		
 		while(remainingTime != 0 && !receivedAllReplies)
 		{
-			receivedAllReplies = process.getResourceManager().checkPeersResponse();
+			unansweredPeerList = process.getResourceManager().checkPeersResponse();
 			
-			if(receivedAllReplies)
+			if(0 == unansweredPeerList.getPeerListSize())
 			{
+				receivedAllReplies = true;
+				
 				break;
 			}
 			
@@ -458,9 +467,16 @@ public class Trabalho02
 				System.out.println("O recurso " + _resourceId + " já está sendo alocado por outro Peer.");
 			}
 		}
+		
+		// Peer Fail - should remove the peer in question
 		else
 		{
-			
+			for(Peer peer : unansweredPeerList.getPeerList())
+			{
+				System.out.println("Falha no Peer " + peer.getId());
+				
+				process.getPeerList().removePeer(peer.getId());
+			}
 		}
 		
 		return;

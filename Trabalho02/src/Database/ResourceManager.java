@@ -102,10 +102,10 @@ public class ResourceManager
      * @brief
      * @return 
      */
-    public boolean checkPeersResponse() 
+    public PeerList checkPeersResponse() 
     {
-        boolean receivedAllReplies = true;
-     
+    	PeerList unansweredPeerList = new PeerList();
+    
         boolean peerStatusResponse;
 
         for(int i = 0; i < this.peerList.getPeerListSize(); i++)
@@ -114,11 +114,11 @@ public class ResourceManager
          
             if(!peerStatusResponse)
             {
-                receivedAllReplies = false;
+            	unansweredPeerList.insertPeer(this.peerList.getPeerByIndex(i));
             }
         }
         
-        return receivedAllReplies;
+        return unansweredPeerList;
     }
 
     /**
