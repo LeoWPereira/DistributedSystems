@@ -86,10 +86,13 @@ public class MultiCast_Manager extends Thread
 	private boolean debugMode;
 
 	/**
-	 * @name MultiCast_Manager
-	 * @brief
-	 * @param _communicationPort
-	 * @param _communcationGroup
+	 * @name 	MultiCast_Manager
+	 * @brief	Default Class Constructor
+	 * 			Its only work is to call the constructor of every needed private member
+	 * @param 	_communicationPort	: The communication port
+	 * @param 	_communcationGroup	: The communication group
+	 * @param	_minimumPeers		: The minimum number of peers before the application starts to run
+	 * @param	_debugMode			: Whether or not the application is running in debug mode
 	 */
 	public MultiCast_Manager(ProcessClass	_process,
 							 int 			_communicationPort, 
@@ -129,7 +132,7 @@ public class MultiCast_Manager extends Thread
 
 	/**
 	 * @name 	getConnectionStatus
-	 * @brief
+	 * @brief	Default Getter
 	 */
 	public boolean getConnectionStatus() 
 	{
@@ -138,7 +141,7 @@ public class MultiCast_Manager extends Thread
 	
 	/**
 	 * @name 	getInitialSetOK
-	 * @brief
+	 * @brief	Default Getter
 	 */
 	public boolean getInitialSetOK() 
 	{
@@ -146,8 +149,10 @@ public class MultiCast_Manager extends Thread
 	}
 	
 	/**
-	 * @name run
-	 * @brief
+	 * @name 	run
+	 * @brief	The only method executed by the process second thread.
+	 * 			It always waits for a new message to come, and then calls
+	 * 			the respective callback
 	 */
 	public void run() 
 	{
@@ -219,10 +224,12 @@ public class MultiCast_Manager extends Thread
 	}
 
 	/**
-	 * @name
-	 * @brief
-	 * @param _message
-	 * @return
+	 * @name	sendMessage
+	 * @brief	Using the DatagramPacket Class, it sends a _message
+	 * 			to the multiCast group
+	 * @param 	_message	: the received message
+	 * @return	true if successful
+	 * 			false otherwise
 	 */
 	public boolean sendMessage(byte[] _message) 
 	{
@@ -276,8 +283,10 @@ public class MultiCast_Manager extends Thread
 
 	/**
 	 * @name	subscribe_Callback
-	 * @brief
-	 * @param	_message
+	 * @brief	Callback function for messages of type SUBSCRIBE
+	 * 			It demount the received message, checks if the sender of the message
+	 * 			is myself and, if not, insert the peer into the peer list.
+	 * @param	_message	: the received message
 	 */
 	public void subscribe_Callback(byte[]	_message)
 	{
@@ -316,8 +325,11 @@ public class MultiCast_Manager extends Thread
 
 	/**
 	 * @name 	unsubscribe_Callback
-	 * @brief
-	 * @param	_message
+	 * @brief	Callback function for messages of type UNSUBSCRIBE
+	 * 			It demount the received message, checks if the sender of the message
+	 * 			is myself and, if not, checks the message signature (to see the correctness
+	 * 			of the sender) and only then removes the sender peer from the peer list
+	 * @param	_message	: the received message
 	 */
 	public void unsubscribe_Callback(byte[]	_message) 
 	{
@@ -362,8 +374,10 @@ public class MultiCast_Manager extends Thread
 
 	/**
 	 * @name 	replyPublicKey_Callback
-	 * @brief
-	 * @param	_message
+	 * @brief	Callback function for messages of type REPLY_PUBLIC_KEY
+	 * 			It demount the received message, checks if the sender of the message
+	 * 			is myself and, if not, insert the sender peer into the peer list
+	 * @param	_message	: the received message
 	 */
 	public void replyPublicKey_Callback(byte[]	_message) 
 	{
@@ -403,8 +417,12 @@ public class MultiCast_Manager extends Thread
 
 	/**
 	 * @name 	replyResourceStatus_Callback
-	 * @brief
-	 * @param	_message
+	 * @brief	Callback function for messages of type REPLY_RESOURCE_STATUS
+	 * 			It demount the received message, checks if the sender of the message
+	 * 			is myself and, if not, call the resource Manager to set the resource
+	 * 			status for the sender peer and finally sets a flag saying that the sender
+	 * 			peer successfully replied
+	 * @param	_message	: the received message
 	 */
 	public void replyResourceStatus_Callback(byte[]	_message) 
 	{
@@ -452,8 +470,11 @@ public class MultiCast_Manager extends Thread
 
 	/**
 	 * @name 	requestResource_Callback
-	 * @brief
-	 * @param	_message
+	 * @brief	Callback function for messages of type REQUEST_RESOURCE
+	 * 			It demount the received message, checks if the sender of the message
+	 * 			is myself and, if not, checks the message signature (to see the correctness
+	 * 			of the sender) and only then reply with a REPLY_RESOURCE_STATUS signed message
+	 * @param	_message	: the received message
 	 */
 	public void requestResource_Callback(byte[]	_message) 
 	{
@@ -496,16 +517,19 @@ public class MultiCast_Manager extends Thread
 					
 					data = ByteBuffer.allocate(4).putInt(resourceId).array();
 					
-					data = sd_message.append(data, resourceStatus);
+					data = sd_message.append(data, 
+											 resourceStatus);
 
 					sendSignedMessage(SD_Message.Types.REPLY_RESOURCE_STATUS,
 									  process.getProcessID(), 
 									  data,
-									  0);
+									  0);	// Timestamp generated inside the message
 
 					// Store the request made and its timestamp
-					this.process.getResourceManager().setResourceStatusByPeerId(sd_message.getUniqueID(), resourceId, 
-													Resource.Status.WANTED.getByteValue(), sd_message.getTimestamp());
+					this.process.getResourceManager().setResourceStatusByPeerId(sd_message.getUniqueID(), 
+																				resourceId, 
+																				Resource.Status.WANTED.getByteValue(), 
+																				sd_message.getTimestamp());
 				}
 			}
 			catch(Exception e)
@@ -519,8 +543,10 @@ public class MultiCast_Manager extends Thread
 	
 	/**
 	 * @name 	requestPublicKey_Callback
-	 * @brief
-	 * @param	_message
+	 * @brief	Callback function for messages of type REQUEST_PUBLIC_KEY
+	 * 			It demount the received message, checks if the sender of the message
+	 * 			is myself and, if not, send a new message of type REPLY_PUBLIC_KEY
+	 * @param	_message	: the received message
 	 */
 	public void requestPublicKey_Callback(byte[]	_message) 
 	{
@@ -570,9 +596,13 @@ public class MultiCast_Manager extends Thread
 	
 	/**
 	 * @name	checkIfSenderIsMyself
-	 * @brief
-	 * @param 	_messageUniqueID
-	 * @return
+	 * @brief	Simple method to check whether or not the 
+	 * 			peer is the actually sender of the message.
+	 * 			In most cases, if this method returns true,
+	 * 			the peer's second thread will do nothing.
+	 * @param 	_messageUniqueID	: the unique ID of the sender
+	 * @return	true if the sender is me
+	 * 			false otherwise
 	 */
 	public boolean checkIfSenderIsMyself(int	_messageUniqueID)
 	{
