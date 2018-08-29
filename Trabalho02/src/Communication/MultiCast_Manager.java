@@ -32,25 +32,26 @@ public class MultiCast_Manager extends Thread
 {
 	/**
 	 * @name 	communicationPort
-	 * @brief
+	 * @brief	Port used for the communication group
 	 */
 	private int communicationPort;
 
 	/**
 	 * @name 	communicationGroup
-	 * @brief
+	 * @brief   IP Address of the MultiCast group
 	 */
 	private InetAddress communicationGroup;
 
 	/**
 	 * @name 	MulticastSocket
-	 * @brief
+	 * @brief	Socket instance for the MultiCast group
 	 */
 	private MulticastSocket socket;
 
 	/**
 	 * @name 	process
-	 * @brief
+	 * @brief	Process class for accessing information
+	 *			and storing data.
 	 */
 	private ProcessClass process;
 	
@@ -63,25 +64,29 @@ public class MultiCast_Manager extends Thread
 
 	/**
 	 * @name 	connectionOK
-	 * @brief
+	 * @brief	Fancy flag for testing the multicast communication.
 	 */
 	private boolean connectionOK = false;
 	
 	/**
 	 * @name 	initialSetOK
-	 * @brief
+	 * @brief	Flag used for determining when the first 3 process
+	 *			have accessed the group. It will be always set after,
+	 *			since the flag is shared for the whole group for each
+	 *			subscription.
 	 */
 	private boolean initialSetOK = false;
 	
 	/**
 	 * @name 	minimumPeers
-	 * @brief
+	 * @brief	Variable defining the minimum amount of peers to allow
+	 *			start of the communication.
 	 */
 	private int minimumPeers;
 	
 	/**
 	 * @name	debugMode
-	 * @brief
+	 * @brief	Flag used for debugMode
 	 */
 	private boolean debugMode;
 
