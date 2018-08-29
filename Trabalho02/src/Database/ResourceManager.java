@@ -202,6 +202,15 @@ public class ResourceManager
     }
 
     /**
+     * @name    getRequestTimestamp
+     * @brief
+     */
+    public int getRequestTimestamp() 
+    {
+        return this.requestTimestamp;
+    }
+
+    /**
      * @name    setRequestTimestamp
      * @brief
      */

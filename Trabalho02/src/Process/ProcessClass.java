@@ -158,8 +158,7 @@ public class ProcessClass
 	{
 		int id = 0;
 		
-		System.out.println("\nDigite um ID para você:");
-		System.out.println("Ele será verificado para ser único no Multi Cast");
+		System.out.println("\nDigite um ID para você (Sujeito à verificação - único no grupo):");
 		
 		do
 		{

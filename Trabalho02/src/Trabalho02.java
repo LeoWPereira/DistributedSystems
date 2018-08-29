@@ -452,6 +452,13 @@ public class Trabalho02
 
 		if(receivedAllReplies)
 		{
+			// TEST CONCURRENCE
+			// Change the first peer to the wanted state
+			process.getPeerList().getPeerByIndex(0).getResourceList().setResourceStatus(_resourceId, Resource.Status.WANTED);
+			// Change its timestamp request for the amount for the chosen test
+			process.getPeerList().getPeerByIndex(0).getResourceList().setRequestTimestamp(_resourceId, process.getResourceManager().getRequestTimestamp() - 1);
+			
+			
 			// Checks if the resource is available
 			if (process.getResourceManager().checkResourceAvailability(_resourceId, process.getProcessID()))
 			{
