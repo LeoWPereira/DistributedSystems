@@ -116,8 +116,9 @@ public class Trabalho02
 	
 	/**
 	 * @name	main
-	 * @brief
-	 * @param 	args : default void main param
+	 * @brief	The main function is the core of the application
+	 * 			To facilitate reading, it only calls several methods
+	 * @param 	args : default void main parameter
 	 */
 	public static void main(String[] args) throws Exception 
 	{
@@ -143,8 +144,6 @@ public class Trabalho02
 			
 			requestPeers();
 			
-			TimeUnit.SECONDS.sleep(deltaTime);
-			
 			process.configProcess();
 			
 			subscribePeer();
@@ -156,7 +155,7 @@ public class Trabalho02
 		
 		else
 		{
-			System.out.println("\nTimeout de configuração do Socket MultiCast. Favor tentar novamente!\n");
+			System.out.println("\nTimeout de configuração do Socket MultiCast. Favor reiniciar a aplicação e tentar novamente!\n");
 		}
 		
 		return;
@@ -164,8 +163,9 @@ public class Trabalho02
 	
 	/**
 	 * @name	configPort
-	 * @brief	
-	 * @return
+	 * @brief	Function responsible for asking the user for the desired
+	 * 			communication port.
+	 * 			It has an option to use the default value
 	 */
 	public static void configPort()
 	{
@@ -186,8 +186,9 @@ public class Trabalho02
 	
 	/**
 	 * @name	configGroup
-	 * @brief	
-	 * @return
+	 * @brief	Function responsible for asking the user for the desired 
+	 * 			communication IP address.
+	 * 			It has an option to use the default value
 	 */
 	public static void configGroup()
 	{
@@ -218,8 +219,10 @@ public class Trabalho02
 	
 	/**
 	 * @name	configMinimumPeersQuantity
-	 * @brief	
-	 * @return
+	 * @brief	Function responsible for asking the user for the desired 
+	 * 			number of peers to be available prior the the main application 
+	 * 			execution starts.
+	 * 			It has an option to use the default value
 	 */
 	public static void configMinimumPeersQuantity()
 	{
@@ -240,8 +243,14 @@ public class Trabalho02
 
 	/**
 	 * @name	testMultiCastSocket
-	 * @brief	
-	 * @return
+	 * @brief	Function responsible to send a branch new TEST
+	 * 			message.
+	 * 			By sending the process_id as 0 to SD_Message, other 
+	 * 			processes do NOT consider this as a valid peers wanting 
+	 * 			to subscribe to the multiCast.
+	 * 			Thereat its only purpose is to guarantee the peers has correct
+	 * 			settings for the multiCast
+	 * @return	returns the 
 	 */
 	public static boolean testMultiCastSocket() throws InterruptedException
 	{
@@ -278,7 +287,7 @@ public class Trabalho02
 	 * @name	requestPeers
 	 * @brief	
 	 */
-	public static void requestPeers()
+	public static void requestPeers() throws InterruptedException
 	{
 		SD_Message sd_message;
 		
@@ -287,6 +296,8 @@ public class Trabalho02
 									null);
 		
 		multiCast.sendMessage(sd_message.mountMessage());
+		
+		TimeUnit.SECONDS.sleep(deltaTime);
 		
 		return;
 	}
