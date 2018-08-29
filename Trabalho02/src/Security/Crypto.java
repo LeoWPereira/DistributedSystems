@@ -19,46 +19,57 @@ import javax.crypto.Cipher;
 import Communication.SD_Message;
 
 /**
- * @name	Crypto
- * @brief
- */
+ * @name    Crypto
+ * @brief   Class responsible for managing keys and encryption.
+ *          Mostly used for generating/verifying and
+ *          encrypting/decrypting messages.
+*/
 public class Crypto 
 {    
+    /**
+     * @name    keySize
+     * @brief   Size of the keys - Used while generating keys.
+     */
 	private final int keySize = 1024;
 	
     /**
      * @name	keyPair
-     * @brief
+     * @brief   Structure containing both the PublicKey and PrivateKey.
      */
     private KeyPair keyPair;
     
     /**
      * @name	privKey
-     * @brief
+     * @brief   Private Key used for generating message signatures.
      */
     private PrivateKey privKey;
     
     /**
      * @name	pubKey
-     * @brief
+     * @brief   Public Key used for sharing it to other peers.
+     *          This key is responsible for verifying signatures
+     *          generated using the Private Key.
      */
     private PublicKey pubKey;
 
     /**
      * @name	privKeyByte
-     * @brief
+     * @brief   Private Key in bytes used for generating message signatures.
      */
     private byte[] privKeyByte;
 
     /**
      * @name	pubKeyByte
-     * @brief
+     * @brief   Public Key in bytes used for sharing it to other peers.
+     *          This key is responsible for verifying signatures
+     *          generated using the Private Key.
      */
     private byte[] pubKeyByte;
     
     /**
      * @name	Crypto
-     * @brief
+     * @brief    Default Class Constructor
+     *           Automatically generates a key pair.
      */
     public Crypto() throws NoSuchAlgorithmException 
     {
@@ -69,8 +80,7 @@ public class Crypto
     
     /**
      * @name	getPublicKeyByte
-     * @brief   
-     * @return
+     * @brief   Default Getter
      */
     public byte[] getPublicKeyByte() 
     {
@@ -79,8 +89,7 @@ public class Crypto
 
     /**
      * @name    getPrivateKeyByte
-     * @brief   
-     * @return
+     * @brief   Default Getter
      */
     public byte[] getPrivateKeyByte() 
     {
@@ -89,8 +98,7 @@ public class Crypto
 
     /**
      * @name    getPublicKey
-     * @brief   
-     * @return
+     * @brief   Default Getter
      */
     public PublicKey getPublicKey() 
     {
@@ -99,8 +107,7 @@ public class Crypto
 
     /**
      * @name    getPrivateKey
-     * @brief   
-     * @return
+     * @brief   Default Getter
      */
     public PrivateKey getPrivateKey() 
     {
@@ -109,8 +116,7 @@ public class Crypto
 
     /**
      * @name    generateKeyPair
-     * @brief   
-     * @return
+     * @brief   Method for generating a key pair for the Crypto object.   
      * @throws NoSuchAlgorithmException 
      */
     public void generateKeyPair() throws NoSuchAlgorithmException
@@ -130,8 +136,10 @@ public class Crypto
 
     /**
      * @name    initializeKeyPair
-     * @brief   
-     * @return
+     * @brief   Method for initializing a key pair.
+     *          The RSA Algorithm is used for creating a instance of
+     *          the KeyPairGenerator. Also, the keySize variable defines
+     *          the size of the keys.
      */
     public KeyPair initializeKeyPair() throws NoSuchAlgorithmException 
     {
@@ -144,7 +152,8 @@ public class Crypto
     
     /**
      * @name    encrypt
-     * @brief   
+     * @brief   Encrypt method used for encrypting a message
+     *          using the RSA Algorithm and this object private key.
      * @param	_message
      * @return
      */
@@ -160,7 +169,8 @@ public class Crypto
 
     /**
      * @name    encryptByte
-     * @brief  	
+     * @brief  	Encrypt method used for encrypting a message in bytes
+     *          using the RSA Algorithm and this object private key.
      * @param	_messageByte 
      * @return
      */
@@ -176,7 +186,8 @@ public class Crypto
     
     /**
      * @name    decrypt
-     * @brief   
+     * @brief   Decrypt method used for decrypting a message in bytes
+     *          using the RSA Algorithm and a public key.
      * @param	_publicKey
      * @param	_encrypted
      * @return
@@ -194,7 +205,9 @@ public class Crypto
 
     /**
      * @name    generateSignature
-     * @brief   
+     * @brief   Method used for generating a signature of a given
+     *          message in bytes. The signature is generated using
+     *          SHA256 with the RSA Algorithm.
      * @param	_byteToBeSigned
      * @return
      */
@@ -226,7 +239,9 @@ public class Crypto
 
     /**
      * @name    verifySignature
-     * @brief 
+     * @brief   Verify a signature by using a given PublicKey in bytes (_pubKeyByte).
+    *           The signature to be verified is inside the SD_Message _message, as 
+    *           well as the message itself.
      * @param	_message
      * @param	_pubKeyByte
      * @return
