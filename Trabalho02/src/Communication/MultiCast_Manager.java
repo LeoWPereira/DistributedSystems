@@ -451,23 +451,34 @@ public class MultiCast_Manager extends Thread
 		else
 		{
 			System.out.println("\nMensagem Recebida do tipo REPLY_RESOURCE_STATUS");
-			
-			byte[] data = sd_message.getData();
-			
-			int resourceId = data[0] << 24 | (data[1] & 0xff) << 16 | (data[2] & 0xff) << 8 | (data[3] & 0xff);
-			
-			int peerId = sd_message.getUniqueID();
-			
-			byte resourceStatus = data[4];
 
-			this.process.getResourceManager().setResourceStatusByPeerId(peerId, 
-																		resourceId, 
-																		resourceStatus,
-																		sd_message.getTimestamp());
-			
-			// Message received, response is ok
-			this.process.getResourceManager().setStatusResponseByPeerId(peerId, 
-																		true);
+			try
+			{
+				// Verify if the signature is correct
+				if(this.process.getCriptography().verifySignature(sd_message, this.process.getPeerList().getPublicKeyByte(sd_message.getUniqueID())))
+				{
+					byte[] data = sd_message.getData();
+					
+					int resourceId = data[0] << 24 | (data[1] & 0xff) << 16 | (data[2] & 0xff) << 8 | (data[3] & 0xff);
+					
+					int peerId = sd_message.getUniqueID();
+					
+					byte resourceStatus = data[4];
+
+					this.process.getResourceManager().setResourceStatusByPeerId(peerId, 
+																				resourceId, 
+																				resourceStatus,
+																				sd_message.getTimestamp());
+					
+					// Message received, response is ok
+					this.process.getResourceManager().setStatusResponseByPeerId(peerId, 
+																				true);
+				}
+			}
+			catch(Exception e)
+			{
+				
+			}
 		}
 		
 		return;
