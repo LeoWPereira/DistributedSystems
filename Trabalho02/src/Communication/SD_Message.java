@@ -18,15 +18,17 @@ import java.util.Calendar;
 
 /**
  * @name 	SD_Message
- * @brief
- * 
- *
+ * @brief	Class responsible for defining what is a message in this application.
+ * 			It has an enumerator (see Types) that defines every possible message.
+ * 			This Class also defines two REALLY important methods, mount() and demount().
  */
 public class SD_Message 
 {
 	/**
 	 * @name	Types
-	 * @brief
+	 * @brief	Enumerator responsible for defining the values for every possible
+	 * 			message.
+	 * 			This is only a fancy way of describing what the application can actually do.
 	 */
 	public enum Types
 	{
@@ -55,7 +57,8 @@ public class SD_Message
 
 	/**
 	 * @name	type
-	 * @brief
+	 * @brief	It stores privately, the type of the current
+	 * 			sent / received message
 	 */
 	private Types type;
 	
@@ -67,13 +70,13 @@ public class SD_Message
 	
 	/**
 	 * @name	uniqueID
-	 * @brief	4 bytes Unique ID
+	 * @brief	4 bytes representing the peer Unique ID (sender of the message).
 	 */
 	private int uniqueID;
 	
 	/**
 	 * @name	data
-	 * @brief	
+	 * @brief	The message data field. It is different for every kind of message
 	 */
 	private byte[] data;
 	
@@ -85,7 +88,8 @@ public class SD_Message
 
 	/**
 	 * @name	signature
-	 * @brief	
+	 * @brief	The message signature, used to guarantee the 
+	 * 			correctness of the sender.
 	 */
 	private byte[] signature;
 	
@@ -97,11 +101,11 @@ public class SD_Message
 
 	/**
 	 * @name	SD_Message
-	 * @param	_type
-	 * @param	_uniqueID
-	 * @param	_data
-	 * @param	_debugMode
-	 * @brief
+	 * @brief	Class Constructor
+	 * 			It is used when sending / receiving a message
+	 * @param	_type		: The type of the message
+	 * @param	_uniqueID	: The sender unique ID
+	 * @param	_data		: the data (different for each kind of message)
 	 */
 	public SD_Message(Types  	_type,
 					  int 		_uniqueID,
@@ -121,6 +125,10 @@ public class SD_Message
 		return;
 	}
 	
+	/**
+	 * @name	SD_Message
+	 * @brief	Default Class Constructor
+	 */
 	public SD_Message()
 	{
 		return;
@@ -128,7 +136,7 @@ public class SD_Message
 
 	/**
 	 * @name	getType
-	 * @brief
+	 * @brief	Default Getter
 	 */
 	public Types getType() 
 	{
@@ -137,7 +145,7 @@ public class SD_Message
 	
 	/**
 	 * @name	getTimestamp
-	 * @brief
+	 * @brief	Default Getter
 	 */
 	public int getTimestamp() 
 	{
@@ -146,7 +154,7 @@ public class SD_Message
 	
 	/**
 	 * @name	getUniqueID
-	 * @brief
+	 * @brief	Default Getter
 	 */
 	public int getUniqueID() 
 	{
@@ -155,7 +163,7 @@ public class SD_Message
 	
 	/**
 	 * @name	getData
-	 * @brief
+	 * @brief	Default Getter
 	 */
 	public byte[] getData() 
 	{
@@ -164,7 +172,7 @@ public class SD_Message
 	
 	/**
 	 * @name	getDataLength
-	 * @brief
+	 * @brief	Default Getter
 	 */
 	public int getDataLength() 
 	{
@@ -173,7 +181,7 @@ public class SD_Message
 
 	/**
 	 * @name	getSignature
-	 * @brief
+	 * @brief	Default Getter
 	 */
 	public byte[] getSignature() 
 	{
@@ -182,7 +190,7 @@ public class SD_Message
 	
 	/**
 	 * @name	getSignatureLength
-	 * @brief
+	 * @brief	Default Getter
 	 */
 	public int getSignatureLength() 
 	{
@@ -191,7 +199,7 @@ public class SD_Message
 
 	/**
 	 * @name	setTimestamp
-	 * @brief
+	 * @brief	Default Setter
 	 */
 	public void setTimestamp(int _timestamp) 
 	{
@@ -207,10 +215,11 @@ public class SD_Message
 	 * 			- Unique ID (single byte)
 	 * 			- Data length
 	 * 			- Data (with Data length size)
+	 * @return	A byte array containing the message ready to be sent
+	 * 			using the multiCast Manager Class
 	 */
 	public byte[] mountMessage()
 	{
-		
 		byte[] initMessage 	= new byte[]{this.type.getByteValue()};
 		
 		byte[] mountedMessage;
@@ -218,12 +227,12 @@ public class SD_Message
 		if(this.timestamp == 0)
 		{
 			mountedMessage = append(initMessage,
-        							   ByteBuffer.allocate(4).putInt(Calendar.getInstance().get(Calendar.MILLISECOND)).array());
+        							ByteBuffer.allocate(4).putInt(Calendar.getInstance().get(Calendar.MILLISECOND)).array());
 		}
 		else
 		{
 			mountedMessage = append(initMessage,
-					   ByteBuffer.allocate(4).putInt(this.timestamp).array());
+					   				ByteBuffer.allocate(4).putInt(this.timestamp).array());
 		}
 		
         mountedMessage = append(mountedMessage, 
@@ -245,8 +254,8 @@ public class SD_Message
 	 * 			- Unique ID (single byte)
 	 * 			- Data length
 	 * 			- Data (with Data length size)
-	 * @param 	_message
-	 *			_messagedSigned
+	 * @param 	_message		: The message to be demounted
+	 *			_messagedSigned	: For sent messages containing signature, this parameter should be true
 	 */
 	public void demountMessage(byte[]	_message, 
 							   boolean 	_messagedSigned)
@@ -365,9 +374,10 @@ public class SD_Message
 
     /**
 	 * @name	appendSignature
-	 * @brief	
-	 * @param	_message
-	 * @param	_signature
+	 * @brief	Uses the append method to append the signature to the
+	 * 			previously mounted message (passed as a parameter)
+	 * @param	_message	: The message
+	 * @param	_signature	: The signature
 	 */
 	public byte[] appendSignature(byte[]	_message, 
 								  byte[] 	_signature)

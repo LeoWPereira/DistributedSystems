@@ -27,8 +27,6 @@ import Process.ProcessClass;
 /**
  * @name MultiCast_Manager
  * @brief
- * 
- *
  */
 public class MultiCast_Manager extends Thread 
 {
