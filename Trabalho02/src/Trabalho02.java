@@ -469,9 +469,9 @@ public class Trabalho02
 		{
 			// TEST CONCURRENCE
 			// Change the first peer to the wanted state
-			process.getPeerList().getPeerByIndex(0).getResourceList().setResourceStatus(_resourceId, Resource.Status.WANTED);
+			//process.getPeerList().getPeerByIndex(0).getResourceList().setResourceStatus(_resourceId, Resource.Status.WANTED);
 			// Change its timestamp request for the amount for the chosen test
-			process.getPeerList().getPeerByIndex(0).getResourceList().setRequestTimestamp(_resourceId, process.getResourceManager().getRequestTimestamp() - 1);
+			//process.getPeerList().getPeerByIndex(0).getResourceList().setRequestTimestamp(_resourceId, process.getResourceManager().getRequestTimestamp() - 1);
 			
 			
 			// Checks if the resource is available
