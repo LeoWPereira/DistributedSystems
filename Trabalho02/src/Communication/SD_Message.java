@@ -188,6 +188,17 @@ public class SD_Message
 	{
 		return this.signatureLength;
 	}
+
+	/**
+	 * @name	setTimestamp
+	 * @brief
+	 */
+	public void setTimestamp(int _timestamp) 
+	{
+		this.timestamp = _timestamp;
+
+		return;
+	}
 	
 	/**
 	 * @name	mountMessage

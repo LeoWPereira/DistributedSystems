@@ -125,6 +125,40 @@ public class ResourceList
     }
 
     /**
+     * @name    getResourceStatus
+     * @brief
+     * @param   _idResource
+     */
+    public int getResquestTimestamp(int _idResource) 
+    {
+        Resource resource = findResourceById(_idResource);
+        
+        if (resource != null) 
+        {
+            return resource.getRequestTimestamp();
+        }
+        
+        return 0;
+    }
+
+    /**
+     * @name    setResourceStatus
+     * @brief
+     * @param   _idResource
+     */
+    public void setRequestTimestamp(int _idResource, int _timestamp) 
+    {
+		Resource resource = findResourceById(_idResource);
+		        
+        if (resource != null) 
+        {
+        	resource.setRequestTimestamp(_timestamp);
+        }
+        
+        return;
+    }
+
+    /**
      * @name    getResourceListSize
      * @brief
      */

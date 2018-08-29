@@ -441,7 +441,8 @@ public class MultiCast_Manager extends Thread
 
 			this.process.getResourceManager().setResourceStatusByPeerId(peerId, 
 																		resourceId, 
-																		resourceStatus);
+																		resourceStatus,
+																		sd_message.getTimestamp());
 			
 			// Message received, response is ok
 			this.process.getResourceManager().setStatusResponseByPeerId(peerId, 
@@ -501,7 +502,12 @@ public class MultiCast_Manager extends Thread
 
 					sendSignedMessage(SD_Message.Types.REPLY_RESOURCE_STATUS,
 									  process.getProcessID(), 
-									  data);
+									  data,
+									  0);
+
+					// Store the request made and its timestamp
+					this.process.getResourceManager().setResourceStatusByPeerId(sd_message.getUniqueID(), resourceId, 
+													Resource.Status.WANTED.getByteValue(), sd_message.getTimestamp());
 				}
 			}
 			catch(Exception e)
@@ -581,7 +587,8 @@ public class MultiCast_Manager extends Thread
 	 */
 	public void sendSignedMessage(SD_Message.Types	_type, 
 								  int 				_processId, 
-								  byte[] 			_data) 
+								  byte[] 			_data,
+								  int 				_timestamp) 
 	{
 		byte[] signature;
 		byte[] mountedMessage;
@@ -589,6 +596,11 @@ public class MultiCast_Manager extends Thread
 		SD_Message sd_message = new SD_Message(_type,
 											   _processId,
 											   _data);
+
+		if(_timestamp != 0)
+		{
+			sd_message.setTimestamp(_timestamp);
+		}
 
 		mountedMessage = sd_message.mountMessage();
 

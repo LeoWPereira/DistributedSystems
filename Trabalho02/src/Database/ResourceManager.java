@@ -32,6 +32,12 @@ public class ResourceManager
     private int qtyResources;
 
     /**
+     * @name    requestTimestamp
+     * @brief
+     */
+    private int requestTimestamp;
+
+    /**
      * @name    ResourceManager
      * @brief
      * @param	_peerList
@@ -56,15 +62,16 @@ public class ResourceManager
      */
     public void setResourceStatusByPeerId(int	_peerId,
                                           int 	_resourceId,
-                                          byte 	_resourceStatus) 
+                                          byte 	_resourceStatus,
+                                          int   _timestamp) 
     {
         Peer peer = this.peerList.findPeerById(_peerId);
         
         Resource.Status resourceStatus = null;
 
-        if(Resource.Status.FREE.getByteValue() == _resourceStatus) 
+        if(Resource.Status.RELEASED.getByteValue() == _resourceStatus) 
         {
-            resourceStatus = Resource.Status.FREE;
+            resourceStatus = Resource.Status.RELEASED;
         }
 
         else if(Resource.Status.HELD.getByteValue() == _resourceStatus) 
@@ -79,6 +86,9 @@ public class ResourceManager
 
         peer.getResourceList().setResourceStatus(_resourceId, 
         										 resourceStatus);
+
+        peer.getResourceList().setRequestTimestamp(_resourceId, 
+                                                    _timestamp);
         
         return;
     }
@@ -127,15 +137,42 @@ public class ResourceManager
      * @param   _idResource
      * @return 
      */
-    public boolean checkResourceAvailability(int	_idResource) 
+    public boolean checkResourceAvailability(int	_idResource,
+                                             int    _processId) 
     {
         boolean resourceAvailable = true;
 
         for(int i = 0; i < this.peerList.getPeerListSize(); i++)
         {
+            // Checks if the resource is HELD by another process
             if(Resource.Status.HELD == this.peerList.getPeerByIndex(i).getResourceList().getResourceStatus(_idResource))
             {
                 resourceAvailable = false;
+            }
+            // Also checks if another process want to allocate this resource
+            else if(Resource.Status.WANTED == this.peerList.getPeerByIndex(i).getResourceList().getResourceStatus(_idResource))
+            {
+                // Check if the requests timestamps are lower or equal
+                if(this.requestTimestamp > this.peerList.getPeerByIndex(i).getResourceList().getResquestTimestamp(_idResource))
+                {
+                    // Another process requested first
+                    resourceAvailable = false;
+
+                    this.peerList.getPeerByIndex(i).getResourceList().setResourceStatus(_idResource, Resource.Status.RELEASED);
+                }
+                else if(this.requestTimestamp == this.peerList.getPeerByIndex(i).getResourceList().getResquestTimestamp(_idResource))
+                {
+                    // Check the process ID
+                    if(_processId > this.peerList.getPeerByIndex(i).getId())
+                    {
+                        // The other process ID is higher, it has the priority
+                        resourceAvailable = false;
+
+                        this.peerList.getPeerByIndex(i).getResourceList().setResourceStatus(_idResource, Resource.Status.RELEASED);
+
+                    }
+
+                }
             }
         }
         
@@ -153,12 +190,24 @@ public class ResourceManager
             // Clear all resources status
             for(int k = 1; k <= this.qtyResources; k++)
             {
-                this.peerList.getPeerByIndex(i).getResourceList().setResourceStatus(k, Resource.Status.FREE);
+                this.peerList.getPeerByIndex(i).getResourceList().setResourceStatus(k, Resource.Status.RELEASED);
+                this.peerList.getPeerByIndex(i).getResourceList().setRequestTimestamp(k, 0);
             }
 
             // Set response status to false
             this.peerList.getPeerByIndex(i).setStatusResponse(false);
         }
+        
+        return;
+    }
+
+    /**
+     * @name    setRequestTimestamp
+     * @brief
+     */
+    public void setRequestTimestamp(int _requestTimestamp) 
+    {
+        this.requestTimestamp = _requestTimestamp;
         
         return;
     }
