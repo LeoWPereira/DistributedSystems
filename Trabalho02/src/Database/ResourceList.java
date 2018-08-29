@@ -17,25 +17,24 @@ import Database.Resource.Status;
 
 /**
  * @name    ResourceList
- * @brief
- * 
- *
+ * @brief	This simple class is responsible for some very basic methods
+ * 			regarding the list of resources
  */
 public class ResourceList 
 {
     /**
      * @name    resourceList
-     * @brief
+     * @brief	Array of resources
+     * 			The resource class is defined in 'Resource.java' file
      */
     private ArrayList<Resource> resourceList = new ArrayList<Resource>();
 
     /**
      * @name    ResourceList
-     * @brief
+     * @brief	Default Constructor
      */
     public ResourceList(int _qtyResources)
     {
-        // Add resources to this list
         for(int i = 1; i <= _qtyResources; i++)
         {
             insertResource(i);
@@ -46,8 +45,8 @@ public class ResourceList
 
     /**
      * @name    insertResource
-     * @param	_idResource
-     * @brief
+     * @brief	Insert a new resource to the resource list
+     * @param	_idResource	: The resource unique ID
      */
     public void insertResource(int	_idResource) 
     {
@@ -58,14 +57,17 @@ public class ResourceList
 
     /**
      * @name    removeResource
-     * @brief
-     * @param	_idResource
+     * @brief	If the resource has been found, remove it
+     * @param	_idResource	: The resource unique ID
      */
     public void removeResource(int	_idResource) 
     {
         Resource resource = findResourceById(_idResource);
         
-        this.resourceList.remove(resource);
+        if(resource != null)
+        {
+        	this.resourceList.remove(resource);
+        }
         
         System.out.println("Recurso com ID " + resource.getId() + " removido da lista de recursos.\n");
 
@@ -74,8 +76,10 @@ public class ResourceList
 
     /**
      * @name    findResourceById
-     * @brief
-     * @param	_idResource
+     * @brief	If the resource has been found, return it, otherwise, it returns null
+     * @param	_idResource	: The resource unique ID
+     * @return	Resource in case of resource found
+     * 			null otherwise
      */
     public Resource findResourceById(int	_idResource) 
     {
@@ -92,14 +96,16 @@ public class ResourceList
     
      /**
      * @name    getResourceStatus
-     * @brief
-     * @param	_idResource
+     * @brief	If the resource has been found, return it, otherwise, it returns null
+     * @param	_idResource	: The resource unique ID
+     * @return	Status in case of resource found
+     * 			null otherwise
      */
     public Status getResourceStatus(int	_idResource) 
     {
         Resource resource = findResourceById(_idResource);
         
-        if (resource != null) 
+        if(resource != null)
         {
             return resource.getResourceStatus();
         }
@@ -109,10 +115,12 @@ public class ResourceList
 
     /**
      * @name    setResourceStatus
-     * @brief
-     * @param   _idResource
+     * @brief	Set the current status to the resource in the parameter
+     * @param   _idResource	: The resource unique ID
+     * @param	_status		: The status of the Resource (see the enumerator for more details)
      */
-    public void setResourceStatus(int _idResource, Resource.Status _status) 
+    public void setResourceStatus(int 				_idResource, 
+    							  Resource.Status	_status) 
     {
         Resource resource = findResourceById(_idResource);
         
@@ -126,7 +134,7 @@ public class ResourceList
 
     /**
      * @name    getResourceListSize
-     * @brief
+     * @brief	Default Getter
      */
     public int getResourceListSize() 
     {
@@ -135,7 +143,7 @@ public class ResourceList
     
     /**
      * @name    listAvailableResources
-     * @brief
+     * @brief	Just print to the user the available resources in a fancy way
      */
     public void listAvailableResources()
     {
