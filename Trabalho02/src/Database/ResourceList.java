@@ -17,24 +17,25 @@ import Database.Resource.Status;
 
 /**
  * @name    ResourceList
- * @brief	This simple class is responsible for some very basic methods
- * 			regarding the list of resources
+ * @brief
+ * 
+ *
  */
 public class ResourceList 
 {
     /**
      * @name    resourceList
-     * @brief	Array of resources
-     * 			The resource class is defined in 'Resource.java' file
+     * @brief
      */
     private ArrayList<Resource> resourceList = new ArrayList<Resource>();
 
     /**
      * @name    ResourceList
-     * @brief	Default Constructor
+     * @brief
      */
     public ResourceList(int _qtyResources)
     {
+        // Add resources to this list
         for(int i = 1; i <= _qtyResources; i++)
         {
             insertResource(i);
@@ -45,8 +46,8 @@ public class ResourceList
 
     /**
      * @name    insertResource
-     * @brief	Insert a new resource to the resource list
-     * @param	_idResource	: The resource unique ID
+     * @param	_idResource
+     * @brief
      */
     public void insertResource(int	_idResource) 
     {
@@ -57,17 +58,14 @@ public class ResourceList
 
     /**
      * @name    removeResource
-     * @brief	If the resource has been found, remove it
-     * @param	_idResource	: The resource unique ID
+     * @brief
+     * @param	_idResource
      */
     public void removeResource(int	_idResource) 
     {
         Resource resource = findResourceById(_idResource);
         
-        if(resource != null)
-        {
-        	this.resourceList.remove(resource);
-        }
+        this.resourceList.remove(resource);
         
         System.out.println("Recurso com ID " + resource.getId() + " removido da lista de recursos.\n");
 
@@ -76,10 +74,8 @@ public class ResourceList
 
     /**
      * @name    findResourceById
-     * @brief	If the resource has been found, return it, otherwise, it returns null
-     * @param	_idResource	: The resource unique ID
-     * @return	Resource in case of resource found
-     * 			null otherwise
+     * @brief
+     * @param	_idResource
      */
     public Resource findResourceById(int	_idResource) 
     {
@@ -96,16 +92,14 @@ public class ResourceList
     
      /**
      * @name    getResourceStatus
-     * @brief	If the resource has been found, return it, otherwise, it returns null
-     * @param	_idResource	: The resource unique ID
-     * @return	Status in case of resource found
-     * 			null otherwise
+     * @brief
+     * @param	_idResource
      */
     public Status getResourceStatus(int	_idResource) 
     {
         Resource resource = findResourceById(_idResource);
         
-        if(resource != null)
+        if (resource != null) 
         {
             return resource.getResourceStatus();
         }
@@ -115,12 +109,10 @@ public class ResourceList
 
     /**
      * @name    setResourceStatus
-     * @brief	Set the current status to the resource in the parameter
-     * @param   _idResource	: The resource unique ID
-     * @param	_status		: The status of the Resource (see the enumerator for more details)
+     * @brief
+     * @param   _idResource
      */
-    public void setResourceStatus(int 				_idResource, 
-    							  Resource.Status	_status) 
+    public void setResourceStatus(int _idResource, Resource.Status _status) 
     {
         Resource resource = findResourceById(_idResource);
         
@@ -133,8 +125,42 @@ public class ResourceList
     }
 
     /**
+     * @name    getResourceStatus
+     * @brief
+     * @param   _idResource
+     */
+    public int getResquestTimestamp(int _idResource) 
+    {
+        Resource resource = findResourceById(_idResource);
+        
+        if (resource != null) 
+        {
+            return resource.getRequestTimestamp();
+        }
+        
+        return 0;
+    }
+
+    /**
+     * @name    setResourceStatus
+     * @brief
+     * @param   _idResource
+     */
+    public void setRequestTimestamp(int _idResource, int _timestamp) 
+    {
+		Resource resource = findResourceById(_idResource);
+		        
+        if (resource != null) 
+        {
+        	resource.setRequestTimestamp(_timestamp);
+        }
+        
+        return;
+    }
+
+    /**
      * @name    getResourceListSize
-     * @brief	Default Getter
+     * @brief
      */
     public int getResourceListSize() 
     {
@@ -143,7 +169,7 @@ public class ResourceList
     
     /**
      * @name    listAvailableResources
-     * @brief	Just print to the user the available resources in a fancy way
+     * @brief
      */
     public void listAvailableResources()
     {

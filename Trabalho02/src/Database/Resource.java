@@ -27,7 +27,7 @@ public class Resource
      */
     public enum Status
     {
-        FREE(new Integer('F')),
+        RELEASED(new Integer('R')),
         HELD(new Integer('H')),
     	WANTED(new Integer('W'));
         
@@ -60,6 +60,12 @@ public class Resource
     private Status resourceStatus;
 
     /**
+     * @name    requestTimestamp
+     * @brief
+     */
+    private int requestTimestamp;
+
+    /**
      * @name    Resource
      * @brief	Class constructor
      * @param	_id	: id of the resource to be configured
@@ -68,7 +74,9 @@ public class Resource
     {
         this.id = _id;
         
-        this.resourceStatus = Status.FREE;
+        this.resourceStatus = Status.RELEASED;
+
+        this.requestTimestamp = 0;
         
         return;
     }
@@ -99,6 +107,26 @@ public class Resource
     public void setResourceStatus(Status _resourceStatus)
     {
         this.resourceStatus = _resourceStatus;
+
+        return;
+    }
+
+    /**
+     * @name    getRequestTimestamp
+     * @brief   
+     */
+    public int getRequestTimestamp()
+    {
+        return this.requestTimestamp;
+    }
+
+    /**
+     * @name    setRequestTimestamp
+     * @brief   
+     */
+    public void setRequestTimestamp(int _requestTimestamp)
+    {
+        this.requestTimestamp = _requestTimestamp;
 
         return;
     }

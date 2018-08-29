@@ -12,6 +12,7 @@
  */
 
 import java.nio.ByteBuffer;
+import java.util.Calendar;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import Communication.MultiCast_Manager;
@@ -331,7 +332,8 @@ public class Trabalho02
 	{
 		multiCast.sendSignedMessage(SD_Message.Types.UNSUBSCRIBE,
 									process.getProcessID(), 
-									null);
+									null,
+									0);
 
 		multiCast.stop();
 		
@@ -351,18 +353,30 @@ public class Trabalho02
 	 */
 	public static void requestResource(int _resourceId) 
 	{
-		if(process.getResourceList().getResourceStatus(_resourceId) == Resource.Status.FREE)
+		if(process.getResourceList().getResourceStatus(_resourceId) == Resource.Status.RELEASED)
 		{
 			byte[] resourceIdBytes;
+			int msgTimespamp;
 
 			// Before requesting a resource, clear all responses received before
 			process.getResourceManager().clearPreviousPeerData();
 
 			resourceIdBytes = ByteBuffer.allocate(4).putInt(_resourceId).array();
 
+			// Store timestamp into the resourceManager class
+			msgTimespamp = Calendar.getInstance().get(Calendar.MILLISECOND);
+
+			process.getResourceManager().setRequestTimestamp(msgTimespamp);
+
+			// Set the designated resource to the wanted state
+			process.getResourceList().setResourceStatus(_resourceId, 
+														Resource.Status.WANTED);
+
+			// Send signed message with the same timestamp
 			multiCast.sendSignedMessage(SD_Message.Types.REQUEST_RESOURCE, 
 										process.getProcessID(), 
-										resourceIdBytes);
+										resourceIdBytes,
+										msgTimespamp);
 
 			try 
 			{
@@ -453,8 +467,15 @@ public class Trabalho02
 
 		if(receivedAllReplies)
 		{
+			// TEST CONCURRENCE
+			// Change the first peer to the wanted state
+			//process.getPeerList().getPeerByIndex(0).getResourceList().setResourceStatus(_resourceId, Resource.Status.WANTED);
+			// Change its timestamp request for the amount for the chosen test
+			//process.getPeerList().getPeerByIndex(0).getResourceList().setRequestTimestamp(_resourceId, process.getResourceManager().getRequestTimestamp() - 1);
+			
+			
 			// Checks if the resource is available
-			if (process.getResourceManager().checkResourceAvailability(_resourceId))
+			if (process.getResourceManager().checkResourceAvailability(_resourceId, process.getProcessID()))
 			{
 				// Allocate resource
 				process.getResourceList().setResourceStatus(_resourceId, 
@@ -465,6 +486,9 @@ public class Trabalho02
 			else
 			{
 				System.out.println("O recurso " + _resourceId + " já está sendo alocado por outro Peer.");
+				// Set resource to released state
+				process.getResourceList().setResourceStatus(_resourceId, 
+															Resource.Status.RELEASED);
 			}
 		}
 		
@@ -477,19 +501,23 @@ public class Trabalho02
 				
 				process.getPeerList().removePeer(peer.getId());
 			}
+
+			// Set resource to released state
+			process.getResourceList().setResourceStatus(_resourceId, 
+														Resource.Status.RELEASED);
 		}
 		
 		return;
 	}
 
 	/**
-	 * @name 	freeResource
-	 * @brief	Free resource of ID _resourceId
+	 * @name 	releaseResource
+	 * @brief	Release resource of ID _resourceId
 	 * 			This function checks if the resource is currently
 	 * 			allocated and also prints the situation to the user.
 	 * @param 	_resourceId	: ID of the desired resource
 	 */
-	public static void freeResource(int _resourceId) 
+	public static void releaseResource(int _resourceId) 
 	{
 		Resource.Status resourceStatus;
 
@@ -498,7 +526,7 @@ public class Trabalho02
 		if(Resource.Status.HELD == resourceStatus)
 		{
 			process.getResourceList().setResourceStatus(_resourceId, 
-														Resource.Status.FREE);
+														Resource.Status.RELEASED);
 			
 			System.out.println("Recurso " + _resourceId + " liberado com sucesso.");
 		}
@@ -548,7 +576,7 @@ public class Trabalho02
 					
 					if(0 != option)
 					{
-						freeResource(option);
+						releaseResource(option);
 					}
 
 					break;
@@ -562,7 +590,7 @@ public class Trabalho02
 					// First, we should deallocate every resource the peer is using
 					for(int i = 1; i <= process.getResourceList().getResourceListSize(); i++)
 					{
-						freeResource(i);
+						releaseResource(i);
 					}
 					
 					// Send unsubscribe message
