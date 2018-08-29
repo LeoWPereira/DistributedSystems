@@ -20,55 +20,70 @@ import Security.Crypto;
 
 /**
  * @name	Process
- * @brief	
+ * @brief	The main class used for the peer.
+ * 			It stores every needed information, such as:
+ * 				- Process ID
+ * 				- Cryptography informations
+ * 				- List of connected peers
+ * 				- List of available resources
  */
 public class ProcessClass 
 {
 	/**
 	 * @name	scanKeyboard
-	 * @brief
+	 * @brief	The scanKeyboard is responsible for reading the console 
+	 * 			in look for final users responses
 	 */
 	private Scanner scanKeyboard = new Scanner(System.in);
 
 	/**
 	 * @name	processID
-	 * @brief	
+	 * @brief	The process unique ID.
+	 * 			This is the most important attribute of the class, 
+	 * 			alongside the cryptography attribute.
 	 */
 	private int processID = 0;
 	
 	/**
-	 * @name
-	 * @brief
+	 * @name	cryptography
+	 * @brief	Stores cryptography informations,
+	 * 			such as public key, private key...
+	 * 			It is important to note that this attribute is only
+	 * 			visible to the current process.
+	 * 			Other peers cryptography informations are available inside
+	 * 			peerList member.
 	 */
 	private Crypto cryptography;
 
 	/**
 	 * @name	peerList
-	 * @brief
+	 * @brief	Stores the information of other connected peers.
 	 */
 	private PeerList peerList;
 
 	/**
 	 * @name	resourceList
-	 * @brief
+	 * @brief	List of available resources
 	 */
 	private ResourceList resourceList;
 
 	/**
 	 * @name	qtyResources
-	 * @brief
+	 * @brief	Quantity of available resources
 	 */
 	private int qtyResources;
 
 	/**
 	 * @name	resourceManager
-	 * @brief
+	 * @brief	The responsible for the usage of Ricart & Agrawala algorithm.
+	 * 			This private attribute manages the resources statuses and the allocation
+	 * 			of them.
 	 */
 	private ResourceManager resourceManager;
 	
 	/**
 	 * @name	getProcessID
-	 * @brief	
+	 * @brief	Default Getter
 	 */
 	public int getProcessID() 
 	{
@@ -77,7 +92,7 @@ public class ProcessClass
 
 	/**
 	 * @name	getProcessID
-	 * @brief	
+	 * @brief	Default Getter
 	 */
 	public Crypto getCriptography() 
 	{
@@ -86,7 +101,7 @@ public class ProcessClass
 	
 	/**
 	 * @name	getPeerList
-	 * @brief	
+	 * @brief	Default Getter
 	 */
 	public PeerList getPeerList() 
 	{
@@ -95,7 +110,7 @@ public class ProcessClass
 
 	/**
 	 * @name	getResourceList
-	 * @brief	
+	 * @brief	Default Getter
 	 */
 	public ResourceList getResourceList() 
 	{
@@ -104,7 +119,7 @@ public class ProcessClass
 
 	/**
 	 * @name	getResourceManager
-	 * @brief	
+	 * @brief	Default Getter
 	 */
 	public ResourceManager getResourceManager() 
 	{
@@ -113,7 +128,7 @@ public class ProcessClass
 	
 	/**
 	 * @name	setProcessID
-	 * @brief	
+	 * @brief	Default Setter
 	 */
 	public void setProcessID(int processID) 
 	{
@@ -122,7 +137,7 @@ public class ProcessClass
 
 	/**
 	 * @name	getQtyResources
-	 * @brief	
+	 * @brief	Default Getter
 	 */
 	public int getQtyResources() 
 	{
@@ -131,10 +146,10 @@ public class ProcessClass
 	
 	/**
 	 * @name	ProcessClass
-	 * @brief
-	 * @param	_qtyResources
+	 * @brief	Default Class Constructor
+	 * @param	_qtyResources	: Quantity of resources of the application
 	 */
-	public ProcessClass(int _qtyResources) throws Exception
+	public ProcessClass(int	_qtyResources) throws Exception
 	{
 		this.cryptography 	 = new Crypto();
 		
@@ -151,8 +166,9 @@ public class ProcessClass
 	
 	/**
 	 * @name	configProcess
-	 * @brief	
-	 * @return
+	 * @brief	Just a fancy method to ask the user for the process ID
+	 * 			It then checks in its list of peers for some peer with the exact
+	 * 			same ID.
 	 */
 	public void configProcess()
 	{
