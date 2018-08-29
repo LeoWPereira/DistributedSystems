@@ -15,21 +15,21 @@ import java.util.ArrayList;
 
 /**
  * @name    PeerList
- * @brief
- * 
- *
+ * @brief	Class responsible to insert and remove peers from
+ * 			a list of peers.
+ * 			Initially it is null.
  */
 public class PeerList 
 {
     /**
      * @name    peerList
-     * @brief
+     * @brief	Simple array of peers.
      */
     private ArrayList<Peer> peerList = new ArrayList<Peer>();
 
     /**
      * @name    PeerList
-     * @brief
+     * @brief	Default constructor does not need to do anything
      */
     public PeerList()
     {
@@ -38,9 +38,11 @@ public class PeerList
 
     /**
      * @name    insertPeer
-     * @param	_idPeer
-     * @param	_publicKeyByte
-     * @brief
+     * @brief	If the peer is not already in the list, insert it.
+     * 			Otherwise, do nothing.
+     * @param	_idPeer			: The peer unique ID
+     * @param	_publicKeyByte	: The peer public key
+     * @param	_qtyResources	: Quantity of resources for this peer
      */
     public void insertPeer(int		_idPeer, 
     					   byte[]	_publicKeyByte,
@@ -52,7 +54,7 @@ public class PeerList
 	        					  	   _publicKeyByte,
 	                                   _qtyResources));
 	        
-	        System.out.println("Peer adicionado com ID " + _idPeer + " e chave publica " + _publicKeyByte + '\n');
+	        System.out.println("Peer adicionado com ID " + _idPeer + " e chave pública " + _publicKeyByte + '\n');
     	}
     	
         return;
@@ -60,8 +62,8 @@ public class PeerList
     
     /**
      * @name    insertPeer
-     * @param	_peer
-     * @brief
+     * @brief	Inserts a peer in the peer list
+     * @param	_peer	: Peer to be added
      */
     public void insertPeer(Peer	_peer) 
     {
@@ -74,24 +76,31 @@ public class PeerList
 
     /**
      * @name    removePeer
-     * @brief
-     * @param	_idPeer
+     * @brief	Find peer and removes it from the list.
+     * 			For safety, it only asks for the removal once
+     * 			it has been found
+     * @param	_idPeer	: the wanted peer unique ID
      */
     public void removePeer(int	_idPeer) 
     {
         Peer peer = findPeerById(_idPeer);
         
-        this.peerList.remove(peer);
-        
-        System.out.println("Peer com ID " + peer.getId() + " removido da lista de Peers.\n");
+        if (peer != null) 
+        {
+        	this.peerList.remove(peer);
+            
+            System.out.println("Peer com ID " + peer.getId() + " removido da lista de Peers.\n");
+        }
 
         return;
     }
 
     /**
      * @name    findPeerById
-     * @brief
-     * @param	_idPeer
+     * @brief	Look inside the peer List for the desired peer.
+     * @param	_idPeer	: the wanted peer unique ID
+     * @return	null if peer is not in the list
+     * 			Peer class otherwise
      */
     public Peer findPeerById(int	_idPeer) 
     {
@@ -108,8 +117,10 @@ public class PeerList
     
      /**
      * @name    getPublicKeyByte
-     * @brief
-     * @param	_idPeer
+     * @brief	Search for and returns the peer public key
+     * @param	_idPeer	: the wanted peer unique ID
+     * @return	null if peer not found
+     * 			byte array if peer has been found
      */
     public byte[] getPublicKeyByte(int	_idPeer) 
     {
@@ -125,7 +136,7 @@ public class PeerList
 
     /**
      * @name    getPeerListSize
-     * @brief
+     * @brief	Default getter
      */
     public int getPeerListSize() 
     {
@@ -134,7 +145,7 @@ public class PeerList
     
     /**
      * @name    getPeerList
-     * @brief
+     * @brief	Default getter
      */
     public ArrayList<Peer> getPeerList() 
     {
@@ -143,7 +154,7 @@ public class PeerList
 
     /**
      * @name    getPeerByIndex
-     * @brief
+     * @brief	Default getter
      */
     public Peer getPeerByIndex(int _index) 
     {

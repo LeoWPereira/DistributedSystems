@@ -251,13 +251,13 @@ public class Trabalho02
 	 * 			to subscribe to the multiCast.
 	 * 			Thereat its only purpose is to guarantee the peers has correct
 	 * 			settings for the multiCast
-	 * @return	returns the 
+	 * @return	returns if the connection is ok
 	 */
 	public static boolean testMultiCastSocket() throws InterruptedException
 	{
 		SD_Message sd_message;
 		
-		int tempoRestante = 3;
+		int tempoRestante = 3;	// 3 seconds is a good amount of time to wait for the TEST message
 		
 		System.out.println("\nMuito obrigado! Aguarde alguns instantes para que eu possa testar suas configurações");
 	
@@ -286,7 +286,9 @@ public class Trabalho02
 	
 	/**
 	 * @name	requestPeers
-	 * @brief	
+	 * @brief	Sends a REQUEST_PUBLIC_KEY message by the multiCast manager.	
+	 * 			The process' second thread is the responsible one to actually
+	 * 			get other peers public keys and add them to the process' peer list.
 	 */
 	public static void requestPeers() throws InterruptedException
 	{
@@ -298,14 +300,14 @@ public class Trabalho02
 		
 		multiCast.sendMessage(sd_message.mountMessage());
 		
-		TimeUnit.SECONDS.sleep(deltaTime);
+		TimeUnit.SECONDS.sleep(deltaTime);	// just sleep for some seconds to receive the messages
 		
 		return;
 	}
 
 	/**
 	 * @name	subscribePeer
-	 * @brief	
+	 * @brief	Sends a SUBSCRIBE message by the multiCast manager.
 	 */
 	public static void subscribePeer()
 	{
@@ -322,7 +324,9 @@ public class Trabalho02
 
 	/**
 	 * @name	unsubscribePeer
-	 * @brief	
+	 * @brief	Sends a UNSUBSCRIBE message by the multiCast manager.
+	 * 			After the message is sent, we can safely stop every
+	 * 			thread this process is using.
 	 */
 	public static void unsubscribePeer()
 	{
@@ -340,7 +344,12 @@ public class Trabalho02
 
 	/**
 	 * @name 	requestResource
-	 * @brief	Request resource of ID _resourceId
+	 * @brief	Request resource of ID _resourceId.
+	 * 			Sends a REQUEST_RESOURCE message by the multiCast manager
+	 * 			and then wait for other processes replies.
+	 * 			The process' second thread is the responsible one to actually
+	 * 			get other peers responses.
+	 * @param	_resourceId	: ID of the desired resource
 	 */
 	public static void requestResource(int _resourceId) 
 	{
@@ -390,8 +399,10 @@ public class Trabalho02
 	
 	/**
 	 * @name	waitForPeers
-	 * @brief	
-	 * @throws 	InterruptedException
+	 * @brief	The method will only print fancy dots in the terminal
+	 * 			while waiting other peers to connect.
+	 * 			Once the minimum number of peers is reached, the application
+	 * 			returns to its default loop
 	 */
 	public static void waitForPeers() throws InterruptedException
 	{
@@ -405,7 +416,8 @@ public class Trabalho02
 			
 			System.out.print(".");
 			
-			if((process.getPeerList().getPeerListSize() == (minimumPeers - 1)) || (multiCast.getInitialSetOK()))
+			if((process.getPeerList().getPeerListSize() == (minimumPeers - 1)) || 
+			   (multiCast.getInitialSetOK()))
 			{
 				break;
 			}
@@ -418,9 +430,10 @@ public class Trabalho02
 
 	/**
 	 * @name	waitForReplies
-	 * @brief
-	 * @param 	_resourceId
-	 * @throws 	InterruptedException
+	 * @brief	This function runs while the process is waiting
+	 * 			for the process' second thread to deal with other
+	 * 			processes responses.
+	 * @param 	_resourceId	: ID of the desired resource
 	 */
 	public static void waitForReplies(int	_resourceId) throws InterruptedException
 	{
@@ -432,10 +445,12 @@ public class Trabalho02
 		
 		System.out.println("\nAguardando até " + remainingTime + " segundos pelas respostas\n");
 		
-		while(remainingTime != 0 && !receivedAllReplies)
+		while((remainingTime != 0) &&
+			  (!receivedAllReplies))
 		{
-			unansweredPeerList = process.getResourceManager().checkPeersResponse();
+			unansweredPeerList = process.getResourceManager().checkPeersResponse();	// Every second we check the peers responses and populate the list
 			
+			// Received answer for all peers
 			if(0 == unansweredPeerList.getPeerListSize())
 			{
 				receivedAllReplies = true;
@@ -498,6 +513,9 @@ public class Trabalho02
 	/**
 	 * @name 	releaseResource
 	 * @brief	Release resource of ID _resourceId
+	 * 			This function checks if the resource is currently
+	 * 			allocated and also prints the situation to the user.
+	 * @param 	_resourceId	: ID of the desired resource
 	 */
 	public static void releaseResource(int _resourceId) 
 	{
@@ -522,8 +540,10 @@ public class Trabalho02
 	}
 	
 	/**
-	 * @name
-	 * @brief
+	 * @name	runAppRoutine
+	 * @brief	The 'menu' function.
+	 * 			This is the application loop that asks what
+	 * 			the user wants to do and call the responsible method.
 	 */
 	public static void runAppRoutine()
 	{

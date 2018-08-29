@@ -13,21 +13,21 @@ package Database;
 
 /**
  * @name    ResourceManager
- * @brief
- * 
- *
+ * @brief	Class responsible to manage the resources availability.
+ * 			This is the class that actually implements the Ricart & Agrawala algorithm
  */
 public class ResourceManager 
 {
     /**
      * @name    peerList
-     * @brief
+     * @brief	A general list of peers.
+     * 			The 'PeerList' class is defined in 'PeerList.java' file
      */
     private PeerList peerList;
 
     /**
      * @name    qtyResources
-     * @brief
+     * @brief	Quantity of available resource in the application
      */
     private int qtyResources;
 
@@ -39,9 +39,9 @@ public class ResourceManager
 
     /**
      * @name    ResourceManager
-     * @brief
-     * @param	_peerList
-     * @param	_qtyResources
+     * @brief	Default class Constructor
+     * @param	_peerList		: List of peers to be added to this manager
+     * @param	_qtyResources	: Quantity of resources available in the application
      */
     public ResourceManager(PeerList	_peerList,
                            int 		_qtyResources)
@@ -55,10 +55,10 @@ public class ResourceManager
 
     /**
      * @name    setResourceStatusByPeerId
-     * @brief
-     * @param	_peerId
-     * @param	_resourceId
-     * @param	_resourceStatus 
+     * @brief	Set a specific status for a specific resource for a specific peer
+     * @param	_peerId			: the peer unique ID
+     * @param	_resourceId		: the resource ID
+     * @param	_resourceStatus	: the resource status
      */
     public void setResourceStatusByPeerId(int	_peerId,
                                           int 	_resourceId,
@@ -69,19 +69,25 @@ public class ResourceManager
         
         Resource.Status resourceStatus = null;
 
-        if(Resource.Status.RELEASED.getByteValue() == _resourceStatus) 
+        if(null != peer)
         {
-            resourceStatus = Resource.Status.RELEASED;
-        }
-
-        else if(Resource.Status.HELD.getByteValue() == _resourceStatus) 
-        {
-            resourceStatus = Resource.Status.HELD;
-        }
-        
-        else if(Resource.Status.WANTED.getByteValue() == _resourceStatus) 
-        {
-            resourceStatus = Resource.Status.WANTED;
+	        if(Resource.Status.RELEASED.getByteValue() == _resourceStatus) 
+	        {
+	            resourceStatus = Resource.Status.RELEASED;
+	        }
+	
+	        else if(Resource.Status.HELD.getByteValue() == _resourceStatus) 
+	        {
+	            resourceStatus = Resource.Status.HELD;
+	        }
+	        
+	        else if(Resource.Status.WANTED.getByteValue() == _resourceStatus) 
+	        {
+	            resourceStatus = Resource.Status.WANTED;
+	        }
+	
+	        peer.getResourceList().setResourceStatus(_resourceId, 
+	        										 resourceStatus);
         }
 
         peer.getResourceList().setResourceStatus(_resourceId, 
@@ -95,22 +101,29 @@ public class ResourceManager
 
     /**
      * @name    setStatusResponseByPeerId
-     * @brief
-     * @return 
+     * @brief	Searches for a specific peer and set its status response
+     * @param	_peerId			: the peer unique ID
+     * @param	_statusResponse	: the current peer status response
      */
-    public void setStatusResponseByPeerId(int _peerId, boolean _statusResponse) 
+    public void setStatusResponseByPeerId(int		_peerId, 
+    									  boolean	_statusResponse) 
     {
         Peer peer = this.peerList.findPeerById(_peerId);
 
-        peer.setStatusResponse(_statusResponse);
+        if(null != peer)
+        {
+        	peer.setStatusResponse(_statusResponse);
+        }
         
         return;
     }
 
     /**
      * @name    checkPeersResponse
-     * @brief
-     * @return 
+     * @brief	This method is responsible to mount a PeerList (as an array)
+     * 			of peers that did NOT responded ones request.
+     * @return 	A peerList array of unanswered peers. This is NEVER null, though.
+     * 			One should always check its size to see if it is really empty
      */
     public PeerList checkPeersResponse() 
     {
@@ -133,9 +146,14 @@ public class ResourceManager
 
     /**
      * @name    checkResourceAvailability
-     * @brief
-     * @param   _idResource
-     * @return 
+     * @brief	When requesting a resource, one of the process' thread
+     * 			calls this method in order to get the resource status for each one
+     * 			of the available peers.
+     * 			The responsible to set or reset the 'resourceAvailable' attribute is
+     * 			the process' second thread.
+     * @param   _idResource	: the resource ID
+     * @return	true in case of resource currently available
+     * 			false otherwise
      */
     public boolean checkResourceAvailability(int	_idResource,
                                              int    _processId) 
@@ -181,7 +199,10 @@ public class ResourceManager
 
     /**
      * @name    clearPreviousPeerData
-     * @brief
+     * @brief	For the application to be able to work properly,
+     * 			we need to clear all previous Peers Data before some methods
+     * 			(e.g. request resource).
+     * 			This method handles this.
      */
     public void clearPreviousPeerData() 
     {

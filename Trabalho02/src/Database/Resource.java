@@ -13,15 +13,17 @@ package Database;
 
 /**
  * @name    Resource
- * @brief
- * 
- *
+ * @brief	Really simple class responsible the determine
+ * 			the available statuses options and the status for each
+ * 			available resource.
  */
 public class Resource 
 {
     /**
      * @name    Status
-     * @brief
+     * @brief	Enumerator responsible to determine
+     * 			the available status options for resources.
+     * 			This is a fancy way of using constant values inside the project
      */
     public enum Status
     {
@@ -46,13 +48,14 @@ public class Resource
 
     /**
      * @name    id
-     * @brief
+     * @brief	The resource ID
      */
     private int id;
     
     /**
      * @name    resourceStatus
-     * @brief
+     * @brief	The current status of the resource.
+     * 			See the Status enumerator for available options
      */
     private Status resourceStatus;
 
@@ -64,8 +67,8 @@ public class Resource
 
     /**
      * @name    Resource
-     * @brief
-     * @param	_id
+     * @brief	Class constructor
+     * @param	_id	: id of the resource to be configured
      */
     public Resource(int		_id) 
     {
@@ -80,8 +83,7 @@ public class Resource
 
     /**
      * @name    getId
-     * @brief   
-     * @return
+     * @brief   Default getter
      */
     public int getId() 
     {
@@ -90,8 +92,7 @@ public class Resource
 
     /**
      * @name    getResourceStatus
-     * @brief   
-     * @return
+     * @brief   Default getter
      */
     public Status getResourceStatus()
     {
@@ -100,7 +101,8 @@ public class Resource
 
     /**
      * @name    setResourceStatus
-     * @brief   
+     * @brief   Default setter
+     * @param	_resourceStatus
      */
     public void setResourceStatus(Status _resourceStatus)
     {
