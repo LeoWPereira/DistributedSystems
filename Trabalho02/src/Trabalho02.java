@@ -5,7 +5,9 @@
  * @author 	Luis Felipe Mazzuchetti Ortiz
  * @version v1.0
  * @date    16 de ago de 2018
- * @brief
+ * @brief	Main File of the Project.
+ * 			This is the caller and the main executor of one of the thread for
+ * 			every process.
  ******************************************************************************
  */
 
@@ -21,71 +23,101 @@ import Process.ProcessClass;
 
 /**
  * @name 	Trabalho02
- * @brief
- * 
- *
+ * @brief	Class responsible for declaring constants, variables and every
+ * 			static member of the project
  */
 public class Trabalho02 
 {
 	/**
 	 * @name	scanKeyboard
-	 * @brief
+	 * @brief	The scanKeyboard is responsible for reading the console 
+	 * 			in look for final users responses
 	 */
 	private static Scanner scanKeyboard = new Scanner(System.in);
 	
 	/**
 	 * @name	multiCast
-	 * @brief
+	 * @brief	the multiCast is a static member responsible for the
+	 * 			management of the entire MultiCast solution
 	 */
 	public static MultiCast_Manager multiCast;
 	
 	/**
 	 * @name	process
-	 * @brief
+	 * @brief	A process is the manager of each single peer in the
+	 * 			solution. It stores its id, cryptographic information 
+	 * 			and the list of peers he knows.
 	 */
 	public static ProcessClass process;
 	
 	/**
 	 * @name	communicationPort
-	 * @brief
+	 * @brief	As a static member of the solution, the communicationPort
+	 * 			stores the desired port to be used for the multiCast.
+	 * 			As default, the value 6689 is defined. But it can be changed
+	 * 			in runtime by the user
 	 */
 	public static int communicationPort = 6689;
 	
 	/**
 	 * @name	communicationGroup
-	 * @brief
+	 * @brief	As a static member of the solution, the communicationGroup
+	 * 			stores the desired IP address to be used for the multiCast.
+	 * 			As default, the value 224.0.0.10 is defined. But it can be changed
+	 * 			in runtime by the user
 	 */
 	public static String communicationGroup = "224.0.0.10";
 	
 	/**
 	 * @name	minimumPeers
-	 * @brief
+	 * @brief	As a static member of the solution, the minimumPeers
+	 * 			stores the integer value of how much Peers must be initially 
+	 * 			connected for the application to be started.
+	 * 			As default, the value 3 is defined. But it can be changed
+	 * 			in runtime by the user.
 	 */
 	public static int minimumPeers = 3;
 	
 	/**
+	 * @name	maximumWaitTime
+	 * @brief	in addition for the rules written by the teacher, we decided 
+	 * 			to add a maximum time that the peers wait for other peers to 
+	 * 			be connected. After this time, the application starts.
+	 */
+	public static int maximumWaitTime = 60;
+	
+	/**
 	 * @name	deltaTime
-	 * @brief	value in seconds
+	 * @brief	value in seconds representing the max time
+	 * 			that one Peer is going to wait for other peers
+	 * 			answers.
+	 * 			After this time, it will consider that the corresponding
+	 * 			peer is offline and must be removed for the peer List.
 	 */
 	public static int deltaTime = 2;
 
 	/**
 	 * @name	qtyResources
-	 * @brief
+	 * @brief	As a static member of the solution, the qtyResources
+	 * 			stores the desired number of resources to be available
+	 * 			in the solution.
+	 * 			As written in the document 'spec.pdf', the default value 
+	 * 			of 2 is used.
 	 */
 	public static int qtyResources = 2;
 	
 	/**
 	 * @name	debugMode
-	 * @brief
+	 * @brief	Enable this if you want the have a few more
+	 * 			debug messages printed in the terminal.
+	 * 			It may be used to enable test-only features!
 	 */
 	public static boolean debugMode = false;
 	
 	/**
 	 * @name	main
 	 * @brief
-	 * @param args
-	 * @throws Exception 
+	 * @param 	args : default void main param
 	 */
 	public static void main(String[] args) throws Exception 
 	{
@@ -119,65 +151,7 @@ public class Trabalho02
 
 			waitForPeers();
 
-			// App Routine
-			while(true)
-			{
-				int option = 0;
-
-				System.out.println("Por favor, escolha uma das opções a seguir:\n1 - Alocar recurso\n2 - Liberar recurso\n3 - Listar Recursos Disponíveis\n4 - Encerrar processo");
-
-				option = scanKeyboard.nextInt();
-
-				switch(option)
-				{
-					case 1:
-						System.out.println("Qual recurso deseja alocar? (" + process.getResourceList().getResourceListSize() + " disponíveis) -- Digite 0 para voltar\n");
-						
-						option = scanKeyboard.nextInt();
-
-						if(0 != option)
-						{
-							requestResource(option);
-						}
-
-						break;
-
-					case 2:
-						System.out.println("Qual recurso deseja desalocar? (" + process.getResourceList().getResourceListSize() + " disponíveis) -- Digite 0 para voltar\n");
-						
-						option = scanKeyboard.nextInt();
-						
-						if(0 != option)
-						{
-							freeResource(option);
-						}
-
-						break;
-
-					case 3:
-						process.getResourceList().listAvailableResources();
-						
-						break;
-						
-					case 4:
-						// First, we should deallocate every resource the peer is using
-						for(int i = 1; i <= process.getResourceList().getResourceListSize(); i++)
-						{
-							freeResource(i);
-						}
-						
-						// Send unsubscribe message
-						unsubscribePeer();
-						
-						// Exit application
-						return;	
-					
-					default:
-						System.out.println("Opção não definida. Escolha novamente:");
-						
-						break;
-				}
-			}
+			runAppRoutine();
 		}
 		
 		else
@@ -396,7 +370,7 @@ public class Trabalho02
 	 */
 	public static void waitForPeers() throws InterruptedException
 	{
-		int tempoRestante = 60;
+		int tempoRestante = maximumWaitTime;
 		
 		System.out.println("\nAguarde até " + minimumPeers + " peers se conectarem (Timeout de " + tempoRestante + " segundos)!\n");
 		
@@ -506,5 +480,71 @@ public class Trabalho02
 		}
 				
 		return;
+	}
+	
+	/**
+	 * @name
+	 * @brief
+	 */
+	public static void runAppRoutine()
+	{
+		while(true)
+		{
+			int option = 0;
+
+			System.out.println("Por favor, escolha uma das opções a seguir:\n1 - Alocar recurso\n2 - Liberar recurso\n3 - Listar Recursos Disponíveis\n4 - Encerrar processo");
+
+			option = scanKeyboard.nextInt();
+
+			switch(option)
+			{
+				case 1:
+					System.out.println("Qual recurso deseja alocar? (" + process.getResourceList().getResourceListSize() + " disponíveis) -- Digite 0 para voltar\n");
+					
+					option = scanKeyboard.nextInt();
+
+					if(0 != option)
+					{
+						requestResource(option);
+					}
+
+					break;
+
+				case 2:
+					System.out.println("Qual recurso deseja desalocar? (" + process.getResourceList().getResourceListSize() + " disponíveis) -- Digite 0 para voltar\n");
+					
+					option = scanKeyboard.nextInt();
+					
+					if(0 != option)
+					{
+						freeResource(option);
+					}
+
+					break;
+
+				case 3:
+					process.getResourceList().listAvailableResources();
+					
+					break;
+					
+				case 4:
+					// First, we should deallocate every resource the peer is using
+					for(int i = 1; i <= process.getResourceList().getResourceListSize(); i++)
+					{
+						freeResource(i);
+					}
+					
+					// Send unsubscribe message
+					unsubscribePeer();
+					
+					// Exit application
+					return;	
+				
+				default:
+					System.out.println("Opção não definida. Escolha novamente:");
+					
+					break;
+			}
+		}
 	}
 }
