@@ -31,6 +31,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
 
 import Extra.CitiesBrazil;
+import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
+import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
+import net.sourceforge.jdatepicker.impl.UtilDateModel;
 
 public class PassagesPanel extends JPanel
 {
@@ -101,6 +104,26 @@ public class PassagesPanel extends JPanel
 	
 	/**
 	 * @brief
+	 */
+	private JLabel 			  labelDateOneWay;
+	
+	/**
+	 * @brief
+	 */
+	private JLabel 		  	  labelDateRoundTrip;
+	
+	/**
+	 * @brief
+	 */
+	private JDatePickerImpl   datePickerOneWayTrip;
+	
+	/**
+	 * @brief
+	 */
+	private JDatePickerImpl   datePickerRoundTrip;
+	
+	/**
+	 * @brief
 	 * 
 	 * @param	panel	-
 	 */
@@ -111,6 +134,8 @@ public class PassagesPanel extends JPanel
 		configRadioButtons();
 		
 		configEstadoAndCidade();
+		
+		configDates();
 		
 		configButton();
 		
@@ -129,11 +154,28 @@ public class PassagesPanel extends JPanel
 		radioButtonOneWay 	= new JRadioButton("Somente Ida");
 		radioButtonRoundWay	= new JRadioButton("Ida / Volta");
 		
+		radioButtonOneWay.setSelected(true);
 		radioButtonOneWay.setBounds(225, 5,
 									100, 40);
 		
+		radioButtonOneWay.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				labelDateRoundTrip.setVisible(false);
+			}
+		});
+		
 		radioButtonRoundWay.setBounds(425, 5,
 									  100, 40);
+		
+		radioButtonRoundWay.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				labelDateRoundTrip.setVisible(true);
+			}
+		});
 		
         group.add(radioButtonOneWay);
         group.add(radioButtonRoundWay);
@@ -306,6 +348,44 @@ public class PassagesPanel extends JPanel
 		buttonSearch.setBounds(10, 370,
 							   350, 30);
 		
+		buttonSearch.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				
+			}
+		});
+		
 		internalPanel.add(buttonSearch);
+	}
+	
+	public void configDates()
+	{
+		labelDateOneWay		= new JLabel("Data de Ida: ");
+		labelDateRoundTrip	= new JLabel("Data de Retorno: ");
+		
+		// 
+		labelDateOneWay.setPreferredSize(new Dimension(75, 15));
+		labelDateOneWay.setBounds(10, 200,
+						          120, 20);
+		
+		// 
+		labelDateRoundTrip.setVisible(false);
+		labelDateRoundTrip.setPreferredSize(new Dimension(80, 15));
+		labelDateRoundTrip.setBounds(10, 250,
+							         120, 20);
+		
+		internalPanel.add(labelDateOneWay);
+		internalPanel.add(labelDateRoundTrip);
+		
+		UtilDateModel  model 		= new UtilDateModel();
+		JDatePanelImpl datePanel 	= new JDatePanelImpl(model);
+		
+		datePickerOneWayTrip 		= new JDatePickerImpl(datePanel);
+		 
+		datePickerOneWayTrip.setBounds(140, 197, 
+									   200, 40);
+		
+		internalPanel.add(datePickerOneWayTrip);
 	}
 }
