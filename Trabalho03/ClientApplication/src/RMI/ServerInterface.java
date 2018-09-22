@@ -11,17 +11,20 @@
 
 package RMI;
 
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
- 
 
 /**
- * @name    ServerInterface
  * @brief   
  */
 public interface ServerInterface  extends Remote
-{    
+{
+	/**
+	 * @brief	
+	 * 
+	 * @param	clientName	-
+	 * @param	refCli		-
+	 */
 	public void call(String 			clientName,
 					 ClientInterface	refCli) throws RemoteException;  
 }

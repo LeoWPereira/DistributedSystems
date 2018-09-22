@@ -1,0 +1,12 @@
+<map id="Database.Peer.getResourceList" name="Database.Peer.getResourceList">
+<area shape="rect" id="node2" href="$class_database_1_1_resource_manager.html#af7b8611007427ca1a6abac8c0db40015" title="Database.ResourceManager.set\lResourceStatusByPeerId" alt="" coords="269,90,477,131"/>
+<area shape="rect" id="node6" href="$class_database_1_1_resource_manager.html#af510ac2c1354fd5e4e25a7083605028e" title="Database.ResourceManager.check\lResourceAvailability" alt="" coords="260,155,485,197"/>
+<area shape="rect" id="node11" href="$class_database_1_1_resource_manager.html#aea68fb3a168717e2731535b2a1ce30b2" title="Database.ResourceManager.clear\lPreviousPeerData" alt="" coords="263,221,482,262"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_multi_cast___manager.html#acd11a380558bc1bceb2a05a3326e8eb0" title="Communication.MultiCast\l_Manager.replyResourceStatus\l_Callback" alt="" coords="533,5,737,61"/>
+<area shape="rect" id="node5" href="$class_communication_1_1_multi_cast___manager.html#a388ab6766c0b68fad9f2cff033ddd283" title="Communication.MultiCast\l_Manager.requestResource\l_Callback" alt="" coords="545,85,726,141"/>
+<area shape="rect" id="node4" href="$class_communication_1_1_multi_cast___manager.html#a52ee1c8e56becddab5bf42e725911db3" title="Communication.MultiCast\l_Manager.run" alt="" coords="793,53,964,94"/>
+<area shape="rect" id="node7" href="$class_trabalho02.html#ac5c339317bb67a3eaabaea85f8ea9c0c" title="Trabalho02.waitForReplies" alt="" coords="548,167,723,193"/>
+<area shape="rect" id="node8" href="$class_trabalho02.html#a9cd46b08e1018a2686884b0a4ba8cd8d" title="Trabalho02.requestResource" alt="" coords="785,193,972,220"/>
+<area shape="rect" id="node9" href="$class_trabalho02.html#ab93875f125e0ce39f5eb79705e79fb58" title="Trabalho02.runAppRoutine" alt="" coords="1020,193,1195,220"/>
+<area shape="rect" id="node10" href="$class_trabalho02.html#a0425b57b32d14c1291ba9fb6f06bfc08" title="Trabalho02.main" alt="" coords="1243,193,1360,220"/>
+</map>

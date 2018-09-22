@@ -1,0 +1,5 @@
+<map id="Trabalho02.waitForPeers" name="Trabalho02.waitForPeers">
+<area shape="rect" id="node2" href="$class_process_1_1_process_class.html#a9149e12ad250e3a4bd0027a833e96b1b" title="Process.ProcessClass.get\lPeerList" alt="" coords="219,5,397,47"/>
+<area shape="rect" id="node3" href="$class_database_1_1_peer_list.html#aa3ab7e03aa5f4cf769436229f16f33d3" title="Database.PeerList.getPeer\lListSize" alt="" coords="219,71,397,112"/>
+<area shape="rect" id="node4" href="$class_communication_1_1_multi_cast___manager.html#acb171dc1e2ad9925b10db56482936c73" title="Communication.MultiCast\l_Manager.getInitialSetOK" alt="" coords="223,136,393,177"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Communication.SD_Message.appendSignature" name="Communication.SD_Message.appendSignature">
+<area shape="rect" id="node2" href="$class_communication_1_1_multi_cast___manager.html#a3eea0a59c2a26cc0654b0a78a415be56" title="Communication.MultiCast\l_Manager.sendSignedMessage" alt="" coords="293,78,497,119"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_multi_cast___manager.html#a388ab6766c0b68fad9f2cff033ddd283" title="Communication.MultiCast\l_Manager.requestResource\l_Callback" alt="" coords="548,5,729,61"/>
+<area shape="rect" id="node5" href="$class_trabalho02.html#acb05ecc76846d04b39cad5537830a995" title="Trabalho02.unsubscribePeer" alt="" coords="545,85,732,112"/>
+<area shape="rect" id="node8" href="$class_trabalho02.html#a9cd46b08e1018a2686884b0a4ba8cd8d" title="Trabalho02.requestResource" alt="" coords="545,136,732,163"/>
+<area shape="rect" id="node4" href="$class_communication_1_1_multi_cast___manager.html#a52ee1c8e56becddab5bf42e725911db3" title="Communication.MultiCast\l_Manager.run" alt="" coords="782,13,953,54"/>
+<area shape="rect" id="node6" href="$class_trabalho02.html#ab93875f125e0ce39f5eb79705e79fb58" title="Trabalho02.runAppRoutine" alt="" coords="780,111,955,137"/>
+<area shape="rect" id="node7" href="$class_trabalho02.html#a0425b57b32d14c1291ba9fb6f06bfc08" title="Trabalho02.main" alt="" coords="1003,111,1120,137"/>
+</map>

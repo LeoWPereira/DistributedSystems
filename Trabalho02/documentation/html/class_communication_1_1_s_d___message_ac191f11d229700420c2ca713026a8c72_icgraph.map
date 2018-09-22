@@ -1,0 +1,7 @@
+<map id="Communication.SD_Message.getData" name="Communication.SD_Message.getData">
+<area shape="rect" id="node2" href="$class_communication_1_1_multi_cast___manager.html#a9bec3793688404fc93ddb6b9b919eb17" title="Communication.MultiCast\l_Manager.subscribe_Callback" alt="" coords="300,5,496,47"/>
+<area shape="rect" id="node4" href="$class_communication_1_1_multi_cast___manager.html#a8b5897e613d85cb01b7038b60e885169" title="Communication.MultiCast\l_Manager.replyPublicKey\l_Callback" alt="" coords="313,71,483,127"/>
+<area shape="rect" id="node5" href="$class_communication_1_1_multi_cast___manager.html#acd11a380558bc1bceb2a05a3326e8eb0" title="Communication.MultiCast\l_Manager.replyResourceStatus\l_Callback" alt="" coords="296,151,500,207"/>
+<area shape="rect" id="node6" href="$class_communication_1_1_multi_cast___manager.html#a388ab6766c0b68fad9f2cff033ddd283" title="Communication.MultiCast\l_Manager.requestResource\l_Callback" alt="" coords="307,231,489,287"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_multi_cast___manager.html#a52ee1c8e56becddab5bf42e725911db3" title="Communication.MultiCast\l_Manager.run" alt="" coords="548,119,719,160"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="Database.ResourceList.setResourceStatus" name="Database.ResourceList.setResourceStatus">
+<area shape="rect" id="node2" href="$class_database_1_1_resource_manager.html#af7b8611007427ca1a6abac8c0db40015" title="Database.ResourceManager.set\lResourceStatusByPeerId" alt="" coords="241,63,449,105"/>
+<area shape="rect" id="node6" href="$class_database_1_1_resource_manager.html#af510ac2c1354fd5e4e25a7083605028e" title="Database.ResourceManager.check\lResourceAvailability" alt="" coords="232,129,457,170"/>
+<area shape="rect" id="node7" href="$class_trabalho02.html#ac5c339317bb67a3eaabaea85f8ea9c0c" title="Trabalho02.waitForReplies" alt="" coords="520,195,695,221"/>
+<area shape="rect" id="node8" href="$class_trabalho02.html#a9cd46b08e1018a2686884b0a4ba8cd8d" title="Trabalho02.requestResource" alt="" coords="757,273,944,300"/>
+<area shape="rect" id="node11" href="$class_database_1_1_resource_manager.html#aea68fb3a168717e2731535b2a1ce30b2" title="Database.ResourceManager.clear\lPreviousPeerData" alt="" coords="235,297,454,338"/>
+<area shape="rect" id="node12" href="$class_trabalho02.html#a5fb011ec16ee6aa9a854243ba95b9c75" title="Trabalho02.releaseResource" alt="" coords="757,329,944,356"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_multi_cast___manager.html#acd11a380558bc1bceb2a05a3326e8eb0" title="Communication.MultiCast\l_Manager.replyResourceStatus\l_Callback" alt="" coords="505,5,709,61"/>
+<area shape="rect" id="node5" href="$class_communication_1_1_multi_cast___manager.html#a388ab6766c0b68fad9f2cff033ddd283" title="Communication.MultiCast\l_Manager.requestResource\l_Callback" alt="" coords="517,85,698,141"/>
+<area shape="rect" id="node4" href="$class_communication_1_1_multi_cast___manager.html#a52ee1c8e56becddab5bf42e725911db3" title="Communication.MultiCast\l_Manager.run" alt="" coords="765,53,936,94"/>
+<area shape="rect" id="node9" href="$class_trabalho02.html#ab93875f125e0ce39f5eb79705e79fb58" title="Trabalho02.runAppRoutine" alt="" coords="992,301,1167,328"/>
+<area shape="rect" id="node10" href="$class_trabalho02.html#a0425b57b32d14c1291ba9fb6f06bfc08" title="Trabalho02.main" alt="" coords="1215,301,1332,328"/>
+</map>

@@ -1,0 +1,22 @@
+<map id="Trabalho02.waitForReplies" name="Trabalho02.waitForReplies">
+<area shape="rect" id="node2" href="$class_process_1_1_process_class.html#ac8603f8360e2311085c4be8b8840357b" title="Process.ProcessClass.get\lResourceManager" alt="" coords="252,45,429,86"/>
+<area shape="rect" id="node3" href="$class_database_1_1_resource_manager.html#a632e079b1a3faba5858a6d5df323efb9" title="Database.ResourceManager.check\lPeersResponse" alt="" coords="228,110,453,151"/>
+<area shape="rect" id="node4" href="$class_database_1_1_peer_list.html#aa3ab7e03aa5f4cf769436229f16f33d3" title="Database.PeerList.getPeer\lListSize" alt="" coords="525,107,704,149"/>
+<area shape="rect" id="node9" href="$class_database_1_1_resource_manager.html#af510ac2c1354fd5e4e25a7083605028e" title="Database.ResourceManager.check\lResourceAvailability" alt="" coords="228,281,453,322"/>
+<area shape="rect" id="node14" href="$class_database_1_1_resource_list.html#a9acfc366913bc1e8d08aaf58f8061179" title="Database.ResourceList.set\lResourceStatus" alt="" coords="525,461,704,502"/>
+<area shape="rect" id="node17" href="$class_process_1_1_process_class.html#ad08fef4f1a44756cea332d9ada7007b6" title="Process.ProcessClass.get\lProcessID" alt="" coords="252,346,429,387"/>
+<area shape="rect" id="node18" href="$class_process_1_1_process_class.html#a690cf17e3854458315ad826cca9465e3" title="Process.ProcessClass.get\lResourceList" alt="" coords="252,411,429,453"/>
+<area shape="rect" id="node19" href="$class_database_1_1_peer_list.html#a34ac38f96e9e1590dfdeb052b58cfce6" title="Database.PeerList.getPeerList" alt="" coords="241,477,440,504"/>
+<area shape="rect" id="node20" href="$class_process_1_1_process_class.html#a9149e12ad250e3a4bd0027a833e96b1b" title="Process.ProcessClass.get\lPeerList" alt="" coords="252,529,429,570"/>
+<area shape="rect" id="node21" href="$class_database_1_1_peer_list.html#a605912315db4c6ff4eea20c1f0a2de81" title="Database.PeerList.removePeer" alt="" coords="240,229,441,256"/>
+<area shape="rect" id="node5" href="$class_database_1_1_peer_list.html#a157afcdeb9693abb29d99751ce84e4e4" title="Database.PeerList.getPeer\lByIndex" alt="" coords="525,173,704,214"/>
+<area shape="rect" id="node6" href="$class_database_1_1_peer.html#af687d1c3381d71c854bcdca4b09c47da" title="Database.Peer.getStatusResponse" alt="" coords="501,56,728,83"/>
+<area shape="rect" id="node7" href="$class_database_1_1_peer_list.html#aeab4da9c038995e5d066057e47717806" title="Database.PeerList.insertPeer" alt="" coords="519,5,711,32"/>
+<area shape="rect" id="node8" href="$class_database_1_1_peer_list.html#ac1ee0872709a048f17ebef9990eb6268" title="Database.PeerList.findPeerById" alt="" coords="779,123,986,149"/>
+<area shape="rect" id="node10" href="$class_database_1_1_peer.html#afeed119d9bde95849a4cebbc301f4705" title="Database.Peer.getResourceList" alt="" coords="511,407,718,433"/>
+<area shape="rect" id="node11" href="$class_database_1_1_resource_list.html#a9e25c9799ee5d8941ce70c25538070d5" title="Database.ResourceList.get\lResquestTimestamp" alt="" coords="525,341,704,382"/>
+<area shape="rect" id="node16" href="$class_database_1_1_peer.html#abf2b96ea206f623e7b32069d2bf7a626" title="Database.Peer.getId" alt="" coords="545,289,685,316"/>
+<area shape="rect" id="node12" href="$class_database_1_1_resource_list.html#aee43694c2f60d16431de4096237e6b8e" title="Database.ResourceList.find\lResourceById" alt="" coords="792,402,973,443"/>
+<area shape="rect" id="node13" href="$class_database_1_1_resource.html#a7226ebf49a56ef365a51a48fbd49371e" title="Database.Resource.getRequest\lTimestamp" alt="" coords="779,337,986,378"/>
+<area shape="rect" id="node15" href="$class_database_1_1_resource.html#ae221f4ce865f101725c56c5cad588874" title="Database.Resource.setResource\lStatus" alt="" coords="776,467,989,509"/>
+</map>

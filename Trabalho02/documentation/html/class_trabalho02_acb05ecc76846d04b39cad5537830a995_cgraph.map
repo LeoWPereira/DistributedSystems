@@ -1,0 +1,11 @@
+<map id="Trabalho02.unsubscribePeer" name="Trabalho02.unsubscribePeer">
+<area shape="rect" id="node2" href="$class_communication_1_1_multi_cast___manager.html#a3eea0a59c2a26cc0654b0a78a415be56" title="Communication.MultiCast\l_Manager.sendSignedMessage" alt="" coords="240,169,444,211"/>
+<area shape="rect" id="node10" href="$class_process_1_1_process_class.html#ad08fef4f1a44756cea332d9ada7007b6" title="Process.ProcessClass.get\lProcessID" alt="" coords="253,235,431,276"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_s_d___message.html#a3592ca42a331e4cab053d00078602327" title="Communication.SD_Message.set\lTimestamp" alt="" coords="504,5,720,47"/>
+<area shape="rect" id="node4" href="$class_communication_1_1_s_d___message.html#a5b2935f7a91057ed5e607fa31c6513e6" title="Communication.SD_Message.mount\lMessage" alt="" coords="495,71,729,112"/>
+<area shape="rect" id="node6" href="$class_process_1_1_process_class.html#a052bc3a69925f32eea11640a924b3554" title="Process.ProcessClass.get\lCriptography" alt="" coords="523,136,701,177"/>
+<area shape="rect" id="node7" href="$class_security_1_1_crypto.html#a5bb6d089ef5538cc27f101b24435cf8f" title="Security.Crypto.generate\lSignature" alt="" coords="529,201,695,243"/>
+<area shape="rect" id="node8" href="$class_communication_1_1_multi_cast___manager.html#aaf608d567e8e3d8a3a600b3dbf3180c9" title="Communication.MultiCast\l_Manager.sendMessage" alt="" coords="527,267,697,308"/>
+<area shape="rect" id="node9" href="$class_communication_1_1_s_d___message.html#abcd4ef022891f7b937d44a2c88798344" title="Communication.SD_Message.append\lSignature" alt="" coords="492,332,732,373"/>
+<area shape="rect" id="node5" href="$class_communication_1_1_s_d___message.html#a1e9c8abe34f8cf015fd4de6bac685f6c" title="Communication.SD_Message.append" alt="" coords="780,209,1020,235"/>
+</map>

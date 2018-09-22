@@ -1,0 +1,9 @@
+<map id="Communication.MultiCast_Manager.sendSignedMessage" name="Communication.MultiCast_Manager.sendSignedMessage">
+<area shape="rect" id="node2" href="$class_communication_1_1_s_d___message.html#a3592ca42a331e4cab053d00078602327" title="Communication.SD_Message.set\lTimestamp" alt="" coords="269,5,485,47"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_s_d___message.html#a5b2935f7a91057ed5e607fa31c6513e6" title="Communication.SD_Message.mount\lMessage" alt="" coords="260,71,495,112"/>
+<area shape="rect" id="node5" href="$class_process_1_1_process_class.html#a052bc3a69925f32eea11640a924b3554" title="Process.ProcessClass.get\lCriptography" alt="" coords="289,136,466,177"/>
+<area shape="rect" id="node6" href="$class_security_1_1_crypto.html#a5bb6d089ef5538cc27f101b24435cf8f" title="Security.Crypto.generate\lSignature" alt="" coords="294,201,461,243"/>
+<area shape="rect" id="node7" href="$class_communication_1_1_multi_cast___manager.html#aaf608d567e8e3d8a3a600b3dbf3180c9" title="Communication.MultiCast\l_Manager.sendMessage" alt="" coords="292,267,463,308"/>
+<area shape="rect" id="node8" href="$class_communication_1_1_s_d___message.html#abcd4ef022891f7b937d44a2c88798344" title="Communication.SD_Message.append\lSignature" alt="" coords="257,332,497,373"/>
+<area shape="rect" id="node4" href="$class_communication_1_1_s_d___message.html#a1e9c8abe34f8cf015fd4de6bac685f6c" title="Communication.SD_Message.append" alt="" coords="545,209,785,235"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Database.Resource.getResourceStatus" name="Database.Resource.getResourceStatus">
+<area shape="rect" id="node2" href="$class_database_1_1_resource_list.html#a3b9fbd29b54c4cf6f683855ef8151b83" title="Database.ResourceList.get\lResourceStatus" alt="" coords="267,78,445,119"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_multi_cast___manager.html#a388ab6766c0b68fad9f2cff033ddd283" title="Communication.MultiCast\l_Manager.requestResource\l_Callback" alt="" coords="496,5,677,61"/>
+<area shape="rect" id="node5" href="$class_trabalho02.html#a9cd46b08e1018a2686884b0a4ba8cd8d" title="Trabalho02.requestResource" alt="" coords="493,85,680,112"/>
+<area shape="rect" id="node8" href="$class_trabalho02.html#a5fb011ec16ee6aa9a854243ba95b9c75" title="Trabalho02.releaseResource" alt="" coords="493,136,680,163"/>
+<area shape="rect" id="node4" href="$class_communication_1_1_multi_cast___manager.html#a52ee1c8e56becddab5bf42e725911db3" title="Communication.MultiCast\l_Manager.run" alt="" coords="730,13,901,54"/>
+<area shape="rect" id="node6" href="$class_trabalho02.html#ab93875f125e0ce39f5eb79705e79fb58" title="Trabalho02.runAppRoutine" alt="" coords="728,111,903,137"/>
+<area shape="rect" id="node7" href="$class_trabalho02.html#a0425b57b32d14c1291ba9fb6f06bfc08" title="Trabalho02.main" alt="" coords="951,111,1068,137"/>
+</map>

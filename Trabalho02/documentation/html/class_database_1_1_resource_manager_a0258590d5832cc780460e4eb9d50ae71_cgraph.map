@@ -1,0 +1,4 @@
+<map id="Database.ResourceManager.setStatusResponseByPeerId" name="Database.ResourceManager.setStatusResponseByPeerId">
+<area shape="rect" id="node2" href="$class_database_1_1_peer_list.html#ac1ee0872709a048f17ebef9990eb6268" title="Database.PeerList.findPeerById" alt="" coords="271,5,478,32"/>
+<area shape="rect" id="node3" href="$class_database_1_1_peer.html#ae3b7f1838f0a781d33ce6038d3332555" title="Database.Peer.setStatusResponse" alt="" coords="261,56,488,83"/>
+</map>

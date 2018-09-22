@@ -1,0 +1,12 @@
+<map id="Communication.MultiCast_Manager.subscribe_Callback" name="Communication.MultiCast_Manager.subscribe_Callback">
+<area shape="rect" id="node2" href="$class_communication_1_1_s_d___message.html#a1dd9dbd4bed19d213f3bfd81ee6a4fb9" title="Communication.SD_Message.demount\lMessage" alt="" coords="249,5,497,47"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_multi_cast___manager.html#afbe493c257ec3b781af42b5a4a183ce5" title="Communication.MultiCast\l_Manager.checkIfSenderIsMyself" alt="" coords="267,71,480,112"/>
+<area shape="rect" id="node5" href="$class_communication_1_1_s_d___message.html#a85a2056005ab4f1260300941e66d6a51" title="Communication.SD_Message.get\lUniqueID" alt="" coords="265,136,481,177"/>
+<area shape="rect" id="node6" href="$class_process_1_1_process_class.html#a9149e12ad250e3a4bd0027a833e96b1b" title="Process.ProcessClass.get\lPeerList" alt="" coords="285,201,462,243"/>
+<area shape="rect" id="node7" href="$class_database_1_1_peer_list.html#aeab4da9c038995e5d066057e47717806" title="Database.PeerList.insertPeer" alt="" coords="277,267,469,294"/>
+<area shape="rect" id="node9" href="$class_communication_1_1_s_d___message.html#ac191f11d229700420c2ca713026a8c72" title="Communication.SD_Message.getData" alt="" coords="252,318,495,345"/>
+<area shape="rect" id="node10" href="$class_process_1_1_process_class.html#a81d6d14359956d7d70fbe18579b61a5f" title="Process.ProcessClass.get\lQtyResources" alt="" coords="285,369,462,411"/>
+<area shape="rect" id="node11" href="$class_database_1_1_peer_list.html#aa3ab7e03aa5f4cf769436229f16f33d3" title="Database.PeerList.getPeer\lListSize" alt="" coords="284,435,463,476"/>
+<area shape="rect" id="node4" href="$class_process_1_1_process_class.html#ad08fef4f1a44756cea332d9ada7007b6" title="Process.ProcessClass.get\lProcessID" alt="" coords="560,71,737,112"/>
+<area shape="rect" id="node8" href="$class_database_1_1_peer_list.html#ac1ee0872709a048f17ebef9990eb6268" title="Database.PeerList.findPeerById" alt="" coords="545,267,752,294"/>
+</map>

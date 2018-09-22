@@ -1,0 +1,12 @@
+<map id="Process.ProcessClass.getPeerList" name="Process.ProcessClass.getPeerList">
+<area shape="rect" id="node2" href="$class_communication_1_1_multi_cast___manager.html#a9bec3793688404fc93ddb6b9b919eb17" title="Communication.MultiCast\l_Manager.subscribe_Callback" alt="" coords="238,5,434,47"/>
+<area shape="rect" id="node4" href="$class_communication_1_1_multi_cast___manager.html#a85187f1973991a43d7839bd5066b9e25" title="Communication.MultiCast\l_Manager.unsubscribe_Callback" alt="" coords="231,71,441,112"/>
+<area shape="rect" id="node5" href="$class_communication_1_1_multi_cast___manager.html#a8b5897e613d85cb01b7038b60e885169" title="Communication.MultiCast\l_Manager.replyPublicKey\l_Callback" alt="" coords="251,137,421,193"/>
+<area shape="rect" id="node6" href="$class_communication_1_1_multi_cast___manager.html#a388ab6766c0b68fad9f2cff033ddd283" title="Communication.MultiCast\l_Manager.requestResource\l_Callback" alt="" coords="245,217,427,273"/>
+<area shape="rect" id="node7" href="$class_trabalho02.html#aaaedd9076874d2e4c840967f32bf21ba" title="Trabalho02.waitForPeers" alt="" coords="729,297,894,323"/>
+<area shape="rect" id="node9" href="$class_trabalho02.html#ac5c339317bb67a3eaabaea85f8ea9c0c" title="Trabalho02.waitForReplies" alt="" coords="249,347,423,374"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_multi_cast___manager.html#a52ee1c8e56becddab5bf42e725911db3" title="Communication.MultiCast\l_Manager.run" alt="" coords="497,108,668,149"/>
+<area shape="rect" id="node8" href="$class_trabalho02.html#a0425b57b32d14c1291ba9fb6f06bfc08" title="Trabalho02.main" alt="" coords="947,322,1064,349"/>
+<area shape="rect" id="node10" href="$class_trabalho02.html#a9cd46b08e1018a2686884b0a4ba8cd8d" title="Trabalho02.requestResource" alt="" coords="489,347,676,374"/>
+<area shape="rect" id="node11" href="$class_trabalho02.html#ab93875f125e0ce39f5eb79705e79fb58" title="Trabalho02.runAppRoutine" alt="" coords="724,347,899,374"/>
+</map>
