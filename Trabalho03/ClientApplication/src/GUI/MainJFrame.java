@@ -28,7 +28,6 @@ import javax.swing.ImageIcon;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.text.SimpleDateFormat;
 import javax.swing.JLabel;
 
 /**
@@ -46,10 +45,11 @@ public class MainJFrame extends JFrame
 	 */
 	private static JPanel contentPane;
 	
-	SimpleDateFormat formatoData = new SimpleDateFormat("dd-MM-yyyy");
+	/**
+	 * @brief
+	 */
+	private static JPanel internalPanel;
 	
-	String dataFormatada;
-
 	/**
 	 * @brief
 	 */
@@ -227,7 +227,7 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				
+				PassagesPanel passagesPanel = new PassagesPanel(internalPanel);
 			}
 		});
 		
@@ -243,7 +243,7 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				
+				HotelsPanel hotelsPanel = new HotelsPanel(internalPanel);
 			}
 		});
 				
@@ -259,7 +259,7 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				
+				PackagesPanel packagesPanel = new PackagesPanel(internalPanel);
 			}
 		});
 		
@@ -275,7 +275,7 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				
+				EventsPanel eventsPanel = new EventsPanel(internalPanel);
 			}
 		});
 		
@@ -291,7 +291,7 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				
+				ConfigPanel configPanel = new ConfigPanel(internalPanel);
 			}
 		});
 		
@@ -340,15 +340,15 @@ public class MainJFrame extends JFrame
 	 */
 	public void createInternalPanel()
 	{
-		JPanel panel 				= new JPanel();
+		internalPanel = new JPanel();
 		
 		// panel configurations
-		panel.setBounds(5, 120,
-						782, 420);
+		internalPanel.setBounds(5, 120,
+						        782, 420);
 		
-		panel.setPreferredSize(new Dimension(10, 100));
-		panel.setLayout(null);
+		internalPanel.setPreferredSize(new Dimension(10, 100));
+		internalPanel.setLayout(null);
 				
-		contentPane.add(panel);
+		contentPane.add(internalPanel);
 	}
 }

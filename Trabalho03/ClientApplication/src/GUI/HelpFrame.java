@@ -22,9 +22,14 @@ public class HelpFrame  extends JFrame
 	 */
 	private static final long serialVersionUID = -3316704480403580052L;
 	
+	/**
+	 * @brief
+	 */
+	JPanel contentPane;
+	
 	public HelpFrame()
 	{
-		JPanel contentPane = new JPanel();
+		contentPane = new JPanel();
 		
 		setFrameSettings();
 		

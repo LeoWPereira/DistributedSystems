@@ -22,9 +22,14 @@ public class AboutFrame extends JFrame
 	 */
 	private static final long serialVersionUID = 4914872231876093191L;
 	
+	/**
+	 * @brief
+	 */
+	JPanel contentPane;
+	
 	public AboutFrame()
 	{
-		JPanel contentPane = new JPanel();
+		contentPane = new JPanel();
 		
 		setFrameSettings();
 		
