@@ -15,15 +15,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * @brief	This Class will Handle every method from GUI "Help"
+ */
 public class HelpFrame  extends JFrame
 {	
 	/**
-	 * @brief
+	 * @brief	Unique Version ID from Class
 	 */
 	private static final long serialVersionUID = -3316704480403580052L;
 	
 	/**
-	 * @brief
+	 * @brief	Member to store every GUI information on the current Panel
 	 */
 	JPanel contentPane;
 	
@@ -42,7 +45,7 @@ public class HelpFrame  extends JFrame
 	}
 	
 	/**
-	 * @brief
+	 * @brief	Configure the settings of the Frame
 	 */
 	public void setFrameSettings()
 	{

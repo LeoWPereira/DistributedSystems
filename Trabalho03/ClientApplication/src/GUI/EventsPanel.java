@@ -13,22 +13,34 @@ package GUI;
 
 import javax.swing.JPanel;
 
+/**
+ * @brief	This Class will Handle every method from GUI "Events"
+ */
 public class EventsPanel extends JPanel
 {
 	/**
-	 * @brief
+	 * @brief	Unique Version ID from Class
 	 */
 	private static final long serialVersionUID = 1025943140078291898L;
 
 	/**
-	 * @brief
+	 * @brief	Member to store every GUI information on the current Panel
+	 */
+	private static JPanel 		internalPanel;
+	
+	/**
+	 * @brief	Default Constructor
 	 * 
-	 * @param	panel	-
+	 * This constructor will first remove everything from the JPanel
+	 * 
+	 * @param	panel	-	JPanel containing this panel future info
 	 */
 	public EventsPanel(JPanel panel)
 	{
-		panel.removeAll();
+		internalPanel = panel;
 		
-		panel.updateUI();
+		internalPanel.removeAll();
+		
+		internalPanel.updateUI();
 	}
 }

@@ -1,11 +1,33 @@
+/**
+ ******************************************************************************
+ * @file    CitiesBrazil.java
+ * @author  Leonardo Winter Pereira
+ * @author  Luis Felipe Mazzuchetti Ortiz
+ * @version v1.0
+ * @date    19 de set de 2018
+ * @brief
+ ******************************************************************************
+ */
+
 package Extra;
 
+/**
+ * @brief	This class has every State of Brazil and its Cities
+ */
 public class CitiesBrazil 
 {
-	String[] estados = { "  ", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB",
+	/**
+	 * @brief Every State of Brazil
+	 */
+	String[] states = { "  ", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB",
 			"PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" };
 
-	String[][] cidades = new String[][] { { " " },
+	/**
+	 * @brief Array containing every City of Brazil
+	 * 
+	 * The Row is the index of the state, while the column represents a vector of cities
+	 */
+	String[][] cities = new String[][] { { " " },
 			{ "  ", "Acrelândia", "Assis Brasil", "Brasiléia", "Bujari", "Capixaba", "Cruzeiro do Sul",
 					"Epitaciolândia", "Feijó", "Jordão", "Mâncio Lima", "Manoel Urbano", "Marechal Thaumaturgo",
 					"Plácido de Castro", "Porto Acre", "Porto Walter", "Rio Branco", "Rodrigues Alves",
@@ -951,26 +973,41 @@ public class CitiesBrazil
 					"São Sebastião do Tocantins", "São Valério da Natividade", "Silvanópolis",
 					"Sítio Novo do Tocantins", "Sucupira", "Taguatinga", "Taipas do Tocantins", "Talismã", "Tocantínia",
 					"Tocantinópolis", "Tupirama", "Tupiratins", "Wanderlândia", "Xambioá" } };
-					
+			
+	/**
+	 * @brief	Default Constructor
+	 */
 	public CitiesBrazil() { }
 	
-	public String[] getEstados()
+	/**
+	 * @brief	Get the States from Brazil
+	 * 
+	 * @return	Array of strings representing every state of Brazil
+	 */
+	public String[] getStates()
 	{ 
-		return estados; 
+		return states; 
 	}
 	
-	public String[] getCities(String _estado) 
+	/**
+	 * @brief	Get the list of Cities of an State of Brazil
+	 * 
+	 * @param	_state	: The desired state
+	 * 
+	 * @return	List of Cities
+	 */
+	public String[] getCities(String _state) 
 	{ 
 		int index;
 		
-		for(index = 0; index < estados.length; index++)
+		for(index = 0; index < states.length; index++)
 		{
-			if(estados[index].equals(_estado))
+			if(states[index].equals(_state))
 			{
 				break;
 			}
 		}
 		
-		return cidades[index];
+		return cities[index];
 	}
 }

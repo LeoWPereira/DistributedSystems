@@ -21,13 +21,17 @@ import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import Extra.CitiesBrazil;
@@ -35,105 +39,108 @@ import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
 
+/**
+ * @brief	This Class will Handle every method from GUI "Passages"
+ */
 public class PassagesPanel extends JPanel
 {
 	/**
-	 * @brief
+	 * @brief	Unique Version ID from Class
 	 */
 	private static final long 	serialVersionUID = 1311564096576338404L;
 
 	/**
-	 * @brief
+	 * @brief	Member to store every GUI information on the current Panel
 	 */
 	private static JPanel 		internalPanel;
 	
 	/**
-	 * @brief
+	 * @brief	Member to store the group of Radio Buttons
 	 */
 	private static ButtonGroup 	group;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing the info about the "One-Way" Radio Button
 	 */
 	private static JRadioButton	radioButtonOneWay;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing the info about the "Round-Way" Radio Button
 	 */
 	private static JRadioButton	radioButtonRoundWay;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing the class of States and Cities from Brazil
 	 */
 	private static CitiesBrazil brazil;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing a Combo Box with the Source State
 	 */
-	private JComboBox<String> comboBoxEstadosSrc;
+	private JComboBox<String> comboBoxStateSrc;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing a Combo Box with the Source City
 	 */
-	private JComboBox<String> comboBoxCidadesSrc;
+	private JComboBox<String> comboBoxCitySrc;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing a Combo Box with the Destination State
 	 */
-	private JComboBox<String> comboBoxEstadosDest;
+	private JComboBox<String> comboBoxStateDest;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing a Combo Box with the Destination City
 	 */
-	private JComboBox<String> comboBoxCidadesDest;
+	private JComboBox<String> comboBoxCityDest;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing a table where will be shown Passages Info
 	 */
 	private JTable 			  table;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing info about the table scroll
 	 */
 	private JScrollPane 	  scrollPaneTabela;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing the search button
 	 */
 	private JButton 		  buttonSearch;
 	
 	/**
-	 * @brief
-	 */
-	private JLabel 			  labelDateOneWay;
-	
-	/**
-	 * @brief
+	 * @brief	Member containing the label "Round Trip"
+	 * 
+	 * This label is not only local (as almost every other label in the application)
+	 * because we need to set its visibility attribute once a while
 	 */
 	private JLabel 		  	  labelDateRoundTrip;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing a "Date Picker" for One Way trips
 	 */
 	private JDatePickerImpl   datePickerOneWayTrip;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing a "Date Picker" for Round Trip trips
 	 */
 	private JDatePickerImpl   datePickerRoundTrip;
 	
 	/**
-	 * @brief
+	 * @brief	Default Constructor
 	 * 
-	 * @param	panel	-
+	 * @param	panel	- Panel where the content will be stored
 	 */
 	public PassagesPanel(JPanel panel)
 	{
 		internalPanel = panel;
 		
+		internalPanel.removeAll();
+		
 		configRadioButtons();
 		
-		configEstadoAndCidade();
+		configStateAndCities();
 		
 		configDates();
 		
@@ -145,7 +152,7 @@ public class PassagesPanel extends JPanel
 	}
 	
 	/**
-	 * @brief
+	 * @brief	Initial settings for the radio buttons and radio buttons group
 	 */
 	public void configRadioButtons()
 	{
@@ -154,6 +161,7 @@ public class PassagesPanel extends JPanel
 		radioButtonOneWay 	= new JRadioButton("Somente Ida");
 		radioButtonRoundWay	= new JRadioButton("Ida / Volta");
 		
+		// Settings for the One Way Radio Button
 		radioButtonOneWay.setSelected(true);
 		radioButtonOneWay.setBounds(225, 5,
 									100, 40);
@@ -163,9 +171,12 @@ public class PassagesPanel extends JPanel
 			public void actionPerformed(ActionEvent arg0)
 			{
 				labelDateRoundTrip.setVisible(false);
+				
+				datePickerRoundTrip.setVisible(false);
 			}
 		});
 		
+		// Settings for the Round Trip Radio Button
 		radioButtonRoundWay.setBounds(425, 5,
 									  100, 40);
 		
@@ -174,6 +185,8 @@ public class PassagesPanel extends JPanel
 			public void actionPerformed(ActionEvent arg0)
 			{
 				labelDateRoundTrip.setVisible(true);
+				
+				datePickerRoundTrip.setVisible(true);
 			}
 		});
 		
@@ -185,82 +198,81 @@ public class PassagesPanel extends JPanel
 	}
 	
 	/**
-	 * @brief
+	 * @brief	Initial settings for the several ComboBox of the Panel
 	 */
-	public void configEstadoAndCidade()
+	public void configStateAndCities()
 	{
 		brazil 					= new CitiesBrazil();
 		
-		comboBoxEstadosSrc 		= new JComboBox<String>();
-		comboBoxCidadesSrc		= new JComboBox<String>();
-		comboBoxEstadosDest		= new JComboBox<String>();
-		comboBoxCidadesDest		= new JComboBox<String>();
+		comboBoxStateSrc 		= new JComboBox<String>();
+		comboBoxCitySrc			= new JComboBox<String>();
+		comboBoxStateDest		= new JComboBox<String>();
+		comboBoxCityDest		= new JComboBox<String>();
 		
 		JLabel labelSrc			= new JLabel("Origem: ");
 		JLabel labelDest		= new JLabel("Destino: ");
 		
-		
-		// Passages label configurations
+		// Source label configurations
 		labelSrc.setPreferredSize(new Dimension(75, 15));
 		labelSrc.setBounds(10, 80,
 						   85, 20);
 		
-		// Hotel Label configurations
+		// Destination Label configurations
 		labelDest.setPreferredSize(new Dimension(80, 15));
 		labelDest.setBounds(10, 130,
 							85, 20);
 		
-		// 
-		comboBoxEstadosSrc.setModel(new DefaultComboBoxModel<String>(brazil.getEstados()));
-		comboBoxEstadosSrc.setBounds(70, 80, 
-								     60, 20);
+		// Settings for the State Source comboBox
+		comboBoxStateSrc.setModel(new DefaultComboBoxModel<String>(brazil.getStates()));
+		comboBoxStateSrc.setBounds(80, 80, 
+								   60, 20);
 		
-		comboBoxEstadosSrc.addActionListener(new ActionListener()
+		comboBoxStateSrc.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				changeCitiesComboBox(comboBoxCidadesSrc,
-									 comboBoxEstadosSrc.getItemAt(comboBoxEstadosSrc.getSelectedIndex()));
+				changeCitiesComboBox(comboBoxCitySrc,
+									 comboBoxStateSrc.getItemAt(comboBoxStateSrc.getSelectedIndex()));
 			}
 		});
 		
-		// 
-		comboBoxCidadesSrc.setModel(new DefaultComboBoxModel<String>(brazil.getCities(comboBoxEstadosSrc.getItemAt(comboBoxEstadosSrc.getSelectedIndex()))));
-		comboBoxCidadesSrc.setBounds(160, 80, 
-				                     180, 20);
+		// Settings for the City Source comboBox
+		comboBoxCitySrc.setModel(new DefaultComboBoxModel<String>(brazil.getCities(comboBoxStateSrc.getItemAt(comboBoxStateSrc.getSelectedIndex()))));
+		comboBoxCitySrc.setBounds(160, 80, 
+				                  180, 20);
 		
-		// 
-		comboBoxEstadosDest.setModel(new DefaultComboBoxModel<String>(brazil.getEstados()));
-		comboBoxEstadosDest.setBounds(70, 130, 
-						   		      60, 20);
+		// Settings for the State Destination comboBox
+		comboBoxStateDest.setModel(new DefaultComboBoxModel<String>(brazil.getStates()));
+		comboBoxStateDest.setBounds(80, 130, 
+						   		    60, 20);
 		
-		comboBoxEstadosDest.addActionListener(new ActionListener()
+		comboBoxStateDest.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				changeCitiesComboBox(comboBoxCidadesDest,
-									 comboBoxEstadosDest.getItemAt(comboBoxEstadosDest.getSelectedIndex()));
+				changeCitiesComboBox(comboBoxCityDest,
+									 comboBoxStateDest.getItemAt(comboBoxStateDest.getSelectedIndex()));
 			}
 		});
 		
-		// 
-		comboBoxCidadesDest.setModel(new DefaultComboBoxModel<String>(brazil.getCities(comboBoxEstadosSrc.getItemAt(comboBoxEstadosSrc.getSelectedIndex()))));
-		comboBoxCidadesDest.setBounds(160, 130, 
-				                      180, 20);
+		// Settings for the City Destination comboBox
+		comboBoxCityDest.setModel(new DefaultComboBoxModel<String>(brazil.getCities(comboBoxStateSrc.getItemAt(comboBoxStateSrc.getSelectedIndex()))));
+		comboBoxCityDest.setBounds(160, 130, 
+				                   180, 20);
 		
 		internalPanel.add(labelSrc);
 		internalPanel.add(labelDest);
-		internalPanel.add(comboBoxEstadosSrc);
-		internalPanel.add(comboBoxCidadesSrc);
-		internalPanel.add(comboBoxEstadosDest);
-		internalPanel.add(comboBoxCidadesDest);
+		internalPanel.add(comboBoxStateSrc);
+		internalPanel.add(comboBoxCitySrc);
+		internalPanel.add(comboBoxStateDest);
+		internalPanel.add(comboBoxCityDest);
 	}
 	
 	/**
-	 * @brief
+	 * @brief	The method will handle changes if the State ComboBox
 	 * 
-	 * @param	comboBox	-
-	 * @param	index		-
+	 * @param	comboBox	-	The current comboBox (Source of Destination)
+	 * @param	index		-	The index of the comboBox to look to
 	 */
 	public void changeCitiesComboBox(JComboBox<String>	comboBox,
 									 String				index)
@@ -269,24 +281,27 @@ public class PassagesPanel extends JPanel
 	}
 	
 	/**
-	 * @brief
+	 * @brief	The method will handle the initial settings for the table
 	 */
 	@SuppressWarnings("serial")
 	public void configTable()
 	{
-		table 				= new JTable();
-		scrollPaneTabela 	= new JScrollPane();
+		table 							= new JTable();
+		scrollPaneTabela 				= new JScrollPane();
 		
-		//
+		DefaultTableCellRenderer dtcr	= new DefaultTableCellRenderer();
+		
+		dtcr.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		// Settings for the Scroll
 		scrollPaneTabela.setBackground(new Color(222, 184, 135));
 		scrollPaneTabela.setBorder(null);
 		scrollPaneTabela.setViewportView(table);
 		scrollPaneTabela.setBounds(370, 80,
 								   400, 321);
 		
-		//
+		// Settings for the Table
 		table.setShowGrid(false);
-		//table.setBackground(new Color(210, 180, 140));
 		table.setBorder(null);
 		
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -307,7 +322,7 @@ public class PassagesPanel extends JPanel
 						{null, null, null, null},
 						{null, null, null, null}
 					},
-			new String[] {"Origem", "Destino", "Data", "Preço (R$)"})
+			new String[] {"Origem", "Destino", "Preço (R$)"})
 			{
 				boolean[] columnEditables = new boolean[]
 				{
@@ -321,15 +336,27 @@ public class PassagesPanel extends JPanel
 				}
 			});
 		
-		table.getColumnModel().getColumn(0).setMinWidth(80);
-		table.getColumnModel().getColumn(1).setPreferredWidth(80);
-		table.getColumnModel().getColumn(2).setPreferredWidth(55);
-		table.getColumnModel().getColumn(3).setPreferredWidth(35);
+		table.getColumnModel().getColumn(0).setMinWidth(107);
+		table.getColumnModel().getColumn(1).setPreferredWidth(108);
+		table.getColumnModel().getColumn(2).setPreferredWidth(35);
+		
+		for(int i = 0; i < table.getColumnCount(); ++i)
+		{
+			table.getColumnModel().getColumn(i).setCellRenderer(dtcr);
+		}
+		
 		table.setAutoCreateRowSorter(true);
 		
 		internalPanel.add(scrollPaneTabela);
 	}
 	
+	/**
+	 * @brief	The method will handle the insertion of data into the table
+	 * 
+	 * @param 	row		: Desired Row to add the data
+	 * @param 	column	: Desired Column to add the data
+	 * @param 	value	: Desired String value
+	 */
 	public void insertTableField(int 	row,
 								 int 	column,
 								 String	value)
@@ -339,11 +366,20 @@ public class PassagesPanel extends JPanel
 									column);
 	}
 	
+	/**
+	 * @brief	This method will handle the initial configurations to the Search Button
+	 */
 	public void configButton()
 	{
 		buttonSearch = new JButton("Buscar Passagens");
 		
-		buttonSearch.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		// Settings for the Search Button
+		buttonSearch.setBorder(new BevelBorder(BevelBorder.RAISED, 
+											   null, 
+											   null, 
+											   null, 
+											   null));
+		
 		buttonSearch.setBackground(new Color(238, 238, 238));
 		buttonSearch.setBounds(10, 370,
 							   350, 30);
@@ -352,40 +388,160 @@ public class PassagesPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				
+				if(checkForEmptyFields())
+				{
+					JOptionPane.showMessageDialog(new JFrame(),
+												  "Existem Campos não preenchidos!", 
+												  "Erro",
+												  JOptionPane.ERROR_MESSAGE);
+				}
+				else
+				{
+					//TODO Do action 'search'
+				}
 			}
 		});
 		
 		internalPanel.add(buttonSearch);
 	}
 	
+	/**
+	 * @brief	This method will handle the initial setup to the Dates Labels and Calendars
+	 */
 	public void configDates()
 	{
-		labelDateOneWay		= new JLabel("Data de Ida: ");
-		labelDateRoundTrip	= new JLabel("Data de Retorno: ");
+		JLabel labelDateOneWay				= new JLabel("Data de Ida: ");
 		
-		// 
+		labelDateRoundTrip					= new JLabel("Data de Retorno: ");
+		
+		UtilDateModel  modelOneWay			= new UtilDateModel();
+		UtilDateModel  modelRoundTrip		= new UtilDateModel();
+		
+		JDatePanelImpl datePanelOneWay		= new JDatePanelImpl(modelOneWay);
+		JDatePanelImpl datePanelRoundTrip	= new JDatePanelImpl(modelRoundTrip);
+		
+		datePickerOneWayTrip 				= new JDatePickerImpl(datePanelOneWay);
+		datePickerRoundTrip 				= new JDatePickerImpl(datePanelRoundTrip);
+		
+		// Label for One Way trip configurations
 		labelDateOneWay.setPreferredSize(new Dimension(75, 15));
 		labelDateOneWay.setBounds(10, 200,
 						          120, 20);
 		
-		// 
+		// Label for Round Trip configurations
 		labelDateRoundTrip.setVisible(false);
 		labelDateRoundTrip.setPreferredSize(new Dimension(80, 15));
 		labelDateRoundTrip.setBounds(10, 250,
 							         120, 20);
 		
-		internalPanel.add(labelDateOneWay);
-		internalPanel.add(labelDateRoundTrip);
-		
-		UtilDateModel  model 		= new UtilDateModel();
-		JDatePanelImpl datePanel 	= new JDatePanelImpl(model);
-		
-		datePickerOneWayTrip 		= new JDatePickerImpl(datePanel);
-		 
+		// One Way Trip configurations
 		datePickerOneWayTrip.setBounds(140, 197, 
 									   200, 40);
 		
+		datePickerOneWayTrip.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				
+			}
+		});
+		
+		// Round Trip configurations
+		datePickerRoundTrip.setVisible(false);
+		datePickerRoundTrip.setBounds(140, 247, 
+									  200, 40);
+		
+		datePickerRoundTrip.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				if(!checkForPreviousDate(datePickerOneWayTrip, 
+										 datePickerRoundTrip))
+				{
+					JOptionPane.showMessageDialog(new JFrame(),
+												  "Data de Retorno não pode ser anterior à data de Ida!", 
+												  "Erro",
+												  JOptionPane.ERROR_MESSAGE);
+					
+					modelRoundTrip.setSelected(false);
+				}
+			}
+		});
+		
+		internalPanel.add(labelDateOneWay);
+		internalPanel.add(labelDateRoundTrip);
 		internalPanel.add(datePickerOneWayTrip);
+		internalPanel.add(datePickerRoundTrip);
+	}
+	
+	/**
+	 * @brief	Check whether or not the return Date is greater than the go Date
+	 * 
+	 * @param goDate		: JDatePicker for go Date
+	 * @param returnDate	: JDatePicker for return Date
+	 * 
+	 * @return	True if return Date is lesser than Go Date
+	 * 			False otherwise
+	 */
+	public boolean checkForPreviousDate(JDatePickerImpl	goDate,
+										JDatePickerImpl	returnDate)
+	{
+		boolean returnValue = false;
+		
+		// Check Year
+		if(returnDate.getModel().getYear() > goDate.getModel().getYear())
+		{
+			returnValue = true;
+		}
+		else
+		{
+			// Check Month
+			if(returnDate.getModel().getMonth() > goDate.getModel().getMonth())
+			{
+				returnValue = true;
+			}
+			else
+			{
+				// Check Day
+				if(returnDate.getModel().getDay() > goDate.getModel().getDay())
+				{
+					returnValue = true;
+				}
+			}
+		}
+		
+		return returnValue;
+	}
+	
+	/**
+	 * @brief	Check whether or not there is an (or more) empty field(s) to be filled
+	 * 
+	 * @return	True if there is at least one empty field
+	 * 			False otherwise
+	 */
+	public boolean checkForEmptyFields()
+	{
+		boolean returnValue = false;
+		
+		if(comboBoxStateSrc.getSelectedItem().equals("  ")		||
+		   comboBoxCitySrc.getSelectedItem().equals("  ") 		||
+		   comboBoxStateDest.getSelectedItem().equals("  ") 	||
+		   comboBoxCityDest.getSelectedItem().equals("  ")		||
+		   datePickerOneWayTrip.getModel().getValue() == null)
+		{
+			returnValue = true;
+		}
+		
+		// Lastly, if we are searching for a round trip, we should
+		// look also to datePickerRoundTrip value
+		if(radioButtonRoundWay.isSelected())
+		{
+			if(datePickerRoundTrip.getModel().getValue() == null)
+			{
+				returnValue = true;
+			}
+		}
+		
+		return returnValue;
 	}
 }
