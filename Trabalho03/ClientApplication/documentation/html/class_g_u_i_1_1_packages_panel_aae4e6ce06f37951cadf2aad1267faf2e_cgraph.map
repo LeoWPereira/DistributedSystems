@@ -1,0 +1,5 @@
+<map id="GUI.PackagesPanel.configStateAndCities" name="GUI.PackagesPanel.configStateAndCities">
+<area shape="rect" id="node2" href="$class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b" title="Get the States from Brazil. " alt="" coords="232,5,415,32"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_packages_panel.html#adf8516174d1bed3efb374068a2a6e482" title="The method will handle changes if the State ComboBox. " alt="" coords="231,57,416,98"/>
+<area shape="rect" id="node4" href="$class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d" title="Get the list of Cities of an State of Brazil. " alt="" coords="464,93,643,120"/>
+</map>

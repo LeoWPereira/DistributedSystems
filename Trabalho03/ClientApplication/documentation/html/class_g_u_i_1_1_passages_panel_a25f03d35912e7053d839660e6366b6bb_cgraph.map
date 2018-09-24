@@ -1,0 +1,12 @@
+<map id="GUI.PassagesPanel.PassagesPanel" name="GUI.PassagesPanel.PassagesPanel">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_passages_panel.html#a5cc57d8c022df75ac61eda2a866f972e" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="255,43,432,85"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_passages_panel.html#afc9c5e361a5cf9d8e7dc8b5ae93dd654" title="Initial settings for the several ComboBox of the Panel. " alt="" coords="255,109,432,150"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_passages_panel.html#a4b2249fbc1ca893df92015513e73c672" title="This method will handle the initial setup to the Dates Labels and Calendars. " alt="" coords="255,174,432,215"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="255,239,432,281"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_passages_panel.html#ac4f61a92d8f602b26a10d7d58b757235" title="The method will handle the initial settings for the table. " alt="" coords="255,305,432,346"/>
+<area shape="rect" id="node4" href="$class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b" title="Get the States from Brazil. " alt="" coords="487,5,670,32"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_passages_panel.html#afd0ebeb8f2c9b93574ff82f353b711ca" title="The method will handle changes if the State ComboBox. " alt="" coords="486,57,671,98"/>
+<area shape="rect" id="node6" href="$class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d" title="Get the list of Cities of an State of Brazil. " alt="" coords="725,93,904,120"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_passages_panel.html#a7941aaf192220fc0ae38184633e5661d" title="Check whether or not the return Date is greater than the go Date. " alt="" coords="480,174,677,215"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_passages_panel.html#af6fd37e314368b6b1babe2f7aee7217a" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="480,239,677,281"/>
+</map>

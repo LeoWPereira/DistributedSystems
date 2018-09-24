@@ -21,6 +21,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
@@ -165,9 +166,15 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				AboutFrame aboutFrame = new AboutFrame();
-				
-				aboutFrame.setVisible(true);
+				 try 
+				 {
+					Runtime.getRuntime().exec("hh.exe documentation/html/doc.chm");
+				 }
+				 catch (IOException e) 
+				 {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -228,6 +235,8 @@ public class MainJFrame extends JFrame
 			public void actionPerformed(ActionEvent arg0)
 			{
 				PassagesPanel passagesPanel = new PassagesPanel(internalPanel);
+				
+				passagesPanel.setVisible(true);
 			}
 		});
 		
@@ -244,6 +253,8 @@ public class MainJFrame extends JFrame
 			public void actionPerformed(ActionEvent arg0)
 			{
 				HotelsPanel hotelsPanel = new HotelsPanel(internalPanel);
+				
+				hotelsPanel.setVisible(true);
 			}
 		});
 				
@@ -260,6 +271,8 @@ public class MainJFrame extends JFrame
 			public void actionPerformed(ActionEvent arg0)
 			{
 				PackagesPanel packagesPanel = new PackagesPanel(internalPanel);
+				
+				packagesPanel.setVisible(true);
 			}
 		});
 		
@@ -276,6 +289,8 @@ public class MainJFrame extends JFrame
 			public void actionPerformed(ActionEvent arg0)
 			{
 				EventsPanel eventsPanel = new EventsPanel(internalPanel);
+				
+				eventsPanel.setVisible(true);
 			}
 		});
 		
@@ -292,6 +307,8 @@ public class MainJFrame extends JFrame
 			public void actionPerformed(ActionEvent arg0)
 			{
 				ConfigPanel configPanel = new ConfigPanel(internalPanel);
+				
+				configPanel.setVisible(true);
 			}
 		});
 		
