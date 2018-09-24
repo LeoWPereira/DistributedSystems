@@ -16,12 +16,19 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.mysql.jdbc.Statement;
+
+import Database.DBConnection;
+import Database.Controller.CtrlPassages;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.Connection;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
@@ -42,7 +49,7 @@ public class MainJFrame extends JFrame
 	/**
 	 * @brief	Unique ID of the class
 	 */
-	private static final long serialVersionUID = 1382167513878990127L;
+	private static final long serialVersionUID = 6727409917121729441L;
 
 	/**
 	 * @brief	Panel containing every info about the internal menu
@@ -53,6 +60,16 @@ public class MainJFrame extends JFrame
 	 * @brief	Member containing every info about the internal panel
 	 */
 	private static JPanel internalPanel;
+	
+	/**
+	 * @brief	Member holding every info about the connection to the DB
+	 */
+	private static Connection	dbConnection;
+	
+	/**
+	 * @brief	Member holding every info about the DB Consult STM
+	 */
+	private static Statement	dbStatement;
 	
 	/**
 	 * @brief	Main method of the application
@@ -67,9 +84,14 @@ public class MainJFrame extends JFrame
 			{
 				try
 				{					
-					MainJFrame frame = new MainJFrame();
+					MainJFrame frame	= new MainJFrame();
 					
 					frame.setVisible(true);
+					
+					dbStatement			= DBConnection.configureDatabase(dbConnection);
+					
+					CtrlPassages ctrl = new CtrlPassages();
+					ctrl.createTable(dbStatement);
 				}
 				catch(Exception e)
 				{
@@ -104,7 +126,7 @@ public class MainJFrame extends JFrame
 		
 		setResizable(false);
 		
-		setTitle("Cliente");
+		setTitle("Servidor");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -239,9 +261,9 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				PassagesPanel passagesPanel = new PassagesPanel(internalPanel);
+				//PassagesPanel passagesPanel = new PassagesPanel(internalPanel);
 				
-				passagesPanel.setVisible(true);
+				//passagesPanel.setVisible(true);
 			}
 		});
 		
@@ -257,9 +279,9 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				HotelsPanel hotelsPanel = new HotelsPanel(internalPanel);
+				//HotelsPanel hotelsPanel = new HotelsPanel(internalPanel);
 				
-				hotelsPanel.setVisible(true);
+				//hotelsPanel.setVisible(true);
 			}
 		});
 				
@@ -275,9 +297,9 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				PackagesPanel packagesPanel = new PackagesPanel(internalPanel);
+				//PackagesPanel packagesPanel = new PackagesPanel(internalPanel);
 				
-				packagesPanel.setVisible(true);
+				//packagesPanel.setVisible(true);
 			}
 		});
 		
@@ -293,9 +315,9 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				EventsPanel eventsPanel = new EventsPanel(internalPanel);
+				//EventsPanel eventsPanel = new EventsPanel(internalPanel);
 				
-				eventsPanel.setVisible(true);
+				//eventsPanel.setVisible(true);
 			}
 		});
 		
@@ -311,9 +333,9 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				ConfigPanel configPanel = new ConfigPanel(internalPanel);
+				//ConfigPanel configPanel = new ConfigPanel(internalPanel);
 				
-				configPanel.setVisible(true);
+				//configPanel.setVisible(true);
 			}
 		});
 		
