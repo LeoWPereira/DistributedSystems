@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$enum_communication_1_1_s_d___message_1_1_types.html" title="Communication.SD_Message.\lTypes" alt="" coords="5,5,204,47"/>
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_config_panel.html" title="This Class will Handle every method from GUI &quot;Configurations&quot;. " alt="" coords="125,5,243,32"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html" title="This Class will Handle every method from GUI &quot;Events&quot;. " alt="" coords="124,56,244,83"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_hotels_panel.html" title="This Class will Handle every method from GUI &quot;Hotels&quot;. " alt="" coords="125,107,243,133"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_packages_panel.html" title="This Class will Handle every method from GUI &quot;Package&quot;. " alt="" coords="115,157,253,184"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_passages_panel.html" title="This Class will Handle every method from GUI &quot;Passages&quot;. " alt="" coords="115,208,253,235"/>
 </map>

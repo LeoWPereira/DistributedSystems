@@ -1,0 +1,7 @@
+<map id="GUI.MainJFrame.main" name="GUI.MainJFrame.main">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_main_j_frame.html#a6a84c5025c5d37bc74670619dcec8606" title="Create the Frame. " alt="" coords="204,81,399,108"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_main_j_frame.html#af53a45f7671b9fad05de521cac3a4236" title="GUI.MainJFrame.setFrameSettings" alt="" coords="450,5,677,32"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_main_j_frame.html#a44c3eb96ec29be5f6135c85a27a298bc" title="GUI.MainJFrame.createMenu" alt="" coords="468,56,659,83"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_main_j_frame.html#aa714de048e3171306e72cfb772220d45" title="GUI.MainJFrame.createInternalMenu" alt="" coords="447,107,680,133"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_main_j_frame.html#a8cf1e8bd16c2cdaa40a557fe23fb1681" title="GUI.MainJFrame.createInternal\lPanel" alt="" coords="463,158,664,199"/>
+</map>

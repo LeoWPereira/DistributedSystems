@@ -4,315 +4,181 @@
 <param name="FrameName" value="right">
 </OBJECT>
 <UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a1e9c8abe34f8cf015fd4de6bac685f6c"><param name="Name" value="append"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#abcd4ef022891f7b937d44a2c88798344"><param name="Name" value="appendSignature"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#afbe493c257ec3b781af42b5a4a183ce5"><param name="Name" value="checkIfSenderIsMyself"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#a632e079b1a3faba5858a6d5df323efb9"><param name="Name" value="checkPeersResponse"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#af510ac2c1354fd5e4e25a7083605028e"><param name="Name" value="checkResourceAvailability"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#aea68fb3a168717e2731535b2a1ce30b2"><param name="Name" value="clearPreviousPeerData"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_communication.html"><param name="Name" value="Communication"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html"><param name="Name" value="Communication::MultiCast_Manager"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_about_frame.html#aaaae8a8ada948678fc1ae88203bdd368"><param name="Name" value="AboutFrame"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_r_m_i_1_1_server_interface.html#a1f391f6a77c18d99ec90d3f6df3649d9"><param name="Name" value="call"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#aa44f0307d1b191a80cbd12948f284185"><param name="Name" value="changeCitiesComboBox"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#afbe493c257ec3b781af42b5a4a183ce5"><param name="Name" value="checkIfSenderIsMyself"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a5897b034a37338ad67dc7981b6581d79"><param name="Name" value="getConnectionStatus"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#acb171dc1e2ad9925b10db56482936c73"><param name="Name" value="getInitialSetOK"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a5380253f623c5e2c664090ef6514a0a1"><param name="Name" value="MultiCast_Manager"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a8b5897e613d85cb01b7038b60e885169"><param name="Name" value="replyPublicKey_Callback"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#acd11a380558bc1bceb2a05a3326e8eb0"><param name="Name" value="replyResourceStatus_Callback"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a3adca6692f25807791b7d86e0311af4b"><param name="Name" value="requestPublicKey_Callback"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a388ab6766c0b68fad9f2cff033ddd283"><param name="Name" value="requestResource_Callback"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a52ee1c8e56becddab5bf42e725911db3"><param name="Name" value="run"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#aaf608d567e8e3d8a3a600b3dbf3180c9"><param name="Name" value="sendMessage"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a3eea0a59c2a26cc0654b0a78a415be56"><param name="Name" value="sendSignedMessage"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a9bec3793688404fc93ddb6b9b919eb17"><param name="Name" value="subscribe_Callback"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a56fd0e4928b9478b2ee7e401e82e2312"><param name="Name" value="testMultiCastSocket_Callback"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a85187f1973991a43d7839bd5066b9e25"><param name="Name" value="unsubscribe_Callback"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#aa44f0307d1b191a80cbd12948f284185"><param name="Name" value="GUI::HotelsPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#adf8516174d1bed3efb374068a2a6e482"><param name="Name" value="GUI::PackagesPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#afd0ebeb8f2c9b93574ff82f353b711ca"><param name="Name" value="GUI::PassagesPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html"><param name="Name" value="Communication::SD_Message"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html"><param name="Name" value="Communication::SD_Message::Types"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#ad16d941850b9bfaa494c7e9b452e2f9c"><param name="Name" value="checkForEmptyFields"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#aa27aa2f54d4db301b9affe5f4ad39e3b"><param name="Name" value="getByteValue"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#adeb96539323ba81a5a1f7c65dcf66670"><param name="Name" value="REPLY_PUBLIC_KEY"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#ab842825c0b89d1a5d9bbcee04afcdb63"><param name="Name" value="REPLY_RESOURCE_STATUS"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#af65e9fc13bfa62954e62376ba352b463"><param name="Name" value="REQUEST_PUBLIC_KEY"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#a8dbc95ab214c947681caf4d65efdf59e"><param name="Name" value="REQUEST_RESOURCE"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#ac7865cafdb11ea3fb23d5c40464007a7"><param name="Name" value="SUBSCRIBE"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#a6cfddb7ada370b3ce0cedb1fe022bb32"><param name="Name" value="TEST"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#a483893b5e40713be96eab0b850d60efc"><param name="Name" value="UNSUBSCRIBE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#ad16d941850b9bfaa494c7e9b452e2f9c"><param name="Name" value="GUI::HotelsPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a22f5a7829401875bd5706d48491c7017"><param name="Name" value="GUI::PackagesPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#af6fd37e314368b6b1babe2f7aee7217a"><param name="Name" value="GUI::PassagesPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html"><param name="Name" value="Communication::SD_Message"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#abaaf8042bdc0ee14bbbba5a44c1d543e"><param name="Name" value="checkForPreviousDate"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a1e9c8abe34f8cf015fd4de6bac685f6c"><param name="Name" value="append"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#abcd4ef022891f7b937d44a2c88798344"><param name="Name" value="appendSignature"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a1dd9dbd4bed19d213f3bfd81ee6a4fb9"><param name="Name" value="demountMessage"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#ac191f11d229700420c2ca713026a8c72"><param name="Name" value="getData"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#ab86c81f2751c76de9f1a7a4a13870b35"><param name="Name" value="getDataLength"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a42debd91beb5eb5bbb05e0384fe0b33c"><param name="Name" value="getSignature"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a17ccf5750718099d0e0ed0e1a4b272df"><param name="Name" value="getSignatureLength"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a5a169e62b864fd47b2a04cf9b983477c"><param name="Name" value="getTimestamp"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#aad53b095f08b32e7e1d6336259b01c6c"><param name="Name" value="getType"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a85a2056005ab4f1260300941e66d6a51"><param name="Name" value="getUniqueID"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a5b2935f7a91057ed5e607fa31c6513e6"><param name="Name" value="mountMessage"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a58f2ee35f8c1ed129178c9582585d7b6"><param name="Name" value="SD_Message"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a3592ca42a331e4cab053d00078602327"><param name="Name" value="setTimestamp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#abaaf8042bdc0ee14bbbba5a44c1d543e"><param name="Name" value="GUI::PackagesPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a7941aaf192220fc0ae38184633e5661d"><param name="Name" value="GUI::PassagesPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#aeeea85620ced3a514d1e76daeed863a5"><param name="Name" value="communicationGroup"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#ad58e604880c462814efd0ae571082429"><param name="Name" value="communicationPort"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#ad623433c5db4b3726d31e3c8d71a048b"><param name="Name" value="configGroup"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#acf23184db5bfd14963ca4eb589ff0e81"><param name="Name" value="configMinimumPeersQuantity"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#afde988fed6641f949251ac083d195ddc"><param name="Name" value="configPort"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a335730daaaabef8aa16b1b2db4e17970"><param name="Name" value="configProcess"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#aa48deb0241ff88a3ec18f09726de5b37"><param name="Name" value="Crypto"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_database.html"><param name="Name" value="Database"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html"><param name="Name" value="Database::Peer"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_extra_1_1_cities_brazil.html#a4735442ae9d325db9dc4b1143b86cf44"><param name="Name" value="CitiesBrazil"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_client_servent.html#a96e7ba81692cadf55964543265cc775d"><param name="Name" value="ClientServent"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4"><param name="Name" value="configButton"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#abf2b96ea206f623e7b32069d2bf7a626"><param name="Name" value="getId"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#ab4a101605db086c4bb35008b7fa9b55b"><param name="Name" value="getPublicKeyByte"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#afeed119d9bde95849a4cebbc301f4705"><param name="Name" value="getResourceList"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#af687d1c3381d71c854bcdca4b09c47da"><param name="Name" value="getStatusResponse"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#a0f5b8ab261585e500d7b28ef2a2a8c1d"><param name="Name" value="Peer"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#ae3b7f1838f0a781d33ce6038d3332555"><param name="Name" value="setStatusResponse"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4"><param name="Name" value="GUI::HotelsPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a8aaa2e65f62b9c58c70b01eefa4edd7e"><param name="Name" value="GUI::PackagesPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec"><param name="Name" value="GUI::PassagesPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html"><param name="Name" value="Database::PeerList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a5fe94bcea5dd4b47ecb0e88c8f3ecdad"><param name="Name" value="configCheckBox"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a95dbde246a173b17e91069dfe4829b0f"><param name="Name" value="configDates"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#ac1ee0872709a048f17ebef9990eb6268"><param name="Name" value="findPeerById"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#a157afcdeb9693abb29d99751ce84e4e4"><param name="Name" value="getPeerByIndex"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#a34ac38f96e9e1590dfdeb052b58cfce6"><param name="Name" value="getPeerList"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#aa3ab7e03aa5f4cf769436229f16f33d3"><param name="Name" value="getPeerListSize"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#a172773e77b4f5b549304f112b73e8272"><param name="Name" value="getPublicKeyByte"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#aeab4da9c038995e5d066057e47717806"><param name="Name" value="insertPeer"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#a0ff2661cff388eb9233d00d74631e781"><param name="Name" value="PeerList"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#a605912315db4c6ff4eea20c1f0a2de81"><param name="Name" value="removePeer"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a95dbde246a173b17e91069dfe4829b0f"><param name="Name" value="GUI::PackagesPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a4b2249fbc1ca893df92015513e73c672"><param name="Name" value="GUI::PassagesPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html"><param name="Name" value="Database::Resource"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_database_1_1_resource_1_1_status.html"><param name="Name" value="Database::Resource::Status"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#abde7cdceca40f5b4c9453e7dd2e7d59d"><param name="Name" value="configHotelSearch"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_database_1_1_resource_1_1_status.html#aec73d134dd460f78ed0671bee8b0f773"><param name="Name" value="getByteValue"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_database_1_1_resource_1_1_status.html#ad4121346f8429903d3a06b77ff0780c1"><param name="Name" value="HELD"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_database_1_1_resource_1_1_status.html#ad7bc0a1dd36fc7b80175d8d9d03147e7"><param name="Name" value="RELEASED"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_database_1_1_resource_1_1_status.html#ab912f9038f0cf96788405a7ac7419653"><param name="Name" value="WANTED"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#abde7cdceca40f5b4c9453e7dd2e7d59d"><param name="Name" value="GUI::HotelsPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a8a0d79047c8a6b01ca0cff1dc7a01d4c"><param name="Name" value="GUI::PackagesPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html"><param name="Name" value="Database::Resource"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_config_panel.html#a0f2c776082754ca900a5c19ba6928321"><param name="Name" value="ConfigPanel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a2ce8b1c6bbf266b65d0e4b4ea3f8ab43"><param name="Name" value="configRadioButtons"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#a2c51a877db32604f0e86c9d543e991c2"><param name="Name" value="getId"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#a7226ebf49a56ef365a51a48fbd49371e"><param name="Name" value="getRequestTimestamp"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#af1e8a2ba66902de21796d4ab46cc187a"><param name="Name" value="getResourceStatus"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#abc13f166d0f5d73ac6ce468d9bf0c139"><param name="Name" value="Resource"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#a61f9662a5754b9764c3c94131eb05a16"><param name="Name" value="setRequestTimestamp"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#ae221f4ce865f101725c56c5cad588874"><param name="Name" value="setResourceStatus"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a2ce8b1c6bbf266b65d0e4b4ea3f8ab43"><param name="Name" value="GUI::HotelsPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#aa27b5adfceca1289b9be37bc69ddabdb"><param name="Name" value="GUI::PackagesPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a5cc57d8c022df75ac61eda2a866f972e"><param name="Name" value="GUI::PassagesPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html"><param name="Name" value="Database::ResourceList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a77527a68f80ce855de413f53d8126913"><param name="Name" value="configStateAndCities"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#aee43694c2f60d16431de4096237e6b8e"><param name="Name" value="findResourceById"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a7d5ad1306320d05f25d9a70629c61bec"><param name="Name" value="getResourceListSize"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a3b9fbd29b54c4cf6f683855ef8151b83"><param name="Name" value="getResourceStatus"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a9e25c9799ee5d8941ce70c25538070d5"><param name="Name" value="getResquestTimestamp"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a26146f4d7c16b7264c6397ef20f998ff"><param name="Name" value="insertResource"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a30363d2145f5514e4346d9ec4cdd3be2"><param name="Name" value="listAvailableResources"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a0da97ac1327f66ea7fa10d322e961382"><param name="Name" value="removeResource"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#abfc0becc7ba3f4e9faa5d1faa786f7da"><param name="Name" value="ResourceList"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a538450cabdd8544cf129936568ba99c7"><param name="Name" value="setRequestTimestamp"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a9acfc366913bc1e8d08aaf58f8061179"><param name="Name" value="setResourceStatus"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a77527a68f80ce855de413f53d8126913"><param name="Name" value="GUI::HotelsPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#aae4e6ce06f37951cadf2aad1267faf2e"><param name="Name" value="GUI::PackagesPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#afc9c5e361a5cf9d8e7dc8b5ae93dd654"><param name="Name" value="GUI::PassagesPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html"><param name="Name" value="Database::ResourceManager"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a70f0004b0be1f38cf938cfdd702b91ec"><param name="Name" value="configTable"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#a632e079b1a3faba5858a6d5df323efb9"><param name="Name" value="checkPeersResponse"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#af510ac2c1354fd5e4e25a7083605028e"><param name="Name" value="checkResourceAvailability"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#aea68fb3a168717e2731535b2a1ce30b2"><param name="Name" value="clearPreviousPeerData"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#a01b23fce6256fe8282a01c652a054477"><param name="Name" value="getRequestTimestamp"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#adb9f2bb67f639cffd7335109e3496bcc"><param name="Name" value="ResourceManager"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#a13ecf147e119813a2192bb9850bf9da7"><param name="Name" value="setRequestTimestamp"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#af7b8611007427ca1a6abac8c0db40015"><param name="Name" value="setResourceStatusByPeerId"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#a0258590d5832cc780460e4eb9d50ae71"><param name="Name" value="setStatusResponseByPeerId"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a70f0004b0be1f38cf938cfdd702b91ec"><param name="Name" value="GUI::HotelsPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#ab58ab13961a8a599ba3189c81c5a4fcb"><param name="Name" value="GUI::PackagesPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#ac4f61a92d8f602b26a10d7d58b757235"><param name="Name" value="GUI::PassagesPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a275186260a294077bce1405234b63888"><param name="Name" value="debugMode"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a987355b3d2181241055d6dc4bdc563da"><param name="Name" value="decrypt"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a16fdeb1882958c742490b34536f40c53"><param name="Name" value="deltaTime"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a1dd9dbd4bed19d213f3bfd81ee6a4fb9"><param name="Name" value="demountMessage"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a29f00b4b0c5c051b01332d80bc3484e9"><param name="Name" value="encrypt"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a7eaff930d5fed8ab45635835acfa7f6c"><param name="Name" value="encryptByte"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#ac1ee0872709a048f17ebef9990eb6268"><param name="Name" value="findPeerById"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#aee43694c2f60d16431de4096237e6b8e"><param name="Name" value="findResourceById"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#ae007c455b7a75b9b6313d28e56035c01"><param name="Name" value="generateKeyPair"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a5bb6d089ef5538cc27f101b24435cf8f"><param name="Name" value="generateSignature"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#aa27aa2f54d4db301b9affe5f4ad39e3b"><param name="Name" value="getByteValue"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#aa714de048e3171306e72cfb772220d45"><param name="Name" value="createInternalMenu"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#a8cf1e8bd16c2cdaa40a557fe23fb1681"><param name="Name" value="createInternalPanel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#a44c3eb96ec29be5f6135c85a27a298bc"><param name="Name" value="createMenu"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_r_m_i_1_1_client_interface.html#aa8b31d6f2143d36cff7b97026779b84a"><param name="Name" value="echo"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#aa27aa2f54d4db301b9affe5f4ad39e3b"><param name="Name" value="Communication::SD_Message::Types"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_database_1_1_resource_1_1_status.html#aec73d134dd460f78ed0671bee8b0f773"><param name="Name" value="Database::Resource::Status"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_r_m_i_1_1_client_interface.html#aa8b31d6f2143d36cff7b97026779b84a"><param name="Name" value="RMI::ClientInterface"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_client_servent.html#abdad6eb590f1ed5c4247c6799eb3d887"><param name="Name" value="RMI::ClientServent"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a5897b034a37338ad67dc7981b6581d79"><param name="Name" value="getConnectionStatus"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a052bc3a69925f32eea11640a924b3554"><param name="Name" value="getCriptography"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#ac191f11d229700420c2ca713026a8c72"><param name="Name" value="getData"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#ab86c81f2751c76de9f1a7a4a13870b35"><param name="Name" value="getDataLength"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#abf2b96ea206f623e7b32069d2bf7a626"><param name="Name" value="getId"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_events_panel.html#a30b0ac34285f8a51e5d0e6b4d8e0f8dc"><param name="Name" value="EventsPanel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_extra.html"><param name="Name" value="Extra"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_extra_1_1_cities_brazil.html"><param name="Name" value="Extra::CitiesBrazil"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#abf2b96ea206f623e7b32069d2bf7a626"><param name="Name" value="Database::Peer"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#a2c51a877db32604f0e86c9d543e991c2"><param name="Name" value="Database::Resource"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_extra_1_1_cities_brazil.html#a4735442ae9d325db9dc4b1143b86cf44"><param name="Name" value="CitiesBrazil"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d"><param name="Name" value="getCities"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b"><param name="Name" value="getStates"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#acb171dc1e2ad9925b10db56482936c73"><param name="Name" value="getInitialSetOK"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#a157afcdeb9693abb29d99751ce84e4e4"><param name="Name" value="getPeerByIndex"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#a34ac38f96e9e1590dfdeb052b58cfce6"><param name="Name" value="getPeerList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d"><param name="Name" value="getCities"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b"><param name="Name" value="getStates"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_g_u_i.html"><param name="Name" value="GUI"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_about_frame.html"><param name="Name" value="GUI::AboutFrame"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#a34ac38f96e9e1590dfdeb052b58cfce6"><param name="Name" value="Database::PeerList"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a9149e12ad250e3a4bd0027a833e96b1b"><param name="Name" value="Process::ProcessClass"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_about_frame.html#aaaae8a8ada948678fc1ae88203bdd368"><param name="Name" value="AboutFrame"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_about_frame.html#aa6683a54c53f495b2ad92b576e69752d"><param name="Name" value="setFrameSettings"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#aa3ab7e03aa5f4cf769436229f16f33d3"><param name="Name" value="getPeerListSize"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#aa2617bc50cec4d849343936dca88fcd3"><param name="Name" value="getPrivateKey"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#ad8c3fa5aad32d15f30103f653ea4138f"><param name="Name" value="getPrivateKeyByte"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#ad08fef4f1a44756cea332d9ada7007b6"><param name="Name" value="getProcessID"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a88d9ac1e6a58866568261eb6215722fc"><param name="Name" value="getPublicKey"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#ab4a101605db086c4bb35008b7fa9b55b"><param name="Name" value="getPublicKeyByte"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_config_panel.html"><param name="Name" value="GUI::ConfigPanel"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#ab4a101605db086c4bb35008b7fa9b55b"><param name="Name" value="Database::Peer"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#a172773e77b4f5b549304f112b73e8272"><param name="Name" value="Database::PeerList"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#aae497ae9a5f0b578527bb911ec58e5e9"><param name="Name" value="Security::Crypto"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_config_panel.html#a0f2c776082754ca900a5c19ba6928321"><param name="Name" value="ConfigPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a81d6d14359956d7d70fbe18579b61a5f"><param name="Name" value="getQtyResources"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#a7226ebf49a56ef365a51a48fbd49371e"><param name="Name" value="getRequestTimestamp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_events_panel.html"><param name="Name" value="GUI::EventsPanel"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#a7226ebf49a56ef365a51a48fbd49371e"><param name="Name" value="Database::Resource"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#a01b23fce6256fe8282a01c652a054477"><param name="Name" value="Database::ResourceManager"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_events_panel.html#a30b0ac34285f8a51e5d0e6b4d8e0f8dc"><param name="Name" value="EventsPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#afeed119d9bde95849a4cebbc301f4705"><param name="Name" value="getResourceList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_help_frame.html"><param name="Name" value="GUI::HelpFrame"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#afeed119d9bde95849a4cebbc301f4705"><param name="Name" value="Database::Peer"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a690cf17e3854458315ad826cca9465e3"><param name="Name" value="Process::ProcessClass"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_help_frame.html#abda8d16f2f332cfeb7464ea918972fd7"><param name="Name" value="HelpFrame"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_help_frame.html#a7b56b8bd2c9b506c57518767613480be"><param name="Name" value="setFrameSettings"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a7d5ad1306320d05f25d9a70629c61bec"><param name="Name" value="getResourceListSize"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#ac8603f8360e2311085c4be8b8840357b"><param name="Name" value="getResourceManager"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#af1e8a2ba66902de21796d4ab46cc187a"><param name="Name" value="getResourceStatus"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html"><param name="Name" value="GUI::HotelsPanel"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#af1e8a2ba66902de21796d4ab46cc187a"><param name="Name" value="Database::Resource"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a3b9fbd29b54c4cf6f683855ef8151b83"><param name="Name" value="Database::ResourceList"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#aa44f0307d1b191a80cbd12948f284185"><param name="Name" value="changeCitiesComboBox"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#ad16d941850b9bfaa494c7e9b452e2f9c"><param name="Name" value="checkForEmptyFields"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4"><param name="Name" value="configButton"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#abde7cdceca40f5b4c9453e7dd2e7d59d"><param name="Name" value="configHotelSearch"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a2ce8b1c6bbf266b65d0e4b4ea3f8ab43"><param name="Name" value="configRadioButtons"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a77527a68f80ce855de413f53d8126913"><param name="Name" value="configStateAndCities"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a70f0004b0be1f38cf938cfdd702b91ec"><param name="Name" value="configTable"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a2d93524817104d12d2693583b28be595"><param name="Name" value="HotelsPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#af6804623d54a1e298cab45f4208ebacf"><param name="Name" value="insertTableField"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a9e25c9799ee5d8941ce70c25538070d5"><param name="Name" value="getResquestTimestamp"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a42debd91beb5eb5bbb05e0384fe0b33c"><param name="Name" value="getSignature"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a17ccf5750718099d0e0ed0e1a4b272df"><param name="Name" value="getSignatureLength"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#af687d1c3381d71c854bcdca4b09c47da"><param name="Name" value="getStatusResponse"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a5a169e62b864fd47b2a04cf9b983477c"><param name="Name" value="getTimestamp"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#aad53b095f08b32e7e1d6336259b01c6c"><param name="Name" value="getType"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a85a2056005ab4f1260300941e66d6a51"><param name="Name" value="getUniqueID"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_database_1_1_resource_1_1_status.html#ad4121346f8429903d3a06b77ff0780c1"><param name="Name" value="HELD"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a30bc389e898d958bb0d27e6ac3ed1062"><param name="Name" value="initializeKeyPair"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#aeab4da9c038995e5d066057e47717806"><param name="Name" value="insertPeer"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a26146f4d7c16b7264c6397ef20f998ff"><param name="Name" value="insertResource"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a30363d2145f5514e4346d9ec4cdd3be2"><param name="Name" value="listAvailableResources"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a0425b57b32d14c1291ba9fb6f06bfc08"><param name="Name" value="main"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#aed64075763e9512f7d59f1db2cb754cc"><param name="Name" value="maximumWaitTime"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a9b46d584c1328d54e111d212d95cf6d5"><param name="Name" value="minimumPeers"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a5b2935f7a91057ed5e607fa31c6513e6"><param name="Name" value="mountMessage"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a802317d5230e38422dd82a2afa921330"><param name="Name" value="multiCast"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a5380253f623c5e2c664090ef6514a0a1"><param name="Name" value="MultiCast_Manager"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#a0f5b8ab261585e500d7b28ef2a2a8c1d"><param name="Name" value="Peer"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#a0ff2661cff388eb9233d00d74631e781"><param name="Name" value="PeerList"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_process.html"><param name="Name" value="Process"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html"><param name="Name" value="Process::ProcessClass"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html"><param name="Name" value="GUI::MainJFrame"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a335730daaaabef8aa16b1b2db4e17970"><param name="Name" value="configProcess"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a052bc3a69925f32eea11640a924b3554"><param name="Name" value="getCriptography"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a9149e12ad250e3a4bd0027a833e96b1b"><param name="Name" value="getPeerList"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#ad08fef4f1a44756cea332d9ada7007b6"><param name="Name" value="getProcessID"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a81d6d14359956d7d70fbe18579b61a5f"><param name="Name" value="getQtyResources"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a690cf17e3854458315ad826cca9465e3"><param name="Name" value="getResourceList"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#ac8603f8360e2311085c4be8b8840357b"><param name="Name" value="getResourceManager"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a67cb3ab382519f58f4f0bef9961d6537"><param name="Name" value="ProcessClass"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a51b7962fd62660106d172f6c30b06e0d"><param name="Name" value="setProcessID"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#aa714de048e3171306e72cfb772220d45"><param name="Name" value="createInternalMenu"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#a8cf1e8bd16c2cdaa40a557fe23fb1681"><param name="Name" value="createInternalPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#a44c3eb96ec29be5f6135c85a27a298bc"><param name="Name" value="createMenu"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#a5c1de53ae3550fb89b648b15fa8604d6"><param name="Name" value="main"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#a6a84c5025c5d37bc74670619dcec8606"><param name="Name" value="MainJFrame"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#af53a45f7671b9fad05de521cac3a4236"><param name="Name" value="setFrameSettings"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#af7bcbb1205e4f300f680f67b0986b640"><param name="Name" value="process"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a67cb3ab382519f58f4f0bef9961d6537"><param name="Name" value="ProcessClass"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a561fde7a1b603f48e006ad03a44f1c11"><param name="Name" value="qtyResources"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_database_1_1_resource_1_1_status.html#ad7bc0a1dd36fc7b80175d8d9d03147e7"><param name="Name" value="RELEASED"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a5fb011ec16ee6aa9a854243ba95b9c75"><param name="Name" value="releaseResource"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer_list.html#a605912315db4c6ff4eea20c1f0a2de81"><param name="Name" value="removePeer"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a0da97ac1327f66ea7fa10d322e961382"><param name="Name" value="removeResource"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#adeb96539323ba81a5a1f7c65dcf66670"><param name="Name" value="REPLY_PUBLIC_KEY"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#ab842825c0b89d1a5d9bbcee04afcdb63"><param name="Name" value="REPLY_RESOURCE_STATUS"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a8b5897e613d85cb01b7038b60e885169"><param name="Name" value="replyPublicKey_Callback"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#acd11a380558bc1bceb2a05a3326e8eb0"><param name="Name" value="replyResourceStatus_Callback"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#af65e9fc13bfa62954e62376ba352b463"><param name="Name" value="REQUEST_PUBLIC_KEY"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#a8dbc95ab214c947681caf4d65efdf59e"><param name="Name" value="REQUEST_RESOURCE"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#ae4e8ff26fbbdb5c4c366a6f82630d215"><param name="Name" value="requestPeers"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a3adca6692f25807791b7d86e0311af4b"><param name="Name" value="requestPublicKey_Callback"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a9cd46b08e1018a2686884b0a4ba8cd8d"><param name="Name" value="requestResource"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a388ab6766c0b68fad9f2cff033ddd283"><param name="Name" value="requestResource_Callback"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#abc13f166d0f5d73ac6ce468d9bf0c139"><param name="Name" value="Resource"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#abfc0becc7ba3f4e9faa5d1faa786f7da"><param name="Name" value="ResourceList"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#adb9f2bb67f639cffd7335109e3496bcc"><param name="Name" value="ResourceManager"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a52ee1c8e56becddab5bf42e725911db3"><param name="Name" value="run"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#ab93875f125e0ce39f5eb79705e79fb58"><param name="Name" value="runAppRoutine"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a58f2ee35f8c1ed129178c9582585d7b6"><param name="Name" value="SD_Message"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_security.html"><param name="Name" value="Security"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html"><param name="Name" value="Security::Crypto"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html"><param name="Name" value="GUI::PackagesPanel"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#aa48deb0241ff88a3ec18f09726de5b37"><param name="Name" value="Crypto"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a987355b3d2181241055d6dc4bdc563da"><param name="Name" value="decrypt"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a29f00b4b0c5c051b01332d80bc3484e9"><param name="Name" value="encrypt"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a7eaff930d5fed8ab45635835acfa7f6c"><param name="Name" value="encryptByte"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#ae007c455b7a75b9b6313d28e56035c01"><param name="Name" value="generateKeyPair"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a5bb6d089ef5538cc27f101b24435cf8f"><param name="Name" value="generateSignature"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#aa2617bc50cec4d849343936dca88fcd3"><param name="Name" value="getPrivateKey"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#ad8c3fa5aad32d15f30103f653ea4138f"><param name="Name" value="getPrivateKeyByte"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a88d9ac1e6a58866568261eb6215722fc"><param name="Name" value="getPublicKey"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#aae497ae9a5f0b578527bb911ec58e5e9"><param name="Name" value="getPublicKeyByte"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a30bc389e898d958bb0d27e6ac3ed1062"><param name="Name" value="initializeKeyPair"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a6530a638e440b54a829fe6f60ac9213a"><param name="Name" value="verifySignature"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#adf8516174d1bed3efb374068a2a6e482"><param name="Name" value="changeCitiesComboBox"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a22f5a7829401875bd5706d48491c7017"><param name="Name" value="checkForEmptyFields"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#abaaf8042bdc0ee14bbbba5a44c1d543e"><param name="Name" value="checkForPreviousDate"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a8aaa2e65f62b9c58c70b01eefa4edd7e"><param name="Name" value="configButton"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a5fe94bcea5dd4b47ecb0e88c8f3ecdad"><param name="Name" value="configCheckBox"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a95dbde246a173b17e91069dfe4829b0f"><param name="Name" value="configDates"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a8a0d79047c8a6b01ca0cff1dc7a01d4c"><param name="Name" value="configHotelSearch"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#aa27b5adfceca1289b9be37bc69ddabdb"><param name="Name" value="configRadioButtons"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#aae4e6ce06f37951cadf2aad1267faf2e"><param name="Name" value="configStateAndCities"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#ab58ab13961a8a599ba3189c81c5a4fcb"><param name="Name" value="configTable"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#ae3d2aa76f3a679ef7e298b072172fb58"><param name="Name" value="insertTableField"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a4e89e96323f06d4a6d0a116fa28b6155"><param name="Name" value="PackagesPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#aaf608d567e8e3d8a3a600b3dbf3180c9"><param name="Name" value="sendMessage"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a3eea0a59c2a26cc0654b0a78a415be56"><param name="Name" value="sendSignedMessage"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_process_1_1_process_class.html#a51b7962fd62660106d172f6c30b06e0d"><param name="Name" value="setProcessID"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#a61f9662a5754b9764c3c94131eb05a16"><param name="Name" value="setRequestTimestamp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html"><param name="Name" value="GUI::PassagesPanel"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#a61f9662a5754b9764c3c94131eb05a16"><param name="Name" value="Database::Resource"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a538450cabdd8544cf129936568ba99c7"><param name="Name" value="Database::ResourceList"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#a13ecf147e119813a2192bb9850bf9da7"><param name="Name" value="Database::ResourceManager"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#afd0ebeb8f2c9b93574ff82f353b711ca"><param name="Name" value="changeCitiesComboBox"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#af6fd37e314368b6b1babe2f7aee7217a"><param name="Name" value="checkForEmptyFields"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a7941aaf192220fc0ae38184633e5661d"><param name="Name" value="checkForPreviousDate"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec"><param name="Name" value="configButton"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a4b2249fbc1ca893df92015513e73c672"><param name="Name" value="configDates"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a5cc57d8c022df75ac61eda2a866f972e"><param name="Name" value="configRadioButtons"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#afc9c5e361a5cf9d8e7dc8b5ae93dd654"><param name="Name" value="configStateAndCities"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#ac4f61a92d8f602b26a10d7d58b757235"><param name="Name" value="configTable"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a915b280d7f5cf63f7ee17edee4df225b"><param name="Name" value="insertTableField"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a25f03d35912e7053d839660e6366b6bb"><param name="Name" value="PassagesPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#ae221f4ce865f101725c56c5cad588874"><param name="Name" value="setResourceStatus"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_help_frame.html#abda8d16f2f332cfeb7464ea918972fd7"><param name="Name" value="HelpFrame"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a2d93524817104d12d2693583b28be595"><param name="Name" value="HotelsPanel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#af6804623d54a1e298cab45f4208ebacf"><param name="Name" value="insertTableField"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource.html#ae221f4ce865f101725c56c5cad588874"><param name="Name" value="Database::Resource"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_list.html#a9acfc366913bc1e8d08aaf58f8061179"><param name="Name" value="Database::ResourceList"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#af6804623d54a1e298cab45f4208ebacf"><param name="Name" value="GUI::HotelsPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#ae3d2aa76f3a679ef7e298b072172fb58"><param name="Name" value="GUI::PackagesPanel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a915b280d7f5cf63f7ee17edee4df225b"><param name="Name" value="GUI::PassagesPanel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#af7b8611007427ca1a6abac8c0db40015"><param name="Name" value="setResourceStatusByPeerId"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_peer.html#ae3b7f1838f0a781d33ce6038d3332555"><param name="Name" value="setStatusResponse"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_resource_manager.html#a0258590d5832cc780460e4eb9d50ae71"><param name="Name" value="setStatusResponseByPeerId"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_s_d___message.html#a3592ca42a331e4cab053d00078602327"><param name="Name" value="setTimestamp"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#ac7865cafdb11ea3fb23d5c40464007a7"><param name="Name" value="SUBSCRIBE"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a9bec3793688404fc93ddb6b9b919eb17"><param name="Name" value="subscribe_Callback"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#ad78742f49c1b503c845c6b47fa54c3f5"><param name="Name" value="subscribePeer"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#a6cfddb7ada370b3ce0cedb1fe022bb32"><param name="Name" value="TEST"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a5d5ff7a282773a3ce066e3ef945c4f61"><param name="Name" value="testMultiCastSocket"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a56fd0e4928b9478b2ee7e401e82e2312"><param name="Name" value="testMultiCastSocket_Callback"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html"><param name="Name" value="Trabalho02"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#a5c1de53ae3550fb89b648b15fa8604d6"><param name="Name" value="main"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#a6a84c5025c5d37bc74670619dcec8606"><param name="Name" value="MainJFrame"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_packages_panel.html#a4e89e96323f06d4a6d0a116fa28b6155"><param name="Name" value="PackagesPanel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a25f03d35912e7053d839660e6366b6bb"><param name="Name" value="PassagesPanel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_r_m_i.html"><param name="Name" value="RMI"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_r_m_i_1_1_client_interface.html"><param name="Name" value="RMI::ClientInterface"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#aeeea85620ced3a514d1e76daeed863a5"><param name="Name" value="communicationGroup"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#ad58e604880c462814efd0ae571082429"><param name="Name" value="communicationPort"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#ad623433c5db4b3726d31e3c8d71a048b"><param name="Name" value="configGroup"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#acf23184db5bfd14963ca4eb589ff0e81"><param name="Name" value="configMinimumPeersQuantity"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#afde988fed6641f949251ac083d195ddc"><param name="Name" value="configPort"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a275186260a294077bce1405234b63888"><param name="Name" value="debugMode"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a16fdeb1882958c742490b34536f40c53"><param name="Name" value="deltaTime"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a0425b57b32d14c1291ba9fb6f06bfc08"><param name="Name" value="main"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#aed64075763e9512f7d59f1db2cb754cc"><param name="Name" value="maximumWaitTime"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a9b46d584c1328d54e111d212d95cf6d5"><param name="Name" value="minimumPeers"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a802317d5230e38422dd82a2afa921330"><param name="Name" value="multiCast"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#af7bcbb1205e4f300f680f67b0986b640"><param name="Name" value="process"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a561fde7a1b603f48e006ad03a44f1c11"><param name="Name" value="qtyResources"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a5fb011ec16ee6aa9a854243ba95b9c75"><param name="Name" value="releaseResource"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#ae4e8ff26fbbdb5c4c366a6f82630d215"><param name="Name" value="requestPeers"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a9cd46b08e1018a2686884b0a4ba8cd8d"><param name="Name" value="requestResource"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#ab93875f125e0ce39f5eb79705e79fb58"><param name="Name" value="runAppRoutine"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#ad78742f49c1b503c845c6b47fa54c3f5"><param name="Name" value="subscribePeer"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#a5d5ff7a282773a3ce066e3ef945c4f61"><param name="Name" value="testMultiCastSocket"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#acb05ecc76846d04b39cad5537830a995"><param name="Name" value="unsubscribePeer"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#aaaedd9076874d2e4c840967f32bf21ba"><param name="Name" value="waitForPeers"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#ac5c339317bb67a3eaabaea85f8ea9c0c"><param name="Name" value="waitForReplies"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_r_m_i_1_1_client_interface.html#aa8b31d6f2143d36cff7b97026779b84a"><param name="Name" value="echo"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_communication_1_1_s_d___message_1_1_types.html#a483893b5e40713be96eab0b850d60efc"><param name="Name" value="UNSUBSCRIBE"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_communication_1_1_multi_cast___manager.html#a85187f1973991a43d7839bd5066b9e25"><param name="Name" value="unsubscribe_Callback"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#acb05ecc76846d04b39cad5537830a995"><param name="Name" value="unsubscribePeer"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_security_1_1_crypto.html#a6530a638e440b54a829fe6f60ac9213a"><param name="Name" value="verifySignature"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#aaaedd9076874d2e4c840967f32bf21ba"><param name="Name" value="waitForPeers"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_trabalho02.html#ac5c339317bb67a3eaabaea85f8ea9c0c"><param name="Name" value="waitForReplies"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="enum_database_1_1_resource_1_1_status.html#ab912f9038f0cf96788405a7ac7419653"><param name="Name" value="WANTED"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_client_servent.html"><param name="Name" value="RMI::ClientServent"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_client_servent.html#a96e7ba81692cadf55964543265cc775d"><param name="Name" value="ClientServent"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_client_servent.html#abdad6eb590f1ed5c4247c6799eb3d887"><param name="Name" value="echo"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_r_m_i_1_1_server_interface.html"><param name="Name" value="RMI::ServerInterface"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_r_m_i_1_1_server_interface.html#a1f391f6a77c18d99ec90d3f6df3649d9"><param name="Name" value="call"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_about_frame.html#aa6683a54c53f495b2ad92b576e69752d"><param name="Name" value="setFrameSettings"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_about_frame.html#aa6683a54c53f495b2ad92b576e69752d"><param name="Name" value="GUI::AboutFrame"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_help_frame.html#a7b56b8bd2c9b506c57518767613480be"><param name="Name" value="GUI::HelpFrame"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#af53a45f7671b9fad05de521cac3a4236"><param name="Name" value="GUI::MainJFrame"></OBJECT>
+  </UL>
 </UL>
 </BODY>
 </HTML>
