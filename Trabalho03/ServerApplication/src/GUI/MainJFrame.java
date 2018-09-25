@@ -29,6 +29,9 @@ import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
@@ -90,8 +93,19 @@ public class MainJFrame extends JFrame
 					
 					dbStatement			= DBConnection.configureDatabase(dbConnection);
 					
+					 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+					 Date date = new Date();
+					 java.sql.Date dateDB = new java.sql.Date(date.getTime());
+					 System.out.println(dateFormat.format(date));
+					 
 					CtrlPassages ctrl = new CtrlPassages();
 					ctrl.createTable(dbStatement);
+					ctrl.insertEntry(dbStatement,
+									 "Curitiba", 
+									 "Fortaleza",
+									 dateDB,
+									 200,
+									 (float) 450.00);
 				}
 				catch(Exception e)
 				{
@@ -179,9 +193,14 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				HelpFrame helpFrame = new HelpFrame();
-				
-				helpFrame.setVisible(true);
+				 try 
+				 {
+					Runtime.getRuntime().exec("hh.exe documentation/html/doc.chm");
+				 }
+				 catch (IOException e) 
+				 {
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -193,15 +212,9 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				 try 
-				 {
-					Runtime.getRuntime().exec("hh.exe documentation/html/doc.chm");
-				 }
-				 catch (IOException e) 
-				 {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				AboutFrame aboutFrame = new AboutFrame();
+				
+				aboutFrame.setVisible(true);
 			}
 		});
 		

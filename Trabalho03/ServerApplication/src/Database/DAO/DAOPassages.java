@@ -11,6 +11,7 @@
 
 package Database.DAO;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -62,8 +63,6 @@ public class DAOPassages
 	 * @brief
 	 * 
 	 * @param	_stm	:
-	 * 
-	 * @return
 	 */
 	public void createTable(Statement _stm) throws SQLException
 	{
@@ -83,6 +82,76 @@ public class DAOPassages
 					 rowQuantity										+
 					 "` INT NOT NULL , `"								+
 					 rowPrice											+
-					 "` INT NOT NULL ) ENGINE = MyISAM;");
+					 "` FLOAT NOT NULL ) ENGINE = MyISAM;");
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_stm	:
+	 */
+	public void dropTable(Statement _stm) throws SQLException
+	{
+		_stm.execute("DROP TABLE `"						+
+					 DBConnection.getDatabaseName() 	+
+					 "`.`" 								+
+					 DBConnection.getPassagesDBName() 	+
+					 "`;");
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_stm		:
+	 * @param	_source		:
+	 * @param	_dest		:
+	 * @param	_date		:
+	 * @param	_quantity	:
+	 * @param	_price		:
+	 */
+	public void insertEntry(Statement 	_stm,
+							String 		_source,
+							String 		_dest,
+							Date		_date,
+							int			_quantity,
+							float		_price) throws SQLException
+	{
+		_stm.execute("INSERT INTO `"																	+
+					 DBConnection.getDatabaseName() 													+
+					 "`.`" 																				+
+					 DBConnection.getPassagesDBName() 													+
+					 "` (`ID`, `Source`, `Destination`, `Date`, `Quantity`, `Price`) VALUES (NULL, '"	+
+					 _source																			+
+					 "', '"																				+
+					 _dest																				+
+					 "', '"																				+
+					 _date																				+
+					 "', '"																				+
+					 _quantity																			+
+					 "', '"																				+
+					 _price																				+
+					 "');");
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_stm	:
+	 * @param	_source	:
+	 * @param	_dest	:
+	 */
+	public void deleteEntry(Statement 	_stm,
+							String 		_source,
+							String 		_dest) throws SQLException
+	{
+		_stm.execute("DELETE FROM `"						+
+					 DBConnection.getDatabaseName() 		+
+					 "`.`" 									+
+					 DBConnection.getPassagesDBName() 		+
+					 "` WHERE `Source` = '"					+
+					 _source 								+
+					 "' AND `Destination` = '"				+
+					 _dest									+
+					 "';");
 	}
 }
