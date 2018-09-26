@@ -29,9 +29,7 @@ import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
@@ -93,19 +91,8 @@ public class MainJFrame extends JFrame
 					
 					dbStatement			= DBConnection.configureDatabase(dbConnection);
 					
-					 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-					 Date date = new Date();
-					 java.sql.Date dateDB = new java.sql.Date(date.getTime());
-					 System.out.println(dateFormat.format(date));
-					 
 					CtrlPassages ctrl = new CtrlPassages();
 					ctrl.createTable(dbStatement);
-					ctrl.insertEntry(dbStatement,
-									 "Curitiba", 
-									 "Fortaleza",
-									 dateDB,
-									 200,
-									 (float) 450.00);
 				}
 				catch(Exception e)
 				{
@@ -118,7 +105,7 @@ public class MainJFrame extends JFrame
 	/**
 	 * @brief	Create the Frame and defines its initial settings
 	 */
-	public MainJFrame()
+	public MainJFrame() throws ParseException
 	{
 		contentPane = new JPanel();
 		
@@ -231,7 +218,7 @@ public class MainJFrame extends JFrame
 	/**
 	 * @brief	Create and configure the Internal Menu
 	 */
-	public void createInternalMenu()
+	public void createInternalMenu() throws ParseException
 	{
 		JPanel panel 				= new JPanel();
 		
@@ -274,9 +261,20 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				//PassagesPanel passagesPanel = new PassagesPanel(internalPanel);
+				PassagesPanel passagesPanel;
 				
-				//passagesPanel.setVisible(true);
+				try 
+				{
+					passagesPanel = new PassagesPanel(internalPanel, 
+													  dbStatement);
+					
+					passagesPanel.setVisible(true);
+				} 
+				catch (ParseException e) 
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		

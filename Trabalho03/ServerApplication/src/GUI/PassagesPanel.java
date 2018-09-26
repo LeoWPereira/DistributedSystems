@@ -16,16 +16,18 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.text.ParseException;
 
-import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -33,7 +35,13 @@ import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 
+import com.mysql.jdbc.Statement;
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+
+import Classes.Passages;
+import Database.Controller.CtrlPassages;
 import Extra.CitiesBrazil;
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
@@ -47,27 +55,12 @@ public class PassagesPanel extends JPanel
 	/**
 	 * @brief	Unique Version ID from Class
 	 */
-	private static final long 	serialVersionUID = 1311564096576338404L;
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @brief	Member to store every GUI information on the current Panel
 	 */
 	private static JPanel 		internalPanel;
-	
-	/**
-	 * @brief	Member to store the group of Radio Buttons
-	 */
-	private static ButtonGroup 	group;
-	
-	/**
-	 * @brief	Member containing the info about the "One-Way" Radio Button
-	 */
-	private static JRadioButton	radioButtonOneWay;
-	
-	/**
-	 * @brief	Member containing the info about the "Round-Way" Radio Button
-	 */
-	private static JRadioButton	radioButtonRoundWay;
 	
 	/**
 	 * @brief	Member containing the class of States and Cities from Brazil
@@ -108,93 +101,61 @@ public class PassagesPanel extends JPanel
 	 * @brief	Member containing the search button
 	 */
 	private JButton 		  buttonSearch;
-	
-	/**
-	 * @brief	Member containing the label "Round Trip"
-	 * 
-	 * This label is not only local (as almost every other label in the application)
-	 * because we need to set its visibility attribute once a while
-	 */
-	private JLabel 		  	  labelDateRoundTrip;
-	
+
 	/**
 	 * @brief	Member containing a "Date Picker" for One Way trips
 	 */
-	private JDatePickerImpl   datePickerOneWayTrip;
+	private JDatePickerImpl   datePicker;
+
+	/**
+	 * @brief	Member containing the hotel name text field
+	 */
+	private JFormattedTextField	textFieldQuantity;
+
+	/**
+	 * @brief	Member containing the hotel name text field
+	 */
+	private JFormattedTextField	textFieldPrice;
 	
 	/**
-	 * @brief	Member containing a "Date Picker" for Round Trip trips
+	 * @brief
 	 */
-	private JDatePickerImpl   datePickerRoundTrip;
+	private CtrlPassages ctrlPassages;
+	
+	/**
+	 * @brief
+	 */
+	private Statement	dbStatement;
 	
 	/**
 	 * @brief	Default Constructor
 	 * 
 	 * @param	panel	- Panel where the content will be stored
 	 */
-	public PassagesPanel(JPanel panel)
+	public PassagesPanel(JPanel 	_panel,
+						 Statement	_stm) throws ParseException
 	{
-		internalPanel = panel;
+		ctrlPassages	= new CtrlPassages();
+		
+		dbStatement		= _stm;
+		
+		internalPanel 	= _panel;
 		
 		internalPanel.removeAll();
-		
-		configRadioButtons();
 		
 		configStateAndCities();
 		
 		configDates();
+		
+		configQuantity();
+		
+		configPrice();
 		
 		configButton();
 		
 		configTable();
 		
 		internalPanel.updateUI();
-	}
-	
-	/**
-	 * @brief	Initial settings for the radio buttons and radio buttons group
-	 */
-	public void configRadioButtons()
-	{
-		group 				= new ButtonGroup();
-		
-		radioButtonOneWay 	= new JRadioButton("Somente Ida");
-		radioButtonRoundWay	= new JRadioButton("Ida / Volta");
-		
-		// Settings for the One Way Radio Button
-		radioButtonOneWay.setSelected(true);
-		radioButtonOneWay.setBounds(225, 5,
-									100, 40);
-		
-		radioButtonOneWay.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				labelDateRoundTrip.setVisible(false);
-				
-				datePickerRoundTrip.setVisible(false);
-			}
-		});
-		
-		// Settings for the Round Trip Radio Button
-		radioButtonRoundWay.setBounds(425, 5,
-									  100, 40);
-		
-		radioButtonRoundWay.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				labelDateRoundTrip.setVisible(true);
-				
-				datePickerRoundTrip.setVisible(true);
-			}
-		});
-		
-        group.add(radioButtonOneWay);
-        group.add(radioButtonRoundWay);
-        
-        internalPanel.add(radioButtonOneWay);
-        internalPanel.add(radioButtonRoundWay);
 	}
 	
 	/**
@@ -239,7 +200,7 @@ public class PassagesPanel extends JPanel
 		// Settings for the City Source comboBox
 		comboBoxCitySrc.setModel(new DefaultComboBoxModel<String>(brazil.getCities(comboBoxStateSrc.getItemAt(comboBoxStateSrc.getSelectedIndex()))));
 		comboBoxCitySrc.setBounds(160, 80, 
-				                  180, 20);
+				                  140, 20);
 		
 		// Settings for the State Destination comboBox
 		comboBoxStateDest.setModel(new DefaultComboBoxModel<String>(brazil.getStates()));
@@ -258,7 +219,7 @@ public class PassagesPanel extends JPanel
 		// Settings for the City Destination comboBox
 		comboBoxCityDest.setModel(new DefaultComboBoxModel<String>(brazil.getCities(comboBoxStateSrc.getItemAt(comboBoxStateSrc.getSelectedIndex()))));
 		comboBoxCityDest.setBounds(160, 130, 
-				                   180, 20);
+				                   140, 20);
 		
 		internalPanel.add(labelSrc);
 		internalPanel.add(labelDest);
@@ -287,18 +248,12 @@ public class PassagesPanel extends JPanel
 	public void configTable()
 	{
 		table 							= new JTable();
-		scrollPaneTabela 				= new JScrollPane();
+		
+		scrollPaneTabela 				= new JScrollPane(table);
 		
 		DefaultTableCellRenderer dtcr	= new DefaultTableCellRenderer();
 		
 		dtcr.setHorizontalAlignment(SwingConstants.CENTER);
-		
-		// Settings for the Scroll
-		scrollPaneTabela.setBackground(new Color(222, 184, 135));
-		scrollPaneTabela.setBorder(null);
-		scrollPaneTabela.setViewportView(table);
-		scrollPaneTabela.setBounds(370, 80,
-								   400, 321);
 		
 		// Settings for the Table
 		table.setShowGrid(false);
@@ -310,18 +265,18 @@ public class PassagesPanel extends JPanel
 		table.getTableHeader().setFont(new Font("Times New Roman", Font.BOLD, 12));
 		table.setModel(new DefaultTableModel(
 				new Object[][] {
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null}
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null}
 					},
-			new String[] {"Origem", "Destino", "Preço (R$)"})
+			new String[] {"Origem", "Destino", "Data", "Quantidade", "Preço (R$)"})
 			{
 				boolean[] columnEditables = new boolean[]
 				{
@@ -335,9 +290,11 @@ public class PassagesPanel extends JPanel
 				}
 			});
 		
-		table.getColumnModel().getColumn(0).setMinWidth(107);
-		table.getColumnModel().getColumn(1).setPreferredWidth(108);
-		table.getColumnModel().getColumn(2).setPreferredWidth(35);
+		table.getColumnModel().getColumn(0).setMinWidth(90);
+		table.getColumnModel().getColumn(1).setPreferredWidth(90);
+		table.getColumnModel().getColumn(2).setPreferredWidth(50);
+		table.getColumnModel().getColumn(3).setPreferredWidth(55);
+		table.getColumnModel().getColumn(4).setPreferredWidth(45);
 		
 		for(int i = 0; i < table.getColumnCount(); ++i)
 		{
@@ -345,6 +302,12 @@ public class PassagesPanel extends JPanel
 		}
 		
 		table.setAutoCreateRowSorter(true);
+		
+		// Settings for the Scroll
+		scrollPaneTabela.setBorder(null);
+		scrollPaneTabela.setViewportView(table);
+		scrollPaneTabela.setBounds(330, 80,
+								   440, 321);
 		
 		internalPanel.add(scrollPaneTabela);
 	}
@@ -371,11 +334,38 @@ public class PassagesPanel extends JPanel
 	}
 	
 	/**
+	 * @brief
+	 * 
+	 * @param	_passage
+	 */
+	public void insertTableField(Passages	_passage)
+	{
+		/*table.getModel().setValueAt(value,
+									row, 
+									column);*/
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param row		:
+	 * @param column	:
+	 * 
+	 * @return
+	 */
+	public String getTableField(int 	row,
+			 					int 	column)
+	{
+		return (String)table.getModel().getValueAt(row, 
+						    			   		   column);
+	}
+	
+	/**
 	 * @brief	This method will handle the initial configurations to the Search Button
 	 */
 	public void configButton()
 	{
-		buttonSearch = new JButton("Buscar Passagens");
+		buttonSearch = new JButton("Registrar Trecho");
 		
 		// Settings for the Search Button
 		buttonSearch.setBorder(new BevelBorder(BevelBorder.RAISED, 
@@ -386,7 +376,7 @@ public class PassagesPanel extends JPanel
 		
 		buttonSearch.setBackground(new Color(238, 238, 238));
 		buttonSearch.setBounds(10, 370,
-							   350, 30);
+							   310, 30);
 		
 		buttonSearch.addActionListener(new ActionListener()
 		{
@@ -401,7 +391,43 @@ public class PassagesPanel extends JPanel
 				}
 				else
 				{
-					//TODO Do action 'search'
+					try
+					{
+						int day 	= datePicker.getModel().getDay();
+					    int month 	= datePicker.getModel().getMonth();
+					    int year 	= datePicker.getModel().getYear();
+					    
+					    Calendar calendar = Calendar.getInstance();
+					    calendar.set(year, month, day);
+						
+						ctrlPassages.insertEntry(dbStatement,
+												 comboBoxCitySrc.getSelectedItem().toString(), 
+										 		 comboBoxCityDest.getSelectedItem().toString(),
+										 		 new java.sql.Date(calendar.getTime().getTime()),
+										 		 Integer.valueOf(textFieldQuantity.getText().toString()),
+										 		 Float.valueOf(textFieldPrice.getText().substring(3, 
+										 				 								   		  9)));
+						
+						JOptionPane.showMessageDialog(new JFrame(),
+													  "Passagem inserida com sucesso!", 
+													  "Sucesso",
+													  JOptionPane.INFORMATION_MESSAGE);
+					}
+					catch (NumberFormatException e) 
+					{
+						e.printStackTrace();
+					}
+					catch (MySQLIntegrityConstraintViolationException e)
+					{
+						JOptionPane.showMessageDialog(new JFrame(),
+													  "Passagem já existe no Banco de Dados!", 
+													  "Erro",
+													  JOptionPane.ERROR_MESSAGE);
+					}
+					catch (SQLException e) 
+					{
+						e.printStackTrace();
+					}
 				}
 			}
 		});
@@ -414,35 +440,24 @@ public class PassagesPanel extends JPanel
 	 */
 	public void configDates()
 	{
-		JLabel labelDateOneWay				= new JLabel("Data de Ida: ");
+		JLabel labelDate			= new JLabel("Data: ");
 		
-		labelDateRoundTrip					= new JLabel("Data de Retorno: ");
+		UtilDateModel  model		= new UtilDateModel();
 		
-		UtilDateModel  modelOneWay			= new UtilDateModel();
-		UtilDateModel  modelRoundTrip		= new UtilDateModel();
+		JDatePanelImpl datePanel	= new JDatePanelImpl(model);
 		
-		JDatePanelImpl datePanelOneWay		= new JDatePanelImpl(modelOneWay);
-		JDatePanelImpl datePanelRoundTrip	= new JDatePanelImpl(modelRoundTrip);
-		
-		datePickerOneWayTrip 				= new JDatePickerImpl(datePanelOneWay);
-		datePickerRoundTrip 				= new JDatePickerImpl(datePanelRoundTrip);
+		datePicker	 				= new JDatePickerImpl(datePanel);
 		
 		// Label for One Way trip configurations
-		labelDateOneWay.setPreferredSize(new Dimension(75, 15));
-		labelDateOneWay.setBounds(10, 200,
-						          120, 20);
-		
-		// Label for Round Trip configurations
-		labelDateRoundTrip.setVisible(false);
-		labelDateRoundTrip.setPreferredSize(new Dimension(80, 15));
-		labelDateRoundTrip.setBounds(10, 250,
-							         120, 20);
+		labelDate.setPreferredSize(new Dimension(75, 15));
+		labelDate.setBounds(10, 200,
+						    120, 20);
 		
 		// One Way Trip configurations
-		datePickerOneWayTrip.setBounds(140, 197, 
-									   200, 40);
+		datePicker.setBounds(80, 197, 
+							 220, 40);
 		
-		datePickerOneWayTrip.addActionListener(new ActionListener()
+		datePicker.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
@@ -450,71 +465,56 @@ public class PassagesPanel extends JPanel
 			}
 		});
 		
-		// Round Trip configurations
-		datePickerRoundTrip.setVisible(false);
-		datePickerRoundTrip.setBounds(140, 247, 
-									  200, 40);
-		
-		datePickerRoundTrip.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				if(!checkForPreviousDate(datePickerOneWayTrip, 
-										 datePickerRoundTrip))
-				{
-					JOptionPane.showMessageDialog(new JFrame(),
-												  "Data de Retorno não pode ser anterior à data de Ida!", 
-												  "Erro",
-												  JOptionPane.ERROR_MESSAGE);
-					
-					modelRoundTrip.setSelected(false);
-				}
-			}
-		});
-		
-		internalPanel.add(labelDateOneWay);
-		internalPanel.add(labelDateRoundTrip);
-		internalPanel.add(datePickerOneWayTrip);
-		internalPanel.add(datePickerRoundTrip);
+		internalPanel.add(labelDate);
+		internalPanel.add(datePicker);
 	}
 	
 	/**
-	 * @brief	Check whether or not the return Date is greater than the go Date
-	 * 
-	 * @param goDate		: JDatePicker for go Date
-	 * @param returnDate	: JDatePicker for return Date
-	 * 
-	 * @return	True if return Date is lesser than Go Date
-	 * 			False otherwise
+	 * @brief
 	 */
-	public boolean checkForPreviousDate(JDatePickerImpl	goDate,
-										JDatePickerImpl	returnDate)
+	public void configQuantity() throws ParseException
 	{
-		boolean returnValue = false;
+		JLabel label		= new JLabel("Quantidade: ");
 		
-		// Check Year
-		if(returnDate.getModel().getYear() > goDate.getModel().getYear())
-		{
-			returnValue = true;
-		}
-		else
-		{
-			// Check Month
-			if(returnDate.getModel().getMonth() > goDate.getModel().getMonth())
-			{
-				returnValue = true;
-			}
-			else
-			{
-				// Check Day
-				if(returnDate.getModel().getDay() > goDate.getModel().getDay())
-				{
-					returnValue = true;
-				}
-			}
-		}
+		MaskFormatter mask	= new MaskFormatter("###");
+		mask.setValidCharacters("0123456789");
 		
-		return returnValue;
+		textFieldQuantity	= new JFormattedTextField(mask);
+	    
+		label.setPreferredSize(new Dimension(75, 25));
+		label.setBounds(10, 260,
+						120, 20);
+		
+		textFieldQuantity.setPreferredSize(new Dimension(75, 25));
+		textFieldQuantity.setBounds(80, 260,
+						            80, 20);
+	    
+		internalPanel.add(label);
+		internalPanel.add(textFieldQuantity);
+	}
+	
+	/**
+	 * @brief
+	 */
+	public void configPrice() throws ParseException
+	{
+		JLabel label		= new JLabel("Preço (R$): ");
+		
+		MaskFormatter mask	= new MaskFormatter("R$ ###.##");
+		mask.setValidCharacters("0123456789");
+		
+		textFieldPrice		= new JFormattedTextField(mask);
+	    
+		label.setPreferredSize(new Dimension(75, 25));
+		label.setBounds(10, 300,
+						120, 20);
+		
+	    textFieldPrice.setPreferredSize(new Dimension(75, 25));
+	    textFieldPrice.setBounds(80, 300,
+						         80, 20);
+		
+	    internalPanel.add(label);
+	    internalPanel.add(textFieldPrice);
 	}
 	
 	/**
@@ -531,19 +531,11 @@ public class PassagesPanel extends JPanel
 		   comboBoxCitySrc.getSelectedItem().equals("  ") 		||
 		   comboBoxStateDest.getSelectedItem().equals("  ") 	||
 		   comboBoxCityDest.getSelectedItem().equals("  ")		||
-		   datePickerOneWayTrip.getModel().getValue() == null)
+		   datePicker.getModel().getValue() == null				||
+		   textFieldQuantity.getText().equals("")				||
+		   textFieldPrice.getText().equals("R$    .  "))
 		{
 			returnValue = true;
-		}
-		
-		// Lastly, if we are searching for a round trip, we should
-		// look also to datePickerRoundTrip value
-		if(radioButtonRoundWay.isSelected())
-		{
-			if(datePickerRoundTrip.getModel().getValue() == null)
-			{
-				returnValue = true;
-			}
 		}
 		
 		return returnValue;

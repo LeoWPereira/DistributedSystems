@@ -12,9 +12,11 @@
 package Database.Controller;
 
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Classes.PassageList;
 import Database.DAO.DAOPassages;
 
 /**
@@ -43,6 +45,8 @@ public class CtrlPassages
 	public void createTable(Statement	_stm) throws SQLException
 	{
 		daoPassages.createTable(_stm);
+		
+		daoPassages.addUniqueValues(_stm);
 	}
 	
 	/**
@@ -94,5 +98,28 @@ public class CtrlPassages
 		daoPassages.deleteEntry(_stm,
 								_source,
 								_dest);
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_stm	:
+	 * 
+	 * @return
+	 */
+	public PassageList loadDBPassages(Statement	_stm)
+	{
+		PassageList list = new PassageList();
+		
+		ResultSet rs = _stm.executeQuery("");  
+
+		while(rs.next())
+		{ 
+			list.insertPeer(_passage);
+			
+			//list.add(rs.getString(1));
+		}
+		
+		return list;
 	}
 }

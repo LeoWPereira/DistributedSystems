@@ -354,7 +354,6 @@ public class PackagesPanel extends JPanel
 		
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setRowHeight(30);
-		table.setPreferredSize(new Dimension(244, 300));
 		table.getTableHeader().setBackground(new Color(222, 184, 135));
 		table.getTableHeader().setFont(new Font("Times New Roman", Font.BOLD, 12));
 		table.setModel(new DefaultTableModel(
@@ -410,6 +409,11 @@ public class PackagesPanel extends JPanel
 								 int 	column,
 								 String	value)
 	{
+		if(row >= table.getRowCount())
+		{
+			((DefaultTableModel)table.getModel()).addRow(new Object[]{null, null});
+		}
+		
 		table.getModel().setValueAt(value, 
 									row, 
 									column);

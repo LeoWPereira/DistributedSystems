@@ -74,15 +74,25 @@ public class DAOPassages
 					 rowID												+
 					 "` INT AUTO_INCREMENT PRIMARY KEY NOT NULL , `"	+
 					 rowSource											+
-					 "` TEXT NOT NULL , `"								+
+					 "` CHAR(100) NOT NULL  , `"						+
 					 rowDestination										+
-					 "` TEXT NOT NULL , `"								+
+					 "` CHAR(100) NOT NULL  , `"						+
 					 rowDate											+
 					 "` DATE NOT NULL , `"								+
 					 rowQuantity										+
 					 "` INT NOT NULL , `"								+
 					 rowPrice											+
 					 "` FLOAT NOT NULL ) ENGINE = MyISAM;");
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_stm	:
+	 */
+	public void addUniqueValues(Statement _stm) throws SQLException
+	{
+		_stm.execute("ALTER TABLE `leonar14_DistributedSystems`.`Passages` ADD UNIQUE (`Source`, `Destination`, `Date`, `Price`) USING BTREE;");
 	}
 	
 	/**
