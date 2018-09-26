@@ -16,16 +16,17 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.text.ParseException;
 
-import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -34,7 +35,14 @@ import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 
+import com.mysql.jdbc.Statement;
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+
+import Classes.Accommodation;
+import Classes.AccommodationManager;
+import Database.Controller.CtrlHotel;
 import Extra.CitiesBrazil;
 
 /**
@@ -51,21 +59,6 @@ public class HotelsPanel extends JPanel
 	 * @brief	Member to store every GUI information on the current Panel
 	 */
 	private static JPanel 		internalPanel;
-	
-	/**
-	 * @brief	Member to store the group of Radio Buttons
-	 */
-	private static ButtonGroup 	group;
-	
-	/**
-	 * @brief	Member containing the info about the "City" Radio Button
-	 */
-	private static JRadioButton	radioCity;
-	
-	/**
-	 * @brief	Member containing the info about the "Hotel" Radio Button
-	 */
-	private static JRadioButton	radioHotel;
 	
 	/**
 	 * @brief	Member containing the class of States and Cities from Brazil
@@ -113,87 +106,66 @@ public class HotelsPanel extends JPanel
 	private JTextField 		  textFieldHotel;
 	
 	/**
+	 * @brief	Member containing the hotel name text field
+	 */
+	private JFormattedTextField	textFieldQuantity;
+
+	/**
+	 * @brief	Member containing the hotel name text field
+	 */
+	private JFormattedTextField	textFieldPrice;
+	
+	/**
+	 * @brief
+	 */
+	private CtrlHotel ctrlHotel;
+	
+	/**
+	 * @brief
+	 */
+	private Statement	dbStatement;
+	
+	/**
+	 * @brief
+	 */
+	private AccommodationManager	hotelManager = new AccommodationManager();
+	
+	/**
 	 * @brief	Default Constructor
 	 * 
 	 * This constructor will first remove everything from the JPanel
 	 * 
-	 * @param	panel	-	JPanel containing this panel future info
+	 * @param	_panel	:	JPanel containing this panel future info
+	 * @param	_stm	:
 	 */
-	public HotelsPanel(JPanel panel)
+	public HotelsPanel(JPanel 		_panel,
+					   Statement	_stm) throws ParseException, SQLException
 	{
-		internalPanel = panel;
+		ctrlHotel	= new CtrlHotel();
+		
+		dbStatement		= _stm;
+		
+		internalPanel = _panel;
 		
 		internalPanel.removeAll();
-		
-		configRadioButtons();
 		
 		configStateAndCities();
 		
 		configHotelSearch();
 		
+		configQuantity();
+		
+		configPrice();
+		
 		configButton();
 		
 		configTable();
 		
+		hotelManager = ctrlHotel.loadDBHotels(dbStatement);
+		
+		insertTableField(hotelManager);
+		
 		internalPanel.updateUI();
-	}
-	
-	/**
-	 * @brief	Initial settings for the radio buttons and radio buttons group
-	 */
-	public void configRadioButtons()
-	{
-		group 		= new ButtonGroup();
-		
-		radioCity 	= new JRadioButton("Busca por Cidade");
-		radioHotel	= new JRadioButton("Busca por Hotel");
-		
-		// Settings for the City Radio Button
-		radioCity.setSelected(true);
-		radioCity.setBounds(225, 5,
-							150, 40);
-		
-		radioCity.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				labelTown.setVisible(true);
-
-				comboBoxState.setVisible(true);
-				
-				comboBoxCity.setVisible(true);
-				
-				labelHotel.setVisible(false);
-				
-				textFieldHotel.setVisible(false);
-			}
-		});
-		
-		// Settings for the Hotel Radio Button
-		radioHotel.setBounds(425, 5,
-							 150, 40);
-		
-		radioHotel.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				labelTown.setVisible(false);
-
-				comboBoxState.setVisible(false);
-				
-				comboBoxCity.setVisible(false);
-				
-				labelHotel.setVisible(true);
-				
-				textFieldHotel.setVisible(true);
-			}
-		});
-		
-        group.add(radioCity);
-        group.add(radioHotel);
-        
-        internalPanel.add(radioCity);
-        internalPanel.add(radioHotel);
 	}
 	
 	/**
@@ -230,7 +202,7 @@ public class HotelsPanel extends JPanel
 		// Settings for the City Source comboBox
 		comboBoxCity.setModel(new DefaultComboBoxModel<String>(brazil.getCities(comboBoxState.getItemAt(comboBoxState.getSelectedIndex()))));
 		comboBoxCity.setBounds(160, 80, 
-				               180, 20);
+				               140, 20);
 				
 		internalPanel.add(labelTown);
 		internalPanel.add(comboBoxState);
@@ -259,19 +231,65 @@ public class HotelsPanel extends JPanel
 		textFieldHotel	= new JTextField();
 		
 		// Hotel Name label configurations
-		labelHotel.setVisible(false);
 		labelHotel.setPreferredSize(new Dimension(75, 15));
-		labelHotel.setBounds(10, 80,
+		labelHotel.setBounds(10, 130,
 						     120, 20);
 		
 		// Hotel Name Text Field configurations
-		textFieldHotel.setVisible(false);
 		textFieldHotel.setPreferredSize(new Dimension(75, 15));
-		textFieldHotel.setBounds(120, 80,
-						         220, 20);
+		textFieldHotel.setBounds(120, 130,
+						         180, 20);
 				
 		internalPanel.add(labelHotel);
 		internalPanel.add(textFieldHotel);
+	}
+	
+	/**
+	 * @brief
+	 */
+	public void configQuantity() throws ParseException
+	{
+		JLabel label		= new JLabel("Quantidade de Quartos: ");
+		
+		MaskFormatter mask	= new MaskFormatter("###");
+		mask.setValidCharacters("0123456789");
+		
+		textFieldQuantity	= new JFormattedTextField(mask);
+	    
+		label.setPreferredSize(new Dimension(160, 25));
+		label.setBounds(10, 175,
+						160, 20);
+		
+		textFieldQuantity.setPreferredSize(new Dimension(75, 25));
+		textFieldQuantity.setBounds(160, 175,
+						            80, 20);
+	    
+		internalPanel.add(label);
+		internalPanel.add(textFieldQuantity);
+	}
+	
+	/**
+	 * @brief
+	 */
+	public void configPrice() throws ParseException
+	{
+		JLabel label		= new JLabel("Preço (R$): ");
+		
+		MaskFormatter mask	= new MaskFormatter("R$ ###.##");
+		mask.setValidCharacters("0123456789");
+		
+		textFieldPrice		= new JFormattedTextField(mask);
+	    
+		label.setPreferredSize(new Dimension(75, 25));
+		label.setBounds(10, 215,
+						160, 20);
+		
+	    textFieldPrice.setPreferredSize(new Dimension(75, 25));
+	    textFieldPrice.setBounds(160, 215,
+						         80, 20);
+		
+	    internalPanel.add(label);
+	    internalPanel.add(textFieldPrice);
 	}
 	
 	/**
@@ -279,7 +297,7 @@ public class HotelsPanel extends JPanel
 	 */
 	public void configButton()
 	{
-		buttonSearch = new JButton("Buscar Hospedagem");
+		buttonSearch = new JButton("Registrar Hospedagem");
 		
 		// Settings for the Search Button
 		buttonSearch.setBorder(new BevelBorder(BevelBorder.RAISED, 
@@ -290,7 +308,7 @@ public class HotelsPanel extends JPanel
 		
 		buttonSearch.setBackground(new Color(238, 238, 238));
 		buttonSearch.setBounds(10, 370,
-							   350, 30);
+							   270, 30);
 		
 		buttonSearch.addActionListener(new ActionListener()
 		{
@@ -305,7 +323,7 @@ public class HotelsPanel extends JPanel
 				}
 				else
 				{
-					//TODO Do action 'search'
+					processRegistry();
 				}
 			}
 		});
@@ -323,20 +341,11 @@ public class HotelsPanel extends JPanel
 	{
 		boolean returnValue = false;
 		
-		if(radioCity.isSelected())
+		if(comboBoxState.getSelectedItem().equals("  ")	||
+		   comboBoxCity.getSelectedItem().equals("  ")	||
+		   textFieldHotel.getText().equals(""))
 		{
-			if(comboBoxState.getSelectedItem().equals("  ")	||
-			   comboBoxCity.getSelectedItem().equals("  "))
-			{
-				returnValue = true;
-			}
-		}
-		else
-		{
-			if(textFieldHotel.getText().equals(""))
-			{
-				returnValue = true;
-			}
+			returnValue = true;
 		}
 		
 		return returnValue;
@@ -348,19 +357,13 @@ public class HotelsPanel extends JPanel
 	@SuppressWarnings("serial")
 	public void configTable()
 	{
-		table 							= new JTable();
-		scrollPaneTabela 				= new JScrollPane();
+table 							= new JTable();
+		
+		scrollPaneTabela 				= new JScrollPane(table);
 		
 		DefaultTableCellRenderer dtcr	= new DefaultTableCellRenderer();
 		
 		dtcr.setHorizontalAlignment(SwingConstants.CENTER);
-		
-		// Settings for the Scroll
-		scrollPaneTabela.setBackground(new Color(222, 184, 135));
-		scrollPaneTabela.setBorder(null);
-		scrollPaneTabela.setViewportView(table);
-		scrollPaneTabela.setBounds(370, 80,
-								   400, 321);
 		
 		// Settings for the Table
 		table.setShowGrid(false);
@@ -372,18 +375,18 @@ public class HotelsPanel extends JPanel
 		table.getTableHeader().setFont(new Font("Times New Roman", Font.BOLD, 12));
 		table.setModel(new DefaultTableModel(
 				new Object[][] {
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null},
-						{null, null, null, null}
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null},
+						{null, null, null, null, null}
 					},
-			new String[] {"Cidade", "Hotel", "Preço (R$)"})
+			new String[] {"Cidade", "Hotel", "Quartos", "Pessoas / Quarto", "Preço (R$)"})
 			{
 				boolean[] columnEditables = new boolean[]
 				{
@@ -397,9 +400,11 @@ public class HotelsPanel extends JPanel
 				}
 			});
 		
-		table.getColumnModel().getColumn(0).setMinWidth(107);
-		table.getColumnModel().getColumn(1).setPreferredWidth(108);
-		table.getColumnModel().getColumn(2).setPreferredWidth(35);
+		table.getColumnModel().getColumn(0).setMinWidth(80);
+		table.getColumnModel().getColumn(1).setPreferredWidth(70);
+		table.getColumnModel().getColumn(2).setPreferredWidth(45);
+		table.getColumnModel().getColumn(3).setPreferredWidth(90);
+		table.getColumnModel().getColumn(4).setPreferredWidth(45);
 		
 		for(int i = 0; i < table.getColumnCount(); ++i)
 		{
@@ -407,6 +412,12 @@ public class HotelsPanel extends JPanel
 		}
 		
 		table.setAutoCreateRowSorter(true);
+		
+		// Settings for the Scroll
+		scrollPaneTabela.setBorder(null);
+		scrollPaneTabela.setViewportView(table);
+		scrollPaneTabela.setBounds(330, 80,
+								   440, 321);
 		
 		internalPanel.add(scrollPaneTabela);
 	}
@@ -430,5 +441,124 @@ public class HotelsPanel extends JPanel
 		table.getModel().setValueAt(value, 
 									row, 
 									column);
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_passage	:
+	 * @param	_row		:
+	 */
+	public void insertTableField(Accommodation	_hotel,
+								 int 			_row)
+	{
+		if(_row >= table.getRowCount())
+		{
+			((DefaultTableModel)table.getModel()).addRow(new Object[]{null, null});
+		}
+		
+		table.getModel().setValueAt(_hotel.getCityName(),
+									_row, 
+									0);
+		
+		table.getModel().setValueAt(_hotel.getAccommodationName(),
+									_row, 
+									1);
+		
+		table.getModel().setValueAt(_hotel.getQuantity(),
+									_row, 
+									2);
+		
+		table.getModel().setValueAt(_hotel.getMaxGuestsPerRoom(),
+									_row, 
+									3);
+		
+		table.getModel().setValueAt(_hotel.getPrice(),
+									_row, 
+									4);
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_list	:
+	 */
+	public void insertTableField(AccommodationManager	_list)
+	{
+		int row = 0;
+		
+		for (Accommodation value : _list.getAccommodationList())
+		{
+			insertTableField(value,
+							 row++);
+		}
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param row		:
+	 * @param column	:
+	 * 
+	 * @return
+	 */
+	public String getTableField(int 	row,
+			 					int 	column)
+	{
+		return (String)table.getModel().getValueAt(row, 
+						    			   		   column);
+	}
+	
+	/**
+	 * @brief
+	 */
+	public void processRegistry()
+	{
+		try
+		{
+			// Insert Entry on the database
+			ctrlHotel.insertEntry(dbStatement, 
+								  comboBoxCity.getSelectedItem().toString(), 
+								  textFieldHotel.getText().toString(), 
+								  Integer.valueOf(textFieldQuantity.getText().toString()), 
+								  0, // TODO 
+								  Float.valueOf(textFieldPrice.getText().substring(3, 
+		   									   									   9)));
+			
+			// We will also insert the same entry in our list
+			Accommodation entry = new Accommodation(comboBoxCity.getSelectedItem().toString(), 
+													textFieldHotel.getText().toString(), 
+													Integer.valueOf(textFieldQuantity.getText().toString()), 
+													0, 
+													Float.valueOf(textFieldPrice.getText().substring(3, 
+							   									   									 9)));
+			
+			// Finally, we update our table
+			hotelManager.insertAccommodation(entry);
+			
+			// Finally, we update our table
+			insertTableField(entry,
+							 hotelManager.getAccommodationListSize() - 1);
+			
+			JOptionPane.showMessageDialog(new JFrame(),
+										  "Hospedagem inserida com sucesso!", 
+										  "Sucesso",
+										  JOptionPane.INFORMATION_MESSAGE);
+		}
+		catch (NumberFormatException e) 
+		{
+			e.printStackTrace();
+		}
+		catch (MySQLIntegrityConstraintViolationException e)
+		{
+			JOptionPane.showMessageDialog(new JFrame(),
+										  "Passagem já existe no Banco de Dados!", 
+										  "Erro",
+										  JOptionPane.ERROR_MESSAGE);
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 }

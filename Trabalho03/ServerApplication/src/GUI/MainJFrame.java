@@ -20,6 +20,7 @@ import javax.swing.border.EmptyBorder;
 import com.mysql.jdbc.Statement;
 
 import Database.DBConnection;
+import Database.Controller.CtrlHotel;
 import Database.Controller.CtrlPassages;
 
 import javax.swing.JMenuBar;
@@ -92,8 +93,11 @@ public class MainJFrame extends JFrame
 					
 					dbStatement			= DBConnection.configureDatabase(dbConnection);
 					
-					CtrlPassages ctrl = new CtrlPassages();
-					ctrl.createTable(dbStatement);
+					CtrlPassages ctrlPassage = new CtrlPassages();
+					ctrlPassage.createTable(dbStatement);
+					
+					CtrlHotel ctrlHotel = new CtrlHotel();
+					ctrlHotel.createTable(dbStatement);
 				}
 				catch(Exception e)
 				{
@@ -294,9 +298,23 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				//HotelsPanel hotelsPanel = new HotelsPanel(internalPanel);
+				HotelsPanel hotelsPanel;
 				
-				//hotelsPanel.setVisible(true);
+				try 
+				{
+					hotelsPanel = new HotelsPanel(internalPanel, 
+											      dbStatement);
+					
+					hotelsPanel.setVisible(true);
+				} 
+				catch (ParseException e) 
+				{
+					e.printStackTrace();
+				} 
+				catch (SQLException e) 
+				{
+					e.printStackTrace();
+				}
 			}
 		});
 				

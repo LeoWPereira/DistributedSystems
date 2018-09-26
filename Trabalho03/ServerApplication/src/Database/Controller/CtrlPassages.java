@@ -145,7 +145,10 @@ public class CtrlPassages
 	{
 		FlightTicketManager list = new FlightTicketManager();
 		
-		ResultSet rs = daoPassages.loadDBPassages(_stm);
+		ResultSet rs = daoPassages.searchPassages(_stm,
+												  _source,
+												  _dest,
+												  _date);
 
 		while(rs.next())
 		{

@@ -136,7 +136,8 @@ public class PassagesPanel extends JPanel
 	/**
 	 * @brief	Default Constructor
 	 * 
-	 * @param	panel	- Panel where the content will be stored
+	 * @param	_panel	: Panel where the content will be stored
+	 * @param	_stm	:
 	 */
 	public PassagesPanel(JPanel 	_panel,
 						 Statement	_stm) throws ParseException, SQLException

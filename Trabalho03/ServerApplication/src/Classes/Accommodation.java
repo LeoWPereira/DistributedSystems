@@ -23,63 +23,131 @@ public class Accommodation implements Serializable
 	 */
 	private static final long serialVersionUID = -5955676390015753503L;
 	
-	private String cityName;
-    private String accommodationName;
-    private float price;
+	/**
+	 * @brief
+	 */
+	private String 	cityName;
+    
+	/**
+	 * @brief
+	 */
+	private String 	accommodationName;
+    
+	/**
+	 * @brief
+	 */
+	private int 	quantity;
+	
+	/**
+	 * @brief
+	 */
+	private int 	maxGuestsPerRoom;
+	
+	/**
+	 * @brief
+	 */
+	private float 	price;
     
 /**
- * Default constructor
+ * @brief	Default constructor
  * 
- * @param cityName String
- * @param accommodationName String
- * @param price float
+ * @param 	_cityName 			: String
+ * @param 	_accommodationName 	: String
+ * @param 	_quantity 			: int
+ * @param 	_price 				: float
  */    
-    public Accommodation(String cityName, String accommodationName, float price)
+    public Accommodation(String 	_cityName, 
+    					 String 	_accommodationName,
+    					 int		_quantity,
+    					 int		_maxGuests,
+    					 float 		_price)
     {
-        this.cityName = cityName;
-        this.accommodationName = accommodationName;
-        this.price = price;
+        cityName 			= _cityName;
+        accommodationName	= _accommodationName;
+        quantity			= _quantity;
+        maxGuestsPerRoom	= _maxGuests;
+        price 				= _price;
     }
     
     /**
-     * Default setter
+     * @brief Default setter
      * 
-     * @param price float
+     * @param _price	: float
      */
-    public void setPrice(float price) 
+    public void setPrice(float _price) 
     {
-        this.price = price;
+        price = _price;
     }
     
     /**
-     * Default getter
-     * @return cityName
+     * @brief	Default getter
      * 
+     * @return 	cityName
      */   
     public String getCityName()
     {
-        return this.cityName;
+        return cityName;
     }
     
     /**
-     * Default getter
-     * @return accommodationName
+     * @brief	Default getter
      * 
+     * @return 	accommodationName
      */ 
     public String getAccommodationName()
     {
-        return this.accommodationName;
+        return accommodationName;
     }
     
     /**
-     * Default getter
-     * @return price
+     * @brief	Default getter
      * 
+     * @return 	price
      */ 
     public float getPrice()
     {
-        return this.price;
+        return price;
     }
+
+	/**
+	 * @brief
+	 * 
+	 * @return the quantity
+	 */
+	public int getQuantity() 
+	{
+		return quantity;
+	}
+
+	/**
+	 * @brief
+	 * 
+	 * @param _quantity	: the quantity to set
+	 */
+	public void setQuantity(int _quantity)
+	{
+		this.quantity = _quantity;
+	}
+
+	/**
+	 * @brief
+	 * 
+	 * @return	the maxGuestsPerRoom
+	 */
+	public int getMaxGuestsPerRoom() 
+	{
+		return maxGuestsPerRoom;
+	}
+
+	/**
+	 * @brief
+	 * 
+	 * @param 	_maxGuestsPerRoom	: the maxGuestsPerRoom to set
+	 */
+	public void setMaxGuestsPerRoom(int _maxGuestsPerRoom) 
+	{
+		maxGuestsPerRoom = _maxGuestsPerRoom;
+	}
     
    
 }
