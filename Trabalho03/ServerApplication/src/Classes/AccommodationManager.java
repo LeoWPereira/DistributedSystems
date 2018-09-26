@@ -9,7 +9,7 @@
  ******************************************************************************
  */
 
-package Database;
+package Classes;
 
 import java.util.ArrayList;
 import java.lang.String;

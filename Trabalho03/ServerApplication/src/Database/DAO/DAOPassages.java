@@ -12,9 +12,12 @@
 package Database.DAO;
 
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Classes.FlightTicket;
+import Classes.FlightTicketManager;
 import Database.DBConnection;
 
 /**
@@ -163,5 +166,36 @@ public class DAOPassages
 					 "' AND `Destination` = '"				+
 					 _dest									+
 					 "';");
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_stm	:
+	 * 
+	 * @return
+	 */
+	public FlightTicketManager loadDBPassages(Statement	_stm) throws SQLException
+	{
+		FlightTicketManager list = new FlightTicketManager();
+		
+		ResultSet rs = _stm.executeQuery("SELECT * FROM `"					+
+				 						 DBConnection.getDatabaseName()		+
+			 						 	 "`.`" 								+
+			 						 	 DBConnection.getPassagesDBName() 	+
+				 						 "`");
+
+		while(rs.next())
+		{
+			FlightTicket ticket = new FlightTicket(rs.getString(2),
+												   rs.getString(3),
+												   rs.getDate(4),
+												   rs.getInt(5),
+												   rs.getFloat(6));
+			
+			list.insertFlightTicket(ticket);
+		}
+		
+		return list;
 	}
 }

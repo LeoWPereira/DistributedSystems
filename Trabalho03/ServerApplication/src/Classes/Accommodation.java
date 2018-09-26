@@ -9,16 +9,21 @@
  ******************************************************************************
  */
 
-package Database;
+package Classes;
 
 import java.io.Serializable;
 
 /**
- * Class responsible for storing the accommodation info
+ * @brief	Class responsible for storing the accommodation info
  */
 public class Accommodation implements Serializable
 {    
-    private String cityName;
+    /**
+	 * @brief
+	 */
+	private static final long serialVersionUID = -5955676390015753503L;
+	
+	private String cityName;
     private String accommodationName;
     private float price;
     

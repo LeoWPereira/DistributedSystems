@@ -40,7 +40,8 @@ import javax.swing.text.MaskFormatter;
 import com.mysql.jdbc.Statement;
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
-import Classes.Passages;
+import Classes.FlightTicket;
+import Classes.FlightTicketManager;
 import Database.Controller.CtrlPassages;
 import Extra.CitiesBrazil;
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
@@ -133,7 +134,7 @@ public class PassagesPanel extends JPanel
 	 * @param	panel	- Panel where the content will be stored
 	 */
 	public PassagesPanel(JPanel 	_panel,
-						 Statement	_stm) throws ParseException
+						 Statement	_stm) throws ParseException, SQLException
 	{
 		ctrlPassages	= new CtrlPassages();
 		
@@ -154,6 +155,8 @@ public class PassagesPanel extends JPanel
 		configButton();
 		
 		configTable();
+		
+		insertTableField(ctrlPassages.loadDBPassages(dbStatement));
 		
 		internalPanel.updateUI();
 	}
@@ -336,13 +339,47 @@ public class PassagesPanel extends JPanel
 	/**
 	 * @brief
 	 * 
-	 * @param	_passage
+	 * @param	_passage	:
+	 * @param	_row		:
 	 */
-	public void insertTableField(Passages	_passage)
+	public void insertTableField(FlightTicket	_passage,
+								 int 			_row)
 	{
-		/*table.getModel().setValueAt(value,
-									row, 
-									column);*/
+		table.getModel().setValueAt(_passage.getSource(),
+									_row, 
+									0);
+		
+		table.getModel().setValueAt(_passage.getDest(),
+									_row, 
+									1);
+		
+		table.getModel().setValueAt(_passage.getDate(),
+									_row, 
+									2);
+		
+		table.getModel().setValueAt(_passage.getQuantity(),
+									_row, 
+									3);
+		
+		table.getModel().setValueAt(_passage.getPrice(),
+									_row, 
+									4);
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_list	:
+	 */
+	public void insertTableField(FlightTicketManager	_list)
+	{
+		int row = 0;
+		
+		for (FlightTicket ticket : _list.getFlightTicketList())
+		{
+			insertTableField(ticket,
+							 row++);
+		}
 	}
 	
 	/**

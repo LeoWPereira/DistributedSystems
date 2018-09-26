@@ -29,6 +29,7 @@ import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.awt.event.ActionEvent;
 
@@ -272,7 +273,10 @@ public class MainJFrame extends JFrame
 				} 
 				catch (ParseException e) 
 				{
-					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				catch (SQLException e) 
+				{
 					e.printStackTrace();
 				}
 			}
