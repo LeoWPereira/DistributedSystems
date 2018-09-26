@@ -129,6 +129,11 @@ public class PassagesPanel extends JPanel
 	private Statement	dbStatement;
 	
 	/**
+	 * @brief
+	 */
+	private FlightTicketManager	ticketManager = new FlightTicketManager();
+	
+	/**
 	 * @brief	Default Constructor
 	 * 
 	 * @param	panel	- Panel where the content will be stored
@@ -156,7 +161,9 @@ public class PassagesPanel extends JPanel
 		
 		configTable();
 		
-		insertTableField(ctrlPassages.loadDBPassages(dbStatement));
+		ticketManager = ctrlPassages.loadDBPassages(dbStatement);
+		
+		insertTableField(ticketManager);
 		
 		internalPanel.updateUI();
 	}
@@ -345,6 +352,11 @@ public class PassagesPanel extends JPanel
 	public void insertTableField(FlightTicket	_passage,
 								 int 			_row)
 	{
+		if(_row >= table.getRowCount())
+		{
+			((DefaultTableModel)table.getModel()).addRow(new Object[]{null, null});
+		}
+		
 		table.getModel().setValueAt(_passage.getSource(),
 									_row, 
 									0);
@@ -428,43 +440,7 @@ public class PassagesPanel extends JPanel
 				}
 				else
 				{
-					try
-					{
-						int day 	= datePicker.getModel().getDay();
-					    int month 	= datePicker.getModel().getMonth();
-					    int year 	= datePicker.getModel().getYear();
-					    
-					    Calendar calendar = Calendar.getInstance();
-					    calendar.set(year, month, day);
-						
-						ctrlPassages.insertEntry(dbStatement,
-												 comboBoxCitySrc.getSelectedItem().toString(), 
-										 		 comboBoxCityDest.getSelectedItem().toString(),
-										 		 new java.sql.Date(calendar.getTime().getTime()),
-										 		 Integer.valueOf(textFieldQuantity.getText().toString()),
-										 		 Float.valueOf(textFieldPrice.getText().substring(3, 
-										 				 								   		  9)));
-						
-						JOptionPane.showMessageDialog(new JFrame(),
-													  "Passagem inserida com sucesso!", 
-													  "Sucesso",
-													  JOptionPane.INFORMATION_MESSAGE);
-					}
-					catch (NumberFormatException e) 
-					{
-						e.printStackTrace();
-					}
-					catch (MySQLIntegrityConstraintViolationException e)
-					{
-						JOptionPane.showMessageDialog(new JFrame(),
-													  "Passagem já existe no Banco de Dados!", 
-													  "Erro",
-													  JOptionPane.ERROR_MESSAGE);
-					}
-					catch (SQLException e) 
-					{
-						e.printStackTrace();
-					}
+					processRegistry();
 				}
 			}
 		});
@@ -576,5 +552,64 @@ public class PassagesPanel extends JPanel
 		}
 		
 		return returnValue;
+	}
+	
+	/**
+	 * @brief
+	 */
+	public void processRegistry()
+	{
+		try
+		{
+			int day 	= datePicker.getModel().getDay();
+		    int month 	= datePicker.getModel().getMonth();
+		    int year 	= datePicker.getModel().getYear();
+		    
+		    Calendar calendar = Calendar.getInstance();
+		    calendar.set(year, month, day);
+			
+		    // Insert Entry on the database
+			ctrlPassages.insertEntry(dbStatement,
+									 comboBoxCitySrc.getSelectedItem().toString(), 
+							 		 comboBoxCityDest.getSelectedItem().toString(),
+							 		 new java.sql.Date(calendar.getTime().getTime()),
+							 		 Integer.valueOf(textFieldQuantity.getText().toString()),
+							 		 Float.valueOf(textFieldPrice.getText().substring(3, 
+							 				 								   		  9)));
+			
+			FlightTicket entry = new FlightTicket(comboBoxCitySrc.getSelectedItem().toString(), 
+												  comboBoxCityDest.getSelectedItem().toString(), 
+												  new java.sql.Date(calendar.getTime().getTime()), 
+												  Integer.valueOf(textFieldQuantity.getText().toString()), 
+												  Float.valueOf(textFieldPrice.getText().substring(3, 
+			   		  										   									   9)));
+			
+			// We will also insert the same entry in our list
+			ticketManager.insertFlightTicket(entry);
+			
+			// Finally, we update our table
+			insertTableField(entry,
+							 ticketManager.getFlightTicketListSize() - 1);
+			
+			JOptionPane.showMessageDialog(new JFrame(),
+										  "Passagem inserida com sucesso!", 
+										  "Sucesso",
+										  JOptionPane.INFORMATION_MESSAGE);
+		}
+		catch (NumberFormatException e) 
+		{
+			e.printStackTrace();
+		}
+		catch (MySQLIntegrityConstraintViolationException e)
+		{
+			JOptionPane.showMessageDialog(new JFrame(),
+										  "Passagem já existe no Banco de Dados!", 
+										  "Erro",
+										  JOptionPane.ERROR_MESSAGE);
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 }

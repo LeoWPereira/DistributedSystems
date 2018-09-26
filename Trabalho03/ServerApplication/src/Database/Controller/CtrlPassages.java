@@ -12,9 +12,11 @@
 package Database.Controller;
 
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Classes.FlightTicket;
 import Classes.FlightTicketManager;
 import Database.DAO.DAOPassages;
 
@@ -108,6 +110,54 @@ public class CtrlPassages
 	 */
 	public FlightTicketManager loadDBPassages(Statement	_stm) throws SQLException
 	{
-		return daoPassages.loadDBPassages(_stm);
+		FlightTicketManager list = new FlightTicketManager();
+		
+		ResultSet rs = daoPassages.loadDBPassages(_stm);
+
+		while(rs.next())
+		{
+			FlightTicket ticket = new FlightTicket(rs.getString(2),
+												   rs.getString(3),
+												   rs.getDate(4),
+												   rs.getInt(5),
+												   rs.getFloat(6));
+			
+			list.insertFlightTicket(ticket);
+		}
+		
+		return list;
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_source	:
+	 * @param 	_dest	:
+	 * @param 	_date	:
+	 * 
+	 * @return
+	 */
+	public FlightTicketManager searchPassages(Statement	_stm,
+											  String 	_source,
+											  String 	_dest,
+											  Date		_date) throws SQLException
+	{
+		FlightTicketManager list = new FlightTicketManager();
+		
+		ResultSet rs = daoPassages.loadDBPassages(_stm);
+
+		while(rs.next())
+		{
+			FlightTicket ticket = new FlightTicket(rs.getString(2),
+												   rs.getString(3),
+												   rs.getDate(4),
+												   rs.getInt(5),
+												   rs.getFloat(6));
+			
+			list.insertFlightTicket(ticket);
+		}
+		
+		return list;
 	}
 }

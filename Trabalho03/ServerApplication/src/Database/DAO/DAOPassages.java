@@ -16,8 +16,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import Classes.FlightTicket;
-import Classes.FlightTicketManager;
 import Database.DBConnection;
 
 /**
@@ -129,20 +127,32 @@ public class DAOPassages
 							int			_quantity,
 							float		_price) throws SQLException
 	{
-		_stm.execute("INSERT INTO `"																	+
-					 DBConnection.getDatabaseName() 													+
-					 "`.`" 																				+
-					 DBConnection.getPassagesDBName() 													+
-					 "` (`ID`, `Source`, `Destination`, `Date`, `Quantity`, `Price`) VALUES (NULL, '"	+
-					 _source																			+
-					 "', '"																				+
-					 _dest																				+
-					 "', '"																				+
-					 _date																				+
-					 "', '"																				+
-					 _quantity																			+
-					 "', '"																				+
-					 _price																				+
+		_stm.execute("INSERT INTO `"						+
+					 DBConnection.getDatabaseName() 		+
+					 "`.`" 									+
+					 DBConnection.getPassagesDBName() 		+
+					 "` (`" 								+ 
+					 rowID 									+ 
+					 "`, `" 								+ 
+					 rowSource 								+ 
+					 "`, `" 								+
+					 rowDestination							+
+					 "`, `"									+
+					 rowDate								+
+					 "`, `"									+
+					 rowQuantity							+
+					 "`, `"									+
+					 rowPrice								+
+					 "`) VALUES (NULL, '"					+
+					 _source								+
+					 "', '"									+
+					 _dest									+
+					 "', '"									+
+					 _date									+
+					 "', '"									+
+					 _quantity								+
+					 "', '"									+
+					 _price									+
 					 "');");
 	}
 	
@@ -175,27 +185,50 @@ public class DAOPassages
 	 * 
 	 * @return
 	 */
-	public FlightTicketManager loadDBPassages(Statement	_stm) throws SQLException
+	public ResultSet loadDBPassages(Statement	_stm) throws SQLException
 	{
-		FlightTicketManager list = new FlightTicketManager();
-		
 		ResultSet rs = _stm.executeQuery("SELECT * FROM `"					+
 				 						 DBConnection.getDatabaseName()		+
 			 						 	 "`.`" 								+
 			 						 	 DBConnection.getPassagesDBName() 	+
 				 						 "`");
-
-		while(rs.next())
-		{
-			FlightTicket ticket = new FlightTicket(rs.getString(2),
-												   rs.getString(3),
-												   rs.getDate(4),
-												   rs.getInt(5),
-												   rs.getFloat(6));
-			
-			list.insertFlightTicket(ticket);
-		}
 		
-		return list;
+		return rs;
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_source	:
+	 * @param 	_dest	:
+	 * @param 	_date	:
+	 * 
+	 * @return
+	 */
+	public ResultSet searchPassages(Statement	_stm,
+									String 		_source,
+									String 		_dest,
+									Date		_date) throws SQLException
+	{
+		ResultSet rs = _stm.executeQuery("SELECT * FROM `"					+
+										 DBConnection.getDatabaseName()		+
+									 	 "`.`" 								+
+									 	 DBConnection.getPassagesDBName() 	+
+										 "` WHERE `"						+
+									 	 rowSource							+
+									 	 "` = '"							+
+									 	 _source							+
+									 	 "' AND `"							+
+									 	 rowDestination						+
+									 	 "` = '"							+
+									 	 _dest								+
+									 	 "' AND `"							+
+									 	 rowDate							+
+									 	 "` = '"							+
+									 	 _date								+
+									 	 "';");
+		
+		return rs;
 	}
 }
