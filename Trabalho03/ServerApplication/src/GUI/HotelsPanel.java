@@ -106,19 +106,19 @@ public class HotelsPanel extends JPanel
 	private JTextField 		  textFieldHotel;
 	
 	/**
-	 * @brief	Member containing the hotel name text field
+	 * @brief	Member containing the quantity of available rooms
 	 */
 	private JFormattedTextField	textFieldQuantity;
 
 	/**
-	 * @brief	Member containing the hotel name text field
+	 * @brief	Member containing the max number of quests per room
 	 */
-	private JFormattedTextField	textFieldPrice;
+	private JFormattedTextField	textFieldMaxGuestsRoom;
 	
 	/**
-	 * @brief
+	 * @brief	Member containing the room price
 	 */
-	private CtrlHotel ctrlHotel;
+	private JFormattedTextField	textFieldPrice;
 	
 	/**
 	 * @brief
@@ -154,6 +154,8 @@ public class HotelsPanel extends JPanel
 		configHotelSearch();
 		
 		configQuantity();
+		
+		configMaxGuestsByRoom();
 		
 		configPrice();
 		
@@ -266,6 +268,30 @@ public class HotelsPanel extends JPanel
 	    
 		internalPanel.add(label);
 		internalPanel.add(textFieldQuantity);
+	}
+	
+	/**
+	 * @brief
+	 */
+	public void configMaxGuestsByRoom() throws ParseException
+	{
+		JLabel label		= new JLabel("Max. Pessoas / Quarto: ");
+		
+		MaskFormatter mask	= new MaskFormatter("#");
+		mask.setValidCharacters("0123456789");
+		
+		textFieldMaxGuestsRoom	= new JFormattedTextField(mask);
+	    
+		label.setPreferredSize(new Dimension(160, 25));
+		label.setBounds(10, 215,
+						160, 20);
+		
+		textFieldMaxGuestsRoom.setPreferredSize(new Dimension(75, 25));
+		textFieldMaxGuestsRoom.setBounds(160, 215,
+						                 80, 20);
+	    
+		internalPanel.add(label);
+		internalPanel.add(textFieldMaxGuestsRoom);
 	}
 	
 	/**

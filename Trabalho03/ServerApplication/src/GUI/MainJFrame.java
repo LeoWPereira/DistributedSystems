@@ -428,4 +428,30 @@ public class MainJFrame extends JFrame
 				
 		contentPane.add(internalPanel);
 	}
+	
+	/**
+	 * @brief
+	 */
+	public static void initRMI()
+	{
+		try 
+		{
+			serverRMI 	= new ServerServent();
+			
+			Registry referenceServerName = LocateRegistry.createRegistry(1099);
+			
+			try 
+			{
+				referenceServerName.bind("Servidor", serverRMI);
+			} 
+			catch(java.rmi.AlreadyBoundException e)
+			{
+				e.printStackTrace();
+			}
+		} 
+		catch(RemoteException e)
+		{
+			e.printStackTrace();
+		}
+	}
 }
