@@ -123,7 +123,12 @@ public class HotelsPanel extends JPanel
 	/**
 	 * @brief
 	 */
-	private Statement	dbStatement;
+	private CtrlHotel ctrlHotel;
+	
+	/**
+	 * @brief	Member holding every info about the DB Consult STM
+	 */
+	private static Statement	dbStatement;
 	
 	/**
 	 * @brief
@@ -136,16 +141,16 @@ public class HotelsPanel extends JPanel
 	 * This constructor will first remove everything from the JPanel
 	 * 
 	 * @param	_panel	:	JPanel containing this panel future info
-	 * @param	_stm	:
+	 * @param	_stm	:	
 	 */
 	public HotelsPanel(JPanel 		_panel,
 					   Statement	_stm) throws ParseException, SQLException
 	{
-		ctrlHotel	= new CtrlHotel();
+		ctrlHotel		= new CtrlHotel();
 		
-		dbStatement		= _stm;
+		internalPanel 	= _panel;
 		
-		internalPanel = _panel;
+		dbStatement 	= _stm;
 		
 		internalPanel.removeAll();
 		
@@ -307,11 +312,11 @@ public class HotelsPanel extends JPanel
 		textFieldPrice		= new JFormattedTextField(mask);
 	    
 		label.setPreferredSize(new Dimension(75, 25));
-		label.setBounds(10, 215,
+		label.setBounds(10, 255,
 						160, 20);
 		
 	    textFieldPrice.setPreferredSize(new Dimension(75, 25));
-	    textFieldPrice.setBounds(160, 215,
+	    textFieldPrice.setBounds(160, 255,
 						         80, 20);
 		
 	    internalPanel.add(label);
@@ -334,7 +339,7 @@ public class HotelsPanel extends JPanel
 		
 		buttonSearch.setBackground(new Color(238, 238, 238));
 		buttonSearch.setBounds(10, 370,
-							   270, 30);
+							   310, 30);
 		
 		buttonSearch.addActionListener(new ActionListener()
 		{
@@ -369,7 +374,10 @@ public class HotelsPanel extends JPanel
 		
 		if(comboBoxState.getSelectedItem().equals("  ")	||
 		   comboBoxCity.getSelectedItem().equals("  ")	||
-		   textFieldHotel.getText().equals(""))
+		   textFieldHotel.getText().equals("")			||
+		   textFieldQuantity.getText().equals("")		||
+		   textFieldMaxGuestsRoom.getText().equals("")	||
+		   textFieldPrice.getText().equals("R$    .  "))
 		{
 			returnValue = true;
 		}
@@ -543,11 +551,11 @@ table 							= new JTable();
 		try
 		{
 			// Insert Entry on the database
-			ctrlHotel.insertEntry(dbStatement, 
+			ctrlHotel.insertEntry(dbStatement,
 								  comboBoxCity.getSelectedItem().toString(), 
 								  textFieldHotel.getText().toString(), 
 								  Integer.valueOf(textFieldQuantity.getText().toString()), 
-								  0, // TODO 
+								  Integer.valueOf(textFieldMaxGuestsRoom.getText().toString()),
 								  Float.valueOf(textFieldPrice.getText().substring(3, 
 		   									   									   9)));
 			
@@ -555,7 +563,7 @@ table 							= new JTable();
 			Accommodation entry = new Accommodation(comboBoxCity.getSelectedItem().toString(), 
 													textFieldHotel.getText().toString(), 
 													Integer.valueOf(textFieldQuantity.getText().toString()), 
-													0, 
+													Integer.valueOf(textFieldMaxGuestsRoom.getText().toString()), 
 													Float.valueOf(textFieldPrice.getText().substring(3, 
 							   									   									 9)));
 			

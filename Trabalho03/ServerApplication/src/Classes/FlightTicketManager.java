@@ -11,14 +11,23 @@
 
 package Classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @brief	Class responsible for the flight ticket management
  */
-public class FlightTicketManager 
+public class FlightTicketManager implements Serializable 
 {
-    private ArrayList<FlightTicket> flightTicketList = new ArrayList<FlightTicket>();
+    /**
+	 * @brief
+	 */
+	private static final long serialVersionUID = -9136165180232276846L;
+	
+	/**
+	 * @brief
+	 */
+	private ArrayList<FlightTicket> flightTicketList = new ArrayList<FlightTicket>();
 
     /** 
     * @brief	Get the flight ticket list

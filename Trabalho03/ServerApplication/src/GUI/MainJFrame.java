@@ -22,6 +22,7 @@ import com.mysql.jdbc.Statement;
 import Database.DBConnection;
 import Database.Controller.CtrlHotel;
 import Database.Controller.CtrlPassages;
+import RMI.ServerServent;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -29,6 +30,9 @@ import javax.swing.JMenuItem;
 
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -75,6 +79,11 @@ public class MainJFrame extends JFrame
 	private static Statement	dbStatement;
 	
 	/**
+	 * @brief
+	 */
+	private static ServerServent serverRMI;
+	
+	/**
 	 * @brief	Main method of the application
 	 * 
 	 * This is the app start point
@@ -87,17 +96,21 @@ public class MainJFrame extends JFrame
 			{
 				try
 				{					
-					MainJFrame frame	= new MainJFrame();
+					MainJFrame frame			= new MainJFrame();
 					
-					frame.setVisible(true);
+					CtrlPassages ctrlPassage	= new CtrlPassages();
+					
+					CtrlHotel ctrlHotel 		= new CtrlHotel();
 					
 					dbStatement			= DBConnection.configureDatabase(dbConnection);
 					
-					CtrlPassages ctrlPassage = new CtrlPassages();
-					ctrlPassage.createTable(dbStatement);
+					initRMI();
 					
-					CtrlHotel ctrlHotel = new CtrlHotel();
-					ctrlHotel.createTable(dbStatement);
+					//ctrlPassage.createTable(dbStatement);
+					
+					//ctrlHotel.createTable(dbStatement);
+					
+					frame.setVisible(true);
 				}
 				catch(Exception e)
 				{
@@ -437,12 +450,13 @@ public class MainJFrame extends JFrame
 		try 
 		{
 			serverRMI 	= new ServerServent();
-			
+
 			Registry referenceServerName = LocateRegistry.createRegistry(1099);
-			
+
 			try 
 			{
-				referenceServerName.bind("Servidor", serverRMI);
+				referenceServerName.bind("Servidor",
+										 serverRMI);
 			} 
 			catch(java.rmi.AlreadyBoundException e)
 			{

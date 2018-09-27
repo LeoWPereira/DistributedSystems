@@ -11,14 +11,20 @@
 
 package Classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @brief	Class responsible for the accommodations management
  */
- public class AccommodationManager 
+ public class AccommodationManager implements Serializable
  { 
 	 /**
+	 * @brief
+	 */
+	private static final long serialVersionUID = -6901199176974082169L;
+	
+	/**
 	  * @brief
 	  */
     private ArrayList<Accommodation> accommodationList = new ArrayList<Accommodation>();

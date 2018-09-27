@@ -124,9 +124,9 @@ public class PassagesPanel extends JPanel
 	private CtrlPassages ctrlPassages;
 	
 	/**
-	 * @brief
+	 * @brief	Member holding every info about the DB Consult STM
 	 */
-	private Statement	dbStatement;
+	private static Statement	dbStatement;
 	
 	/**
 	 * @brief
@@ -137,16 +137,16 @@ public class PassagesPanel extends JPanel
 	 * @brief	Default Constructor
 	 * 
 	 * @param	_panel	: Panel where the content will be stored
-	 * @param	_stm	:
+	 * @param	_stm	:	
 	 */
 	public PassagesPanel(JPanel 	_panel,
 						 Statement	_stm) throws ParseException, SQLException
 	{
 		ctrlPassages	= new CtrlPassages();
 		
-		dbStatement		= _stm;
-		
 		internalPanel 	= _panel;
+		
+		dbStatement 	= _stm;
 		
 		internalPanel.removeAll();
 		

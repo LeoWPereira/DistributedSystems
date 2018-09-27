@@ -406,17 +406,9 @@ public class PassagesPanel extends JPanel
 									_row, 
 									1);
 		
-		table.getModel().setValueAt(_passage.getDate(),
-									_row, 
-									2);
-		
-		table.getModel().setValueAt(_passage.getQuantity(),
-									_row, 
-									3);
-		
 		table.getModel().setValueAt(_passage.getPrice(),
 									_row, 
-									4);
+									2);
 	}
 	
 	/**
@@ -448,6 +440,16 @@ public class PassagesPanel extends JPanel
 	{
 		return (String)table.getModel().getValueAt(row, 
 						    			   		   column);
+	}
+	
+	/**
+	 * @brief
+	 */
+	public void cleanTable()
+	{
+		internalPanel.remove(scrollPaneTabela);
+		
+		configTable();
 	}
 	
 	/**
@@ -641,40 +643,66 @@ public class PassagesPanel extends JPanel
 	 */
 	public void processSearchButton() throws RemoteException
 	{
+		Calendar calendar = Calendar.getInstance();
+		
+		// First of all, we should clean the table
+		cleanTable();
+		
 		int day 	= datePickerOneWayTrip.getModel().getDay();
 	    int month 	= datePickerOneWayTrip.getModel().getMonth();
 	    int year 	= datePickerOneWayTrip.getModel().getYear();
 	    
-	    Calendar calendar = Calendar.getInstance();
-	    calendar.set(year, month, day);
+	    calendar.set(year,
+	    			 month,
+	    			 day);
 	    
 		FlightTicketManager list = serverReference.searchPassages(comboBoxCitySrc.getSelectedItem().toString(),
 				   					   							  comboBoxCityDest.getSelectedItem().toString(),
 				   					   							  new java.sql.Date(calendar.getTime().getTime()));
 		
-		//insertTableField(list);
+		int tableSize = list.getFlightTicketListSize();
 		
-		System.out.println("Teste com sucesso");
+		if(0 == tableSize)
+		{
+			JOptionPane.showMessageDialog(new JFrame(),
+					  					  "Nenhuma passagem de ida foi encontrada!", 
+					  					  "Aviso",
+					  					  JOptionPane.WARNING_MESSAGE);
+		}
+		else
+		{
+			insertTableField(list);
+		}
 		
-			/*int tableSize = list.getFlightTicketListSize();
-			
-			if(radioButtonRoundWay.isSelected())
+		if(radioButtonRoundWay.isSelected())
+		{
+			day 	= datePickerRoundTrip.getModel().getDay();
+		    month 	= datePickerRoundTrip.getModel().getMonth();
+		    year 	= datePickerRoundTrip.getModel().getYear();
+		    
+		    calendar.set(year,
+		    			 month,
+		    			 day);
+		    
+		    list = serverReference.searchPassages(comboBoxCityDest.getSelectedItem().toString(),
+   					   					 		  comboBoxCitySrc.getSelectedItem().toString(),
+   					   					   		  new java.sql.Date(calendar.getTime().getTime()));
+		    
+		    if(0 == list.getFlightTicketListSize())
 			{
-				day 	= datePickerRoundTrip.getModel().getDay();
-			    month 	= datePickerRoundTrip.getModel().getMonth();
-			    year 	= datePickerRoundTrip.getModel().getYear();
-			    
-			    calendar.set(year, month, day);
-			    
-			    list = serverReference.searchPassages(comboBoxCityDest.getSelectedItem().toString(),
-	   					   					 		  comboBoxCitySrc.getSelectedItem().toString(),
-	   					   					   		  new java.sql.Date(calendar.getTime().getTime()));
-			    
-			    for(FlightTicket ticket : list.getFlightTicketList())
+				JOptionPane.showMessageDialog(new JFrame(),
+						  					  "Nenhuma passagem de volta foi encontrada!", 
+						  					  "Aviso",
+						  					  JOptionPane.WARNING_MESSAGE);
+			}
+			else
+			{
+				for(FlightTicket ticket : list.getFlightTicketList())
 			    {
 			    	insertTableField(ticket,
 			    					 tableSize++);
 				}
-			}*/
+			}
+		}
 	}
 }
