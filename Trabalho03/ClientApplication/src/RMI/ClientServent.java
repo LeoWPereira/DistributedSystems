@@ -27,21 +27,24 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
 	/**
 	 * @brief	
 	 * 
-	 * @param	serverReference	-
+	 * @param	_serverReference	:
+	 * @param	_name				:
 	 */
-	public ClientServent(ServerInterface serverReference) throws RemoteException
+	public ClientServent(ServerInterface 	_serverReference,
+						 String				_name) throws RemoteException
     {
-        serverReference.call("client", this);
+        _serverReference.call(_name,
+        					  this);
     }
     
 	/**
 	 * @brief
 	 * 
-	 * @param	value	-
+	 * @param	value	:
 	 */
     @Override
-    public void echo(String value) throws RemoteException 
+    public void eventPopUp(String value) throws RemoteException 
     {
-        System.out.println(value);
+    	//JOptionPane.showMessageDialog(null,value, "oferta!",WARNING_MESSAGE,null );
     }
 }

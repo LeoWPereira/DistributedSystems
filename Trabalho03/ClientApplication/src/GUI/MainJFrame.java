@@ -16,12 +16,22 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import RMI.ClientServent;
+import RMI.ServerInterface;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.rmi.AccessException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
@@ -55,6 +65,16 @@ public class MainJFrame extends JFrame
 	private static JPanel internalPanel;
 	
 	/**
+	 * @brief
+	 */
+	private static ClientServent clientRMI;
+	
+	/**
+	 * @brief
+	 */
+	private static ServerInterface serverReference;
+	
+	/**
 	 * @brief	Main method of the application
 	 * 
 	 * This is the app start point
@@ -68,6 +88,8 @@ public class MainJFrame extends JFrame
 				try
 				{					
 					MainJFrame frame = new MainJFrame();
+
+					initRMI();
 					
 					frame.setVisible(true);
 				}
@@ -157,9 +179,14 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				HelpFrame helpFrame = new HelpFrame();
-				
-				helpFrame.setVisible(true);
+				 try 
+				 {
+					Runtime.getRuntime().exec("hh.exe documentation/html/doc.chm");
+				 }
+				 catch (IOException e) 
+				 {
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -171,15 +198,9 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				 try 
-				 {
-					Runtime.getRuntime().exec("hh.exe documentation/html/doc.chm");
-				 }
-				 catch (IOException e) 
-				 {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				AboutFrame aboutFrame = new AboutFrame();
+				
+				aboutFrame.setVisible(true);
 			}
 		});
 		
@@ -239,7 +260,8 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				PassagesPanel passagesPanel = new PassagesPanel(internalPanel);
+				PassagesPanel passagesPanel = new PassagesPanel(internalPanel,
+																serverReference);
 				
 				passagesPanel.setVisible(true);
 			}
@@ -372,5 +394,33 @@ public class MainJFrame extends JFrame
 		internalPanel.setLayout(null);
 				
 		contentPane.add(internalPanel);
+	}
+	
+	/**
+	 * @brief	Locate server
+	 */
+	public static void initRMI()
+	{
+        try 
+        {
+        	Registry referenceServerName = LocateRegistry.getRegistry();
+            
+            serverReference = (ServerInterface)referenceServerName.lookup("Servidor");
+            
+            clientRMI = new ClientServent(serverReference, 
+            							  JOptionPane.showInputDialog("Digite o seu nome: "));
+		} 
+        catch(AccessException e)
+        {
+			e.printStackTrace();
+		} 
+        catch (RemoteException e) 
+        {
+			e.printStackTrace();
+		} 
+        catch (NotBoundException e) 
+        {
+			e.printStackTrace();
+		}
 	}
 }

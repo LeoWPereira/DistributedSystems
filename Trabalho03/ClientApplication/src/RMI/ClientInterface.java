@@ -19,5 +19,10 @@ import java.rmi.RemoteException;
  */
 public interface ClientInterface extends Remote
 {
-    public void echo(String value)throws RemoteException;
+	/**
+	 * @brief	Send a message from server to client
+	 * 
+	 * @param	value	: Received Message from Server
+	 */
+    public void eventPopUp(String value) throws RemoteException;
 }

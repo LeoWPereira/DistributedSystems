@@ -1,6 +1,6 @@
 /**
  ******************************************************************************
- * @file    HelpFrame.java
+ * @file    AboutFrame.java
  * @author  Leonardo Winter Pereira
  * @author  Luis Felipe Mazzuchetti Ortiz
  * @version v1.0
@@ -18,7 +18,7 @@ import javax.swing.border.EmptyBorder;
 /**
  * @brief	This Class will Handle every method from GUI "Help"
  */
-public class HelpFrame  extends JFrame
+public class AboutFrame  extends JFrame
 {	
 	/**
 	 * @brief	Unique Version ID from Class
@@ -30,7 +30,7 @@ public class HelpFrame  extends JFrame
 	 */
 	JPanel contentPane;
 	
-	public HelpFrame()
+	public AboutFrame()
 	{
 		contentPane = new JPanel();
 		

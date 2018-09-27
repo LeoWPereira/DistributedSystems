@@ -16,6 +16,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
+import java.util.Calendar;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -34,7 +36,10 @@ import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
+import Classes.FlightTicket;
+import Classes.FlightTicketManager;
 import Extra.CitiesBrazil;
+import RMI.ServerInterface;
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
@@ -53,6 +58,11 @@ public class PassagesPanel extends JPanel
 	 * @brief	Member to store every GUI information on the current Panel
 	 */
 	private static JPanel 		internalPanel;
+	
+	/**
+	 * @brief
+	 */
+	private static ServerInterface serverReference;
 	
 	/**
 	 * @brief	Member to store the group of Radio Buttons
@@ -130,11 +140,15 @@ public class PassagesPanel extends JPanel
 	/**
 	 * @brief	Default Constructor
 	 * 
-	 * @param	panel	- Panel where the content will be stored
+	 * @param	panel	: Panel where the content will be stored
+	 * @param	server	:
 	 */
-	public PassagesPanel(JPanel panel)
+	public PassagesPanel(JPanel 			 panel,
+						 ServerInterface	server)
 	{
-		internalPanel = panel;
+		internalPanel 	= panel;
+		
+		serverReference	= server;
 		
 		internalPanel.removeAll();
 		
@@ -371,6 +385,72 @@ public class PassagesPanel extends JPanel
 	}
 	
 	/**
+	 * @brief
+	 * 
+	 * @param	_passage	:
+	 * @param	_row		:
+	 */
+	public void insertTableField(FlightTicket	_passage,
+								 int 			_row)
+	{
+		if(_row >= table.getRowCount())
+		{
+			((DefaultTableModel)table.getModel()).addRow(new Object[]{null, null});
+		}
+		
+		table.getModel().setValueAt(_passage.getSource(),
+									_row, 
+									0);
+		
+		table.getModel().setValueAt(_passage.getDest(),
+									_row, 
+									1);
+		
+		table.getModel().setValueAt(_passage.getDate(),
+									_row, 
+									2);
+		
+		table.getModel().setValueAt(_passage.getQuantity(),
+									_row, 
+									3);
+		
+		table.getModel().setValueAt(_passage.getPrice(),
+									_row, 
+									4);
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_list	:
+	 */
+	public void insertTableField(FlightTicketManager	_list)
+	{
+		int row = 0;
+		
+		for (FlightTicket ticket : _list.getFlightTicketList())
+		{
+			insertTableField(ticket,
+							 row++);
+		}
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param row		:
+	 * @param column	:
+	 * 
+	 * @return
+	 */
+	public String getTableField(int 	row,
+			 					int 	column)
+	{
+		return (String)table.getModel().getValueAt(row, 
+						    			   		   column);
+	}
+	
+	/**
 	 * @brief	This method will handle the initial configurations to the Search Button
 	 */
 	public void configButton()
@@ -401,7 +481,14 @@ public class PassagesPanel extends JPanel
 				}
 				else
 				{
-					//TODO Do action 'search'
+					try 
+					{
+						processSearchButton();
+					} 
+					catch (RemoteException e) 
+					{
+						e.printStackTrace();
+					}
 				}
 			}
 		});
@@ -547,5 +634,47 @@ public class PassagesPanel extends JPanel
 		}
 		
 		return returnValue;
+	}
+	
+	/**
+	 * @brief
+	 */
+	public void processSearchButton() throws RemoteException
+	{
+		int day 	= datePickerOneWayTrip.getModel().getDay();
+	    int month 	= datePickerOneWayTrip.getModel().getMonth();
+	    int year 	= datePickerOneWayTrip.getModel().getYear();
+	    
+	    Calendar calendar = Calendar.getInstance();
+	    calendar.set(year, month, day);
+	    
+		FlightTicketManager list = serverReference.searchPassages(comboBoxCitySrc.getSelectedItem().toString(),
+				   					   							  comboBoxCityDest.getSelectedItem().toString(),
+				   					   							  new java.sql.Date(calendar.getTime().getTime()));
+		
+		//insertTableField(list);
+		
+		System.out.println("Teste com sucesso");
+		
+			/*int tableSize = list.getFlightTicketListSize();
+			
+			if(radioButtonRoundWay.isSelected())
+			{
+				day 	= datePickerRoundTrip.getModel().getDay();
+			    month 	= datePickerRoundTrip.getModel().getMonth();
+			    year 	= datePickerRoundTrip.getModel().getYear();
+			    
+			    calendar.set(year, month, day);
+			    
+			    list = serverReference.searchPassages(comboBoxCityDest.getSelectedItem().toString(),
+	   					   					 		  comboBoxCitySrc.getSelectedItem().toString(),
+	   					   					   		  new java.sql.Date(calendar.getTime().getTime()));
+			    
+			    for(FlightTicket ticket : list.getFlightTicketList())
+			    {
+			    	insertTableField(ticket,
+			    					 tableSize++);
+				}
+			}*/
 	}
 }
