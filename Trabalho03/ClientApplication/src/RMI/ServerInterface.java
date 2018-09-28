@@ -69,15 +69,19 @@ public interface ServerInterface  extends Remote
      * @brief	
      * 
      * @param	_ticket	:
+     * 
+     * @return
      */
-    public void buyPassage(FlightTicket	_ticket) throws RemoteException;
+    public boolean buyPassage(FlightTicket	_ticket) throws RemoteException;
     
     /**
      * @brief	
      * 
      * @param	_hotel	:
+     * 
+     * @return
      */
-    public void reserveHotel(Accommodation	_hotel) throws RemoteException;
+    public boolean reserveHotel(Accommodation	_hotel) throws RemoteException;
     
     /**
      * @brief	

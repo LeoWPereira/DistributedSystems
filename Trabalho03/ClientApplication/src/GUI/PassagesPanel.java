@@ -17,6 +17,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
+import java.text.ParseException;
 import java.util.Calendar;
 
 import javax.swing.ButtonGroup;
@@ -33,6 +34,8 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -270,7 +273,7 @@ public class PassagesPanel extends JPanel
 		});
 		
 		// Settings for the City Destination comboBox
-		comboBoxCityDest.setModel(new DefaultComboBoxModel<String>(brazil.getCities(comboBoxStateSrc.getItemAt(comboBoxStateSrc.getSelectedIndex()))));
+		comboBoxCityDest.setModel(new DefaultComboBoxModel<String>(brazil.getCities(comboBoxStateDest.getItemAt(comboBoxStateDest.getSelectedIndex()))));
 		comboBoxCityDest.setBounds(160, 130, 
 				                   180, 20);
 		
@@ -360,6 +363,28 @@ public class PassagesPanel extends JPanel
 		
 		table.setAutoCreateRowSorter(true);
 		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() 
+		{
+			boolean alreadyClicked = false;
+			
+		    public void valueChanged(ListSelectionEvent event) 
+		    {
+		    	if(!alreadyClicked)
+		    	{
+			        if(table.getSelectedRow() > -1)
+			        {
+			        	processTableSelection();
+			        }
+			        
+			        alreadyClicked = true;
+		    	}
+		    	else
+		    	{
+		    		alreadyClicked = false;
+		    	}
+		    }
+		});
+
 		internalPanel.add(scrollPaneTabela);
 	}
 	
@@ -703,6 +728,72 @@ public class PassagesPanel extends JPanel
 			    					 tableSize++);
 				}
 			}
+		}
+	}
+	
+	/**
+	 * @brief
+	 */
+	public void processTableSelection()
+	{
+		try 
+    	{
+			Calendar calendar = Calendar.getInstance();
+			
+    		if(table.getValueAt(table.getSelectedRow(), 0).toString().equals(comboBoxCitySrc.getSelectedItem().toString())	&&
+    		   table.getValueAt(table.getSelectedRow(), 1).toString().equals(comboBoxCityDest.getSelectedItem().toString()))
+    		{
+    			// We selected row with a passage from source to dest
+    			
+    			int day 	= datePickerOneWayTrip.getModel().getDay();
+    		    int month 	= datePickerOneWayTrip.getModel().getMonth();
+    		    int year 	= datePickerOneWayTrip.getModel().getYear();
+    		    
+    		    calendar.set(year,
+    		    			 month,
+    		    			 day);
+    		    
+    			PassagesDetailsPanel detailedPanel = new PassagesDetailsPanel(serverReference,
+    																		  comboBoxStateSrc.getSelectedItem().toString(),
+    																		  table.getValueAt(table.getSelectedRow(), 0).toString(),
+    																		  comboBoxStateDest.getSelectedItem().toString(),
+						  													  table.getValueAt(table.getSelectedRow(), 1).toString(),
+						  													  calendar.getTime(),
+						  													  Float.valueOf(table.getValueAt(table.getSelectedRow(), 2).toString()));
+
+    			detailedPanel.setVisible(true);
+    		}
+    		else if(table.getValueAt(table.getSelectedRow(), 0).toString().equals(comboBoxCityDest.getSelectedItem().toString())	&&
+    	    		table.getValueAt(table.getSelectedRow(), 1).toString().equals(comboBoxCitySrc.getSelectedItem().toString()))
+    		{
+    			// Selected Row is a passage from dest to source
+    			
+    			int day 	= datePickerRoundTrip.getModel().getDay();
+    		    int month 	= datePickerRoundTrip.getModel().getMonth();
+    		    int year 	= datePickerRoundTrip.getModel().getYear();
+    		    
+    		    calendar.set(year,
+    		    			 month,
+    		    			 day);
+    		    
+    			PassagesDetailsPanel detailedPanel = new PassagesDetailsPanel(serverReference,
+    																		  comboBoxStateDest.getSelectedItem().toString(),
+    																		  table.getValueAt(table.getSelectedRow(), 0).toString(),
+    																		  comboBoxStateSrc.getSelectedItem().toString(),
+						  													  table.getValueAt(table.getSelectedRow(), 1).toString(),
+						  													  new java.sql.Date(calendar.getTime().getTime()),
+						  													  Float.valueOf(table.getValueAt(table.getSelectedRow(), 2).toString()));
+
+    			detailedPanel.setVisible(true);
+    		}
+    	}
+    	catch (NumberFormatException e) 
+    	{
+			e.printStackTrace();
+		} 
+    	catch (ParseException e) 
+    	{
+			e.printStackTrace();
 		}
 	}
 }

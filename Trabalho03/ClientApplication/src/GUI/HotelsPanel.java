@@ -16,6 +16,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -35,7 +36,10 @@ import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
+import Classes.Accommodation;
+import Classes.AccommodationManager;
 import Extra.CitiesBrazil;
+import RMI.ServerInterface;
 
 /**
  * @brief	This Class will Handle every method from GUI "Hotels"
@@ -51,6 +55,11 @@ public class HotelsPanel extends JPanel
 	 * @brief	Member to store every GUI information on the current Panel
 	 */
 	private static JPanel 		internalPanel;
+	
+	/**
+	 * @brief
+	 */
+	private static ServerInterface serverReference;
 	
 	/**
 	 * @brief	Member to store the group of Radio Buttons
@@ -117,11 +126,15 @@ public class HotelsPanel extends JPanel
 	 * 
 	 * This constructor will first remove everything from the JPanel
 	 * 
-	 * @param	panel	-	JPanel containing this panel future info
+	 * @param	panel	:	JPanel containing this panel future info
+	 * @param	server	:
 	 */
-	public HotelsPanel(JPanel panel)
+	public HotelsPanel(JPanel 			panel,
+			 		   ServerInterface	server)
 	{
-		internalPanel = panel;
+		internalPanel 	= panel;
+		
+		serverReference	= server;
 		
 		internalPanel.removeAll();
 		
@@ -305,7 +318,14 @@ public class HotelsPanel extends JPanel
 				}
 				else
 				{
-					//TODO Do action 'search'
+					try 
+					{
+						processSearchButton();
+					} 
+					catch (RemoteException e) 
+					{
+						e.printStackTrace();
+					}
 				}
 			}
 		});
@@ -430,5 +450,105 @@ public class HotelsPanel extends JPanel
 		table.getModel().setValueAt(value, 
 									row, 
 									column);
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_passage	:
+	 * @param	_row		:
+	 */
+	public void insertTableField(Accommodation	_hotel,
+								 int 			_row)
+	{
+		if(_row >= table.getRowCount())
+		{
+			((DefaultTableModel)table.getModel()).addRow(new Object[]{null, null});
+		}
+		
+		table.getModel().setValueAt(_hotel.getCityName(),
+									_row, 
+									0);
+		
+		table.getModel().setValueAt(_hotel.getAccommodationName(),
+									_row, 
+									1);
+		
+		table.getModel().setValueAt(_hotel.getPrice(),
+									_row, 
+									2);
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_list	:
+	 */
+	public void insertTableField(AccommodationManager	_list)
+	{
+		int row = 0;
+		
+		for (Accommodation entry : _list.getAccommodationList())
+		{
+			insertTableField(entry,
+							 row++);
+		}
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param row		:
+	 * @param column	:
+	 * 
+	 * @return
+	 */
+	public String getTableField(int 	row,
+			 					int 	column)
+	{
+		return (String)table.getModel().getValueAt(row, 
+						    			   		   column);
+	}
+	
+	/**
+	 * @brief
+	 */
+	public void cleanTable()
+	{
+		internalPanel.remove(scrollPaneTabela);
+		
+		configTable();
+	}
+	
+	/**
+	 * @brief
+	 */
+	public void processSearchButton() throws RemoteException
+	{
+		AccommodationManager list;
+	 
+		// First of all, we should clean the table
+		cleanTable();
+				
+		if(radioCity.isSelected())
+		{
+			list = serverReference.searchHotelByCity(comboBoxCity.getSelectedItem().toString());
+		}
+		else
+		{
+			list = serverReference.searchHotelByName(textFieldHotel.getText().toString());
+		}
+		
+		if(0 == list.getAccommodationListSize())
+		{
+			JOptionPane.showMessageDialog(new JFrame(),
+					  					  "Nenhum hotel encontrado!", 
+					  					  "Aviso",
+					  					  JOptionPane.WARNING_MESSAGE);
+		}
+		else
+		{
+			insertTableField(list);
+		}
 	}
 }

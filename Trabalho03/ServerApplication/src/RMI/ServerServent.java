@@ -103,25 +103,89 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 	@Override
 	public synchronized AccommodationManager searchHotelByCity(String _city) throws RemoteException 
 	{
-		return null;
+		AccommodationManager list = new AccommodationManager();
+		
+		try 
+		{
+			Statement _stm = DBConnection.configureDatabase(dbConnection);
+			
+			list = ctrlHotel.searchHotelByCity(_stm,
+											   _city);
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 	@Override
 	public synchronized AccommodationManager searchHotelByName(String _hotel) throws RemoteException 
 	{
-		return null;
+		AccommodationManager list = new AccommodationManager();
+		
+		try 
+		{
+			Statement _stm = DBConnection.configureDatabase(dbConnection);
+			
+			list = ctrlHotel.searchHotelByHotel(_stm,
+												_hotel);
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 	@Override
-	public synchronized void buyPassage(FlightTicket _ticket) throws RemoteException 
+	public synchronized boolean buyPassage(FlightTicket _ticket) throws RemoteException 
 	{
+		boolean returnValue = false;
+	    
+		try 
+		{
+			Statement _stm = DBConnection.configureDatabase(dbConnection);
+			
+			int ticketsLeft = ctrlPassages.getQuantityLeft(_stm,
+														   _ticket.getSource(),
+														   _ticket.getDest(),
+														   new java.sql.Date(_ticket.getDate().getTime()),
+														   _ticket.getPrice());
 
+			if(ticketsLeft >= _ticket.getQuantity())
+			{
+				ctrlPassages.updateQuantity(_stm,
+										    _ticket.getSource(),
+										    _ticket.getDest(),
+										    new java.sql.Date(_ticket.getDate().getTime()),
+										    _ticket.getPrice(),
+										    ticketsLeft - _ticket.getQuantity());
+				
+				returnValue = true;
+			}
+			else
+			{
+				returnValue = false;
+			}
+			
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return returnValue;
 	}
 
 	@Override
-	public synchronized void reserveHotel(Accommodation _hotel) throws RemoteException 
+	public synchronized boolean reserveHotel(Accommodation _hotel) throws RemoteException 
 	{
-
+		boolean returnValue = false;
+		
+		return returnValue;
 	}
 
 	@Override

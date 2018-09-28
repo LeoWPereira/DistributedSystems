@@ -216,9 +216,9 @@ public class DAOHotel
 	 * 
 	 * @return
 	 */
-	public ResultSet searchPassages(Statement	_stm,
-								    String 		_city,
-								    String 		_hotel) throws SQLException
+	public ResultSet searchHotel(Statement	_stm,
+								 String 	_city,
+								 String 	_hotel) throws SQLException
 	{
 		ResultSet rs = _stm.executeQuery("SELECT * FROM `"					+
 										 DBConnection.getDatabaseName()		+
@@ -229,6 +229,54 @@ public class DAOHotel
 									 	 "` = '"							+
 									 	 _city								+
 									 	 "' AND `"							+
+									 	 rowHotel							+
+									 	 "` = '"							+
+									 	 _hotel								+
+									 	 "';");
+		
+		return rs;
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_city	:
+	 * 
+	 * @return
+	 */
+	public ResultSet searchHotelByCity(Statement	_stm,
+								 	   String 		_city) throws SQLException
+	{
+		ResultSet rs = _stm.executeQuery("SELECT * FROM `"					+
+										 DBConnection.getDatabaseName()		+
+									 	 "`.`" 								+
+									 	 DBConnection.getHotelDBName()	 	+
+										 "` WHERE `"						+
+									 	 rowCity							+
+									 	 "` = '"							+
+									 	 _city								+
+									 	 "';");
+		
+		return rs;
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_hotel	:
+	 * 
+	 * @return
+	 */
+	public ResultSet searchHotelByHotel(Statement	_stm,
+										String 		_hotel) throws SQLException
+	{
+		ResultSet rs = _stm.executeQuery("SELECT * FROM `"					+
+										 DBConnection.getDatabaseName()		+
+									 	 "`.`" 								+
+									 	 DBConnection.getHotelDBName()	 	+
+										 "` WHERE `"						+
 									 	 rowHotel							+
 									 	 "` = '"							+
 									 	 _hotel								+

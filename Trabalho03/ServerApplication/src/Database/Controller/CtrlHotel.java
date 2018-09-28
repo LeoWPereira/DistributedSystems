@@ -136,15 +136,75 @@ public class CtrlHotel
 	 * 
 	 * @return
 	 */
-	public AccommodationManager searchPassages(Statement	_stm,
-											   String 		_city,
-											   String 		_hotel) throws SQLException
+	public AccommodationManager searchHotel(Statement	_stm,
+											String 		_city,
+											String 		_hotel) throws SQLException
 	{
 		AccommodationManager list = new AccommodationManager();
 		
-		ResultSet rs = daoHotel.searchPassages(_stm, 
-											   _city, 
-											   _hotel);
+		ResultSet rs = daoHotel.searchHotel(_stm, 
+											_city, 
+											_hotel);
+
+		while(rs.next())
+		{
+			Accommodation value = new Accommodation(rs.getString(2),
+												    rs.getString(3),
+												    rs.getInt(4),
+												    rs.getInt(5),
+												    rs.getFloat(6));
+			
+			list.insertAccommodation(value);
+		}
+		
+		return list;
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_city	:
+	 * 
+	 * @return
+	 */
+	public AccommodationManager searchHotelByCity(Statement	_stm,
+												  String 	_city) throws SQLException
+	{
+		AccommodationManager list = new AccommodationManager();
+		
+		ResultSet rs = daoHotel.searchHotelByCity(_stm, 
+												  _city);
+
+		while(rs.next())
+		{
+			Accommodation value = new Accommodation(rs.getString(2),
+												    rs.getString(3),
+												    rs.getInt(4),
+												    rs.getInt(5),
+												    rs.getFloat(6));
+			
+			list.insertAccommodation(value);
+		}
+		
+		return list;
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_hotel	:
+	 * 
+	 * @return
+	 */
+	public AccommodationManager searchHotelByHotel(Statement	_stm,
+												   String 		_hotel) throws SQLException
+	{
+		AccommodationManager list = new AccommodationManager();
+		
+		ResultSet rs = daoHotel.searchHotelByHotel(_stm, 
+												   _hotel);
 
 		while(rs.next())
 		{

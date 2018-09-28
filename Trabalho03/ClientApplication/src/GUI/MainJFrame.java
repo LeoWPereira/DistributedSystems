@@ -279,7 +279,8 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				HotelsPanel hotelsPanel = new HotelsPanel(internalPanel);
+				HotelsPanel hotelsPanel = new HotelsPanel(internalPanel,
+														  serverReference);
 				
 				hotelsPanel.setVisible(true);
 			}

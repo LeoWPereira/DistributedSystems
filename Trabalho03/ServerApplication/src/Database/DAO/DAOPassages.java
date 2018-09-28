@@ -231,4 +231,100 @@ public class DAOPassages
 		
 		return rs;
 	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_source	:
+	 * @param 	_dest	:
+	 * @param 	_date	:
+	 * @param	_price	:
+	 * 
+	 * @return
+	 */
+	public ResultSet getQuantityLeft(Statement	_stm,
+									 String 	_source,
+									 String 	_dest,
+									 Date		_date,
+									 float		_price) throws SQLException
+	{
+		String query = "SELECT `"							+
+						 rowQuantity						+
+						 "` FROM `"							+
+						 DBConnection.getDatabaseName()		+
+					 	 "`.`" 								+
+					 	 DBConnection.getPassagesDBName() 	+
+						 "` WHERE `"						+
+					 	 rowSource							+
+					 	 "` = '"							+
+					 	 _source							+
+					 	 "' AND `"							+
+					 	 rowDestination						+
+					 	 "` = '"							+
+					 	 _dest								+
+					 	 "' AND `"							+
+					 	 rowDate							+
+					 	 "` = '"							+
+					 	 _date								+
+					 	 "' AND `"							+
+					 	 rowPrice							+
+					 	 "` LIKE '"							+
+					 	 _price								+
+					 	 "';";
+		
+		ResultSet rs = _stm.executeQuery(query);
+		
+		return rs;
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_source	:
+	 * @param 	_dest	:
+	 * @param 	_date	:
+	 * @param	_price	:
+	 * @param	_newQtd	:
+	 * 
+	 * @return
+	 */
+	public void updateQuantity(Statement	_stm,
+							   String 		_source,
+							   String 		_dest,
+							   Date			_date,
+							   float		_price,
+							   int			_newQtd) throws SQLException
+	{
+		String query = "UPDATE `"							+
+						DBConnection.getDatabaseName()		+
+					 	"`.`" 								+
+					 	DBConnection.getPassagesDBName() 	+
+						"` SET `"							+
+					 	rowQuantity							+
+					 	"` = '"								+
+					 	_newQtd								+
+					 	"' WHERE `"							+
+					 	rowSource							+
+					 	"` = '"								+
+					 	_source								+
+					 	"' AND `"							+
+					 	rowDestination						+
+					 	"` = '"								+
+					 	_dest								+
+					 	"' AND `"							+
+					 	rowDate								+
+					 	"` = '"								+
+					 	_date								+
+					 	"' AND `"							+
+					 	rowPrice							+
+					 	"` LIKE '"							+
+					 	_price								+
+					 	"';";
+		
+		System.out.println(query);
+		
+		_stm.executeUpdate(query);
+	}
 }

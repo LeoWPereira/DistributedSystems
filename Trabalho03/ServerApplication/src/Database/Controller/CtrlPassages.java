@@ -163,4 +163,64 @@ public class CtrlPassages
 		
 		return list;
 	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_source	:
+	 * @param 	_dest	:
+	 * @param 	_date	:
+	 * @param	_price	:
+	 * 
+	 * @return
+	 */
+	public int getQuantityLeft(Statement	_stm,
+							   String 		_source,
+							   String 		_dest,
+							   Date			_date,
+							   float		_price) throws SQLException
+	{
+		int left = 0;
+		
+		ResultSet rs = daoPassages.getQuantityLeft(_stm,
+												   _source,
+												   _dest,
+												   _date,
+												   _price);
+		
+		if(rs.next())
+		{
+			left = rs.getInt(1);
+		}
+		
+		return left;
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_source	:
+	 * @param 	_dest	:
+	 * @param 	_date	:
+	 * @param	_price	:
+	 *  @param	_newQtd	:
+	 * 
+	 * @return
+	 */
+	public void updateQuantity(Statement	_stm,
+							   String 		_source,
+							   String 		_dest,
+							   Date			_date,
+							   float		_price,
+							   int			_newQtd) throws SQLException
+	{
+		daoPassages.updateQuantity(_stm,
+								   _source,
+								   _dest,
+								   _date,
+								   _price,
+								   _newQtd);
+	}
 }

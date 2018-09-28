@@ -18,7 +18,7 @@ import javax.swing.border.EmptyBorder;
 /**
  * @brief	This Class will Handle every method from GUI "Help"
  */
-public class AboutFrame  extends JFrame
+public class AboutFrame extends JFrame
 {	
 	/**
 	 * @brief	Unique Version ID from Class
