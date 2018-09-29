@@ -1,0 +1,11 @@
+<map id="GUI.HotelsPanel.HotelsPanel" name="GUI.HotelsPanel.HotelsPanel">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotels_panel.html#a2ce8b1c6bbf266b65d0e4b4ea3f8ab43" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="248,5,437,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotels_panel.html#a77527a68f80ce855de413f53d8126913" title="Initial settings for the several ComboBox of the Panel. " alt="" coords="249,71,436,112"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_hotels_panel.html#abde7cdceca40f5b4c9453e7dd2e7d59d" title="Initial settings for the Hotel name Search feature. " alt="" coords="249,136,436,177"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="245,202,440,229"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_hotels_panel.html#a70f0004b0be1f38cf938cfdd702b91ec" title="The method will handle the initial settings for the table. " alt="" coords="249,253,436,279"/>
+<area shape="rect" id="node4" href="$class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b" title="Get the States from Brazil. " alt="" coords="495,19,678,46"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_hotels_panel.html#aa44f0307d1b191a80cbd12948f284185" title="The method will handle changes if the State ComboBox. " alt="" coords="488,71,685,112"/>
+<area shape="rect" id="node6" href="$class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d" title="Get the list of Cities of an State of Brazil. " alt="" coords="733,107,912,134"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_hotels_panel.html#ad16d941850b9bfaa494c7e9b452e2f9c" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="499,195,675,236"/>
+</map>

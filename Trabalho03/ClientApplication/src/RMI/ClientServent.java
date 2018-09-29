@@ -12,23 +12,39 @@
 package RMI;
 
 import java.rmi.RemoteException;
-import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 /**
- * @name    ClientServent
  * @brief   
  */
 public class ClientServent extends UnicastRemoteObject implements ClientInterface
 {
-    public ClientServent(ServerInterface serverReference) throws RemoteException
+    /**
+	 * @brief Generated Serial Version ID
+	 */
+	private static final long serialVersionUID = 5470551739044150069L;
+
+	/**
+	 * @brief	
+	 * 
+	 * @param	_serverReference	:
+	 * @param	_name				:
+	 */
+	public ClientServent(ServerInterface 	_serverReference,
+						 String				_name) throws RemoteException
     {
-        serverReference.call("client", this);
+        _serverReference.call(_name,
+        					  this);
     }
     
+	/**
+	 * @brief
+	 * 
+	 * @param	value	:
+	 */
     @Override
-    public void echo(String value) throws RemoteException 
+    public void eventPopUp(String value) throws RemoteException 
     {
-        System.out.println(value);
+    	//JOptionPane.showMessageDialog(null,value, "oferta!",WARNING_MESSAGE,null );
     }
 }

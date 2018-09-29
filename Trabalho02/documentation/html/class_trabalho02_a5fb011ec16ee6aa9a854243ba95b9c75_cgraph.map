@@ -1,0 +1,8 @@
+<map id="Trabalho02.releaseResource" name="Trabalho02.releaseResource">
+<area shape="rect" id="node2" href="$class_process_1_1_process_class.html#a690cf17e3854458315ad826cca9465e3" title="Process.ProcessClass.get\lResourceList" alt="" coords="241,5,418,47"/>
+<area shape="rect" id="node3" href="$class_database_1_1_resource_list.html#a3b9fbd29b54c4cf6f683855ef8151b83" title="Database.ResourceList.get\lResourceStatus" alt="" coords="240,71,419,112"/>
+<area shape="rect" id="node6" href="$class_database_1_1_resource_list.html#a9acfc366913bc1e8d08aaf58f8061179" title="Database.ResourceList.set\lResourceStatus" alt="" coords="240,136,419,177"/>
+<area shape="rect" id="node4" href="$class_database_1_1_resource_list.html#aee43694c2f60d16431de4096237e6b8e" title="Database.ResourceList.find\lResourceById" alt="" coords="483,103,664,144"/>
+<area shape="rect" id="node5" href="$class_database_1_1_resource.html#af1e8a2ba66902de21796d4ab46cc187a" title="Database.Resource.getResource\lStatus" alt="" coords="467,37,680,79"/>
+<area shape="rect" id="node7" href="$class_database_1_1_resource.html#ae221f4ce865f101725c56c5cad588874" title="Database.Resource.setResource\lStatus" alt="" coords="467,168,680,209"/>
+</map>

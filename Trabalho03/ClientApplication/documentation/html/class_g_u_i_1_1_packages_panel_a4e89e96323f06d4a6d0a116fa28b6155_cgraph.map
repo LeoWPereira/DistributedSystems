@@ -1,0 +1,14 @@
+<map id="GUI.PackagesPanel.PackagesPanel" name="GUI.PackagesPanel.PackagesPanel">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_packages_panel.html#aa27b5adfceca1289b9be37bc69ddabdb" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="255,5,432,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_packages_panel.html#a5fe94bcea5dd4b47ecb0e88c8f3ecdad" title="Initial settings for the CheckBox of the Panel. " alt="" coords="255,71,432,112"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_packages_panel.html#aae4e6ce06f37951cadf2aad1267faf2e" title="Initial settings for the several ComboBox of the Panel. " alt="" coords="255,136,432,177"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_packages_panel.html#a95dbde246a173b17e91069dfe4829b0f" title="This method will handle the initial setup to the Dates Labels and Calendars. " alt="" coords="255,201,432,243"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_packages_panel.html#a8a0d79047c8a6b01ca0cff1dc7a01d4c" title="Initial settings for the Hotel name Search feature. " alt="" coords="255,267,432,308"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_packages_panel.html#a8aaa2e65f62b9c58c70b01eefa4edd7e" title="This method will handle the initial configurations to the Search Button. " alt="" coords="255,332,432,373"/>
+<area shape="rect" id="node13" href="$class_g_u_i_1_1_packages_panel.html#ab58ab13961a8a599ba3189c81c5a4fcb" title="The method will handle the initial settings for the table. " alt="" coords="255,397,432,439"/>
+<area shape="rect" id="node5" href="$class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b" title="Get the States from Brazil. " alt="" coords="487,59,670,86"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_packages_panel.html#adf8516174d1bed3efb374068a2a6e482" title="The method will handle changes if the State ComboBox. " alt="" coords="486,111,671,152"/>
+<area shape="rect" id="node7" href="$class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d" title="Get the list of Cities of an State of Brazil. " alt="" coords="725,147,904,174"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_packages_panel.html#abaaf8042bdc0ee14bbbba5a44c1d543e" title="Check whether or not the return Date is greater than the go Date. " alt="" coords="480,228,677,269"/>
+<area shape="rect" id="node12" href="$class_g_u_i_1_1_packages_panel.html#a22f5a7829401875bd5706d48491c7017" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="480,332,677,373"/>
+</map>

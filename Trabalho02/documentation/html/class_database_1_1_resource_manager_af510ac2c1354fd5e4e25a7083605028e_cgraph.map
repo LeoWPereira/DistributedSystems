@@ -1,0 +1,11 @@
+<map id="Database.ResourceManager.checkResourceAvailability" name="Database.ResourceManager.checkResourceAvailability">
+<area shape="rect" id="node2" href="$class_database_1_1_peer_list.html#aa3ab7e03aa5f4cf769436229f16f33d3" title="Database.PeerList.getPeer\lListSize" alt="" coords="293,5,471,47"/>
+<area shape="rect" id="node3" href="$class_database_1_1_peer_list.html#a157afcdeb9693abb29d99751ce84e4e4" title="Database.PeerList.getPeer\lByIndex" alt="" coords="293,71,471,112"/>
+<area shape="rect" id="node4" href="$class_database_1_1_peer.html#afeed119d9bde95849a4cebbc301f4705" title="Database.Peer.getResourceList" alt="" coords="279,137,485,163"/>
+<area shape="rect" id="node5" href="$class_database_1_1_resource_list.html#a9e25c9799ee5d8941ce70c25538070d5" title="Database.ResourceList.get\lResquestTimestamp" alt="" coords="293,188,471,229"/>
+<area shape="rect" id="node8" href="$class_database_1_1_resource_list.html#a9acfc366913bc1e8d08aaf58f8061179" title="Database.ResourceList.set\lResourceStatus" alt="" coords="293,253,471,295"/>
+<area shape="rect" id="node10" href="$class_database_1_1_peer.html#abf2b96ea206f623e7b32069d2bf7a626" title="Database.Peer.getId" alt="" coords="312,319,452,346"/>
+<area shape="rect" id="node6" href="$class_database_1_1_resource_list.html#aee43694c2f60d16431de4096237e6b8e" title="Database.ResourceList.find\lResourceById" alt="" coords="549,220,731,261"/>
+<area shape="rect" id="node7" href="$class_database_1_1_resource.html#a7226ebf49a56ef365a51a48fbd49371e" title="Database.Resource.getRequest\lTimestamp" alt="" coords="537,155,743,196"/>
+<area shape="rect" id="node9" href="$class_database_1_1_resource.html#ae221f4ce865f101725c56c5cad588874" title="Database.Resource.setResource\lStatus" alt="" coords="533,285,747,327"/>
+</map>

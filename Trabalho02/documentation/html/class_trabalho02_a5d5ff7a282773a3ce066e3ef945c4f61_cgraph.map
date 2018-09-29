@@ -1,0 +1,6 @@
+<map id="Trabalho02.testMultiCastSocket" name="Trabalho02.testMultiCastSocket">
+<area shape="rect" id="node2" href="$class_communication_1_1_multi_cast___manager.html#aaf608d567e8e3d8a3a600b3dbf3180c9" title="Communication.MultiCast\l_Manager.sendMessage" alt="" coords="252,5,423,47"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_s_d___message.html#a5b2935f7a91057ed5e607fa31c6513e6" title="Communication.SD_Message.mount\lMessage" alt="" coords="220,71,455,112"/>
+<area shape="rect" id="node5" href="$class_communication_1_1_multi_cast___manager.html#a5897b034a37338ad67dc7981b6581d79" title="Communication.MultiCast\l_Manager.getConnectionStatus" alt="" coords="235,136,439,177"/>
+<area shape="rect" id="node4" href="$class_communication_1_1_s_d___message.html#a1e9c8abe34f8cf015fd4de6bac685f6c" title="Communication.SD_Message.append" alt="" coords="503,78,743,105"/>
+</map>

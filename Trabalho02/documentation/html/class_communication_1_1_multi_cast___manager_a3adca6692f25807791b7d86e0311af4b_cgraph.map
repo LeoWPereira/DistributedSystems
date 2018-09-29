@@ -1,0 +1,12 @@
+<map id="Communication.MultiCast_Manager.requestPublicKey_Callback" name="Communication.MultiCast_Manager.requestPublicKey_Callback">
+<area shape="rect" id="node2" href="$class_communication_1_1_s_d___message.html#a1dd9dbd4bed19d213f3bfd81ee6a4fb9" title="Communication.SD_Message.demount\lMessage" alt="" coords="239,5,487,47"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_multi_cast___manager.html#afbe493c257ec3b781af42b5a4a183ce5" title="Communication.MultiCast\l_Manager.checkIfSenderIsMyself" alt="" coords="256,71,469,112"/>
+<area shape="rect" id="node5" href="$class_communication_1_1_s_d___message.html#a85a2056005ab4f1260300941e66d6a51" title="Communication.SD_Message.get\lUniqueID" alt="" coords="255,136,471,177"/>
+<area shape="rect" id="node6" href="$class_communication_1_1_multi_cast___manager.html#acb171dc1e2ad9925b10db56482936c73" title="Communication.MultiCast\l_Manager.getInitialSetOK" alt="" coords="277,201,448,243"/>
+<area shape="rect" id="node7" href="$class_communication_1_1_s_d___message.html#a1e9c8abe34f8cf015fd4de6bac685f6c" title="Communication.SD_Message.append" alt="" coords="535,394,775,421"/>
+<area shape="rect" id="node8" href="$class_process_1_1_process_class.html#a052bc3a69925f32eea11640a924b3554" title="Process.ProcessClass.get\lCriptography" alt="" coords="274,319,451,360"/>
+<area shape="rect" id="node9" href="$class_security_1_1_crypto.html#aae497ae9a5f0b578527bb911ec58e5e9" title="Security.Crypto.getPublic\lKeyByte" alt="" coords="277,384,448,425"/>
+<area shape="rect" id="node10" href="$class_communication_1_1_multi_cast___manager.html#aaf608d567e8e3d8a3a600b3dbf3180c9" title="Communication.MultiCast\l_Manager.sendMessage" alt="" coords="277,449,448,491"/>
+<area shape="rect" id="node11" href="$class_communication_1_1_s_d___message.html#a5b2935f7a91057ed5e607fa31c6513e6" title="Communication.SD_Message.mount\lMessage" alt="" coords="245,515,480,556"/>
+<area shape="rect" id="node4" href="$class_process_1_1_process_class.html#ad08fef4f1a44756cea332d9ada7007b6" title="Process.ProcessClass.get\lProcessID" alt="" coords="566,71,743,112"/>
+</map>

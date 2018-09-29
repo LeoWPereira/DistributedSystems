@@ -1,0 +1,10 @@
+<map id="Database.PeerList.insertPeer" name="Database.PeerList.insertPeer">
+<area shape="rect" id="node2" href="$class_communication_1_1_multi_cast___manager.html#a9bec3793688404fc93ddb6b9b919eb17" title="Communication.MultiCast\l_Manager.subscribe_Callback" alt="" coords="260,5,456,47"/>
+<area shape="rect" id="node4" href="$class_communication_1_1_multi_cast___manager.html#a8b5897e613d85cb01b7038b60e885169" title="Communication.MultiCast\l_Manager.replyPublicKey\l_Callback" alt="" coords="273,71,443,127"/>
+<area shape="rect" id="node5" href="$class_database_1_1_resource_manager.html#a632e079b1a3faba5858a6d5df323efb9" title="Database.ResourceManager.check\lPeersResponse" alt="" coords="245,152,471,193"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_multi_cast___manager.html#a52ee1c8e56becddab5bf42e725911db3" title="Communication.MultiCast\l_Manager.run" alt="" coords="521,43,691,84"/>
+<area shape="rect" id="node6" href="$class_trabalho02.html#ac5c339317bb67a3eaabaea85f8ea9c0c" title="Trabalho02.waitForReplies" alt="" coords="519,159,693,186"/>
+<area shape="rect" id="node7" href="$class_trabalho02.html#a9cd46b08e1018a2686884b0a4ba8cd8d" title="Trabalho02.requestResource" alt="" coords="741,159,928,186"/>
+<area shape="rect" id="node8" href="$class_trabalho02.html#ab93875f125e0ce39f5eb79705e79fb58" title="Trabalho02.runAppRoutine" alt="" coords="976,159,1151,186"/>
+<area shape="rect" id="node9" href="$class_trabalho02.html#a0425b57b32d14c1291ba9fb6f06bfc08" title="Trabalho02.main" alt="" coords="1199,159,1316,186"/>
+</map>

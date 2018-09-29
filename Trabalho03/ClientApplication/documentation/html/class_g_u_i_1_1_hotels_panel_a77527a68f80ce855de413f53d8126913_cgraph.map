@@ -1,0 +1,5 @@
+<map id="GUI.HotelsPanel.configStateAndCities" name="GUI.HotelsPanel.configStateAndCities">
+<area shape="rect" id="node2" href="$class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b" title="Get the States from Brazil. " alt="" coords="247,5,430,32"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotels_panel.html#aa44f0307d1b191a80cbd12948f284185" title="The method will handle changes if the State ComboBox. " alt="" coords="240,57,437,98"/>
+<area shape="rect" id="node4" href="$class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d" title="Get the list of Cities of an State of Brazil. " alt="" coords="485,93,664,120"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Communication.SD_Message.demountMessage" name="Communication.SD_Message.demountMessage">
+<area shape="rect" id="node2" href="$class_communication_1_1_multi_cast___manager.html#a9bec3793688404fc93ddb6b9b919eb17" title="Communication.MultiCast\l_Manager.subscribe_Callback" alt="" coords="309,5,505,47"/>
+<area shape="rect" id="node4" href="$class_communication_1_1_multi_cast___manager.html#a85187f1973991a43d7839bd5066b9e25" title="Communication.MultiCast\l_Manager.unsubscribe_Callback" alt="" coords="301,71,512,112"/>
+<area shape="rect" id="node5" href="$class_communication_1_1_multi_cast___manager.html#a8b5897e613d85cb01b7038b60e885169" title="Communication.MultiCast\l_Manager.replyPublicKey\l_Callback" alt="" coords="321,137,492,193"/>
+<area shape="rect" id="node6" href="$class_communication_1_1_multi_cast___manager.html#acd11a380558bc1bceb2a05a3326e8eb0" title="Communication.MultiCast\l_Manager.replyResourceStatus\l_Callback" alt="" coords="305,217,509,273"/>
+<area shape="rect" id="node7" href="$class_communication_1_1_multi_cast___manager.html#a388ab6766c0b68fad9f2cff033ddd283" title="Communication.MultiCast\l_Manager.requestResource\l_Callback" alt="" coords="316,297,497,353"/>
+<area shape="rect" id="node8" href="$class_communication_1_1_multi_cast___manager.html#a3adca6692f25807791b7d86e0311af4b" title="Communication.MultiCast\l_Manager.requestPublicKey\l_Callback" alt="" coords="314,377,499,433"/>
+<area shape="rect" id="node3" href="$class_communication_1_1_multi_cast___manager.html#a52ee1c8e56becddab5bf42e725911db3" title="Communication.MultiCast\l_Manager.run" alt="" coords="560,184,731,225"/>
+</map>
