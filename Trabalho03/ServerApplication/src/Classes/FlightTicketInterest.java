@@ -12,6 +12,9 @@
 package Classes;
 
 import java.io.Serializable;
+import java.util.Date;
+
+import RMI.ClientInterface;
 
 /**
  * @brief   Class responsible for storing the flight ticket interest info from the clients
@@ -41,7 +44,7 @@ public class FlightTicketInterest
     /**
      * @brief
      */
-    private ClientInferface refCli;
+    private ClientInterface refCli;
 
     /**
      * @brief   Default constructor
@@ -50,19 +53,19 @@ public class FlightTicketInterest
      * @param   _flightTicketFrom   : FlightTicket
      * @param   _quantity           : int
      * @param   _maxPrice           : float
-     * @param   _refCli             : ClientInferface
+     * @param   _refCli             : ClientInterface
      */   
     public FlightTicketInterest(FlightTicket    _flightTicketTo, 
                                 FlightTicket    _flightTicketFrom, 
                                 int             _quantity, 
                                 float           _maxPrice, 
-                                ClientInferface _refCli) 
+                                ClientInterface _refCli) 
     {
-        this.flightTicketTo = _flightTicketTo;
-        this.flightTicketFrom = _flightTicketFrom;
-        this.quantity = _quantity;
-        this.maxPrice = _maxPrice;
-        this.refCli = refCli;
+        this.flightTicketTo 	= _flightTicketTo;
+        this.flightTicketFrom 	= _flightTicketFrom;
+        this.quantity 			= _quantity;
+        this.maxPrice 			= _maxPrice;
+        this.refCli 			= _refCli;
     }
 
     /**
@@ -107,7 +110,7 @@ public class FlightTicketInterest
      * 
      * @return  sourceDate
      */ 
-    public float getSourceDate()
+    public Date getSourceDate()
     {
         return flightTicketTo.getDate();
     }
@@ -117,7 +120,7 @@ public class FlightTicketInterest
      * 
      * @return  returnDate
      */ 
-    public float getReturnDate()
+    public Date getReturnDate()
     {
         return flightTicketFrom.getDate();
     }
@@ -137,7 +140,7 @@ public class FlightTicketInterest
      * 
      * @return maxPrice
      */
-    public int getMaxPrice() 
+    public float getMaxPrice() 
     {
         return maxPrice;
     }
@@ -147,7 +150,7 @@ public class FlightTicketInterest
      * 
      * @return  refCli
      */
-    public ClientInferface getClientInterface() 
+    public ClientInterface getClientInterface() 
     {
         return refCli;
     }

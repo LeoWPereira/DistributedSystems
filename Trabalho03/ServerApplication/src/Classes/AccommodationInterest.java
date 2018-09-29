@@ -12,6 +12,9 @@
 package Classes;
 
 import java.io.Serializable;
+import java.util.Date;
+
+import RMI.ClientInterface;
 
 /**
  * @brief   Class responsible for storing the accommodation interest info from the clients
@@ -21,7 +24,7 @@ public class AccommodationInterest
     /**
      * @brief
      */
-    private Accomodation  accommodation;
+    private Accommodation  accommodation;
     
     /**
      * @brief
@@ -41,17 +44,17 @@ public class AccommodationInterest
     /**
      * @brief
      */
-    private String checkinDate;
+    private Date checkinDate;
 
     /**
      * @brief
      */
-    private String checkoutDate;
+    private Date checkoutDate;
 
     /**
      * @brief
      */
-    private ClientInferface refCli;
+    private ClientInterface refCli;
 
     /**
      * @brief   Default constructor
@@ -62,22 +65,23 @@ public class AccommodationInterest
      * @param   _maxPrice           : float
      * @param   _checkinDate        : String
      * @param   _checkoutDate       : String
-     * @param   _refCli             : ClientInferface
+     * @param   _refCli             : ClientInterface
      */   
-    public AccommodationInterest(Accomodation   _accommodation, 
-                                int             _quantity, 
-                                int             _numberOfGuests, 
-                                float           _maxPrice, 
-                                String          _checkinDate, 
-                                String          _checkoutDate, 
-                                ClientInferface _refCli) 
+    public AccommodationInterest(Accommodation   _accommodation, 
+                                 int             _quantity, 
+                                 int             _numberOfGuests, 
+                                 float           _maxPrice, 
+                                 Date          _checkinDate, 
+                                 Date          _checkoutDate, 
+                                 ClientInterface _refCli) 
     {
-        this.accommodation = _accommodation;
-        this.quantity = _quantity;
-        this.numberOfGuests = _numberOfGuests;
-        this.maxPrice = _maxPrice;
-        this.checkinDate = preco;
-        this.refCli = refCli;
+        this.accommodation  =   _accommodation;
+        this.quantity       =   _quantity;
+        this.numberOfGuests =   _numberOfGuests;
+        this.maxPrice       =   _maxPrice;
+        this.checkinDate    =   _checkinDate;
+        this.checkoutDate   =   _checkoutDate;
+        this.refCli         =   _refCli;
     }
 
     /**
@@ -97,7 +101,7 @@ public class AccommodationInterest
      */   
     public String getAccommodationCityName()
     {
-        return accommodation.getAccommodationCityName();
+        return accommodation.getCityName();
     }
     
     /**
@@ -125,7 +129,7 @@ public class AccommodationInterest
      * 
      * @return maxPrice
      */
-    public int getMaxPrice() 
+    public float getMaxPrice() 
     {
         return maxPrice;
     }
@@ -135,7 +139,7 @@ public class AccommodationInterest
      * 
      * @param checkinDate
      */
-    public void getCheckinDate()
+    public Date getCheckinDate()
     {
         return checkinDate;
     }
@@ -146,7 +150,7 @@ public class AccommodationInterest
      * 
      * @param checkoutDate
      */
-    public void getCheckoutDate()
+    public Date getCheckoutDate()
     {
         return checkoutDate;
     }
@@ -156,7 +160,7 @@ public class AccommodationInterest
      * 
      * @return  refCli
      */
-    public ClientInferface getClientInterface() 
+    public ClientInterface getClientInterface() 
     {
         return refCli;
     }
