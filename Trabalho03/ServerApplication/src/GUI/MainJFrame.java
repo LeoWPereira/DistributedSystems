@@ -284,7 +284,8 @@ public class MainJFrame extends JFrame
 				try 
 				{
 					passagesPanel = new PassagesPanel(internalPanel, 
-													  dbStatement);
+													  dbStatement,
+													  serverRMI);
 					
 					passagesPanel.setVisible(true);
 				} 

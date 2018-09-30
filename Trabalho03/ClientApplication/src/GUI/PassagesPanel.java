@@ -893,7 +893,7 @@ public class PassagesPanel extends JPanel
 
 			    flightTicketFrom = new FlightTicket(comboBoxCityDest.getSelectedItem().toString(),
 			    								  	comboBoxCitySrc.getSelectedItem().toString(),
-   					   					 	  	  	goingDate,
+   					   					 	  	  	returnDate,
    					   					 	  	  	0,
    					   					 	  	  	0);
 			}
