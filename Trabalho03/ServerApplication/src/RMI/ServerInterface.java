@@ -101,20 +101,19 @@ public interface ServerInterface extends Remote
                                         String          _clientName)        throws RemoteException;
     
     /**
-     * @brief	
+     * @brief   
      * 
-     * @param 	_hotel			:
-     * @param 	_until			:
-     * @param 	_checkin		:
-     * @param 	_checkout		:
-     * @param 	_desiredPrice	:
-     * @param 	_refCli			:
+     * @param   _hotel          :
+     * @param   _quantity       :
+     * @param   _numberOfGuests :
+     * @param   _desiredPrice   :
+     * @param   _refCli         :
+     * @param   _clientName     :
      */
-    public void registerHotelInterest(Accommodation		_hotel, 
-    								  Date 				_until, 
-    								  Date				_checkin, 
-    								  Date				_checkout,
-    								  float 			_desiredPrice,
-    								  ClientInterface	_refCli,
-                                      String            _clientName) 		throws RemoteException;
+    public void registerHotelInterest(Accommodation     _hotel, 
+                                      int               _quantity,
+                                      int               _numberOfGuests,
+                                      float             _desiredPrice,
+                                      ClientInterface   _refCli,
+                                      String            _clientName)        throws RemoteException;
 }

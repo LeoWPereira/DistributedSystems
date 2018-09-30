@@ -39,6 +39,7 @@ import javax.swing.table.DefaultTableModel;
 import Classes.Accommodation;
 import Classes.AccommodationManager;
 import Extra.CitiesBrazil;
+import RMI.ClientServent;
 import RMI.ServerInterface;
 
 /**
@@ -105,6 +106,11 @@ public class HotelsPanel extends JPanel
 	 * @brief	Member containing the search button
 	 */
 	private JButton 		  buttonSearch;
+
+	/**
+	 * @brief	Member containing the register interest button
+	 */
+	private JButton 		  interestSearch;
 	
 	/**
 	 * @brief	Member containing a label to "Town" info
@@ -120,6 +126,11 @@ public class HotelsPanel extends JPanel
 	 * @brief	Member containing the hotel name text field
 	 */
 	private JTextField 		  textFieldHotel;
+
+	/**
+	 * @brief
+	 */
+	private static ClientServent clientRMI;
 	
 	/**
 	 * @brief	Default Constructor
@@ -130,11 +141,14 @@ public class HotelsPanel extends JPanel
 	 * @param	server	:
 	 */
 	public HotelsPanel(JPanel 			panel,
-			 		   ServerInterface	server)
+			 		   ServerInterface	server,
+			 		   ClientServent 	client)
 	{
 		internalPanel 	= panel;
 		
 		serverReference	= server;
+
+		clientRMI = client;
 		
 		internalPanel.removeAll();
 		
@@ -293,6 +307,7 @@ public class HotelsPanel extends JPanel
 	public void configButton()
 	{
 		buttonSearch = new JButton("Buscar Hospedagem");
+		interestSearch = new JButton("Registrar Interesse");
 		
 		// Settings for the Search Button
 		buttonSearch.setBorder(new BevelBorder(BevelBorder.RAISED, 
@@ -304,6 +319,17 @@ public class HotelsPanel extends JPanel
 		buttonSearch.setBackground(new Color(238, 238, 238));
 		buttonSearch.setBounds(10, 370,
 							   350, 30);
+
+		// Settings for the Register Interest Button
+		interestSearch.setBorder(new BevelBorder(BevelBorder.RAISED, 
+											     null, 
+											     null, 
+											     null, 
+											     null));
+		
+		interestSearch.setBackground(new Color(238, 238, 238));
+		interestSearch.setBounds(10, 330,
+							     350, 30);
 		
 		buttonSearch.addActionListener(new ActionListener()
 		{
@@ -329,8 +355,27 @@ public class HotelsPanel extends JPanel
 				}
 			}
 		});
+
+		interestSearch.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				if(checkForEmptyFields())
+				{
+					JOptionPane.showMessageDialog(new JFrame(),
+												  "Existem Campos não preenchidos!", 
+												  "Erro",
+												  JOptionPane.ERROR_MESSAGE);
+				}
+				else
+				{
+					processInterestButton(arg0);
+				}
+			}
+		});
 		
 		internalPanel.add(buttonSearch);
+		internalPanel.add(interestSearch);
 	}
 	
 	/**
@@ -551,4 +596,44 @@ public class HotelsPanel extends JPanel
 			insertTableField(list);
 		}
 	}
+
+	/**
+	 * @brief
+	 */
+	private void processInterestButton(java.awt.event.ActionEvent evt) 
+	{
+        JTextField maxPrice = new JTextField();
+        JTextField quantity = new JTextField();
+        JTextField numberOfGuests = new JTextField();
+        Object[] message = {"Preco maximo:", maxPrice, "Quantidade:", quantity, "No. de Pessoas:", numberOfGuests};
+
+        int response = JOptionPane.showConfirmDialog(null, message, "Registro de interesse", JOptionPane.OK_CANCEL_OPTION);
+        
+        if (response == JOptionPane.OK_OPTION) 
+        {
+        	Accommodation accommodation = null;
+
+            float maxPriceFloat = Float.valueOf(maxPrice.getText());
+            
+            accommodation = new Accommodation(comboBoxCity.getSelectedItem().toString(), 
+											  textFieldHotel.getText().toString(), 
+											  0, 
+											  0, 
+											  0);
+
+			try 
+            {
+                serverReference.registerHotelInterest(accommodation, 
+                									  Integer.valueOf(quantity.getText()),
+                									  Integer.valueOf(numberOfGuests.getText()),
+                									  maxPriceFloat,
+                									  clientRMI,
+                									  clientRMI.getClientName());
+            } 
+            catch (RemoteException e) 
+			{
+				e.printStackTrace();
+            }
+        }
+    }
 }

@@ -44,17 +44,12 @@ public class AccommodationInterest
     /**
      * @brief
      */
-    private Date checkinDate;
-
-    /**
-     * @brief
-     */
-    private Date checkoutDate;
-
-    /**
-     * @brief
-     */
     private ClientInterface refCli;
+
+    /**
+     * @brief
+     */
+    private String clientName;
 
     /**
      * @brief   Default constructor
@@ -63,25 +58,22 @@ public class AccommodationInterest
      * @param   _quantity           : int
      * @param   _numberOfGuests     : int
      * @param   _maxPrice           : float
-     * @param   _checkinDate        : String
-     * @param   _checkoutDate       : String
      * @param   _refCli             : ClientInterface
+     * @param   _clientName         : String
      */   
     public AccommodationInterest(Accommodation   _accommodation, 
                                  int             _quantity, 
                                  int             _numberOfGuests, 
                                  float           _maxPrice, 
-                                 Date          _checkinDate, 
-                                 Date          _checkoutDate, 
-                                 ClientInterface _refCli) 
+                                 ClientInterface _refCli,
+                                 String          _clientName) 
     {
         this.accommodation  =   _accommodation;
         this.quantity       =   _quantity;
         this.numberOfGuests =   _numberOfGuests;
         this.maxPrice       =   _maxPrice;
-        this.checkinDate    =   _checkinDate;
-        this.checkoutDate   =   _checkoutDate;
         this.refCli         =   _refCli;
+        this.clientName     =   _clientName;
     }
 
     /**
@@ -137,32 +129,21 @@ public class AccommodationInterest
     /**
      * @brief Default getter
      * 
-     * @param checkinDate
-     */
-    public Date getCheckinDate()
-    {
-        return checkinDate;
-    }
-
-
-    /**
-     * @brief Default getter
-     * 
-     * @param checkoutDate
-     */
-    public Date getCheckoutDate()
-    {
-        return checkoutDate;
-    }
-
-    /**
-     * @brief Default getter
-     * 
      * @return  refCli
      */
     public ClientInterface getClientInterface() 
     {
         return refCli;
+    }
+
+    /**
+     * @brief Default getter
+     * 
+     * @return  clientName
+     */
+    public String getClientName() 
+    {
+        return clientName;
     }
 }
     

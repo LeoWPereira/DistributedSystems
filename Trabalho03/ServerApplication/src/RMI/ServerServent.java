@@ -237,19 +237,34 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 	}
 
 	@Override
-	public synchronized void registerHotelInterest(Accommodation	_hotel, 
-												   Date 			_until, 
-												   Date 			_checkin, 
-												   Date 			_checkout,
-												   float 			_desiredPrice, 
-												   ClientInterface 	_refCli,
-												   String          	_clientName) 		throws RemoteException 
+	public synchronized void registerHotelInterest(Accommodation		_hotel, 
+			    								   int               	_quantity,
+			                                       int              	_numberOfGuests,
+			    								   float 				_desiredPrice,
+			    								   ClientInterface		_refCli,
+			                                       String            	_clientName) 		throws RemoteException 
 	{
+		AccommodationInterest accommodationInterest = new AccommodationInterest(_hotel,
+		        															   _quantity, 
+		        															   _numberOfGuests,
+		        															   _desiredPrice, 
+		        															   _refCli,
+		        															   _clientName);
 
+        this.listAccommodationInterest.add(accommodationInterest);
+        
+        String message = "Registro de interesse realizado com sucesso";
+		
+        _refCli.eventPopUp(message);
 	}
 
 	public ArrayList<FlightTicketInterest> getTicketInterestList()
 	{
 		return listTicketInterest;
+	}
+
+	public ArrayList<AccommodationInterest> getAccommodationInterestList()
+	{
+		return listAccommodationInterest;
 	}
 }

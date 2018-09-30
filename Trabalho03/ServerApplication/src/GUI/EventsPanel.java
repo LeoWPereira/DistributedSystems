@@ -44,6 +44,7 @@ import com.mysql.jdbc.Statement;
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 import Classes.Accommodation;
+import Classes.AccommodationInterest;
 import Classes.AccommodationManager;
 import Classes.FlightTicketInterest;
 import Database.Controller.CtrlHotel;
@@ -131,8 +132,6 @@ public class EventsPanel extends JPanel
 		internalPanel.removeAll();
 		
 		configRadioButtons();
-		
-		configTable();
 
 		showTicketsInterest();
 		
@@ -166,6 +165,7 @@ public class EventsPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
+				showTicketsInterest();
 			}
 		});
 		
@@ -177,6 +177,7 @@ public class EventsPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
+				showAccommodationInterest();
 			}
 		});
 
@@ -205,7 +206,7 @@ public class EventsPanel extends JPanel
 	 * @brief	The method will handle the initial settings for the table
 	 */
 	@SuppressWarnings("serial")
-	public void configTable()
+	public void configTicketInterestTable()
 	{
 		table 							= new JTable();
 		scrollPaneTabela 				= new JScrollPane();
@@ -275,6 +276,8 @@ public class EventsPanel extends JPanel
 	 */
 	public void showTicketsInterest()
 	{    
+		configTicketInterestTable();
+
 		ArrayList<FlightTicketInterest> listTicketInterest = serverRMI.getTicketInterestList();
 		
 		int tableSize = listTicketInterest.size();
@@ -358,4 +361,159 @@ public class EventsPanel extends JPanel
 							 	   row++);
         }
 	}
+
+	/**
+	 * @brief	The method will handle the initial settings for the table of accommodation interests
+	 */
+	@SuppressWarnings("serial")
+	public void configAccommodationInterestTable()
+	{
+		table 							= new JTable();
+		scrollPaneTabela 				= new JScrollPane();
+		
+		DefaultTableCellRenderer dtcr	= new DefaultTableCellRenderer();
+		
+		dtcr.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		// Settings for the Scroll
+		scrollPaneTabela.setBackground(new Color(222, 184, 135));
+		scrollPaneTabela.setBorder(null);
+		scrollPaneTabela.setViewportView(table);
+		scrollPaneTabela.setBounds(100, 70,
+								   600, 300);
+		
+		// Settings for the Table
+		table.setShowGrid(false);
+		table.setBorder(null);
+		
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setRowHeight(30);
+		table.getTableHeader().setBackground(new Color(222, 184, 135));
+		table.getTableHeader().setFont(new Font("Times New Roman", Font.BOLD, 12));
+		table.setModel(new DefaultTableModel(
+				new Object[][] {
+						{null, null, null, null},
+						{null, null, null, null},
+						{null, null, null, null},
+						{null, null, null, null},
+						{null, null, null, null},
+						{null, null, null, null},
+						{null, null, null, null},
+						{null, null, null, null},
+						{null, null, null, null},
+						{null, null, null, null}
+					},
+			new String[] {"Cliente", "Cidade", "Nome Hospedagem", "Quantidade", "No. Pessoas", "Preco (Max)"})
+			{
+				boolean[] columnEditables = new boolean[]
+				{
+					false, false, false, false, false, false, false, false, false, false
+				};
+				
+				public boolean isCellEditable(int 		row,
+											  int 		column)
+				{
+					return columnEditables[column];
+				}
+			});
+		
+		table.getColumnModel().getColumn(0).setMinWidth(107);
+		table.getColumnModel().getColumn(1).setPreferredWidth(108);
+		table.getColumnModel().getColumn(2).setPreferredWidth(35);
+		
+		for(int i = 0; i < table.getColumnCount(); ++i)
+		{
+			table.getColumnModel().getColumn(i).setCellRenderer(dtcr);
+		}
+		
+		table.setAutoCreateRowSorter(true);
+		
+		internalPanel.add(scrollPaneTabela);
+	}
+
+	/**
+	 * @brief	The method will show the accommodation interest list in the table
+	 */
+	public void showAccommodationInterest()
+	{    
+		internalPanel.remove(scrollPaneTabela);
+		
+		configAccommodationInterestTable();
+
+		ArrayList<AccommodationInterest> listAccommodationInterest = serverRMI.getAccommodationInterestList();
+		
+		int tableSize = listAccommodationInterest.size();
+		
+		if(0 == tableSize)
+		{
+			JOptionPane.showMessageDialog(new JFrame(),
+					  					  "Nenhum registro de interesse de hospedagens foi encontrado!", 
+					  					  "Aviso",
+					  					  JOptionPane.WARNING_MESSAGE);
+		}
+		else
+		{
+			insertTableFieldAccommodation(listAccommodationInterest);
+		}
+	}
+
+	/**
+	 * @brief
+	 * 
+	 * @param	_accommodationInterest	: AccommodationInterest
+	 * @param	_row					: int
+	 */
+	public void insertTableFieldAccommodation(AccommodationInterest	_accommodationInterest,
+								 	   		  int 					_row)
+	{
+		if(_row >= table.getRowCount())
+		{
+			((DefaultTableModel)table.getModel()).addRow(new Object[]{null, null});
+		}
+		
+		table.getModel().setValueAt(_accommodationInterest.getClientName(),
+									_row, 
+									0);
+
+		table.getModel().setValueAt(_accommodationInterest.getAccommodationCityName(),
+									_row, 
+									1);
+		
+		table.getModel().setValueAt(_accommodationInterest.getAccommodationName(),
+									_row, 
+									2);
+
+		table.getModel().setValueAt(_accommodationInterest.getQuantity(),
+									_row, 
+									3);
+
+		table.getModel().setValueAt(_accommodationInterest.getNumberOfGuests(),
+									_row, 
+									4);
+		
+		table.getModel().setValueAt(_accommodationInterest.getMaxPrice(),
+									_row, 
+									5);
+	}
+
+	/**
+	 * @brief
+	 * 
+	 * @param	_list	:
+	 */
+	public void insertTableFieldAccommodation(ArrayList<AccommodationInterest>	_list)
+	{
+		int row = 0;
+		AccommodationInterest accommodationInterest;
+
+		for (int i = 0; i < _list.size(); i++) 
+		{
+            accommodationInterest = _list.get(i);
+
+            insertTableFieldAccommodation(accommodationInterest,
+							 	   		  row++);
+        }
+	}
+
+
 }
