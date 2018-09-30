@@ -284,4 +284,88 @@ public class DAOHotel
 		
 		return rs;
 	}
+
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_city	:
+	 * @param 	_hotel	:
+	 * @param	_price	:
+	 * 
+	 * @return
+	 */
+	public ResultSet getQuantityLeft(Statement	_stm,
+									 String 	_city,
+								 	 String 	_hotel,
+								 	 float  	_price) throws SQLException
+	{
+		String query = "SELECT `"							+
+						 rowQuantity						+
+						 "` FROM `"							+
+						 DBConnection.getDatabaseName()		+
+					 	 "`.`" 								+
+					 	 DBConnection.getHotelDBName() 	    +
+						 "` WHERE `"						+
+					 	 rowHotel							+
+					 	 "` = '"							+
+					 	 _hotel							    +
+					 	 "' AND `"							+
+					 	 rowCity						    +
+					 	 "` = '"							+
+					 	 _city								+
+					 	 "' AND `"							+
+					 	 rowPrice							+
+					 	 "` LIKE '"							+
+					 	 _price								+
+					 	 "';";
+		
+		ResultSet rs = _stm.executeQuery(query);
+		
+		return rs;
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_city	:
+	 * @param 	_hotel	:
+	 * @param	_price	:
+	 * @param	_newQtd	:
+	 * 
+	 * @return
+	 */
+	public void updateQuantity(Statement	_stm,
+							   String 		_city,
+							   String 		_hotel,
+							   float  		_price,
+							   int			_newQtd) throws SQLException
+	{
+		String query = "UPDATE `"							+
+						DBConnection.getDatabaseName()		+
+					 	"`.`" 								+
+					 	DBConnection.getHotelDBName() 	    +
+						"` SET `"							+
+					 	rowQuantity							+
+					 	"` = '"								+
+					 	_newQtd								+
+					 	"' WHERE `"							+
+					 	rowHotel							+
+					 	"` = '"								+
+					 	_hotel								+
+					 	"' AND `"							+
+					 	rowCity						        +
+					 	"` = '"								+
+					 	_city								+
+					 	"' AND `"							+
+					 	rowPrice							+
+					 	"` LIKE '"							+
+					 	_price								+
+					 	"';";
+		
+		System.out.println(query);
+		
+		_stm.executeUpdate(query);
+	}
 }

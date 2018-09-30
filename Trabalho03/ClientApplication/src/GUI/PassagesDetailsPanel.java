@@ -95,14 +95,9 @@ public class PassagesDetailsPanel extends JFrame
 	private static ButtonGroup 	group;
 	
 	/**
-	 * @brief	Member containing the info about the "Buy" Radio Button
+	 * @brief	Member containing the info about the "Buy" label
 	 */
-	private static JRadioButton	radioButtonBuy;
-	
-	/**
-	 * @brief	Member containing the info about the "Interest" Radio Button
-	 */
-	private static JRadioButton	radioButtonInterest;
+	private static JLabel	labelBuy;
 	
 	/**
 	 * @brief	Member containing the class of States and Cities from Brazil
@@ -135,11 +130,6 @@ public class PassagesDetailsPanel extends JFrame
 	private JButton buttonBuy;
 	
 	/**
-	 * @brief	Member containing the register interest button
-	 */
-	private JButton buttonInterest;
-	
-	/**
 	 * @brief
 	 */
 	private JLabel labelQtd;
@@ -147,17 +137,7 @@ public class PassagesDetailsPanel extends JFrame
 	/**
 	 * @brief
 	 */
-	private JLabel labelDesiredPrice;
-	
-	/**
-	 * @brief
-	 */
 	private JFormattedTextField	textQtd;
-	
-	/**
-	 * @brief
-	 */
-	private JFormattedTextField	textDesiredPrice;
 	
 	
 	/**
@@ -184,17 +164,15 @@ public class PassagesDetailsPanel extends JFrame
 		
 		setFrameSettings();
 		
-		configRadioButtons();
-		
 		configStateAndCities();
 		
 		configDates();
 		
 		configPrice();
 		
-		configVariableParam();
+		configParam();
 		
-		configVariableButton();
+		configButton();
 	}
 	
 	/**
@@ -217,48 +195,15 @@ public class PassagesDetailsPanel extends JFrame
 		setContentPane(contentPane);
 		
 		contentPane.setLayout(null);
-	}
-	
-	/**
-	 * @brief	Initial settings for the radio buttons and radio buttons group
-	 */
-	public void configRadioButtons()
-	{
-		group 				= new ButtonGroup();
-		
-		radioButtonBuy 		= new JRadioButton("Comprar");
-		radioButtonInterest	= new JRadioButton("Registrar Interesse");
-		
-		// Settings for the One Way Radio Button
-		radioButtonBuy.setSelected(true);
-		radioButtonBuy.setBounds(70, 5,
-								 100, 40);
-		
-		radioButtonBuy.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				resetVariableParamAndButton();
-			}
-		});
-		
-		// Settings for the Round Trip Radio Button
-		radioButtonInterest.setBounds(190, 5,
-									  140, 40);
-		
-		radioButtonInterest.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				resetVariableParamAndButton();
-			}
-		});
-		
-        group.add(radioButtonBuy);
-        group.add(radioButtonInterest);
-        
-        contentPane.add(radioButtonBuy);
-        contentPane.add(radioButtonInterest);
+
+		JLabel labelBuy	= new JLabel("Comprar");
+
+		// Source label configurations
+		labelBuy.setPreferredSize(new Dimension(75, 15));
+		labelBuy.setBounds(100, 5,
+						   100, 40);
+
+		contentPane.add(labelBuy);
 	}
 	
 	/**
@@ -375,72 +320,39 @@ public class PassagesDetailsPanel extends JFrame
 	/**
 	 * @brief
 	 */
-	public void configVariableParam() throws ParseException
+	public void configParam() throws ParseException
 	{
 		labelQtd 			= new JLabel("Quantidade:");
-		labelDesiredPrice	= new JLabel("Preço Máximo (R$):");
 		
-		MaskFormatter	maskPrice	= new MaskFormatter("R$ ###.##");
 		MaskFormatter	maskQtd		= new MaskFormatter("###");
-		
-		maskPrice.setValidCharacters("0123456789");
 		
 		maskQtd.setValidCharacters("0123456789");
 		
 		textQtd				= new JFormattedTextField(maskQtd);
-		
-		textDesiredPrice	= new JFormattedTextField(maskPrice);
 		
 		// Label for One Way trip configurations
 		labelQtd.setPreferredSize(new Dimension(75, 15));
 		labelQtd.setBounds(80, 190,
 						   160, 20);
 		
-		// Label for One Way trip configurations
-		labelDesiredPrice.setPreferredSize(new Dimension(75, 15));
-		labelDesiredPrice.setBounds(80, 190,
-						   			160, 20);
-		
 		// textQtd settings
 		textQtd.setPreferredSize(new Dimension(75, 25));
 		textQtd.setBounds(200, 190,
 						  80, 20);
 		
-		// textDesiredPrice settings
-		textDesiredPrice.setPreferredSize(new Dimension(75, 25));
-		textDesiredPrice.setBounds(200, 190,
-						           80, 20);
-		
-		if(radioButtonBuy.isSelected())
-		{
-			labelQtd.setVisible(true);
-			textQtd.setVisible(true);
-			
-			labelDesiredPrice.setVisible(false);
-			textDesiredPrice.setVisible(false);
-		}
-		else
-		{
-			labelQtd.setVisible(false);
-			textQtd.setVisible(false);
-			
-			labelDesiredPrice.setVisible(true);
-			textDesiredPrice.setVisible(true);
-		}
+		labelQtd.setVisible(true);
+		textQtd.setVisible(true);
 		
 		contentPane.add(labelQtd);
-		contentPane.add(labelDesiredPrice);
 		contentPane.add(textQtd);
-		contentPane.add(textDesiredPrice);
 	}
 	
 	/**
 	 * @brief
 	 */
-	public void configVariableButton()
+	public void configButton()
 	{
 		buttonBuy 		= new JButton("Comprar Passagem");
-		buttonInterest	= new JButton("Registrar Interesse");
 		
 		// Settings for the Buy Button
 		buttonBuy.setBorder(new BevelBorder(BevelBorder.RAISED, 
@@ -470,51 +382,10 @@ public class PassagesDetailsPanel extends JFrame
 				}
 			}
 		});
-		
-		// Settings for the Interest Button
-		buttonInterest.setBorder(new BevelBorder(BevelBorder.RAISED, 
-											     null, 
-											     null, 
-											     null, 
-											     null));
-		
-		buttonInterest.setBackground(new Color(238, 238, 238));
-		buttonInterest.setBounds(10, 235,
-							     380, 30);
-		
-		buttonInterest.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				if(checkForEmptyFields())
-				{
-					JOptionPane.showMessageDialog(new JFrame(),
-												  "Existem Campos não preenchidos!", 
-												  "Erro",
-												  JOptionPane.ERROR_MESSAGE);
-				}
-				else
-				{
-					processRegisterInterest();
-				}
-			}
-		});
-		
-		if(radioButtonBuy.isSelected())
-		{
-			buttonBuy.setVisible(true);
-			
-			buttonInterest.setVisible(false);
-		}
-		else
-		{
-			buttonBuy.setVisible(true);
-			
-			buttonInterest.setVisible(false);
-		}
+
+		buttonBuy.setVisible(true);
 		
 		contentPane.add(buttonBuy);
-		contentPane.add(buttonInterest);
 	}
 	
 	/**
@@ -526,50 +397,13 @@ public class PassagesDetailsPanel extends JFrame
 	public boolean checkForEmptyFields()
 	{
 		boolean returnValue = false;
-		
-		if(radioButtonBuy.isSelected())
+
+		if(textQtd.getText().toString().equals("   "))
 		{
-			if(textQtd.getText().toString().equals("   "))
-			{
-				returnValue = true;
-			}
-		}
-		else if(radioButtonInterest.isSelected())
-		{
-			if(textDesiredPrice.getText().equals("R$    .  "))
-			{
-				returnValue = true;
-			}
+			returnValue = true;
 		}
 		
 		return returnValue;
-	}
-	
-	/**
-	 * @brief
-	 */
-	public void resetVariableParamAndButton()
-	{
-		if(radioButtonBuy.isSelected())
-		{
-			labelQtd.setVisible(true);
-			textQtd.setVisible(true);
-			buttonBuy.setVisible(true);
-			
-			labelDesiredPrice.setVisible(false);
-			textDesiredPrice.setVisible(false);
-			buttonInterest.setVisible(false);
-		}
-		else
-		{
-			labelQtd.setVisible(false);
-			textQtd.setVisible(false);
-			buttonBuy.setVisible(false);
-			
-			labelDesiredPrice.setVisible(true);
-			textDesiredPrice.setVisible(true);
-			buttonInterest.setVisible(true);
-		}
 	}
 	
 	/**
@@ -604,13 +438,5 @@ public class PassagesDetailsPanel extends JFrame
 		{
 			e.printStackTrace();
 		}
-	}
-	
-	/**
-	 * @brief
-	 */
-	public void processRegisterInterest()
-	{
-		
 	}
 }

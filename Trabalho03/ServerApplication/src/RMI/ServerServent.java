@@ -201,6 +201,36 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 	public synchronized boolean reserveHotel(Accommodation _hotel) throws RemoteException 
 	{
 		boolean returnValue = false;
+	    
+		try 
+		{
+			Statement _stm = DBConnection.configureDatabase(dbConnection);
+			
+			int roomsLeft = ctrlHotel.getQuantityLeft(_stm,
+													  _hotel.getCityName(),
+													  _hotel.getAccommodationName(),
+													  _hotel.getPrice());
+
+			if(roomsLeft >= _hotel.getQuantity())
+			{
+				ctrlHotel.updateQuantity(_stm,
+										 _hotel.getCityName(),
+										 _hotel.getAccommodationName(),
+										 _hotel.getPrice(),
+										 roomsLeft - _hotel.getQuantity());
+				
+				returnValue = true;
+			}
+			else
+			{
+				returnValue = false;
+			}
+			
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
 		
 		return returnValue;
 	}

@@ -219,4 +219,58 @@ public class CtrlHotel
 		
 		return list;
 	}
+
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_city	:
+	 * @param 	_hotel	:
+	 * @param	_price	:
+	 * 
+	 * @return
+	 */
+	public int getQuantityLeft(Statement	_stm,
+							   String 		_city,
+							   String 		_hotel,
+							   float		_price) throws SQLException
+	{
+		int left = 0;
+		
+		ResultSet rs = daoHotel.getQuantityLeft(_stm,
+												_city,
+												_hotel,
+												_price);
+		
+		if(rs.next())
+		{
+			left = rs.getInt(1);
+		}
+		
+		return left;
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param 	_stm	:
+	 * @param 	_city	:
+	 * @param 	_hotel	:
+	 * @param	_price	:
+	 * @param	_newQtd	:
+	 * 
+	 * @return
+	 */
+	public void updateQuantity(Statement	_stm,
+							   String 		_city,
+							   String 		_hotel,
+							   float  		_price,
+							   int			_newQtd) throws SQLException
+	{
+		daoHotel.updateQuantity(_stm,
+								_city,
+								_hotel,
+								_price,
+								_newQtd);
+	}
 }
