@@ -17,6 +17,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -24,6 +25,8 @@ import Classes.Accommodation;
 import Classes.AccommodationManager;
 import Classes.FlightTicket;
 import Classes.FlightTicketManager;
+import Classes.FlightTicketInterest;
+import Classes.AccommodationInterest;
 import Database.DBConnection;
 import Database.Controller.CtrlHotel;
 import Database.Controller.CtrlPassages;
@@ -48,6 +51,16 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 	 * @brief
 	 */
 	private CtrlHotel ctrlHotel;
+
+	/**
+	 * @brief
+	 */
+	private ArrayList<FlightTicketInterest> listTicketInterest;
+
+	/**
+	 * @brief
+	 */
+	private ArrayList<AccommodationInterest> listAccommodationInterest;
 	
 	/**
 	 * @brief	Member holding every info about the connection to the DB
@@ -62,6 +75,9 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 		ctrlPassages	= new CtrlPassages();
 		
 		ctrlHotel		= new CtrlHotel();
+
+		listTicketInterest = new ArrayList<FlightTicketInterest>();
+        listAccommodationInterest = new ArrayList<AccommodationInterest>();
     }
 
 	@Override
@@ -71,9 +87,9 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 		JOptionPane.showMessageDialog(null, 
 									  "Cliente " + clientName	+ " conectado!");
 		
-		String message = new StringBuilder().append("Conexão realizada com sucesso").toString();
+		//String message = "Conexão realizada com sucesso";
 		
-        refCli.eventPopUp(message);
+        //refCli.eventPopUp(message);
 	}
 
 	@Override
@@ -189,12 +205,33 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 	}
 
 	@Override
-	public synchronized void registerPassageInterest(FlightTicket		_ticket, 
-													 Date 				_until, 
-													 float 				_desiredPrice, 
-													 ClientInterface	_refCli) 		throws RemoteException 
+	public synchronized void registerPassageInterest(FlightTicket    _ticketTo,
+			                                         FlightTicket    _ticketFrom,
+			                                         int             _quantity,
+			                                         float           _desiredPrice,
+			                                         ClientInterface _refCli) 		throws RemoteException 
 	{
+		boolean isReturnTicket = true;
 
+		if(_ticketFrom == null)
+		{
+			isReturnTicket = false;
+		}
+
+        FlightTicketInterest ticketInterest = new FlightTicketInterest(_ticketTo,
+        															   _ticketFrom, 
+        															   isReturnTicket,
+        															   _quantity, 
+        															   _desiredPrice,
+        															   _refCli);
+
+        this.listTicketInterest.add(ticketInterest);
+        
+        String message = "Registro de interesse realizado com sucesso";
+		
+        _refCli.eventPopUp(message);
+
+        return;
 	}
 
 	@Override

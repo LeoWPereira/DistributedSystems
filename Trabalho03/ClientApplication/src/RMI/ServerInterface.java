@@ -87,12 +87,14 @@ public interface ServerInterface  extends Remote
      * @brief	
      * 
      * @param 	_ticket			:
-     * @param 	_until			:
+     * @param   _ticketFrom     :
+     * @param 	_quantity		:
      * @param 	_desiredPrice	:
      * @param 	_refCli			:
      */
-    public void registerPassageInterest(FlightTicket	_ticket,
-    									Date 			_until,
+    public void registerPassageInterest(FlightTicket	_ticketTo,
+                                        FlightTicket    _ticketFrom,
+    									int 			_quantity,
     									float 			_desiredPrice,
     									ClientInterface _refCli)		throws RemoteException;
     

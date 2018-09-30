@@ -361,9 +361,23 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				//EventsPanel eventsPanel = new EventsPanel(internalPanel);
+				EventsPanel eventsPanel;
 				
-				//eventsPanel.setVisible(true);
+				try 
+				{
+					eventsPanel = new EventsPanel(internalPanel, 
+											      dbStatement);
+					
+					eventsPanel.setVisible(true);
+				} 
+				catch (ParseException e) 
+				{
+					e.printStackTrace();
+				} 
+				catch (SQLException e) 
+				{
+					e.printStackTrace();
+				}
 			}
 		});
 		

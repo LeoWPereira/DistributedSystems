@@ -14,6 +14,9 @@ package RMI;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  * @brief   
  */
@@ -45,6 +48,6 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
     @Override
     public void eventPopUp(String value) throws RemoteException 
     {
-    	//JOptionPane.showMessageDialog(null,value, "oferta!",WARNING_MESSAGE,null );
+    	JOptionPane.showMessageDialog(null, "teste");
     }
 }

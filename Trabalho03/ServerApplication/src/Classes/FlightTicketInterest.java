@@ -30,6 +30,11 @@ public class FlightTicketInterest
      * @brief
      */
     private FlightTicket  flightTicketFrom;
+
+    /**
+     * @brief
+     */
+    private boolean returnTicket;
     
     /**
      * @brief
@@ -57,32 +62,27 @@ public class FlightTicketInterest
      */   
     public FlightTicketInterest(FlightTicket    _flightTicketTo, 
                                 FlightTicket    _flightTicketFrom, 
+                                boolean         _returnTicket,
                                 int             _quantity, 
                                 float           _maxPrice, 
                                 ClientInterface _refCli) 
     {
         this.flightTicketTo 	= _flightTicketTo;
         this.flightTicketFrom 	= _flightTicketFrom;
+        this.returnTicket       = _returnTicket;
         this.quantity 			= _quantity;
         this.maxPrice 			= _maxPrice;
         this.refCli 			= _refCli;
     }
 
     /**
-     * @brief Return if the flight ticket interest has a return ticket
+     * @brief Return if a ticket is a return ticket (not one-way)
      * 
      * @param isReturn : boolean - True if it is a return ticket
      */
-    public boolean interestIsReturnTicket() 
+    public boolean isReturnTicket() 
     {
-        boolean isReturn = false;
-
-        if(flightTicketFrom != null)
-        {
-            isReturn = true;
-        }
-
-        return isReturn;
+        return returnTicket;
     }
     
     /**
