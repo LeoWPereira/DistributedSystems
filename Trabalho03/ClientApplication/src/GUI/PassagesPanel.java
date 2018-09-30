@@ -860,8 +860,6 @@ public class PassagesPanel extends JPanel
         	FlightTicket flightTicketTo = null;
         	FlightTicket flightTicketFrom = null;
 
-            System.out.println("Price: " + maxPrice.getText());
-
             float maxPriceFloat = Float.valueOf(maxPrice.getText());
             Calendar calendar = Calendar.getInstance();
 		
@@ -906,7 +904,8 @@ public class PassagesPanel extends JPanel
                 										flightTicketFrom,
                 										Integer.valueOf(quantity.getText()),
                 										maxPriceFloat,
-                										clientRMI);
+                										clientRMI,
+                										clientRMI.getClientName());
             } 
             catch (RemoteException e) 
 			{

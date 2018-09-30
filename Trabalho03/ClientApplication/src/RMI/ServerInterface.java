@@ -96,7 +96,8 @@ public interface ServerInterface  extends Remote
                                         FlightTicket    _ticketFrom,
     									int 			_quantity,
     									float 			_desiredPrice,
-    									ClientInterface _refCli)		throws RemoteException;
+    									ClientInterface _refCli,
+                                        String          _clientName)		throws RemoteException;
     
     /**
      * @brief	

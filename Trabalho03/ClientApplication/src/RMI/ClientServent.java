@@ -28,6 +28,11 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
 	private static final long serialVersionUID = 5470551739044150069L;
 
 	/**
+	 * @brief Name of the user
+	 */
+	private static String name;
+
+	/**
 	 * @brief	
 	 * 
 	 * @param	_serverReference	:
@@ -36,6 +41,8 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
 	public ClientServent(ServerInterface 	_serverReference,
 						 String				_name) throws RemoteException
     {
+    	this.name = _name;
+
         _serverReference.call(_name,
         					  this);
     }
@@ -48,6 +55,21 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
     @Override
     public void eventPopUp(String value) throws RemoteException 
     {
-    	JOptionPane.showMessageDialog(null, "teste");
+    	javax.swing.SwingUtilities.invokeLater(new Runnable() 
+    	{
+	        public void run() 
+	        {
+	           JOptionPane.showMessageDialog(null, value);
+	        }
+    	});
+    }
+
+    /**
+	 * @brief Default getter
+	 * 
+	 */
+    public String getClientName()
+    {
+    	return this.name;
     }
 }

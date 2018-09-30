@@ -52,6 +52,11 @@ public class FlightTicketInterest
     private ClientInterface refCli;
 
     /**
+     * @brief
+     */
+    private String clientName;
+
+    /**
      * @brief   Default constructor
      * 
      * @param   _flightTicketTo     : FlightTicket
@@ -59,13 +64,15 @@ public class FlightTicketInterest
      * @param   _quantity           : int
      * @param   _maxPrice           : float
      * @param   _refCli             : ClientInterface
+     * @param   _clientName         : String
      */   
     public FlightTicketInterest(FlightTicket    _flightTicketTo, 
                                 FlightTicket    _flightTicketFrom, 
                                 boolean         _returnTicket,
                                 int             _quantity, 
                                 float           _maxPrice, 
-                                ClientInterface _refCli) 
+                                ClientInterface _refCli,
+                                String          _clientName) 
     {
         this.flightTicketTo 	= _flightTicketTo;
         this.flightTicketFrom 	= _flightTicketFrom;
@@ -73,6 +80,7 @@ public class FlightTicketInterest
         this.quantity 			= _quantity;
         this.maxPrice 			= _maxPrice;
         this.refCli 			= _refCli;
+        this.clientName         = _clientName;
     }
 
     /**
@@ -153,6 +161,16 @@ public class FlightTicketInterest
     public ClientInterface getClientInterface() 
     {
         return refCli;
+    }
+
+    /**
+     * @brief Default getter
+     * 
+     * @return  clientName
+     */
+    public String getClientName() 
+    {
+        return clientName;
     }
 }
     

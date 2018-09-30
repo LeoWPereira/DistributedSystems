@@ -209,7 +209,8 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 			                                         FlightTicket    _ticketFrom,
 			                                         int             _quantity,
 			                                         float           _desiredPrice,
-			                                         ClientInterface _refCli) 		throws RemoteException 
+			                                         ClientInterface _refCli,
+			                                         String          _clientName) 		throws RemoteException 
 	{
 		boolean isReturnTicket = true;
 
@@ -223,7 +224,8 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
         															   isReturnTicket,
         															   _quantity, 
         															   _desiredPrice,
-        															   _refCli);
+        															   _refCli,
+        															   _clientName);
 
         this.listTicketInterest.add(ticketInterest);
         
@@ -240,8 +242,14 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 												   Date 			_checkin, 
 												   Date 			_checkout,
 												   float 			_desiredPrice, 
-												   ClientInterface 	_refCli) 		throws RemoteException 
+												   ClientInterface 	_refCli,
+												   String          	_clientName) 		throws RemoteException 
 	{
 
+	}
+
+	public ArrayList<FlightTicketInterest> getTicketInterestList()
+	{
+		return listTicketInterest;
 	}
 }

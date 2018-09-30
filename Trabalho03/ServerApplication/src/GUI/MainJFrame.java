@@ -95,7 +95,9 @@ public class MainJFrame extends JFrame
 			public void run()
 			{
 				try
-				{					
+				{		
+					initRMI();
+
 					MainJFrame frame			= new MainJFrame();
 					
 					CtrlPassages ctrlPassage	= new CtrlPassages();
@@ -103,8 +105,6 @@ public class MainJFrame extends JFrame
 					CtrlHotel ctrlHotel 		= new CtrlHotel();
 					
 					dbStatement			= DBConnection.configureDatabase(dbConnection);
-					
-					initRMI();
 					
 					//ctrlPassage.createTable(dbStatement);
 					
@@ -366,7 +366,8 @@ public class MainJFrame extends JFrame
 				try 
 				{
 					eventsPanel = new EventsPanel(internalPanel, 
-											      dbStatement);
+											      dbStatement,
+											      serverRMI);
 					
 					eventsPanel.setVisible(true);
 				} 

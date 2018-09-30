@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -44,8 +45,10 @@ import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 import Classes.Accommodation;
 import Classes.AccommodationManager;
+import Classes.FlightTicketInterest;
 import Database.Controller.CtrlHotel;
 import Extra.CitiesBrazil;
+import RMI.ServerServent;
 
 /**
  * @brief	This Class will Handle every method from GUI "Events"
@@ -101,6 +104,11 @@ public class EventsPanel extends JPanel
 	 * @brief	Member containing info about the table scroll
 	 */
 	private JScrollPane 	  scrollPaneTabela;
+
+	/**
+	 * @brief	The server RMI object to access the interests lists
+	 */
+	private ServerServent 		serverRMI;
 	
 	/**
 	 * @brief	Default Constructor
@@ -110,18 +118,23 @@ public class EventsPanel extends JPanel
 	 * @param	_panel	:	JPanel containing this panel future info
 	 * @param	_stm	:	
 	 */
-	public EventsPanel(JPanel 		_panel,
-					   Statement	_stm) throws ParseException, SQLException
+	public EventsPanel(JPanel 			_panel,
+					   Statement		_stm,
+					   ServerServent 	_serverRMI) throws ParseException, SQLException
 	{		
 		internalPanel 	= _panel;
 		
 		dbStatement 	= _stm;
+
+		serverRMI 		= _serverRMI;
 		
 		internalPanel.removeAll();
 		
 		configRadioButtons();
 		
 		configTable();
+
+		showTicketsInterest();
 		
 		internalPanel.updateUI();
 	}
@@ -255,5 +268,94 @@ public class EventsPanel extends JPanel
 		table.setAutoCreateRowSorter(true);
 		
 		internalPanel.add(scrollPaneTabela);
+	}
+
+	/**
+	 * @brief	The method will show the flight ticket interest list in the table
+	 */
+	public void showTicketsInterest()
+	{    
+		ArrayList<FlightTicketInterest> listTicketInterest = serverRMI.getTicketInterestList();
+		
+		int tableSize = listTicketInterest.size();
+		
+		if(0 == tableSize)
+		{
+			JOptionPane.showMessageDialog(new JFrame(),
+					  					  "Nenhum registro de interesse de passagem foi encontrado!", 
+					  					  "Aviso",
+					  					  JOptionPane.WARNING_MESSAGE);
+		}
+		else
+		{
+			insertTableFieldTicket(listTicketInterest);
+		}
+	}
+
+	/**
+	 * @brief
+	 * 
+	 * @param	_ticketInterest	:
+	 * @param	_row				:
+	 */
+	public void insertTableFieldTicket(FlightTicketInterest	_ticketInterest,
+								 	   int 					_row)
+	{
+		if(_row >= table.getRowCount())
+		{
+			((DefaultTableModel)table.getModel()).addRow(new Object[]{null, null});
+		}
+		
+		table.getModel().setValueAt(_ticketInterest.getClientName(),
+									_row, 
+									0);
+
+		if(_ticketInterest.isReturnTicket())
+		{
+			table.getModel().setValueAt("Ida/volta",
+										_row, 
+										1);
+		}
+		else
+		{
+			table.getModel().setValueAt("Ida",
+										_row, 
+										1);
+		}
+
+		table.getModel().setValueAt(_ticketInterest.getSource(),
+									_row, 
+									2);
+		
+		table.getModel().setValueAt(_ticketInterest.getDest(),
+									_row, 
+									3);
+
+		table.getModel().setValueAt(_ticketInterest.getQuantity(),
+									_row, 
+									4);
+		
+		table.getModel().setValueAt(_ticketInterest.getMaxPrice(),
+									_row, 
+									5);
+	}
+
+	/**
+	 * @brief
+	 * 
+	 * @param	_list	:
+	 */
+	public void insertTableFieldTicket(ArrayList<FlightTicketInterest>	_list)
+	{
+		int row = 0;
+		FlightTicketInterest ticketInterest;
+
+		for (int i = 0; i < _list.size(); i++) 
+		{
+            ticketInterest = _list.get(i);
+
+            insertTableFieldTicket(ticketInterest,
+							 	   row++);
+        }
 	}
 }
