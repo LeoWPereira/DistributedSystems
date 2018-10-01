@@ -16,6 +16,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -37,6 +38,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import Extra.CitiesBrazil;
+import Classes.Package;
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
@@ -369,7 +371,7 @@ public class PackagesPanel extends JPanel
 						{null, null, null, null},
 						{null, null, null, null}
 					},
-			new String[] {"Origem", "Destino", "Hotel", "Preço (R$)"})
+			new String[] {"Origem", "Destino", "Hotel", "Preço Ida", "Preço Volta", "Preço Hospedagem" "Preço Total"})
 			{
 				boolean[] columnEditables = new boolean[]
 				{
@@ -399,24 +401,65 @@ public class PackagesPanel extends JPanel
 	}
 	
 	/**
-	 * @brief	The method will handle the insertion of data into the table
+	 * @brief
 	 * 
-	 * @param 	row		: Desired Row to add the data
-	 * @param 	column	: Desired Column to add the data
-	 * @param 	value	: Desired String value
+	 * @param	_package	:
+	 * @param	_row		:
 	 */
-	public void insertTableField(int 	row,
-								 int 	column,
-								 String	value)
+	public void insertTableField(Package		_package,
+								 int 			_row)
 	{
-		if(row >= table.getRowCount())
+		if(_row >= table.getRowCount())
 		{
 			((DefaultTableModel)table.getModel()).addRow(new Object[]{null, null});
 		}
 		
-		table.getModel().setValueAt(value, 
-									row, 
-									column);
+		table.getModel().setValueAt(_package.getFlightTicketGoing().getSource(),
+									_row, 
+									0);
+		
+		table.getModel().setValueAt(_package.getFlightTicketGoing().getDest(),
+									_row, 
+									1);
+
+		table.getModel().setValueAt(_package.getAccommodation().getAccommodationName(),
+									_row, 
+									2);
+
+		table.getModel().setValueAt(_package.getFlightTicketGoing().getPrice(),
+									_row, 
+									3);
+
+		table.getModel().setValueAt(_package.getFlightTicketReturn().getPrice(),
+									_row, 
+									4);
+
+		table.getModel().setValueAt(_package.getAccommodation().getPrice(),
+									_row, 
+									5);
+		
+		table.getModel().setValueAt(_package.getTotalPrice(),
+									_row, 
+									6);
+	}
+	
+	/**
+	 * @brief
+	 * 
+	 * @param	_list	:
+	 */
+	public void insertTableField(ArrayList<Package>	_list)
+	{
+		int row = 0;
+		Package package;
+		
+		for (int i = 0; _list.size(); i++)
+		{
+			package = _list.get(i);
+
+			insertTableField(package,
+							 row++);
+		}
 	}
 	
 	/**
@@ -450,7 +493,7 @@ public class PackagesPanel extends JPanel
 				}
 				else
 				{
-					//TODO Do action 'search'
+					processSearchPackages();
 				}
 			}
 		});
@@ -631,5 +674,78 @@ public class PackagesPanel extends JPanel
 				
 		internalPanel.add(labelHotel);
 		internalPanel.add(textFieldHotel);
+	}
+
+	/**
+	 * @brief
+	 */
+	public void cleanTable()
+	{
+		internalPanel.remove(scrollPaneTabela);
+		
+		configTable();
+	}
+	
+	/**
+	 * @brief
+	 */
+	public void processSearchButton() throws RemoteException
+	{
+		ArrayList<Package> list;
+		FlightTicket flightTicketGoing;
+		FlightTicket flightTicketReturn = null;
+		Accommodation accommodation;
+
+		Calendar calendar = Calendar.getInstance();
+		
+		int day 	= datePickerOneWayTrip.getModel().getDay();
+	    int month 	= datePickerOneWayTrip.getModel().getMonth();
+	    int year 	= datePickerOneWayTrip.getModel().getYear();
+	    
+	    calendar.set(year,
+	    			 month,
+	    			 day);
+	 
+		// First of all, we should clean the table
+		cleanTable();
+
+		// Fill the flight tickets and accommodation to be search
+		flightTicketGoing.setSource(comboBoxCitySrc.getSelectedItem().toString());
+		flightTicketGoing.setDest(comboBoxCityDest.getSelectedItem().toString());
+		flightTicketGoing.setDate(new java.sql.Date(calendar.getTime().getTime());
+
+		if(radioButtonRoundWay.isSelected())
+		{
+			day 	= datePickerRoundTrip.getModel().getDay();
+		    month 	= datePickerRoundTrip.getModel().getMonth();
+		    year 	= datePickerRoundTrip.getModel().getYear();
+		    
+		    calendar.set(year,
+		    			 month,
+		    			 day);
+
+			flightTicketReturn.setDest(comboBoxCitySrc.getSelectedItem().toString());
+			flightTicketReturn.setSource(comboBoxCityDest.getSelectedItem().toString());
+			flightTicketReturn.setDate(new java.sql.Date(calendar.getTime().getTime());
+		}
+
+		accommodation.setCityName(comboBoxCityDest.getSelectedItem().toString());
+		accommodation.setAccommodationName(textFieldHotel.getText().toString());
+				
+		list = serverReference.searchPackages(flightTicketGoing,
+											  flightTicketReturn,
+											  accommodation);
+		
+		if(0 == list.getAccommodationListSize())
+		{
+			JOptionPane.showMessageDialog(new JFrame(),
+					  					  "Nenhum pacote encontrado!", 
+					  					  "Aviso",
+					  					  JOptionPane.WARNING_MESSAGE);
+		}
+		else
+		{
+			insertTableField(list);
+		}
 	}
 }

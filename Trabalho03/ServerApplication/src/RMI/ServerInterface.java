@@ -14,6 +14,7 @@ package RMI;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.sql.Date;
+import java.util.ArrayList;
 
 import Classes.Accommodation;
 import Classes.AccommodationManager;
@@ -65,6 +66,19 @@ public interface ServerInterface extends Remote
      * @return	
      */
     public AccommodationManager searchHotelByName(String _hotel) throws RemoteException;
+
+    /**
+     * @brief
+     * 
+     * @param   flightTicketGoing    :
+     * @param   flightTicketReturn   :
+     * @param   accommodation        :
+     * 
+     * @return
+     */
+    public ArrayList<Package> searchPackages(FlightTicket    flightTicketGoing, 
+                                             FlightTicket    flightTicketReturn, 
+                                             Accommodation   accommodation)      throws RemoteException;
     
     /**
      * @brief	

@@ -98,6 +98,26 @@ public class Accommodation implements Serializable
     {
         return accommodationName;
     }
+
+    /**
+     * @brief	Default setter
+     * 
+     * @return 	accommodationName
+     */ 
+    public void setAccommodationName(String _accommodationName)
+    {
+        this.accommodationName = accommodationName;
+    }
+
+    /**
+     * @brief	Default setter
+     * 
+     * @return 	cityName
+     */   
+    public void setCityName(String _cityName)
+    {
+        this.cityName = _cityName;
+    }
     
     /**
      * @brief	Default getter

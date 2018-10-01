@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.swing.JOptionPane;
 
@@ -234,6 +235,142 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 		
 		return returnValue;
 	}
+
+	/**
+     * @brief
+     * 
+     * @param   flightTicketGoing    :
+     * @param   flightTicketReturn   :
+     * @param   accommodation        :
+     * 
+     * @return
+     */
+    public ArrayList<Package> searchPackages(FlightTicket    flightTicketGoing, 
+                                             FlightTicket    flightTicketReturn, 
+                                             Accommodation   accommodation)      throws RemoteException
+    {
+    	ArrayList<Package> list = new ArrayList<Package>();
+    	FlightTicketManager listTicketGoing = new FlightTicketManager();
+    	FlightTicketManager listTicketReturn = new FlightTicketManager();
+    	AccommodationManager listAccommodation = new AccommodationManager();
+
+    	FlightTicket flightTicketGoingFound;
+    	FlightTicket flightTicketReturnFound;
+    	Accommodation accommodationFound;
+    	Package pack;
+
+    	Calendar calendar = Calendar.getInstance();
+		
+		int day 	= datePickerOneWayTrip.getModel().getDay();
+	    int month 	= datePickerOneWayTrip.getModel().getMonth();
+	    int year 	= datePickerOneWayTrip.getModel().getYear();
+	    
+	    calendar.set(year,
+	    			 month,
+	    			 day);
+	    
+		
+		// First, search for the going ticket
+		try 
+		{
+			Statement _stm = DBConnection.configureDatabase(dbConnection);
+			
+			list = ctrlPassages.searchPassages(_stm,
+											   flightTicketGoing.getSource(), 
+											   flightTicketGoing.getDest(), 
+											   flightTicketGoing.getDate());
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+
+		// Verifies if there is a return ticket
+		if(flightTicketReturn != null)
+		{
+			// search for the return ticket
+			try 
+			{
+				Statement _stm = DBConnection.configureDatabase(dbConnection);
+				
+				list = ctrlPassages.searchPassages(_stm,
+												   flightTicketReturn.getSource(), 
+												   flightTicketReturn.getDest(), 
+												   flightTicketReturn.getDate());
+			} 
+			catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+		}
+
+		// Verifies if the search will be by hotel name or city
+		if(accommodation.getAccommodationName.isEmpty())
+		{
+			// search for accommodation by city name
+			try 
+			{
+				Statement _stm = DBConnection.configureDatabase(dbConnection);
+				
+				list = ctrlHotel.searchHotelByCity(_stm,
+												   accommodation.getCityName());
+			} 
+			catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			// search for accommodation by its name
+			try 
+			{
+				Statement _stm = DBConnection.configureDatabase(dbConnection);
+				
+				list = ctrlHotel.searchHotelByHotel(_stm,
+													accommodation.getAccommodationName());
+			} 
+			catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		// Fills a package for each combination of going ticket, return ticket and accommodation
+		for(int i = 0; i < listTicketGoing.getFlightTicketListSize() ; i++)
+		{
+			flightTicketGoingFound = listTicketGoing.getFlightTicket(i);
+			for(int j = 0; i < listAccommodation.getAccommodationListSize() ; j++)
+			{
+				accommodationFound = listAccommodation.getAccommodation(j);
+
+				// If there is a return ticket
+				if(flightTicketReturn != null)
+				{
+					for(int k = 0; k < listTicketReturn.getFlightTicketListSize() ; k++)
+					{
+						flightTicketReturnFound = listTicketReturn.getFlightTicket(i);
+
+						package = new Package(flightTicketGoingFound,
+											  flightTicketReturnFound,
+											  accommodationFound);
+
+						list.add(package);
+					}
+				}
+				else
+				{
+					package = new Package(flightTicketGoingFound,
+										  flightTicketReturnFound,
+										  accommodationFound);
+
+					list.add(package);
+				}
+			}
+		}
+		
+		return list;
+    }
 
 	@Override
 	public synchronized void registerPassageInterest(FlightTicket    _ticketTo,
