@@ -640,13 +640,23 @@ public class HotelsPanel extends JPanel
         	Accommodation accommodation = null;
 
             float maxPriceFloat = Float.valueOf(maxPrice.getText());
-            
-            accommodation = new Accommodation(comboBoxCity.getSelectedItem().toString(), 
-											  textFieldHotel.getText().toString(), 
-											  0, 
-											  0, 
-											  0);
 
+            if(radioCity.isSelected())
+			{
+				accommodation = new Accommodation(comboBoxCity.getSelectedItem().toString(), 
+												  "", 
+												  0, 
+												  0, 
+												  0);
+			}
+			else
+			{
+				accommodation = new Accommodation("", 
+												  textFieldHotel.getText().toString(), 
+												  0, 
+												  0, 
+												  0);
+			}
 			try 
             {
                 serverReference.registerHotelInterest(accommodation, 

@@ -16,6 +16,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.text.ParseException;
 
@@ -44,6 +45,7 @@ import Classes.Accommodation;
 import Classes.AccommodationManager;
 import Database.Controller.CtrlHotel;
 import Extra.CitiesBrazil;
+import RMI.ServerServent;
 
 /**
  * @brief	This Class will Handle every method from GUI "Hotels"
@@ -134,6 +136,11 @@ public class HotelsPanel extends JPanel
 	 * @brief
 	 */
 	private AccommodationManager	hotelManager = new AccommodationManager();
+
+	/**
+	 * @brief	The server RMI object to access the interests lists
+	 */
+	private ServerServent 		serverRMI;
 	
 	/**
 	 * @brief	Default Constructor
@@ -143,14 +150,17 @@ public class HotelsPanel extends JPanel
 	 * @param	_panel	:	JPanel containing this panel future info
 	 * @param	_stm	:	
 	 */
-	public HotelsPanel(JPanel 		_panel,
-					   Statement	_stm) throws ParseException, SQLException
+	public HotelsPanel(JPanel 			_panel,
+					   Statement		_stm,
+					   ServerServent 	_server) throws ParseException, SQLException
 	{
 		ctrlHotel		= new CtrlHotel();
 		
 		internalPanel 	= _panel;
 		
 		dbStatement 	= _stm;
+
+		serverRMI 		= _server;
 		
 		internalPanel.removeAll();
 		
@@ -578,6 +588,8 @@ table 							= new JTable();
 										  "Hospedagem inserida com sucesso!", 
 										  "Sucesso",
 										  JOptionPane.INFORMATION_MESSAGE);
+
+			serverRMI.notifyAccommodationInterests(entry);
 		}
 		catch (NumberFormatException e) 
 		{
@@ -592,6 +604,9 @@ table 							= new JTable();
 		}
 		catch (SQLException e) 
 		{
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

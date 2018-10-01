@@ -331,6 +331,8 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 	                    " no dia " + flightTicket.getDate() + " no preço " + flightTicket.getPrice();
 
 	                    flightTicketInterest.getClientInterface().eventPopUp(message);
+
+	                    listTicketInterest.remove(i);
 	                }
                 }
             }
@@ -378,6 +380,8 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 	                    				 " no dia " + flightTicketReturnFound.getDate() + " no preço " + flightTicketReturnFound.getPrice();
 
 	                    flightTicketInterest.getClientInterface().eventPopUp(message);
+
+	                    listTicketInterest.remove(i);
                 	}
             	}
             	// Verify if the registered ticket is an interest of a return ticket
@@ -389,8 +393,8 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
             		
             		
 	            	if ((flightTicketInterest.getDest().compareToIgnoreCase(flightTicket.getSource()) == 0) 	&&
-	            	(flightTicketInterest.getSource().compareToIgnoreCase(flightTicket.getDest()) == 0) 		&&
-	            	fmt.format(flightTicketInterest.getReturnDate()).equals(fmt.format(flightTicket.getDate()))) 
+	            		(flightTicketInterest.getSource().compareToIgnoreCase(flightTicket.getDest()) == 0) 		&&
+	            		fmt.format(flightTicketInterest.getReturnDate()).equals(fmt.format(flightTicket.getDate()))) 
 		            {
 		                // Verifies if the price is lower than what the client wants and if there are available the amount of passages of the interest
 		                if (flightTicket.getPrice() 	<= flightTicketInterest.getMaxPrice() &&
@@ -430,14 +434,58 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 		                	{
 		                		String message = "Passagem de interesse de ida: De " + flightTicketGoingFound.getSource() + " para " + flightTicketGoingFound.getDest() + 
 			                    				 " no dia " + flightTicketGoingFound.getDate() + " no preço " + flightTicketGoingFound.getPrice() +
-		                						 "/nPassagem de interesse de volta: De " + flightTicket.getSource() + " para " + flightTicket.getDest() + 
-			                    				 " no dia " + flightTicket.getDate() + " no preço " + flightTicket.getPrice();
+			                    				 "Passagem de interesse de volta: De " + flightTicket.getSource() + " para " + flightTicket.getDest() + 
+	                    				 		 " no dia " + flightTicket.getDate() + " no preço " + flightTicket.getPrice();
 
-			                    flightTicketInterest.getClientInterface().eventPopUp(message);
-		                	}
+	                    	    listTicketInterest.remove(i);
+			                }
 		                }
 		            }
 
+            	}
+            }
+        }
+        return;
+    }
+
+    public void notifyAccommodationInterests(Accommodation accommodation) throws RemoteException
+	{
+        AccommodationInterest accommodationInterest;
+
+        for (int i = 0; i < this.listAccommodationInterest.size(); i++) 
+        {
+            accommodationInterest = listAccommodationInterest.get(i);
+
+            // if the interest has no city name, it was to a specific hotel
+            if(accommodationInterest.getAccommodationCityName().isEmpty())
+            {
+            	if ((accommodationInterest.getAccommodationName().compareToIgnoreCase(accommodation.getAccommodationName()) == 0) 	&&
+            		accommodation.getPrice() 				<= accommodationInterest.getMaxPrice() 									&&
+                	accommodation.getQuantity() 			>= accommodationInterest.getQuantity() 									&&
+                	accommodation.getMaxGuestsPerRoom() 	>= accommodationInterest.getNumberOfGuests()) 
+            	{
+                	// Interest found
+                    String message = "Hospedagem de interesse de nome " + accommodation.getAccommodationName() + " disponível no preço " + accommodation.getPrice();
+
+                    accommodationInterest.getClientInterface().eventPopUp(message);
+
+                    listAccommodationInterest.remove(i);
+            	}
+            }
+            // search by its city name instead
+            else
+            {
+            	if ((accommodationInterest.getAccommodationCityName().compareToIgnoreCase(accommodation.getCityName()) == 0) 	&&
+            		accommodation.getPrice() 				<= accommodationInterest.getMaxPrice() 									&&
+                	accommodation.getQuantity() 			>= accommodationInterest.getQuantity() 									&&
+                	accommodation.getMaxGuestsPerRoom() 	>= accommodationInterest.getNumberOfGuests()) 
+            	{
+                	// Interest found
+                    String message = "Hospedagem de interesse na cidade " + accommodation.getCityName() + " disponível no preço " + accommodation.getPrice();
+
+                    accommodationInterest.getClientInterface().eventPopUp(message);
+
+                    listAccommodationInterest.remove(i);
             	}
             }
         }

@@ -317,7 +317,8 @@ public class MainJFrame extends JFrame
 				try 
 				{
 					hotelsPanel = new HotelsPanel(internalPanel, 
-											      dbStatement);
+											      dbStatement,
+											      serverRMI);
 					
 					hotelsPanel.setVisible(true);
 				} 
