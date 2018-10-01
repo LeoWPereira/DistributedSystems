@@ -33,8 +33,12 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import Classes.Accommodation;
 import Classes.AccommodationManager;
@@ -472,6 +476,28 @@ public class HotelsPanel extends JPanel
 		}
 		
 		table.setAutoCreateRowSorter(true);
+
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() 
+		{
+			boolean alreadyClicked = false;
+			
+		    public void valueChanged(ListSelectionEvent event) 
+		    {
+		    	if(!alreadyClicked)
+		    	{
+			        if(table.getSelectedRow() > -1)
+			        {
+			        	processTableSelection();
+			        }
+			        
+			        alreadyClicked = true;
+		    	}
+		    	else
+		    	{
+		    		alreadyClicked = false;
+		    	}
+		    }
+		});
 		
 		internalPanel.add(scrollPaneTabela);
 	}
@@ -636,4 +662,25 @@ public class HotelsPanel extends JPanel
             }
         }
     }
+
+    /**
+	 * @brief
+	 */
+	public void processTableSelection()
+	{
+		try 
+    	{
+			HotelDetailsPanel detailedPanel = new HotelDetailsPanel(serverReference,
+																	table.getValueAt(table.getSelectedRow(), 1).toString(),
+																	comboBoxState.getSelectedItem().toString(),
+																	table.getValueAt(table.getSelectedRow(), 0).toString(),
+				  													Float.valueOf(table.getValueAt(table.getSelectedRow(), 2).toString()));
+			detailedPanel.setVisible(true);
+    	}
+		catch (java.text.ParseException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

@@ -19,7 +19,6 @@ import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.util.Date;
 
-import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -28,7 +27,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
@@ -88,11 +86,6 @@ public class PassagesDetailsPanel extends JFrame
 	 * @brief
 	 */
 	private float price;
-	
-	/**
-	 * @brief	Member to store the group of Radio Buttons
-	 */
-	private static ButtonGroup 	group;
 	
 	/**
 	 * @brief	Member containing the info about the "Buy" label
@@ -200,7 +193,7 @@ public class PassagesDetailsPanel extends JFrame
 
 		// Source label configurations
 		labelBuy.setPreferredSize(new Dimension(75, 15));
-		labelBuy.setBounds(100, 5,
+		labelBuy.setBounds(160, 5,
 						   100, 40);
 
 		contentPane.add(labelBuy);
