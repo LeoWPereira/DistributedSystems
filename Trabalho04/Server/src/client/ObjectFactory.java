@@ -24,14 +24,30 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _In2Cm_QNAME = new QName("http://uc.javajeff.ca/", "in2cm");
-    private final static QName _Cm2InResponse_QNAME = new QName("http://uc.javajeff.ca/", "cm2inResponse");
-    private final static QName _Cm2In_QNAME = new QName("http://uc.javajeff.ca/", "cm2in");
-    private final static QName _F2CResponse_QNAME = new QName("http://uc.javajeff.ca/", "f2cResponse");
-    private final static QName _C2F_QNAME = new QName("http://uc.javajeff.ca/", "c2f");
-    private final static QName _C2FResponse_QNAME = new QName("http://uc.javajeff.ca/", "c2fResponse");
-    private final static QName _F2C_QNAME = new QName("http://uc.javajeff.ca/", "f2c");
-    private final static QName _In2CmResponse_QNAME = new QName("http://uc.javajeff.ca/", "in2cmResponse");
+    private final static QName _RegisterHotelInterestResponse_QNAME = new QName("http://tas.sd.br/", "registerHotelInterestResponse");
+    private final static QName _HelloResponse_QNAME = new QName("http://tas.sd.br/", "helloResponse");
+    private final static QName _NotifyTicketsInterestsResponse_QNAME = new QName("http://tas.sd.br/", "notifyTicketsInterestsResponse");
+    private final static QName _RegisterPassageInterestResponse_QNAME = new QName("http://tas.sd.br/", "registerPassageInterestResponse");
+    private final static QName _GetTicketInterestListResponse_QNAME = new QName("http://tas.sd.br/", "getTicketInterestListResponse");
+    private final static QName _RegisterHotelInterest_QNAME = new QName("http://tas.sd.br/", "registerHotelInterest");
+    private final static QName _SearchPassagesResponse_QNAME = new QName("http://tas.sd.br/", "searchPassagesResponse");
+    private final static QName _GetUserCount_QNAME = new QName("http://tas.sd.br/", "getUserCount");
+    private final static QName _BuyPassage_QNAME = new QName("http://tas.sd.br/", "buyPassage");
+    private final static QName _GetTicketInterestList_QNAME = new QName("http://tas.sd.br/", "getTicketInterestList");
+    private final static QName _BuyPassageResponse_QNAME = new QName("http://tas.sd.br/", "buyPassageResponse");
+    private final static QName _GetAccommodationInterestList_QNAME = new QName("http://tas.sd.br/", "getAccommodationInterestList");
+    private final static QName _Hello_QNAME = new QName("http://tas.sd.br/", "hello");
+    private final static QName _GetUserCountResponse_QNAME = new QName("http://tas.sd.br/", "getUserCountResponse");
+    private final static QName _SearchHotelByNameResponse_QNAME = new QName("http://tas.sd.br/", "searchHotelByNameResponse");
+    private final static QName _ReserveHotel_QNAME = new QName("http://tas.sd.br/", "reserveHotel");
+    private final static QName _SearchHotelByName_QNAME = new QName("http://tas.sd.br/", "searchHotelByName");
+    private final static QName _SearchPassages_QNAME = new QName("http://tas.sd.br/", "searchPassages");
+    private final static QName _SearchHotelByCityResponse_QNAME = new QName("http://tas.sd.br/", "searchHotelByCityResponse");
+    private final static QName _NotifyTicketsInterests_QNAME = new QName("http://tas.sd.br/", "notifyTicketsInterests");
+    private final static QName _RegisterPassageInterest_QNAME = new QName("http://tas.sd.br/", "registerPassageInterest");
+    private final static QName _GetAccommodationInterestListResponse_QNAME = new QName("http://tas.sd.br/", "getAccommodationInterestListResponse");
+    private final static QName _ReserveHotelResponse_QNAME = new QName("http://tas.sd.br/", "reserveHotelResponse");
+    private final static QName _SearchHotelByCity_QNAME = new QName("http://tas.sd.br/", "searchHotelByCity");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: client
@@ -41,139 +57,467 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link In2CmResponse }
+     * Create an instance of {@link NotifyTicketsInterests }
      * 
      */
-    public In2CmResponse createIn2CmResponse() {
-        return new In2CmResponse();
+    public NotifyTicketsInterests createNotifyTicketsInterests() {
+        return new NotifyTicketsInterests();
     }
 
     /**
-     * Create an instance of {@link C2F }
+     * Create an instance of {@link RegisterPassageInterest }
      * 
      */
-    public C2F createC2F() {
-        return new C2F();
+    public RegisterPassageInterest createRegisterPassageInterest() {
+        return new RegisterPassageInterest();
     }
 
     /**
-     * Create an instance of {@link C2FResponse }
+     * Create an instance of {@link GetAccommodationInterestListResponse }
      * 
      */
-    public C2FResponse createC2FResponse() {
-        return new C2FResponse();
+    public GetAccommodationInterestListResponse createGetAccommodationInterestListResponse() {
+        return new GetAccommodationInterestListResponse();
     }
 
     /**
-     * Create an instance of {@link F2C }
+     * Create an instance of {@link ReserveHotelResponse }
      * 
      */
-    public F2C createF2C() {
-        return new F2C();
+    public ReserveHotelResponse createReserveHotelResponse() {
+        return new ReserveHotelResponse();
     }
 
     /**
-     * Create an instance of {@link F2CResponse }
+     * Create an instance of {@link GetUserCountResponse }
      * 
      */
-    public F2CResponse createF2CResponse() {
-        return new F2CResponse();
+    public GetUserCountResponse createGetUserCountResponse() {
+        return new GetUserCountResponse();
     }
 
     /**
-     * Create an instance of {@link Cm2In }
+     * Create an instance of {@link SearchHotelByNameResponse }
      * 
      */
-    public Cm2In createCm2In() {
-        return new Cm2In();
+    public SearchHotelByNameResponse createSearchHotelByNameResponse() {
+        return new SearchHotelByNameResponse();
     }
 
     /**
-     * Create an instance of {@link Cm2InResponse }
+     * Create an instance of {@link ReserveHotel }
      * 
      */
-    public Cm2InResponse createCm2InResponse() {
-        return new Cm2InResponse();
+    public ReserveHotel createReserveHotel() {
+        return new ReserveHotel();
     }
 
     /**
-     * Create an instance of {@link In2Cm }
+     * Create an instance of {@link SearchHotelByName }
      * 
      */
-    public In2Cm createIn2Cm() {
-        return new In2Cm();
+    public SearchHotelByName createSearchHotelByName() {
+        return new SearchHotelByName();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link In2Cm }{@code >}}
+     * Create an instance of {@link SearchPassages }
      * 
      */
-    @XmlElementDecl(namespace = "http://uc.javajeff.ca/", name = "in2cm")
-    public JAXBElement<In2Cm> createIn2Cm(In2Cm value) {
-        return new JAXBElement<In2Cm>(_In2Cm_QNAME, In2Cm.class, null, value);
+    public SearchPassages createSearchPassages() {
+        return new SearchPassages();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Cm2InResponse }{@code >}}
+     * Create an instance of {@link SearchHotelByCityResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://uc.javajeff.ca/", name = "cm2inResponse")
-    public JAXBElement<Cm2InResponse> createCm2InResponse(Cm2InResponse value) {
-        return new JAXBElement<Cm2InResponse>(_Cm2InResponse_QNAME, Cm2InResponse.class, null, value);
+    public SearchHotelByCityResponse createSearchHotelByCityResponse() {
+        return new SearchHotelByCityResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Cm2In }{@code >}}
+     * Create an instance of {@link SearchHotelByCity }
      * 
      */
-    @XmlElementDecl(namespace = "http://uc.javajeff.ca/", name = "cm2in")
-    public JAXBElement<Cm2In> createCm2In(Cm2In value) {
-        return new JAXBElement<Cm2In>(_Cm2In_QNAME, Cm2In.class, null, value);
+    public SearchHotelByCity createSearchHotelByCity() {
+        return new SearchHotelByCity();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link F2CResponse }{@code >}}
+     * Create an instance of {@link GetTicketInterestListResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://uc.javajeff.ca/", name = "f2cResponse")
-    public JAXBElement<F2CResponse> createF2CResponse(F2CResponse value) {
-        return new JAXBElement<F2CResponse>(_F2CResponse_QNAME, F2CResponse.class, null, value);
+    public GetTicketInterestListResponse createGetTicketInterestListResponse() {
+        return new GetTicketInterestListResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link C2F }{@code >}}
+     * Create an instance of {@link RegisterHotelInterest }
      * 
      */
-    @XmlElementDecl(namespace = "http://uc.javajeff.ca/", name = "c2f")
-    public JAXBElement<C2F> createC2F(C2F value) {
-        return new JAXBElement<C2F>(_C2F_QNAME, C2F.class, null, value);
+    public RegisterHotelInterest createRegisterHotelInterest() {
+        return new RegisterHotelInterest();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link C2FResponse }{@code >}}
+     * Create an instance of {@link SearchPassagesResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://uc.javajeff.ca/", name = "c2fResponse")
-    public JAXBElement<C2FResponse> createC2FResponse(C2FResponse value) {
-        return new JAXBElement<C2FResponse>(_C2FResponse_QNAME, C2FResponse.class, null, value);
+    public SearchPassagesResponse createSearchPassagesResponse() {
+        return new SearchPassagesResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link F2C }{@code >}}
+     * Create an instance of {@link GetUserCount }
      * 
      */
-    @XmlElementDecl(namespace = "http://uc.javajeff.ca/", name = "f2c")
-    public JAXBElement<F2C> createF2C(F2C value) {
-        return new JAXBElement<F2C>(_F2C_QNAME, F2C.class, null, value);
+    public GetUserCount createGetUserCount() {
+        return new GetUserCount();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link In2CmResponse }{@code >}}
+     * Create an instance of {@link RegisterHotelInterestResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://uc.javajeff.ca/", name = "in2cmResponse")
-    public JAXBElement<In2CmResponse> createIn2CmResponse(In2CmResponse value) {
-        return new JAXBElement<In2CmResponse>(_In2CmResponse_QNAME, In2CmResponse.class, null, value);
+    public RegisterHotelInterestResponse createRegisterHotelInterestResponse() {
+        return new RegisterHotelInterestResponse();
+    }
+
+    /**
+     * Create an instance of {@link HelloResponse }
+     * 
+     */
+    public HelloResponse createHelloResponse() {
+        return new HelloResponse();
+    }
+
+    /**
+     * Create an instance of {@link NotifyTicketsInterestsResponse }
+     * 
+     */
+    public NotifyTicketsInterestsResponse createNotifyTicketsInterestsResponse() {
+        return new NotifyTicketsInterestsResponse();
+    }
+
+    /**
+     * Create an instance of {@link RegisterPassageInterestResponse }
+     * 
+     */
+    public RegisterPassageInterestResponse createRegisterPassageInterestResponse() {
+        return new RegisterPassageInterestResponse();
+    }
+
+    /**
+     * Create an instance of {@link Hello }
+     * 
+     */
+    public Hello createHello() {
+        return new Hello();
+    }
+
+    /**
+     * Create an instance of {@link BuyPassage }
+     * 
+     */
+    public BuyPassage createBuyPassage() {
+        return new BuyPassage();
+    }
+
+    /**
+     * Create an instance of {@link GetTicketInterestList }
+     * 
+     */
+    public GetTicketInterestList createGetTicketInterestList() {
+        return new GetTicketInterestList();
+    }
+
+    /**
+     * Create an instance of {@link BuyPassageResponse }
+     * 
+     */
+    public BuyPassageResponse createBuyPassageResponse() {
+        return new BuyPassageResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAccommodationInterestList }
+     * 
+     */
+    public GetAccommodationInterestList createGetAccommodationInterestList() {
+        return new GetAccommodationInterestList();
+    }
+
+    /**
+     * Create an instance of {@link Date }
+     * 
+     */
+    public Date createDate() {
+        return new Date();
+    }
+
+    /**
+     * Create an instance of {@link FlightTicketManager }
+     * 
+     */
+    public FlightTicketManager createFlightTicketManager() {
+        return new FlightTicketManager();
+    }
+
+    /**
+     * Create an instance of {@link FlightTicket }
+     * 
+     */
+    public FlightTicket createFlightTicket() {
+        return new FlightTicket();
+    }
+
+    /**
+     * Create an instance of {@link AccommodationManager }
+     * 
+     */
+    public AccommodationManager createAccommodationManager() {
+        return new AccommodationManager();
+    }
+
+    /**
+     * Create an instance of {@link AccommodationInterest }
+     * 
+     */
+    public AccommodationInterest createAccommodationInterest() {
+        return new AccommodationInterest();
+    }
+
+    /**
+     * Create an instance of {@link Accommodation }
+     * 
+     */
+    public Accommodation createAccommodation() {
+        return new Accommodation();
+    }
+
+    /**
+     * Create an instance of {@link FlightTicketInterest }
+     * 
+     */
+    public FlightTicketInterest createFlightTicketInterest() {
+        return new FlightTicketInterest();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterHotelInterestResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "registerHotelInterestResponse")
+    public JAXBElement<RegisterHotelInterestResponse> createRegisterHotelInterestResponse(RegisterHotelInterestResponse value) {
+        return new JAXBElement<RegisterHotelInterestResponse>(_RegisterHotelInterestResponse_QNAME, RegisterHotelInterestResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link HelloResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "helloResponse")
+    public JAXBElement<HelloResponse> createHelloResponse(HelloResponse value) {
+        return new JAXBElement<HelloResponse>(_HelloResponse_QNAME, HelloResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyTicketsInterestsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "notifyTicketsInterestsResponse")
+    public JAXBElement<NotifyTicketsInterestsResponse> createNotifyTicketsInterestsResponse(NotifyTicketsInterestsResponse value) {
+        return new JAXBElement<NotifyTicketsInterestsResponse>(_NotifyTicketsInterestsResponse_QNAME, NotifyTicketsInterestsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterPassageInterestResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "registerPassageInterestResponse")
+    public JAXBElement<RegisterPassageInterestResponse> createRegisterPassageInterestResponse(RegisterPassageInterestResponse value) {
+        return new JAXBElement<RegisterPassageInterestResponse>(_RegisterPassageInterestResponse_QNAME, RegisterPassageInterestResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetTicketInterestListResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "getTicketInterestListResponse")
+    public JAXBElement<GetTicketInterestListResponse> createGetTicketInterestListResponse(GetTicketInterestListResponse value) {
+        return new JAXBElement<GetTicketInterestListResponse>(_GetTicketInterestListResponse_QNAME, GetTicketInterestListResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterHotelInterest }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "registerHotelInterest")
+    public JAXBElement<RegisterHotelInterest> createRegisterHotelInterest(RegisterHotelInterest value) {
+        return new JAXBElement<RegisterHotelInterest>(_RegisterHotelInterest_QNAME, RegisterHotelInterest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchPassagesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "searchPassagesResponse")
+    public JAXBElement<SearchPassagesResponse> createSearchPassagesResponse(SearchPassagesResponse value) {
+        return new JAXBElement<SearchPassagesResponse>(_SearchPassagesResponse_QNAME, SearchPassagesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetUserCount }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "getUserCount")
+    public JAXBElement<GetUserCount> createGetUserCount(GetUserCount value) {
+        return new JAXBElement<GetUserCount>(_GetUserCount_QNAME, GetUserCount.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuyPassage }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "buyPassage")
+    public JAXBElement<BuyPassage> createBuyPassage(BuyPassage value) {
+        return new JAXBElement<BuyPassage>(_BuyPassage_QNAME, BuyPassage.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetTicketInterestList }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "getTicketInterestList")
+    public JAXBElement<GetTicketInterestList> createGetTicketInterestList(GetTicketInterestList value) {
+        return new JAXBElement<GetTicketInterestList>(_GetTicketInterestList_QNAME, GetTicketInterestList.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuyPassageResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "buyPassageResponse")
+    public JAXBElement<BuyPassageResponse> createBuyPassageResponse(BuyPassageResponse value) {
+        return new JAXBElement<BuyPassageResponse>(_BuyPassageResponse_QNAME, BuyPassageResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccommodationInterestList }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "getAccommodationInterestList")
+    public JAXBElement<GetAccommodationInterestList> createGetAccommodationInterestList(GetAccommodationInterestList value) {
+        return new JAXBElement<GetAccommodationInterestList>(_GetAccommodationInterestList_QNAME, GetAccommodationInterestList.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Hello }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "hello")
+    public JAXBElement<Hello> createHello(Hello value) {
+        return new JAXBElement<Hello>(_Hello_QNAME, Hello.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetUserCountResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "getUserCountResponse")
+    public JAXBElement<GetUserCountResponse> createGetUserCountResponse(GetUserCountResponse value) {
+        return new JAXBElement<GetUserCountResponse>(_GetUserCountResponse_QNAME, GetUserCountResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchHotelByNameResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "searchHotelByNameResponse")
+    public JAXBElement<SearchHotelByNameResponse> createSearchHotelByNameResponse(SearchHotelByNameResponse value) {
+        return new JAXBElement<SearchHotelByNameResponse>(_SearchHotelByNameResponse_QNAME, SearchHotelByNameResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReserveHotel }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "reserveHotel")
+    public JAXBElement<ReserveHotel> createReserveHotel(ReserveHotel value) {
+        return new JAXBElement<ReserveHotel>(_ReserveHotel_QNAME, ReserveHotel.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchHotelByName }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "searchHotelByName")
+    public JAXBElement<SearchHotelByName> createSearchHotelByName(SearchHotelByName value) {
+        return new JAXBElement<SearchHotelByName>(_SearchHotelByName_QNAME, SearchHotelByName.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchPassages }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "searchPassages")
+    public JAXBElement<SearchPassages> createSearchPassages(SearchPassages value) {
+        return new JAXBElement<SearchPassages>(_SearchPassages_QNAME, SearchPassages.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchHotelByCityResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "searchHotelByCityResponse")
+    public JAXBElement<SearchHotelByCityResponse> createSearchHotelByCityResponse(SearchHotelByCityResponse value) {
+        return new JAXBElement<SearchHotelByCityResponse>(_SearchHotelByCityResponse_QNAME, SearchHotelByCityResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyTicketsInterests }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "notifyTicketsInterests")
+    public JAXBElement<NotifyTicketsInterests> createNotifyTicketsInterests(NotifyTicketsInterests value) {
+        return new JAXBElement<NotifyTicketsInterests>(_NotifyTicketsInterests_QNAME, NotifyTicketsInterests.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterPassageInterest }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "registerPassageInterest")
+    public JAXBElement<RegisterPassageInterest> createRegisterPassageInterest(RegisterPassageInterest value) {
+        return new JAXBElement<RegisterPassageInterest>(_RegisterPassageInterest_QNAME, RegisterPassageInterest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccommodationInterestListResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "getAccommodationInterestListResponse")
+    public JAXBElement<GetAccommodationInterestListResponse> createGetAccommodationInterestListResponse(GetAccommodationInterestListResponse value) {
+        return new JAXBElement<GetAccommodationInterestListResponse>(_GetAccommodationInterestListResponse_QNAME, GetAccommodationInterestListResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReserveHotelResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "reserveHotelResponse")
+    public JAXBElement<ReserveHotelResponse> createReserveHotelResponse(ReserveHotelResponse value) {
+        return new JAXBElement<ReserveHotelResponse>(_ReserveHotelResponse_QNAME, ReserveHotelResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchHotelByCity }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "searchHotelByCity")
+    public JAXBElement<SearchHotelByCity> createSearchHotelByCity(SearchHotelByCity value) {
+        return new JAXBElement<SearchHotelByCity>(_SearchHotelByCity_QNAME, SearchHotelByCity.class, null, value);
     }
 
 }

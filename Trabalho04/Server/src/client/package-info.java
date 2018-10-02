@@ -1,2 +1,2 @@
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://uc.javajeff.ca/")
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://tas.sd.br/")
 package client;
