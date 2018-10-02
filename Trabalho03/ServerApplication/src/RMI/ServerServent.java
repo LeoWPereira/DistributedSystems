@@ -29,6 +29,7 @@ import Classes.FlightTicket;
 import Classes.FlightTicketManager;
 import Classes.FlightTicketInterest;
 import Classes.AccommodationInterest;
+import Classes.Packages;
 import Database.DBConnection;
 import Database.Controller.CtrlHotel;
 import Database.Controller.CtrlPassages;
@@ -245,102 +246,55 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
      * 
      * @return
      */
-    public ArrayList<Package> searchPackages(FlightTicket    flightTicketGoing, 
-                                             FlightTicket    flightTicketReturn, 
-                                             Accommodation   accommodation)      throws RemoteException
+    public ArrayList<Packages> searchPackages(FlightTicket   flightTicketGoing, 
+                                              FlightTicket    flightTicketReturn, 
+                                              Accommodation   accommodation)      throws RemoteException
     {
-    	ArrayList<Package> list = new ArrayList<Package>();
+    	ArrayList<Packages> list = new ArrayList<Packages>();
     	FlightTicketManager listTicketGoing = new FlightTicketManager();
     	FlightTicketManager listTicketReturn = new FlightTicketManager();
     	AccommodationManager listAccommodation = new AccommodationManager();
 
     	FlightTicket flightTicketGoingFound;
     	FlightTicket flightTicketReturnFound;
-    	Accommodation accommodationFound;
-    	Package pack;
+    	Accommodation accommodationFound = null;
+    	Packages pack;
 
-    	Calendar calendar = Calendar.getInstance();
-		
-		int day 	= datePickerOneWayTrip.getModel().getDay();
-	    int month 	= datePickerOneWayTrip.getModel().getMonth();
-	    int year 	= datePickerOneWayTrip.getModel().getYear();
-	    
-	    calendar.set(year,
-	    			 month,
-	    			 day);
-	    
+    	Statement _stm;	    
 		
 		// First, search for the going ticket
 		try 
 		{
-			Statement _stm = DBConnection.configureDatabase(dbConnection);
+			_stm = DBConnection.configureDatabase(dbConnection);
 			
-			list = ctrlPassages.searchPassages(_stm,
+			listTicketGoing = ctrlPassages.searchPassages(_stm,
 											   flightTicketGoing.getSource(), 
 											   flightTicketGoing.getDest(), 
-											   flightTicketGoing.getDate());
+											   new java.sql.Date(flightTicketGoing.getDate().getTime()));
+			// Verifies if there is a return ticket
+			if(flightTicketReturn != null)
+			{
+				// search for the return ticket					
+				listTicketReturn = ctrlPassages.searchPassages(_stm,
+												   flightTicketReturn.getSource(), 
+												   flightTicketReturn.getDest(), 
+												   new java.sql.Date(flightTicketReturn.getDate().getTime()));
+			}
+			
+			// search for accommodation by city name
+			listAccommodation = ctrlHotel.searchHotelByCity(_stm,
+											   				accommodation.getCityName());
 		} 
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
-		}
-
-		// Verifies if there is a return ticket
-		if(flightTicketReturn != null)
-		{
-			// search for the return ticket
-			try 
-			{
-				Statement _stm = DBConnection.configureDatabase(dbConnection);
-				
-				list = ctrlPassages.searchPassages(_stm,
-												   flightTicketReturn.getSource(), 
-												   flightTicketReturn.getDest(), 
-												   flightTicketReturn.getDate());
-			} 
-			catch (SQLException e) 
-			{
-				e.printStackTrace();
-			}
-		}
-
-		// Verifies if the search will be by hotel name or city
-		if(accommodation.getAccommodationName.isEmpty())
-		{
-			// search for accommodation by city name
-			try 
-			{
-				Statement _stm = DBConnection.configureDatabase(dbConnection);
-				
-				list = ctrlHotel.searchHotelByCity(_stm,
-												   accommodation.getCityName());
-			} 
-			catch (SQLException e) 
-			{
-				e.printStackTrace();
-			}
-		}
-		else
-		{
-			// search for accommodation by its name
-			try 
-			{
-				Statement _stm = DBConnection.configureDatabase(dbConnection);
-				
-				list = ctrlHotel.searchHotelByHotel(_stm,
-													accommodation.getAccommodationName());
-			} 
-			catch (SQLException e) 
-			{
-				e.printStackTrace();
-			}
 		}
 		
 		// Fills a package for each combination of going ticket, return ticket and accommodation
 		for(int i = 0; i < listTicketGoing.getFlightTicketListSize() ; i++)
 		{
 			flightTicketGoingFound = listTicketGoing.getFlightTicket(i);
-			for(int j = 0; i < listAccommodation.getAccommodationListSize() ; j++)
+			for(int j = 0; j < listAccommodation.getAccommodationListSize() ; j++)
 			{
 				accommodationFound = listAccommodation.getAccommodation(j);
 
@@ -349,22 +303,24 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 				{
 					for(int k = 0; k < listTicketReturn.getFlightTicketListSize() ; k++)
 					{
-						flightTicketReturnFound = listTicketReturn.getFlightTicket(i);
+						flightTicketReturnFound = listTicketReturn.getFlightTicket(k);
 
-						package = new Package(flightTicketGoingFound,
-											  flightTicketReturnFound,
-											  accommodationFound);
+						pack = new Packages(flightTicketGoingFound,
+										   flightTicketReturnFound,
+										   accommodationFound);
 
-						list.add(package);
+						list.add(pack);
 					}
 				}
 				else
 				{
-					package = new Package(flightTicketGoingFound,
-										  flightTicketReturnFound,
-										  accommodationFound);
+					flightTicketReturnFound = null;
+					
+					pack = new Packages(flightTicketGoingFound,
+										flightTicketReturnFound,
+										accommodationFound);
 
-					list.add(package);
+					list.add(pack);
 				}
 			}
 		}

@@ -20,6 +20,7 @@ import Classes.Accommodation;
 import Classes.AccommodationManager;
 import Classes.FlightTicket;
 import Classes.FlightTicketManager;
+import Classes.Packages;
 
 /**
  * @brief   
@@ -93,7 +94,7 @@ public interface ServerInterface  extends Remote
      * 
      * @return
      */
-    public ArrayList<Package> searchPackages(FlightTicket    flightTicketGoing, 
+    public ArrayList<Packages> searchPackages(FlightTicket    flightTicketGoing, 
                                              FlightTicket    flightTicketReturn, 
                                              Accommodation   accommodation)      throws RemoteException;
     

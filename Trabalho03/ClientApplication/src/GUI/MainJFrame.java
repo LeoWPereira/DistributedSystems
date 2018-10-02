@@ -300,7 +300,9 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				PackagesPanel packagesPanel = new PackagesPanel(internalPanel);
+				PackagesPanel packagesPanel = new PackagesPanel(internalPanel,
+																serverReference,
+																clientRMI);
 				
 				packagesPanel.setVisible(true);
 			}

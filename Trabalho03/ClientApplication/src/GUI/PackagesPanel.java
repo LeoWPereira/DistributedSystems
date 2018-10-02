@@ -16,7 +16,9 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -38,7 +40,11 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import Extra.CitiesBrazil;
-import Classes.Package;
+import RMI.ClientServent;
+import RMI.ServerInterface;
+import Classes.Accommodation;
+import Classes.FlightTicket;
+import Classes.Packages;
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
@@ -62,6 +68,11 @@ public class PackagesPanel extends JPanel
 	 * @brief	Member to store the group of Radio Buttons
 	 */
 	private static ButtonGroup 	group;
+
+	/**
+	 * @brief
+	 */
+	private static ServerInterface serverReference;
 	
 	/**
 	 * @brief	Member containing the info about the "One-Way" Radio Button
@@ -130,44 +141,36 @@ public class PackagesPanel extends JPanel
 	 * @brief	Member containing a "Date Picker" for Round Trip trips
 	 */
 	private JDatePickerImpl   datePickerRoundTrip;
-	
+
 	/**
-	 * @brief	Member containing a "Specific Hotel" checkbox
+	 * @brief	Member containing the client servent object
 	 */
-	private JCheckBox		  checkBoxSpecificHotel;
-	
-	/**
-	 * @brief	Member containing a label to "Hotel" info
-	 */
-	private JLabel 			  labelHotel;
-	
-	/**
-	 * @brief	Member containing the hotel name text field
-	 */
-	private JTextField 		  textFieldHotel;
+	private ClientServent 	  clientRMI;
 	
 	/**
 	 * @brief	Default Constructor
 	 * 
-	 * This constructor will first remove everything from the JPanel
-	 * 
-	 * @param	panel	-	JPanel containing this panel future info
+	 * @param	JPanel			panel
+	 * @param 	ClientServent 	client
+	 * @param 	ServerInterface server
 	 */
-	public PackagesPanel(JPanel panel)
+	public PackagesPanel(JPanel 			panel,
+			 		     ServerInterface	server,
+			 		     ClientServent 		client)
 	{
 		internalPanel = panel;
+
+		serverReference = server;
+
+		clientRMI = client;
 		
 		internalPanel.removeAll();
 		
 		configRadioButtons();
 		
-		configCheckBox();
-		
 		configStateAndCities();
 		
 		configDates();
-		
-		configHotelSearch();
 		
 		configButton();
 		
@@ -220,31 +223,6 @@ public class PackagesPanel extends JPanel
         
         internalPanel.add(radioButtonOneWay);
         internalPanel.add(radioButtonRoundWay);
-	}
-	
-	/**
-	 * @brief	Initial settings for the CheckBox of the Panel
-	 */
-	public void configCheckBox()
-	{
-		checkBoxSpecificHotel	= new JCheckBox("Especificar Hotel");
-		
-		// Settings for CheckBox
-		checkBoxSpecificHotel.setPreferredSize(new Dimension(75, 15));
-		checkBoxSpecificHotel.setBounds(310, 35,
-									    180, 40);
-		
-		checkBoxSpecificHotel.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				labelHotel.setVisible(!labelHotel.isVisible());
-				
-				textFieldHotel.setVisible(!textFieldHotel.isVisible());
-			}
-		});
-				
-		internalPanel.add(checkBoxSpecificHotel);
 	}
 	
 	/**
@@ -371,7 +349,7 @@ public class PackagesPanel extends JPanel
 						{null, null, null, null},
 						{null, null, null, null}
 					},
-			new String[] {"Origem", "Destino", "Hotel", "Preço Ida", "Preço Volta", "Preço Hospedagem" "Preço Total"})
+			new String[] {"Origem", "Destino", "Hotel", "Preço Ida", "Preço Volta", "Preço Hospedagem", "Preço Total"})
 			{
 				boolean[] columnEditables = new boolean[]
 				{
@@ -406,7 +384,7 @@ public class PackagesPanel extends JPanel
 	 * @param	_package	:
 	 * @param	_row		:
 	 */
-	public void insertTableField(Package		_package,
+	public void insertTableField(Packages		_package,
 								 int 			_row)
 	{
 		if(_row >= table.getRowCount())
@@ -430,9 +408,12 @@ public class PackagesPanel extends JPanel
 									_row, 
 									3);
 
-		table.getModel().setValueAt(_package.getFlightTicketReturn().getPrice(),
-									_row, 
-									4);
+		if(_package.getFlightTicketReturn() != null)
+		{
+			table.getModel().setValueAt(_package.getFlightTicketReturn().getPrice(),
+										_row, 
+										4);
+		}
 
 		table.getModel().setValueAt(_package.getAccommodation().getPrice(),
 									_row, 
@@ -448,16 +429,16 @@ public class PackagesPanel extends JPanel
 	 * 
 	 * @param	_list	:
 	 */
-	public void insertTableField(ArrayList<Package>	_list)
+	public void insertTableField(ArrayList<Packages>	_list)
 	{
 		int row = 0;
-		Package package;
+		Packages pack;
 		
-		for (int i = 0; _list.size(); i++)
+		for (int i = 0; i < _list.size(); i++)
 		{
-			package = _list.get(i);
+			pack = _list.get(i);
 
-			insertTableField(package,
+			insertTableField(pack,
 							 row++);
 		}
 	}
@@ -493,7 +474,15 @@ public class PackagesPanel extends JPanel
 				}
 				else
 				{
-					processSearchPackages();
+					try 
+					{
+						processSearchButton();
+					} 
+					catch (RemoteException e) 
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		});
@@ -638,42 +627,7 @@ public class PackagesPanel extends JPanel
 			}
 		}
 		
-		// Lastly, if the specify Hotel is checked,
-		// we should check in the JTextField as well
-		if(checkBoxSpecificHotel.isSelected())
-		{
-			if(textFieldHotel.getText().equals(""))
-			{
-				returnValue = true;
-			}
-		}
-		
 		return returnValue;
-	}
-	
-	/**
-	 * @brief	Initial settings for the Hotel name Search feature
-	 */
-	public void configHotelSearch()
-	{
-		labelHotel		= new JLabel("Nome do Hotel: ");
-		
-		textFieldHotel	= new JTextField();
-		
-		// Hotel Name label configurations
-		labelHotel.setVisible(false);
-		labelHotel.setPreferredSize(new Dimension(75, 15));
-		labelHotel.setBounds(10, 310,
-						     120, 20);
-		
-		// Hotel Name Text Field configurations
-		textFieldHotel.setVisible(false);
-		textFieldHotel.setPreferredSize(new Dimension(75, 15));
-		textFieldHotel.setBounds(140, 310,
-						         200, 20);
-				
-		internalPanel.add(labelHotel);
-		internalPanel.add(textFieldHotel);
 	}
 
 	/**
@@ -691,7 +645,7 @@ public class PackagesPanel extends JPanel
 	 */
 	public void processSearchButton() throws RemoteException
 	{
-		ArrayList<Package> list;
+		ArrayList<Packages> list;
 		FlightTicket flightTicketGoing;
 		FlightTicket flightTicketReturn = null;
 		Accommodation accommodation;
@@ -710,9 +664,11 @@ public class PackagesPanel extends JPanel
 		cleanTable();
 
 		// Fill the flight tickets and accommodation to be search
-		flightTicketGoing.setSource(comboBoxCitySrc.getSelectedItem().toString());
-		flightTicketGoing.setDest(comboBoxCityDest.getSelectedItem().toString());
-		flightTicketGoing.setDate(new java.sql.Date(calendar.getTime().getTime());
+		flightTicketGoing = new FlightTicket(comboBoxCitySrc.getSelectedItem().toString(),
+											 comboBoxCityDest.getSelectedItem().toString(),
+											 calendar.getTime(),
+											 0,
+											 0);
 
 		if(radioButtonRoundWay.isSelected())
 		{
@@ -724,19 +680,24 @@ public class PackagesPanel extends JPanel
 		    			 month,
 		    			 day);
 
-			flightTicketReturn.setDest(comboBoxCitySrc.getSelectedItem().toString());
-			flightTicketReturn.setSource(comboBoxCityDest.getSelectedItem().toString());
-			flightTicketReturn.setDate(new java.sql.Date(calendar.getTime().getTime());
+			flightTicketReturn = new FlightTicket(comboBoxCityDest.getSelectedItem().toString(),
+												 comboBoxCitySrc.getSelectedItem().toString(),
+												 calendar.getTime(),
+												 0,
+												 0);
 		}
 
-		accommodation.setCityName(comboBoxCityDest.getSelectedItem().toString());
-		accommodation.setAccommodationName(textFieldHotel.getText().toString());
+		accommodation = new Accommodation(comboBoxCityDest.getSelectedItem().toString(),
+										  "",
+										  0,
+										  0,
+										  0);
 				
 		list = serverReference.searchPackages(flightTicketGoing,
 											  flightTicketReturn,
 											  accommodation);
 		
-		if(0 == list.getAccommodationListSize())
+		if(0 == list.size())
 		{
 			JOptionPane.showMessageDialog(new JFrame(),
 					  					  "Nenhum pacote encontrado!", 

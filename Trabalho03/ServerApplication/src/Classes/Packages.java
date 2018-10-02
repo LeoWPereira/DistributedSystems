@@ -17,7 +17,7 @@ import java.util.Date;
 /**
  * Class responsible for storing the package info
  */
-public class Package implements Serializable
+public class Packages implements Serializable
 {
     /**
 	 * @brief
@@ -45,7 +45,7 @@ public class Package implements Serializable
      * @param 	_flightTicketReturn		:
      * @param 	_accommodation			:
      */   
-    public Package(FlightTicket 	_flightTicketGoing, 
+    public Packages(FlightTicket 	_flightTicketGoing, 
 					FlightTicket 	_flightTicketReturn, 
 					Accommodation 	_accommodation)
     {
@@ -119,7 +119,7 @@ public class Package implements Serializable
 	 * 
 	 * @param totalPrice
 	 */
-	public float getTotalPrice(FlightTicket _flightTicketGoing) 
+	public float getTotalPrice() 
 	{
 		float ticketGoingPrice		= 0;
 		float ticketReturnPrice 	= 0;
