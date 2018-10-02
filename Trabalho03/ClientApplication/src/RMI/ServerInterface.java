@@ -97,6 +97,15 @@ public interface ServerInterface  extends Remote
     public ArrayList<Packages> searchPackages(FlightTicket    flightTicketGoing, 
                                              FlightTicket    flightTicketReturn, 
                                              Accommodation   accommodation)      throws RemoteException;
+
+    /**
+     * @brief   
+     * 
+     * @param   _package :
+     * 
+     * @return
+     */
+    public int buyPackage(Packages  _package) throws RemoteException;
     
     /**
      * @brief	

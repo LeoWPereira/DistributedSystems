@@ -700,10 +700,10 @@ public class PackagesPanel extends JPanel
 		try 
     	{
 			PackageDetailsPanel detailedPanel = new PackageDetailsPanel(serverReference,
+																		comboBoxStateSrc.getSelectedItem().toString(),
 																		table.getValueAt(table.getSelectedRow(), 0).toString(),
+																		comboBoxStateDest.getSelectedItem().toString(),
 																		table.getValueAt(table.getSelectedRow(), 1).toString(),
-																		table.getValueAt(table.getSelectedRow(), 1).toString(),
-																		table.getValueAt(table.getSelectedRow(), 0).toString(),
 																		calendarGoing.getTime(),
 																		calendarReturn.getTime(),
 																		table.getValueAt(table.getSelectedRow(), 2).toString(),

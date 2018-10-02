@@ -35,6 +35,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
 import Classes.Accommodation;
+import Classes.FlightTicket;
+import Classes.Packages;
 import Extra.CitiesBrazil;
 import RMI.ServerInterface;
 
@@ -204,6 +206,8 @@ public class PackageDetailsPanel extends JFrame
 		
 		configStateAndCities();
 		
+		configDates();
+		
 		configPrice();
 		
 		configParam();
@@ -242,7 +246,7 @@ public class PackageDetailsPanel extends JFrame
 
 		// hotel name label configurations
 		labelHotelName.setPreferredSize(new Dimension(75, 15));
-		labelHotelName.setBounds(10, 120,
+		labelHotelName.setBounds(10, 190,
 						   		 300, 20);
 
 		contentPane.add(labelReserve);
@@ -321,13 +325,13 @@ public class PackageDetailsPanel extends JFrame
 		
 		// Going Label date configurations
 		labelGoingDate.setPreferredSize(new Dimension(75, 15));
-		labelGoingDate.setBounds(10, 140,
+		labelGoingDate.setBounds(10, 130,
 						    120, 20);
 		
 		// Going Date textfield configurations
 		textGoingDate.setEnabled(false);
 		textGoingDate.setText(goingDate.toString());
-		textGoingDate.setBounds(80, 140, 
+		textGoingDate.setBounds(130, 130, 
 						   80, 20);
 		
 		contentPane.add(labelGoingDate);
@@ -341,13 +345,13 @@ public class PackageDetailsPanel extends JFrame
 			
 			// Going Label date configurations
 			labelReturnDate.setPreferredSize(new Dimension(75, 15));
-			labelReturnDate.setBounds(10, 140,
+			labelReturnDate.setBounds(10, 160,
 							    120, 20);
 			
 			// Going Date textfield configurations
 			textReturnDate.setEnabled(false);
 			textReturnDate.setText(returnDate.toString());
-			textReturnDate.setBounds(80, 140, 
+			textReturnDate.setBounds(130, 160, 
 							   80, 20);
 			
 			contentPane.add(labelReturnDate);
@@ -360,7 +364,7 @@ public class PackageDetailsPanel extends JFrame
 	 */
 	public void configPrice() throws ParseException
 	{
-		JLabel 				labelPrice	= new JLabel("Preço Total (R$):");
+		JLabel 				labelPrice	= new JLabel("Preco Total (R$):");
 		
 		MaskFormatter 		mask		= new MaskFormatter("R$ ###.##");
 
@@ -368,13 +372,13 @@ public class PackageDetailsPanel extends JFrame
 		
 		// Label for One Way trip configurations
 		labelPrice.setPreferredSize(new Dimension(75, 15));
-		labelPrice.setBounds(10, 90,
+		labelPrice.setBounds(10, 220,
 						     120, 20);
 
 		// Price textfield configurations
 		textPrice.setEnabled(false);
 		textPrice.setText(String.valueOf(goingTicketPrice + returnTicketPrice +	accommodationPrice));		
-		textPrice.setBounds(100, 90, 
+		textPrice.setBounds(130, 220, 
 						    80, 20);
 		
 		contentPane.add(labelPrice);
@@ -400,22 +404,22 @@ public class PackageDetailsPanel extends JFrame
 		
 		// Label for Quantity configurations
 		labelQtd.setPreferredSize(new Dimension(75, 15));
-		labelQtd.setBounds(80, 160,
+		labelQtd.setBounds(80, 260,
 						   160, 20);
 
 		// Label for Number of guests configurations
 		labelNumberOfGuests.setPreferredSize(new Dimension(75, 15));
-		labelNumberOfGuests.setBounds(80, 190,
+		labelNumberOfGuests.setBounds(80, 300,
 						   			  160, 20);
 		
 		// textQtd settings
 		textQtd.setPreferredSize(new Dimension(75, 25));
-		textQtd.setBounds(200, 160,
+		textQtd.setBounds(200, 260,
 						  80, 20);
 
 		// textNumberOfGuests settings
 		textNumberOfGuests.setPreferredSize(new Dimension(75, 25));
-		textNumberOfGuests.setBounds(200, 190,
+		textNumberOfGuests.setBounds(200, 300,
 						  			 80, 20);
 		
 		labelQtd.setVisible(true);
@@ -444,7 +448,7 @@ public class PackageDetailsPanel extends JFrame
 											null));
 		
 		buttonBuy.setBackground(new Color(238, 238, 238));
-		buttonBuy.setBounds(10, 235,
+		buttonBuy.setBounds(10, 330,
 							380, 30);
 		
 		buttonBuy.addActionListener(new ActionListener()
@@ -460,7 +464,7 @@ public class PackageDetailsPanel extends JFrame
 				}
 				else
 				{
-					//processBuy();
+					processBuy();
 				}
 			}
 		});
@@ -491,5 +495,84 @@ public class PackageDetailsPanel extends JFrame
 		}
 		
 		return returnValue;
+	}
+
+	/**
+	 * @brief
+	 */
+	public void processBuy()
+	{
+		Packages pack;
+		FlightTicket flightTicketGoing;
+		FlightTicket flightTicketReturn = null;
+		Accommodation accommodation;
+
+		// Fill the flight tickets and accommodation to be bought
+		flightTicketGoing = new FlightTicket(citySrc,
+											 cityDest,
+											 goingDate,
+											 Integer.valueOf(textQtd.getText().toString()),
+											 goingTicketPrice);
+
+		if(returnTicketPrice != 0)
+		{
+			flightTicketReturn = new FlightTicket(cityDest,
+												  citySrc,
+												  returnDate,
+												  Integer.valueOf(textQtd.getText().toString()),
+												  returnTicketPrice);
+		}
+
+		accommodation = new Accommodation(cityDest,
+										  hotelName,
+										  Integer.valueOf(textQtd.getText().toString()),
+										  Integer.valueOf(textNumberOfGuests.getText().toString()),
+										  accommodationPrice);
+
+		pack = new Packages(flightTicketGoing,
+							flightTicketReturn,
+							accommodation);
+		
+		try 
+		{
+			// variable to store the result
+			// 1 - success; 2 - Not enought passages; 3 - Not enough rooms; 4 - Too much people for each room
+			int result;
+
+			result = serverReference.buyPackage(pack);
+			
+			if(result == 1)
+			{
+				JOptionPane.showMessageDialog(new JFrame(),
+											  "A compra foi realizada com sucesso!", 
+											  "Sucesso",
+											  JOptionPane.WARNING_MESSAGE);
+			}
+			else if(result == 2)
+			{
+				JOptionPane.showMessageDialog(new JFrame(),
+											  "Não há passagens suficientes!", 
+											  "Erro",
+											  JOptionPane.ERROR_MESSAGE);
+			}
+			else if(result == 3)
+			{
+				JOptionPane.showMessageDialog(new JFrame(),
+											  "Não há quartos suficientes!", 
+											  "Erro",
+											  JOptionPane.ERROR_MESSAGE);
+			}
+			else if(result == 4)
+			{
+				JOptionPane.showMessageDialog(new JFrame(),
+											  "Os quartos não tem capacidade suficiente!", 
+											  "Erro",
+											  JOptionPane.ERROR_MESSAGE);
+			}
+		} 
+		catch (RemoteException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 }

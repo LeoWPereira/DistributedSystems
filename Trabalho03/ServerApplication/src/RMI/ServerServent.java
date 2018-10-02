@@ -328,6 +328,112 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 		return list;
     }
 
+    /**
+     * @brief   
+     * 
+     * @param   _package 	: Package
+     * 
+     * @return result int 	: 1 - Success
+     *						  2 - Not enough passages
+     *						  3 - Not enough rooms
+     *						  4 - Guests exceeded
+     */
+    public int buyPackage(Packages  _package) throws RemoteException
+    {
+    	int result = 0;
+    	int goingTicketsLeft = 0;
+    	int returnTicketsLeft = 0;
+    	int roomsLeft = 0;
+    	boolean isReturnTicket = false;
+    	boolean returnTicketAvailability = true;
+
+    	if(_package.getFlightTicketReturn() != null)
+		{
+			isReturnTicket = true;
+		}
+
+    	try 
+		{
+			Statement _stm = DBConnection.configureDatabase(dbConnection);
+
+			goingTicketsLeft = ctrlPassages.getQuantityLeft(_stm,
+														     _package.getFlightTicketGoing().getSource(),
+														     _package.getFlightTicketGoing().getDest(),
+														     new java.sql.Date(_package.getFlightTicketGoing().getDate().getTime()),
+														     _package.getFlightTicketGoing().getPrice());
+
+			if(isReturnTicket)
+			{
+				returnTicketsLeft = ctrlPassages.getQuantityLeft(_stm,
+															     _package.getFlightTicketReturn().getSource(),
+															     _package.getFlightTicketReturn().getDest(),
+															     new java.sql.Date(_package.getFlightTicketReturn().getDate().getTime()),
+															     _package.getFlightTicketReturn().getPrice());
+				
+				if(returnTicketsLeft <= _package.getFlightTicketReturn().getQuantity())
+				{
+					returnTicketAvailability = false;
+				}
+			}
+
+			roomsLeft = ctrlHotel.getQuantityLeft(_stm,
+												  _package.getAccommodation().getCityName(),
+												  _package.getAccommodation().getAccommodationName(),
+												  _package.getAccommodation().getPrice());
+
+			// checks if there are enough going tickets
+			if(goingTicketsLeft >= _package.getFlightTicketGoing().getQuantity() &&
+			   returnTicketAvailability)
+			{
+				// checks if there are enough rooms left
+				if(roomsLeft >= _package.getAccommodation().getQuantity())
+				{
+					// Finally, buy the package and update database
+					ctrlPassages.updateQuantity(_stm,
+										    	_package.getFlightTicketGoing().getSource(),
+										    	_package.getFlightTicketGoing().getDest(),
+										    	new java.sql.Date(_package.getFlightTicketGoing().getDate().getTime()),
+										    	_package.getFlightTicketGoing().getPrice(),
+										    	goingTicketsLeft - _package.getFlightTicketGoing().getQuantity());
+					if(isReturnTicket)
+					{
+						ctrlPassages.updateQuantity(_stm,
+											    	_package.getFlightTicketReturn().getSource(),
+											    	_package.getFlightTicketReturn().getDest(),
+											    	new java.sql.Date(_package.getFlightTicketReturn().getDate().getTime()),
+											    	_package.getFlightTicketReturn().getPrice(),
+											    	returnTicketsLeft - _package.getFlightTicketReturn().getQuantity());
+					}
+
+					ctrlHotel.updateQuantity(_stm,
+										 	 _package.getAccommodation().getCityName(),
+										 	 _package.getAccommodation().getAccommodationName(),
+										 	 _package.getAccommodation().getPrice(),
+										 	 roomsLeft - _package.getAccommodation().getQuantity());
+
+					// Succeded
+					result = 1;
+				}
+				else
+				{
+					// Not enough rooms
+					result = 3;
+				}
+			}
+			else
+			{
+				// Not enough passages
+				result = 2;
+			}			
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+
+    	return result;
+    }
+
 	@Override
 	public synchronized void registerPassageInterest(FlightTicket    _ticketTo,
 			                                         FlightTicket    _ticketFrom,
