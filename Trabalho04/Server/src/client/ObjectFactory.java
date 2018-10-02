@@ -31,13 +31,11 @@ public class ObjectFactory {
     private final static QName _GetTicketInterestListResponse_QNAME = new QName("http://tas.sd.br/", "getTicketInterestListResponse");
     private final static QName _RegisterHotelInterest_QNAME = new QName("http://tas.sd.br/", "registerHotelInterest");
     private final static QName _SearchPassagesResponse_QNAME = new QName("http://tas.sd.br/", "searchPassagesResponse");
-    private final static QName _GetUserCount_QNAME = new QName("http://tas.sd.br/", "getUserCount");
     private final static QName _BuyPassage_QNAME = new QName("http://tas.sd.br/", "buyPassage");
     private final static QName _GetTicketInterestList_QNAME = new QName("http://tas.sd.br/", "getTicketInterestList");
     private final static QName _BuyPassageResponse_QNAME = new QName("http://tas.sd.br/", "buyPassageResponse");
     private final static QName _GetAccommodationInterestList_QNAME = new QName("http://tas.sd.br/", "getAccommodationInterestList");
     private final static QName _Hello_QNAME = new QName("http://tas.sd.br/", "hello");
-    private final static QName _GetUserCountResponse_QNAME = new QName("http://tas.sd.br/", "getUserCountResponse");
     private final static QName _SearchHotelByNameResponse_QNAME = new QName("http://tas.sd.br/", "searchHotelByNameResponse");
     private final static QName _ReserveHotel_QNAME = new QName("http://tas.sd.br/", "reserveHotel");
     private final static QName _SearchHotelByName_QNAME = new QName("http://tas.sd.br/", "searchHotelByName");
@@ -86,14 +84,6 @@ public class ObjectFactory {
      */
     public ReserveHotelResponse createReserveHotelResponse() {
         return new ReserveHotelResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetUserCountResponse }
-     * 
-     */
-    public GetUserCountResponse createGetUserCountResponse() {
-        return new GetUserCountResponse();
     }
 
     /**
@@ -166,14 +156,6 @@ public class ObjectFactory {
      */
     public SearchPassagesResponse createSearchPassagesResponse() {
         return new SearchPassagesResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetUserCount }
-     * 
-     */
-    public GetUserCount createGetUserCount() {
-        return new GetUserCount();
     }
 
     /**
@@ -368,15 +350,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetUserCount }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "getUserCount")
-    public JAXBElement<GetUserCount> createGetUserCount(GetUserCount value) {
-        return new JAXBElement<GetUserCount>(_GetUserCount_QNAME, GetUserCount.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link BuyPassage }{@code >}}
      * 
      */
@@ -419,15 +392,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://tas.sd.br/", name = "hello")
     public JAXBElement<Hello> createHello(Hello value) {
         return new JAXBElement<Hello>(_Hello_QNAME, Hello.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetUserCountResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "getUserCountResponse")
-    public JAXBElement<GetUserCountResponse> createGetUserCountResponse(GetUserCountResponse value) {
-        return new JAXBElement<GetUserCountResponse>(_GetUserCountResponse_QNAME, GetUserCountResponse.class, null, value);
     }
 
     /**

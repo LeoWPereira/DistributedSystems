@@ -190,17 +190,17 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 			Statement _stm = DBConnection.configureDatabase(dbConnection);
 			
 			int roomsLeft = ctrlHotel.getQuantityLeft(_stm,
-													  _hotel.getCityName(),
-													  _hotel.getAccommodationName(),
-													  _hotel.getPrice());
+													  _hotel.cityName,
+													  _hotel.accommodationName,
+													  _hotel.price);
 
-			if(roomsLeft >= _hotel.getQuantity())
+			if(roomsLeft >= _hotel.quantity)
 			{
 				ctrlHotel.updateQuantity(_stm,
-										 _hotel.getCityName(),
-										 _hotel.getAccommodationName(),
-										 _hotel.getPrice(),
-										 roomsLeft - _hotel.getQuantity());
+										 _hotel.cityName,
+										 _hotel.accommodationName,
+										 _hotel.price,
+										 roomsLeft - _hotel.quantity);
 				
 				returnValue = true;
 			}

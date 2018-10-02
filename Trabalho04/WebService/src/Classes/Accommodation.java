@@ -26,27 +26,27 @@ public class Accommodation implements Serializable
 	/**
 	 * @brief
 	 */
-	private String 	cityName;
+	public String 	cityName;
     
 	/**
 	 * @brief
 	 */
-	private String 	accommodationName;
+	public String 	accommodationName;
     
 	/**
 	 * @brief
 	 */
-	private int 	quantity;
+	public int 	quantity;
 	
 	/**
 	 * @brief
 	 */
-	private int 	maxGuestsPerRoom;
+	public int 	maxGuestsPerRoom;
 	
 	/**
 	 * @brief
 	 */
-	private float 	price;
+	public float 	price;
     
 	/**
 	 * @brief	Default constructor
@@ -68,86 +68,4 @@ public class Accommodation implements Serializable
         maxGuestsPerRoom	= _maxGuests;
         price 				= _price;
     }
-    
-    /**
-     * @brief Default setter
-     * 
-     * @param _price	: float
-     */
-    public void setPrice(float _price) 
-    {
-        price = _price;
-    }
-    
-    /**
-     * @brief	Default getter
-     * 
-     * @return 	cityName
-     */   
-    public String getCityName()
-    {
-        return cityName;
-    }
-    
-    /**
-     * @brief	Default getter
-     * 
-     * @return 	accommodationName
-     */ 
-    public String getAccommodationName()
-    {
-        return accommodationName;
-    }
-    
-    /**
-     * @brief	Default getter
-     * 
-     * @return 	price
-     */ 
-    public float getPrice()
-    {
-        return price;
-    }
-
-	/**
-	 * @brief
-	 * 
-	 * @return the quantity
-	 */
-	public int getQuantity() 
-	{
-		return quantity;
-	}
-
-	/**
-	 * @brief
-	 * 
-	 * @param _quantity	: the quantity to set
-	 */
-	public void setQuantity(int _quantity)
-	{
-		this.quantity = _quantity;
-	}
-
-	/**
-	 * @brief
-	 * 
-	 * @return	the maxGuestsPerRoom
-	 */
-	public int getMaxGuestsPerRoom() 
-	{
-		return maxGuestsPerRoom;
-	}
-
-	/**
-	 * @brief
-	 * 
-	 * @param 	_maxGuestsPerRoom	: the maxGuestsPerRoom to set
-	 */
-	public void setMaxGuestsPerRoom(int _maxGuestsPerRoom) 
-	{
-		maxGuestsPerRoom = _maxGuestsPerRoom;
-	}
-    
-   
 }

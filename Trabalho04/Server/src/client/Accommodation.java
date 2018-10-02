@@ -16,9 +16,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="cityName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="accommodationName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="quantity" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="maxGuestsPerRoom" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}float"/>
- *         &lt;element name="quantity" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,15 +31,83 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "accommodation", propOrder = {
+    "cityName",
+    "accommodationName",
+    "quantity",
     "maxGuestsPerRoom",
-    "price",
-    "quantity"
+    "price"
 })
 public class Accommodation {
 
+    protected String cityName;
+    protected String accommodationName;
+    protected int quantity;
     protected int maxGuestsPerRoom;
     protected float price;
-    protected int quantity;
+
+    /**
+     * Gets the value of the cityName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCityName() {
+        return cityName;
+    }
+
+    /**
+     * Sets the value of the cityName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCityName(String value) {
+        this.cityName = value;
+    }
+
+    /**
+     * Gets the value of the accommodationName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAccommodationName() {
+        return accommodationName;
+    }
+
+    /**
+     * Sets the value of the accommodationName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAccommodationName(String value) {
+        this.accommodationName = value;
+    }
+
+    /**
+     * Gets the value of the quantity property.
+     * 
+     */
+    public int getQuantity() {
+        return quantity;
+    }
+
+    /**
+     * Sets the value of the quantity property.
+     * 
+     */
+    public void setQuantity(int value) {
+        this.quantity = value;
+    }
 
     /**
      * Gets the value of the maxGuestsPerRoom property.
@@ -69,22 +139,6 @@ public class Accommodation {
      */
     public void setPrice(float value) {
         this.price = value;
-    }
-
-    /**
-     * Gets the value of the quantity property.
-     * 
-     */
-    public int getQuantity() {
-        return quantity;
-    }
-
-    /**
-     * Sets the value of the quantity property.
-     * 
-     */
-    public void setQuantity(int value) {
-        this.quantity = value;
     }
 
 }

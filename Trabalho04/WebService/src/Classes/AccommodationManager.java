@@ -26,17 +26,7 @@ import java.util.ArrayList;
 	/**
 	  * @brief
 	  */
-    private ArrayList<Accommodation> accommodationList = new ArrayList<Accommodation>();
-
-    /** 
-    * @brief	Get the accommodation list
-    * 
-    * @return accommodationList
-    */
-    public ArrayList<Accommodation> getAccommodationList()
-    {
-        return accommodationList;
-    }
+    public ArrayList<Accommodation> accommodationList = new ArrayList<Accommodation>();
 
     /** 
     * @brief	Insert an accommodation into the database
@@ -90,7 +80,7 @@ import java.util.ArrayList;
     public void editPrice(int index, 
     					  float price)
     {
-        (this.accommodationList.get(index)).setPrice(price);
+        (this.accommodationList.get(index)).price = (price);
     }
     
     /**

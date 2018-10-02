@@ -71,7 +71,7 @@ public class AccommodationInterest
      */
     public String getAccommodationName() 
     {
-        return accommodation.getAccommodationName();
+        return accommodation.accommodationName;
     }
     
     /**
@@ -81,7 +81,7 @@ public class AccommodationInterest
      */   
     public String getAccommodationCityName()
     {
-        return accommodation.getCityName();
+        return accommodation.cityName;
     }
     
     /**
