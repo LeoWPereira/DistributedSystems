@@ -36,6 +36,8 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -374,6 +376,28 @@ public class PackagesPanel extends JPanel
 		}
 		
 		table.setAutoCreateRowSorter(true);
+
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() 
+		{
+			boolean alreadyClicked = false;
+			
+		    public void valueChanged(ListSelectionEvent event) 
+		    {
+		    	if(!alreadyClicked)
+		    	{
+			        if(table.getSelectedRow() > -1)
+			        {
+			        	processTableSelection();
+			        }
+			        
+			        alreadyClicked = true;
+		    	}
+		    	else
+		    	{
+		    		alreadyClicked = false;
+		    	}
+		    }
+		});
 		
 		internalPanel.add(scrollPaneTabela);
 	}
@@ -638,6 +662,61 @@ public class PackagesPanel extends JPanel
 		internalPanel.remove(scrollPaneTabela);
 		
 		configTable();
+	}
+
+	/**
+	 * @brief
+	 */
+	public void processTableSelection()
+	{
+		Calendar calendarGoing = Calendar.getInstance();
+		Calendar calendarReturn = Calendar.getInstance();
+
+		// We selected row with a passage from source to dest	
+		int day 	= datePickerOneWayTrip.getModel().getDay();
+	    int month 	= datePickerOneWayTrip.getModel().getMonth();
+	    int year 	= datePickerOneWayTrip.getModel().getYear();
+	    
+	    calendarGoing.set(year,
+	    			 month,
+	    			 day);
+
+	    // We selected row with a passage from dest to source	
+		day 	= datePickerRoundTrip.getModel().getDay();
+	    month 	= datePickerRoundTrip.getModel().getMonth();
+	    year 	= datePickerRoundTrip.getModel().getYear();
+	    
+	    calendarReturn.set(year,
+	    			 month,
+	    			 day);
+
+	    float returnPrice = 0;
+	    
+	    if(radioButtonRoundWay.isSelected())
+	    {
+	    	returnPrice = Float.valueOf(table.getValueAt(table.getSelectedRow(), 4).toString());
+	    }
+    		    
+		try 
+    	{
+			PackageDetailsPanel detailedPanel = new PackageDetailsPanel(serverReference,
+																		table.getValueAt(table.getSelectedRow(), 0).toString(),
+																		table.getValueAt(table.getSelectedRow(), 1).toString(),
+																		table.getValueAt(table.getSelectedRow(), 1).toString(),
+																		table.getValueAt(table.getSelectedRow(), 0).toString(),
+																		calendarGoing.getTime(),
+																		calendarReturn.getTime(),
+																		table.getValueAt(table.getSelectedRow(), 2).toString(),
+																	  	Float.valueOf(table.getValueAt(table.getSelectedRow(), 3).toString()),
+																	  	returnPrice,
+																	  	Float.valueOf(table.getValueAt(table.getSelectedRow(), 5).toString()));
+			detailedPanel.setVisible(true);
+    	}
+		catch (java.text.ParseException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**
