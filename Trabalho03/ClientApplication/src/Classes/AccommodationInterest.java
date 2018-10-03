@@ -108,7 +108,7 @@ public class AccommodationInterest
      * 
      * @return  Number Of Guests
      */ 
-    public float getNumberOfGuests()
+    public int getNumberOfGuests()
     {
         return this.numberOfGuests;
     }

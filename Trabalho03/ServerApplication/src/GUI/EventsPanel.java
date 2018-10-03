@@ -21,10 +21,6 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -32,24 +28,16 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.MaskFormatter;
 
 import com.mysql.jdbc.Statement;
-import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
-import Classes.Accommodation;
 import Classes.AccommodationInterest;
-import Classes.AccommodationManager;
 import Classes.FlightTicketInterest;
 import Classes.PackageInterest;
-import Database.Controller.CtrlHotel;
-import Extra.CitiesBrazil;
 import RMI.ServerServent;
 
 /**
@@ -403,7 +391,7 @@ public class EventsPanel extends JPanel
 						{null, null, null, null},
 						{null, null, null, null}
 					},
-			new String[] {"Cliente", "Cidade", "Nome Hospedagem", "Quantidade", "No. Pessoas", "Preco (Max)"})
+			new String[] {"Cliente", "Cidade", "Nome Hospedagem", "Quantidade", "Nº Pessoas", "Preco (Max)"})
 			{
 				boolean[] columnEditables = new boolean[]
 				{
