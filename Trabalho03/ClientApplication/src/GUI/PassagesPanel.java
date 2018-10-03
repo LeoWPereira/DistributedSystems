@@ -924,7 +924,7 @@ public class PassagesPanel extends JPanel
                 										clientRMI,
                 										clientRMI.getClientName());
 
-                boolean isReturnTicket = true;
+                boolean isReturnTicket = false;
 
                 if(flightTicketFrom != null)
                 {
