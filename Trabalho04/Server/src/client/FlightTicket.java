@@ -18,11 +18,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
- *         &lt;element name="dest" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}float"/>
- *         &lt;element name="quantity" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="source" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="dest" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="quantity" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}float"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,43 +33,43 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "flightTicket", propOrder = {
-    "date",
+    "source",
     "dest",
-    "price",
+    "date",
     "quantity",
-    "source"
+    "price"
 })
 public class FlightTicket {
 
+    protected String source;
+    protected String dest;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar date;
-    protected String dest;
-    protected float price;
     protected int quantity;
-    protected String source;
+    protected float price;
 
     /**
-     * Gets the value of the date property.
+     * Gets the value of the source property.
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getDate() {
-        return date;
+    public String getSource() {
+        return source;
     }
 
     /**
-     * Sets the value of the date property.
+     * Sets the value of the source property.
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setDate(XMLGregorianCalendar value) {
-        this.date = value;
+    public void setSource(String value) {
+        this.source = value;
     }
 
     /**
@@ -97,19 +97,27 @@ public class FlightTicket {
     }
 
     /**
-     * Gets the value of the price property.
+     * Gets the value of the date property.
      * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
-    public float getPrice() {
-        return price;
+    public XMLGregorianCalendar getDate() {
+        return date;
     }
 
     /**
-     * Sets the value of the price property.
+     * Sets the value of the date property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
-    public void setPrice(float value) {
-        this.price = value;
+    public void setDate(XMLGregorianCalendar value) {
+        this.date = value;
     }
 
     /**
@@ -129,27 +137,19 @@ public class FlightTicket {
     }
 
     /**
-     * Gets the value of the source property.
+     * Gets the value of the price property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getSource() {
-        return source;
+    public float getPrice() {
+        return price;
     }
 
     /**
-     * Sets the value of the source property.
+     * Sets the value of the price property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setSource(String value) {
-        this.source = value;
+    public void setPrice(float value) {
+        this.price = value;
     }
 
 }

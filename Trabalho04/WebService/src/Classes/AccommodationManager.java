@@ -13,6 +13,7 @@ package Classes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @brief	Class responsible for the accommodations management
@@ -23,10 +24,11 @@ import java.util.ArrayList;
 	 * @brief
 	 */
 	private static final long serialVersionUID = -6901199176974082169L;
+	
 	/**
 	  * @brief
 	  */
-    public ArrayList<Accommodation> accommodationList = new ArrayList<Accommodation>();
+    public List<Accommodation> accommodationList = new ArrayList<Accommodation>();
 
     /** 
     * @brief	Insert an accommodation into the database

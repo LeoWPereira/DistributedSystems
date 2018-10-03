@@ -26,7 +26,7 @@ public class Accommodation implements Serializable
 	/**
 	 * @brief
 	 */
-	public String 	cityName;
+	public String	cityName;
     
 	/**
 	 * @brief
@@ -36,12 +36,12 @@ public class Accommodation implements Serializable
 	/**
 	 * @brief
 	 */
-	public int 	quantity;
+	public int 		quantity;
 	
 	/**
 	 * @brief
 	 */
-	public int 	maxGuestsPerRoom;
+	public int 		maxGuestsPerRoom;
 	
 	/**
 	 * @brief

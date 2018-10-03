@@ -13,6 +13,7 @@ package Classes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @brief	Class responsible for the flight ticket management
@@ -27,7 +28,7 @@ public class FlightTicketManager implements Serializable
 	/**
 	 * @brief
 	 */
-	private ArrayList<FlightTicket> flightTicketList = new ArrayList<FlightTicket>();
+	public List<FlightTicket> flightTicketList = new ArrayList<FlightTicket>();
 
     /** 
     * @brief	Get the flight ticket list
@@ -35,7 +36,7 @@ public class FlightTicketManager implements Serializable
     * @return 	flightTicketList
     *
     */
-    public ArrayList<FlightTicket> getFlightTicketList()
+    public List<FlightTicket> getFlightTicketList()
     {
         return this.flightTicketList;
     }
@@ -90,7 +91,7 @@ public class FlightTicketManager implements Serializable
     */
     public void editPrice(int index, float price)
     {
-        (this.flightTicketList.get(index)).setPrice(price);
+        (this.flightTicketList.get(index)).price = price;
     }
     
     /**

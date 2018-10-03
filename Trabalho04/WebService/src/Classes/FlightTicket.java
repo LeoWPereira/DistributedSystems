@@ -27,27 +27,27 @@ public class FlightTicket implements Serializable
 	/**
 	 * @brief
 	 */
-	private String 		source;
+	public String 			source;
 	
 	/**
 	 * @brief
 	 */
-	private String 		dest;
+	public String 			dest;
 	
 	/**
 	 * @brief
 	 */
-	private Date		date;
+	public java.util.Date	date;
 	
 	/**
 	 * @brief
 	 */
-	private int			quantity;
+	public int				quantity;
 	
 	/**
 	 * @brief
 	 */
-	private float		price;
+	public float			price;
 
     /**
      * @brief	Default Constructor
@@ -64,110 +64,10 @@ public class FlightTicket implements Serializable
     					int 	_qnt,
     					float 	_price)
     {
-        setSource(_origin);
-        setDest(_destination);
-        setDate(_date);
-        setQuantity(_qnt);
-        setPrice(_price);
+        source 		= _origin;
+        dest 		= _destination;
+        date 		= _date;
+        quantity	= _qnt;
+        price 		= _price;
     }
-
-	/**
-	 * @brief
-	 * 
-	 * @return the source
-	 */
-	public String getSource() 
-	{
-		return source;
-	}
-
-	/**
-	 * @brief
-	 * 
-	 * @param source the source to set
-	 */
-	public void setSource(String source) 
-	{
-		this.source = source;
-	}
-
-	/**
-	 * @brief
-	 * 
-	 * @return the dest
-	 */
-	public String getDest() 
-	{
-		return dest;
-	}
-
-	/**
-	 * @brief
-	 * 
-	 * @param dest the dest to set
-	 */
-	public void setDest(String dest) 
-	{
-		this.dest = dest;
-	}
-
-	/**
-	 * @brief
-	 * 
-	 * @return the date
-	 */
-	public Date getDate() 
-	{
-		return date;
-	}
-
-	/**
-	 * @brief
-	 * 
-	 * @param date the date to set
-	 */
-	public void setDate(Date date) 
-	{
-		this.date = date;
-	}
-
-	/**
-	 * @brief
-	 * 
-	 * @return the quantity
-	 */
-	public int getQuantity() 
-	{
-		return quantity;
-	}
-
-	/**
-	 * @brief
-	 * 
-	 * @param quantity the quantity to set
-	 */
-	public void setQuantity(int quantity) 
-	{
-		this.quantity = quantity;
-	}
-
-	/**
-	 * @brief
-	 * 
-	 * @return the price
-	 */
-	public float getPrice() 
-	{
-		return price;
-	}
-
-	/**
-	 * @brief
-	 * 
-	 * @param price the price to set
-	 */
-	public void setPrice(float price) 
-	{
-		this.price = price;
-	}
 }

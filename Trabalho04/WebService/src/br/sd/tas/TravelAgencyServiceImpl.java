@@ -77,6 +77,92 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	}
 	
 	@Override
+	public AccommodationManager loadDBHotels() throws RemoteException
+	{
+		AccommodationManager list = new AccommodationManager();
+		
+		try
+		{
+			Statement _stm = DBConnection.configureDatabase(dbConnection);
+			
+			list = ctrlHotel.loadDBHotels(_stm);
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	@Override
+	public FlightTicketManager loadDBPassages() throws RemoteException
+	{
+		FlightTicketManager list = new FlightTicketManager();
+		
+		try
+		{
+			Statement _stm = DBConnection.configureDatabase(dbConnection);
+			
+			list = ctrlPassages.loadDBPassages(_stm);
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	@Override
+	public void insertHotelEntry(String 		_city,
+								 String 		_hotel,
+								 int			_quantity,
+								 int			_maxGuestsPerRoom,
+								 float			_price) throws RemoteException
+	{
+		try
+		{
+			Statement _stm = DBConnection.configureDatabase(dbConnection);
+			
+			ctrlHotel.insertEntry(_stm,
+								  _city, 
+								  _hotel, 
+								  _quantity, 
+								  _maxGuestsPerRoom, 
+								  _price);
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void insertPassageEntry(String 		_source,
+							       String 		_dest,
+								   Date			_date,
+								   int			_quantity,
+								   float		_price) throws RemoteException
+	{
+		try
+		{
+			Statement _stm = DBConnection.configureDatabase(dbConnection);
+			
+			ctrlPassages.insertEntry(_stm,
+									 _source,
+									 _dest, 
+									 _date, 
+									 _quantity, 
+									 _price);
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
 	public FlightTicketManager searchPassages(String	_source,
 											  String 	_dest,
 											  Date 		_date) throws RemoteException
@@ -150,19 +236,19 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 			Statement _stm = DBConnection.configureDatabase(dbConnection);
 			
 			int ticketsLeft = ctrlPassages.getQuantityLeft(_stm,
-														   _ticket.getSource(),
-														   _ticket.getDest(),
-														   new java.sql.Date(_ticket.getDate().getTime()),
-														   _ticket.getPrice());
+														   _ticket.source,
+														   _ticket.dest,
+														   new java.sql.Date(_ticket.date.getTime()),
+														   _ticket.price);
 
-			if(ticketsLeft >= _ticket.getQuantity())
+			if(ticketsLeft >= _ticket.quantity)
 			{
 				ctrlPassages.updateQuantity(_stm,
-										    _ticket.getSource(),
-										    _ticket.getDest(),
-										    new java.sql.Date(_ticket.getDate().getTime()),
-										    _ticket.getPrice(),
-										    ticketsLeft - _ticket.getQuantity());
+										    _ticket.source,
+										    _ticket.dest,
+										    new java.sql.Date(_ticket.date.getTime()),
+										    _ticket.price,
+										    ticketsLeft - _ticket.quantity);
 				
 				returnValue = true;
 			}

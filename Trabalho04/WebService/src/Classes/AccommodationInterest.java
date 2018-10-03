@@ -19,27 +19,27 @@ public class AccommodationInterest
     /**
      * @brief
      */
-    private Accommodation  accommodation;
+    public Accommodation	accommodation;
     
     /**
      * @brief
      */
-    private int quantity;
+    public int 				quantity;
     
     /**
      * @brief
      */
-    private int numberOfGuests;
+    public int 				numberOfGuests;
     
     /**
      * @brief
      */
-    private float maxPrice;
+    public float 			maxPrice;
 
     /**
      * @brief
      */
-    private String clientName;
+    public String 			clientName;
 
     /**
      * @brief   Default constructor
@@ -82,46 +82,6 @@ public class AccommodationInterest
     public String getAccommodationCityName()
     {
         return accommodation.cityName;
-    }
-    
-    /**
-     * @brief   Default getter
-     * 
-     * @return  quantity
-     */ 
-    public int getQuantity()
-    {
-        return quantity;
-    }
-    
-    /**
-     * @brief   Default getter
-     * 
-     * @return  numberOfGuests
-     */ 
-    public float getNumberOfGuests()
-    {
-        return numberOfGuests;
-    }
-
-    /**
-     * @brief Default getter
-     * 
-     * @return maxPrice
-     */
-    public float getMaxPrice() 
-    {
-        return maxPrice;
-    }
-
-    /**
-     * @brief Default getter
-     * 
-     * @return  clientName
-     */
-    public String getClientName() 
-    {
-        return clientName;
     }
 }
     

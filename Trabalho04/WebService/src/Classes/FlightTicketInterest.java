@@ -21,32 +21,32 @@ public class FlightTicketInterest
     /**
      * @brief
      */
-    private FlightTicket  flightTicketTo;
+	public FlightTicket		flightTicketTo;
 
     /**
      * @brief
      */
-    private FlightTicket  flightTicketFrom;
+	public FlightTicket  	flightTicketFrom;
 
     /**
      * @brief
      */
-    private boolean returnTicket;
+	public boolean 			returnTicket;
     
     /**
      * @brief
      */
-    private int quantity;
+	public int 				quantity;
     
     /**
      * @brief
      */
-    private float maxPrice;
+	public float 			maxPrice;
 
     /**
      * @brief
      */
-    private String clientName;
+	public String 			clientName;
 
     /**
      * @brief   Default constructor
@@ -90,7 +90,7 @@ public class FlightTicketInterest
      */   
     public String getSource()
     {
-        return flightTicketTo.getSource();
+        return flightTicketTo.source;
     }
 
     /**
@@ -100,7 +100,7 @@ public class FlightTicketInterest
      */   
     public String getDest()
     {
-        return flightTicketTo.getDest();
+        return flightTicketTo.dest;
     }
 
     /**
@@ -110,7 +110,7 @@ public class FlightTicketInterest
      */ 
     public Date getSourceDate()
     {
-        return flightTicketTo.getDate();
+        return flightTicketTo.date;
     }
 
     /**
@@ -120,37 +120,7 @@ public class FlightTicketInterest
      */ 
     public Date getReturnDate()
     {
-        return flightTicketFrom.getDate();
-    }
-    
-    /**
-     * @brief   Default getter
-     * 
-     * @return  quantity
-     */ 
-    public int getQuantity()
-    {
-        return quantity;
-    }
-
-    /**
-     * @brief Default getter
-     * 
-     * @return maxPrice
-     */
-    public float getMaxPrice() 
-    {
-        return maxPrice;
-    }
-
-    /**
-     * @brief Default getter
-     * 
-     * @return  clientName
-     */
-    public String getClientName() 
-    {
-        return clientName;
+        return flightTicketFrom.date;
     }
 }
     

@@ -15,6 +15,7 @@ package br.sd.tas;
 
 import java.rmi.RemoteException;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.jws.WebMethod;
@@ -32,7 +33,59 @@ public interface TravelAgencyService
 {
 	@WebMethod String hello(String	_txt);
 	
-   /**
+	/**
+	 * @brief	
+	 * 
+	 * @return	
+	 * 
+	 * @throws 	SQLException
+	 */
+	@WebMethod AccommodationManager loadDBHotels() throws RemoteException;
+	
+	/**
+	 * @brief	
+	 * 
+	 * @return	
+	 * 
+	 * @throws 	SQLException
+	 */
+	@WebMethod FlightTicketManager loadDBPassages() throws RemoteException;
+	
+	/**
+	 * @brief	
+	 * 
+	 * @param 	_city				:
+	 * @param 	_hotel				:
+	 * @param 	_quantity			:
+	 * @param 	_maxGuestsPerRoom	:
+	 * @param 	_price				:
+	 * 
+	 * @throws 	RemoteException
+	 */
+	@WebMethod void insertHotelEntry(String 		_city,
+									 String 		_hotel,
+									 int			_quantity,
+									 int			_maxGuestsPerRoom,
+									 float			_price) throws RemoteException;
+	
+	/**
+	 * @brief	
+	 * 
+	 * @param 	_source				:
+	 * @param 	_dest				:
+	 * @param 	_date				:
+	 * @param 	_quantity			:
+	 * @param 	_price				:
+	 * 
+	 * @throws 	RemoteException
+	 */
+	@WebMethod void insertPassageEntry(String 		_source,
+								       String 		_dest,
+									   Date			_date,
+									   int			_quantity,
+									   float		_price) throws RemoteException;
+	
+	/**
     * @brief	
     * 
     * @param 	_source	:
@@ -47,7 +100,7 @@ public interface TravelAgencyService
 											     String	_dest, 
 											     Date 	_date) throws RemoteException;
    
-   /**
+   	/**
     * @brief	
     * 
     * @param 	_city	:
@@ -58,7 +111,7 @@ public interface TravelAgencyService
     */
    @WebMethod AccommodationManager searchHotelByCity(String _city) throws RemoteException;
 
-   /**
+   	/**
     * @brief	
     * 
     * @param 	_hotel	:
@@ -69,7 +122,7 @@ public interface TravelAgencyService
     */
    @WebMethod AccommodationManager searchHotelByName(String _hotel) throws RemoteException;
 
-   /**
+   	/**
     * @brief	
     * 
     * @param 	_ticket	:
@@ -80,7 +133,7 @@ public interface TravelAgencyService
     */
    @WebMethod boolean buyPassage(FlightTicket _ticket) throws RemoteException;
 
-   /**
+   	/**
     * @brief	
     * 
     * @param 	_hotel	:
@@ -91,7 +144,7 @@ public interface TravelAgencyService
     */
    @WebMethod boolean reserveHotel(Accommodation _hotel) throws RemoteException;
 
-   /**
+   	/**
     * @brief	
     * 
     * @param 	_ticketTo		:
@@ -108,7 +161,7 @@ public interface TravelAgencyService
 									        float           _desiredPrice,
 									        String          _clientName) 		throws RemoteException;
 
-   /**
+   	/**
     * @brief	
     * 
     * @param 	_hotel			:
@@ -125,21 +178,21 @@ public interface TravelAgencyService
 									     float 				_desiredPrice,
 									     String            	_clientName) 		throws RemoteException;
 
-   /**
+   	/**
     * @brief	
     * 
     * @return	
     */
    @WebMethod public ArrayList<FlightTicketInterest> getTicketInterestList();
 
-   /**
+   	/**
     * @brief	
     * 
     * @return	
     */
    @WebMethod  ArrayList<AccommodationInterest> getAccommodationInterestList();
 
-   /**
+   	/**
     * @brief	
     * 
     * @param 	_flightTicket	:
