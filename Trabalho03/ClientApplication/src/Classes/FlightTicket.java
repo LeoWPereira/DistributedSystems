@@ -20,43 +20,43 @@ import java.util.Date;
 public class FlightTicket implements Serializable
 {
     /**
-	 * @brief
+	 * @brief	Unique Version ID from Class
 	 */
 	private static final long serialVersionUID = 3281860207276377509L;
 	
 	/**
-	 * @brief
+	 * @brief	Source City
 	 */
 	private String 		source;
 	
 	/**
-	 * @brief
+	 * @brief	Destination City
 	 */
 	private String 		dest;
 	
 	/**
-	 * @brief
+	 * @brief	Date of the FLight
 	 */
 	private Date		date;
 	
 	/**
-	 * @brief
+	 * @brief	Quantity of passages Left
 	 */
 	private int			quantity;
 	
 	/**
-	 * @brief
+	 * @brief	Price of the passage
 	 */
 	private float		price;
 
     /**
      * @brief	Default Constructor
      * 
-     * @param 	_origin			:
-     * @param 	_destination	:
-     * @param 	_date			:
-     * @param 	_qnt			:
-     * @param 	_price			:
+     * @param 	_origin			: Source City
+     * @param 	_destination	: Destination City
+     * @param 	_date			: Date of the passage
+     * @param 	_qnt			: Quantity of available passages
+     * @param 	_price			: Price of the passage
      */   
     public FlightTicket(String 	_origin, 
     					String 	_destination, 
@@ -72,19 +72,19 @@ public class FlightTicket implements Serializable
     }
 
 	/**
-	 * @brief
+	 * @brief	Default getter
 	 * 
-	 * @return the source
+	 * @return 	the source city
 	 */
 	public String getSource() 
 	{
-		return source;
+		return this.source;
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default setter
 	 * 
-	 * @param source the source to set
+	 * @param 	source	: the source city
 	 */
 	public void setSource(String source) 
 	{
@@ -92,19 +92,19 @@ public class FlightTicket implements Serializable
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default getter
 	 * 
-	 * @return the dest
+	 * @return 	the destination city
 	 */
 	public String getDest() 
 	{
-		return dest;
+		return this.dest;
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default setter
 	 * 
-	 * @param dest the dest to set
+	 * @param 	dest	: the destination city
 	 */
 	public void setDest(String dest) 
 	{
@@ -112,9 +112,9 @@ public class FlightTicket implements Serializable
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default getter
 	 * 
-	 * @return the date
+	 * @return 	the passage date
 	 */
 	public Date getDate() 
 	{
@@ -122,9 +122,9 @@ public class FlightTicket implements Serializable
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default setter
 	 * 
-	 * @param date the date to set
+	 * @param 	date	: the date of the passage
 	 */
 	public void setDate(Date date) 
 	{
@@ -132,19 +132,19 @@ public class FlightTicket implements Serializable
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default getter
 	 * 
-	 * @return the quantity
+	 * @return 	the quantity of passages left
 	 */
 	public int getQuantity() 
 	{
-		return quantity;
+		return this.quantity;
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default setter
 	 * 
-	 * @param quantity the quantity to set
+	 * @param 	quantity	: the quantity of passages left
 	 */
 	public void setQuantity(int quantity) 
 	{
@@ -152,19 +152,19 @@ public class FlightTicket implements Serializable
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default getter
 	 * 
-	 * @return the price
+	 * @return 	the price of the passage
 	 */
 	public float getPrice() 
 	{
-		return price;
+		return this.price;
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default setter
 	 * 
-	 * @param price the price to set
+	 * @param 	price	: the price of the passage
 	 */
 	public void setPrice(float price) 
 	{

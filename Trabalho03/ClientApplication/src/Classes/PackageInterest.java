@@ -11,7 +11,6 @@
 
 package Classes;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import RMI.ClientInterface;
@@ -22,47 +21,47 @@ import RMI.ClientInterface;
 public class PackageInterest 
 {
     /**
-     * @brief
+     * @brief	Instance of Flight Ticket
      */
     private FlightTicket  flightTicketTo;
 
     /**
-     * @brief
+     * @brief	Instance of Flight Ticket
      */
     private FlightTicket  flightTicketFrom;
 
     /**
-     * @brief
+     * @brief	The flight we are interested into is a return ticket?
      */
     private boolean returnTicket;
     
     /**
-     * @brief
+     * @brief	Desired quantity
      */
     private int quantity;
     
     /**
-     * @brief
+     * @brief	Max price to pay
      */
     private float maxPrice;
 
     /**
-     * @brief
+     * @brief	Reference to Client
      */
     private ClientInterface refCli;
 
     /**
-     * @brief
+     * @brief	Instance of Accommodation
      */
     private Accommodation accommodation;
 
     /**
-     * @brief
+     * @brief	Number of Guests
      */
     private int numberOfGuests;
     
     /**
-     * @brief
+     * @brief	Name of the client
      */
     private String clientName;
 
@@ -100,73 +99,73 @@ public class PackageInterest
     }
 
     /**
-     * @brief Return if a ticket is a return ticket (not one-way)
+     * @brief	Return if a ticket is a return ticket (not one-way)
      * 
-     * @param isReturn : boolean - True if it is a return ticket
+     * @param 	boolean	: True if it is a return ticket
      */
     public boolean isReturnTicket() 
     {
-        return returnTicket;
+        return this.returnTicket;
     }
     
     /**
      * @brief   Get the source of the ticket interest
      * 
-     * @return  source
+     * @return  source flight ticket
      */   
     public String getSource()
     {
-        return flightTicketTo.getSource();
+        return this.flightTicketTo.getSource();
     }
 
     /**
      * @brief   Get the destination of the ticket interest
      * 
-     * @return  cityName
+     * @return  city Name
      */   
     public String getDest()
     {
-        return flightTicketTo.getDest();
+        return this.flightTicketTo.getDest();
     }
 
     /**
      * @brief   Get the source date from the source ticket
      * 
-     * @return  sourceDate
+     * @return  source Date
      */ 
     public Date getSourceDate()
     {
-        return flightTicketTo.getDate();
+        return this.flightTicketTo.getDate();
     }
 
     /**
      * @brief   Get the return date from the return ticket
      * 
-     * @return  returnDate
+     * @return  return Date
      */ 
     public Date getReturnDate()
     {
-        return flightTicketFrom.getDate();
+        return this.flightTicketFrom.getDate();
     }
 
     /**
      * @brief   Get the accommodation name from the accommodation
      * 
-     * @return  accommodationName
+     * @return  accommodation Name
      */ 
     public String getAccommodationName()
     {
-        return accommodation.getAccommodationName();
+        return this.accommodation.getAccommodationName();
     }
 
     /**
      * @brief   Get the accommodation city name from the accommodation
      * 
-     * @return  accommodationCityName
+     * @return  accommodation City Name
      */ 
     public String getAccommodationCityName()
     {
-        return accommodation.getCityName();
+        return this.accommodation.getCityName();
     }
     
     /**
@@ -176,47 +175,46 @@ public class PackageInterest
      */ 
     public int getQuantity()
     {
-        return quantity;
+        return this.quantity;
     }
 
     /**
-     * @brief Default getter
+     * @brief 	Default getter
      * 
-     * @return maxPrice
+     * @return 	max Price
      */
     public float getMaxPrice() 
     {
-        return maxPrice;
+        return this.maxPrice;
     }
 
     /**
-     * @brief Default getter
+     * @brief 	Default getter
      * 
-     * @return numberOfGuests
+     * @return 	number Of Guests
      */
     public int getNumberOfGuests() 
     {
-        return numberOfGuests;
+        return this.numberOfGuests;
     }
 
     /**
-     * @brief Default getter
+     * @brief 	Default getter
      * 
-     * @return  refCli
+     * @return  reference of the client
      */
     public ClientInterface getClientInterface() 
     {
-        return refCli;
+        return this.refCli;
     }
 
     /**
-     * @brief Default getter
+     * @brief 	Default getter
      * 
-     * @return  clientName
+     * @return  client Name
      */
     public String getClientName() 
     {
-        return clientName;
+        return this.clientName;
     }
 }
-    

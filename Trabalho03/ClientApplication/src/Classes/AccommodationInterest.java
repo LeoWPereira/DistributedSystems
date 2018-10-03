@@ -11,9 +11,6 @@
 
 package Classes;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import RMI.ClientInterface;
 
 /**
@@ -22,32 +19,32 @@ import RMI.ClientInterface;
 public class AccommodationInterest 
 {
     /**
-     * @brief
+     * @brief	Member containing an instance of Accommodation
      */
     private Accommodation  accommodation;
     
     /**
-     * @brief
+     * @brief	Quantity of room one is interested
      */
     private int quantity;
     
     /**
-     * @brief
+     * @brief	Number of guests interested (in this interest event)
      */
     private int numberOfGuests;
     
     /**
-     * @brief
+     * @brief	Max desired price to pay
      */
     private float maxPrice;
 
     /**
-     * @brief
+     * @brief	Reference to a Client
      */
     private ClientInterface refCli;
 
     /**
-     * @brief
+     * @brief	Client Name
      */
     private String clientName;
 
@@ -77,73 +74,72 @@ public class AccommodationInterest
     }
 
     /**
-     * @brief Default getter
+     * @brief	Default getter
      * 
-     * @param accommodationName
+     * @param 	Accommodation Name
      */
     public String getAccommodationName() 
     {
-        return accommodation.getAccommodationName();
+        return this.accommodation.getAccommodationName();
     }
     
     /**
      * @brief   Default getter
      * 
-     * @return  cityName
+     * @return  City Name
      */   
     public String getAccommodationCityName()
     {
-        return accommodation.getCityName();
+        return this.accommodation.getCityName();
     }
     
     /**
      * @brief   Default getter
      * 
-     * @return  quantity
+     * @return  Quantity
      */ 
     public int getQuantity()
     {
-        return quantity;
+        return this.quantity;
     }
     
     /**
      * @brief   Default getter
      * 
-     * @return  numberOfGuests
+     * @return  Number Of Guests
      */ 
     public float getNumberOfGuests()
     {
-        return numberOfGuests;
+        return this.numberOfGuests;
     }
 
     /**
-     * @brief Default getter
+     * @brief 	Default getter
      * 
-     * @return maxPrice
+     * @return 	Max Price
      */
     public float getMaxPrice() 
     {
-        return maxPrice;
+        return this.maxPrice;
     }
 
     /**
-     * @brief Default getter
+     * @brief 	Default getter
      * 
-     * @return  refCli
+     * @return  Client reference
      */
     public ClientInterface getClientInterface() 
     {
-        return refCli;
+        return this.refCli;
     }
 
     /**
-     * @brief Default getter
+     * @brief 	Default getter
      * 
-     * @return  clientName
+     * @return	Client Name
      */
     public String getClientName() 
     {
-        return clientName;
+        return this.clientName;
     }
 }
-    
