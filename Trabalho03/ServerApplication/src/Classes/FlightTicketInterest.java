@@ -18,7 +18,7 @@ import RMI.ClientInterface;
 /**
  * @brief   Class responsible for storing the flight ticket interest info from the clients
  */
-public class FlightTicketInterest 
+public class FlightTicketInterest implements Serializable
 {
     /**
      * @brief	Instance of flight ticket

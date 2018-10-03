@@ -16,7 +16,7 @@ import RMI.ClientInterface;
 /**
  * @brief   Class responsible for storing the accommodation interest info from the clients
  */
-public class AccommodationInterest 
+public class AccommodationInterest implements Serializable
 {
     /**
      * @brief	Member containing an instance of Accommodation
