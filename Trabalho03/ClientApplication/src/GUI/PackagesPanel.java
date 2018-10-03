@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -125,6 +126,11 @@ public class PackagesPanel extends JPanel
 	 * @brief	Member containing the search button
 	 */
 	private JButton 		  buttonSearch;
+
+	/**
+	 * @brief	Member containing the register interest button
+	 */
+	private JButton 		  buttonInterest;
 	
 	/**
 	 * @brief	Member containing the label "Round Trip"
@@ -473,6 +479,7 @@ public class PackagesPanel extends JPanel
 	public void configButton()
 	{
 		buttonSearch = new JButton("Buscar Pacotes");
+		buttonInterest = new JButton("Registrar Interesse");
 		
 		// Settings for the Search Button
 		buttonSearch.setBorder(new BevelBorder(BevelBorder.RAISED, 
@@ -510,8 +517,38 @@ public class PackagesPanel extends JPanel
 				}
 			}
 		});
+
+		// Settings for the Register Interest Button
+		buttonInterest.setBorder(new BevelBorder(BevelBorder.RAISED, 
+											   null, 
+											   null, 
+											   null, 
+											   null));
+		
+		buttonInterest.setBackground(new Color(238, 238, 238));
+		buttonInterest.setBounds(10, 330,
+							   350, 30);
+
+		buttonInterest.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				if(checkForEmptyFields())
+				{
+					JOptionPane.showMessageDialog(new JFrame(),
+												  "Existem Campos não preenchidos!", 
+												  "Erro",
+												  JOptionPane.ERROR_MESSAGE);
+				}
+				else
+				{
+					processInterestButton(arg0);
+				}
+			}
+		});
 		
 		internalPanel.add(buttonSearch);
+		internalPanel.add(buttonInterest);
 	}
 	
 	/**
@@ -788,4 +825,84 @@ public class PackagesPanel extends JPanel
 			insertTableField(list);
 		}
 	}
+
+	/**
+	 * @brief
+	 */
+	private void processInterestButton(java.awt.event.ActionEvent evt) 
+	{
+        JTextField maxPrice = new JTextField();
+        JTextField quantity = new JTextField();
+        JTextField guests = new JTextField();
+        Object[] message = {"Preco total maximo:", maxPrice, "Quantidade:", quantity, "No. de pessoas:", guests};
+
+        int response = JOptionPane.showConfirmDialog(null, message, "Registro de interesse", JOptionPane.OK_CANCEL_OPTION);
+        
+        if (response == JOptionPane.OK_OPTION) 
+        {
+        	FlightTicket flightTicketTo = null;
+        	FlightTicket flightTicketFrom = null;
+        	Accommodation accommodation = null;
+
+            float maxPriceFloat = Float.valueOf(maxPrice.getText());
+            Calendar calendar = Calendar.getInstance();
+		
+			int day 	= datePickerOneWayTrip.getModel().getDay();
+		    int month 	= datePickerOneWayTrip.getModel().getMonth();
+		    int year 	= datePickerOneWayTrip.getModel().getYear();
+		    
+		    calendar.set(year,
+		    			 month,
+		    			 day);
+		    
+			Date goingDate	= calendar.getTime();
+
+			flightTicketTo = new FlightTicket(comboBoxCitySrc.getSelectedItem().toString(),
+											  comboBoxCityDest.getSelectedItem().toString(),
+   					   					 	  goingDate,
+   					   					 	  0,
+   					   					 	  0);
+
+			if(radioButtonRoundWay.isSelected())
+			{
+				day 	= datePickerRoundTrip.getModel().getDay();
+			    month 	= datePickerRoundTrip.getModel().getMonth();
+			    year 	= datePickerRoundTrip.getModel().getYear();
+			    
+			    calendar.set(year,
+			    			 month,
+			    			 day);
+			    
+			    Date returnDate	= calendar.getTime();
+
+			    flightTicketFrom = new FlightTicket(comboBoxCityDest.getSelectedItem().toString(),
+			    								  	comboBoxCitySrc.getSelectedItem().toString(),
+   					   					 	  	  	returnDate,
+   					   					 	  	  	0,
+   					   					 	  	  	0);
+			}
+
+			accommodation = new Accommodation(comboBoxCityDest.getSelectedItem().toString(),
+											  "",
+											  0,
+											  0,
+											  0);
+
+			try 
+            {
+                serverReference.registerPackageInterest(flightTicketTo, 
+                										flightTicketFrom,
+                										accommodation,
+                										Integer.valueOf(quantity.getText()),
+                										maxPriceFloat,
+                										Integer.valueOf(guests.getText()),
+                										clientRMI,
+                										clientRMI.getClientName());
+            } 
+            catch (RemoteException e) 
+			{
+				e.printStackTrace();
+            }
+        }
+    }
 }

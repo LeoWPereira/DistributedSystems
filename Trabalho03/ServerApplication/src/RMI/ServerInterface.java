@@ -140,4 +140,25 @@ public interface ServerInterface extends Remote
                                       float             _desiredPrice,
                                       ClientInterface   _refCli,
                                       String            _clientName)        throws RemoteException;
+
+    /**
+     * @brief   
+     * 
+     * @param   _ticketTo       :
+     * @param   _ticketFrom     :
+     * @param   _accommodation  :
+     * @param   _quantity       :
+     * @param   _desiredPrice   :
+     * @param   _numberOfGuests :
+     * @param   _refCli         :
+     * @param   _clientName     :
+     */
+    public void registerPackageInterest(FlightTicket    _ticketTo,
+                                                     FlightTicket    _ticketFrom,
+                                                     Accommodation   _accommodation,
+                                                     int             _quantity,
+                                                     float           _desiredPrice,
+                                                     int             _numberOfGuests,
+                                                     ClientInterface _refCli,
+                                                     String          _clientName)       throws RemoteException;
 }

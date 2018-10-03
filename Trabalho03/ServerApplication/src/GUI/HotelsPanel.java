@@ -590,6 +590,7 @@ table 							= new JTable();
 										  JOptionPane.INFORMATION_MESSAGE);
 
 			serverRMI.notifyAccommodationInterests(entry);
+			serverRMI.notifyPackageInterests(entry);
 		}
 		catch (NumberFormatException e) 
 		{

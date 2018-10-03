@@ -366,7 +366,7 @@ public class PackageDetailsPanel extends JFrame
 	{
 		JLabel 				labelPrice	= new JLabel("Preco Total (R$):");
 		
-		MaskFormatter 		mask		= new MaskFormatter("R$ ###.##");
+		MaskFormatter 		mask		= new MaskFormatter("R$ ####.##");
 
 		textPrice						= new JFormattedTextField(mask);
 		
