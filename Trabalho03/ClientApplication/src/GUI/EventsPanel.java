@@ -258,6 +258,28 @@ public class EventsPanel extends JPanel
 		}
 		
 		table.setAutoCreateRowSorter(true);
+
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() 
+		{
+			boolean alreadyClicked = false;
+			
+		    public void valueChanged(ListSelectionEvent event) 
+		    {
+		    	if(!alreadyClicked)
+		    	{
+			        if(table.getSelectedRow() > -1)
+			        {
+			        	processTableSelection();
+			        }
+			        
+			        alreadyClicked = true;
+		    	}
+		    	else
+		    	{
+		    		alreadyClicked = false;
+		    	}
+		    }
+		});
 		
 		internalPanel.add(scrollPaneTabela);
 	}
@@ -659,4 +681,38 @@ public class EventsPanel extends JPanel
 							 	   		  row++);
         }
 	}
+
+	/**
+	 * @brief
+	 */
+	public void processTableSelection()
+	{
+		if(radioButtonFlightTicket.isSelected())
+		{
+			FlightTicketInterest ticketInterest = new FlightTicketInterest(table.getValueAt(table.getSelectedRow(), 1).toString(),
+																		   table.getValueAt(table.getSelectedRow(), 2).toString(),
+																		   0,
+																		   table.getValueAt(table.getSelectedRow(), 3).toString(),
+																		   table.getValueAt(table.getSelectedRow(), 4).toString(),
+																		   null,
+																		   "");
+		}
+		else if(radioButtonAccommodation.isSelected())
+		{
+			Accommodation accommodation = new Accommodation(table.getValueAt(table.getSelectedRow(), 0).toString(),
+															table.getValueAt(table.getSelectedRow(), 1).toString(),
+															0,
+															0,
+															0)
+			AccommodationInterest accommodationInterest = new AccommodationInterest(accommodation,
+																					table.getValueAt(table.getSelectedRow(), 2).toString(),
+																					table.getValueAt(table.getSelectedRow(), 3).toString(),
+																					table.getValueAt(table.getSelectedRow(), 4).toString(),
+																					null,
+																					"");
+		}
+		else
+		{
+			//PackageInterest packageInterest = new PackageInterest();
+		}
 }
