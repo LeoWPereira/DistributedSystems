@@ -1,0 +1,5 @@
+<map id="GUI.PackageDetailsPanel.configButton" name="GUI.PackageDetailsPanel.configButton">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_package_details_panel.html#a7fdb4aeffaeb77dfe717f6a6a4dc8cb2" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="281,5,492,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_package_details_panel.html#a0e6fcce7268fb69838a25465f4d01b10" title="GUI.PackageDetailsPanel.processBuy" alt="" coords="264,71,509,98"/>
+<area shape="rect" id="node4" href="$interface_r_m_i_1_1_server_interface.html#a7c04e790b3210776a303a0b35c5bcc7e" title="RMI.ServerInterface.buyPackage" alt="" coords="557,71,768,98"/>
+</map>

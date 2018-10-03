@@ -1,0 +1,10 @@
+<map id="GUI.MainJFrame.main" name="GUI.MainJFrame.main">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_main_j_frame.html#accd966b5f269560671a3d7cf2c855a0f" title="GUI.MainJFrame.initRMI" alt="" coords="233,56,395,83"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_main_j_frame.html#a6a84c5025c5d37bc74670619dcec8606" title="Create the Frame and defines its initial settings. " alt="" coords="217,107,411,133"/>
+<area shape="rect" id="node8" href="$class_database_1_1_d_b_connection.html#a56e17be5b4c6592d2fcb58490be46690" title="Database.DBConnection.configure\lDatabase" alt="" coords="204,190,424,231"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_main_j_frame.html#af53a45f7671b9fad05de521cac3a4236" title="Main Frame initial settings. " alt="" coords="475,5,702,32"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_main_j_frame.html#a44c3eb96ec29be5f6135c85a27a298bc" title="Create and configure the Main Menu (Upper Menu) " alt="" coords="493,56,684,83"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_main_j_frame.html#aa714de048e3171306e72cfb772220d45" title="Create and configure the Internal Menu. " alt="" coords="472,107,705,133"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_main_j_frame.html#a8cf1e8bd16c2cdaa40a557fe23fb1681" title="Create and configure the Internal Panel. " alt="" coords="488,158,689,199"/>
+<area shape="rect" id="node9" href="$class_database_1_1_d_b_connection.html#a9c7fe69d5e2603941a839a47fb62a6a1" title="Database.DBConnection.connect\lToDatabase" alt="" coords="481,223,696,265"/>
+</map>

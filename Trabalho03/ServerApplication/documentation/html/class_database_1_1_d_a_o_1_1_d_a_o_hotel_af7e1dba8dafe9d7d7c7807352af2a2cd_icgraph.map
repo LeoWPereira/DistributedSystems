@@ -1,0 +1,12 @@
+<map id="Database.DAO.DAOHotel.searchHotelByCity" name="Database.DAO.DAOHotel.searchHotelByCity">
+<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a360b6e3176c2836b61d174c93b8c05bf" title="Database.Controller.Ctrl\lHotel.searchHotelByCity" alt="" coords="268,71,432,112"/>
+<area shape="rect" id="node3" href="$class_r_m_i_1_1_server_servent.html#a97247b9897e33cd867fca57c87e64547" title="RMI.ServerServent.search\lHotelByCity" alt="" coords="480,5,651,47"/>
+<area shape="rect" id="node4" href="$class_r_m_i_1_1_server_servent.html#a5b72ac79548be0c93d3fe4ebf4b92b31" title="RMI.ServerServent.search\lPackages" alt="" coords="480,71,651,112"/>
+<area shape="rect" id="node5" href="$class_r_m_i_1_1_server_servent.html#a7cb189e0936a72ba836b7be9fe5cd01d" title="RMI.ServerServent.notify\lPackageInterests" alt="" coords="484,136,647,177"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143" title="GUI.HotelsPanel.processRegistry" alt="" coords="699,114,915,141"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_passages_panel.html#ae479ab4e58a40bea8baaed60eebfb56b" title="GUI.PassagesPanel.process\lRegistry" alt="" coords="712,165,901,207"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="963,114,1157,141"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_hotels_panel.html#a0d35b266df47cc7ccbfa28287b06f580" title="Default Constructor. " alt="" coords="1210,114,1402,141"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="971,165,1149,207"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_passages_panel.html#a5ac30f327213e2ba360a37266daf7a86" title="Default Constructor. " alt="" coords="1205,165,1407,207"/>
+</map>

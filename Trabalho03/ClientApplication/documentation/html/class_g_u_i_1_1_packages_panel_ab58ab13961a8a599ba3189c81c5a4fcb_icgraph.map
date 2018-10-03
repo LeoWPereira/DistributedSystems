@@ -1,3 +1,6 @@
 <map id="GUI.PackagesPanel.configTable" name="GUI.PackagesPanel.configTable">
-<area shape="rect" id="node2" href="$class_g_u_i_1_1_packages_panel.html#a4e89e96323f06d4a6d0a116fa28b6155" title="Default Constructor. " alt="" coords="231,5,432,47"/>
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_packages_panel.html#a965d2ef3875b410bf3374ae298d9d229" title="Default Constructor. " alt="" coords="947,7,1148,48"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_packages_panel.html#a22373f4c94856b8376458bf9aa14f0be" title="GUI.PackagesPanel.cleanTable" alt="" coords="231,39,436,66"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_packages_panel.html#af208e95e50804a59ab9ad7a50bdeb185" title="GUI.PackagesPanel.process\lSearchButton" alt="" coords="484,36,673,77"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_packages_panel.html#a8aaa2e65f62b9c58c70b01eefa4edd7e" title="This method will handle the initial configurations to the Search Button. " alt="" coords="721,36,899,77"/>
 </map>

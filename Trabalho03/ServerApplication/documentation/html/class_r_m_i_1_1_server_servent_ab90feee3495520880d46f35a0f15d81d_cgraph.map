@@ -1,0 +1,10 @@
+<map id="RMI.ServerServent.reserveHotel" name="RMI.ServerServent.reserveHotel">
+<area shape="rect" id="node2" href="$class_database_1_1_d_b_connection.html#a56e17be5b4c6592d2fcb58490be46690" title="Database.DBConnection.configure\lDatabase" alt="" coords="227,5,447,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a17c2ccd0c25e605ced62242b3268f471" title="Database.Controller.Ctrl\lHotel.getQuantityLeft" alt="" coords="257,136,417,177"/>
+<area shape="rect" id="node8" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#af2c203105337b96a2ab4670b896fff69" title="Database.Controller.Ctrl\lHotel.updateQuantity" alt="" coords="257,71,417,112"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_b_connection.html#a9c7fe69d5e2603941a839a47fb62a6a1" title="Database.DBConnection.connect\lToDatabase" alt="" coords="495,5,709,47"/>
+<area shape="rect" id="node5" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a94d3971af9d110eae5f8ec137b38c031" title="Database.DAO.DAOHotel.get\lQuantityLeft" alt="" coords="505,136,699,177"/>
+<area shape="rect" id="node6" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="757,71,944,112"/>
+<area shape="rect" id="node7" href="$class_database_1_1_d_b_connection.html#a385dfe5fc7d14047401a41c1d3c3aee6" title="Database.DBConnection.get\lHotelDBName" alt="" coords="757,136,944,177"/>
+<area shape="rect" id="node9" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a4630e672e708eedc039d49f199287857" title="Database.DAO.DAOHotel.update\lQuantity" alt="" coords="495,71,709,112"/>
+</map>

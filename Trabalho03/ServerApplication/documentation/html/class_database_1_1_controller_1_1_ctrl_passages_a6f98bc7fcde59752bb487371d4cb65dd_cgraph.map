@@ -1,0 +1,5 @@
+<map id="Database.Controller.CtrlPassages.deleteEntry" name="Database.Controller.CtrlPassages.deleteEntry">
+<area shape="rect" id="node2" href="$class_database_1_1_d_a_o_1_1_d_a_o_passages.html#acb17049bd5499df07ba1a9c6358b44fd" title="Database.DAO.DAOPassages.delete\lEntry" alt="" coords="213,39,452,80"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="500,5,687,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a68765d9f0ce16803dbde892c0567d12a" title="Database.DBConnection.get\lPassagesDBName" alt="" coords="500,71,687,112"/>
+</map>

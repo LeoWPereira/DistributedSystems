@@ -1,0 +1,6 @@
+<map id="Database.Controller.CtrlPassages.createTable" name="Database.Controller.CtrlPassages.createTable">
+<area shape="rect" id="node2" href="$class_database_1_1_d_a_o_1_1_d_a_o_passages.html#ad1b7bf80f4310d4a56f8ec816abb8e78" title="Database.DAO.DAOPassages.create\lTable" alt="" coords="213,37,452,79"/>
+<area shape="rect" id="node5" href="$class_database_1_1_d_a_o_1_1_d_a_o_passages.html#a2e2f196fcf67174c153d2f2f9e9ef401" title="Database.DAO.DAOPassages.add\lUniqueValues" alt="" coords="221,103,445,144"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="500,5,687,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a68765d9f0ce16803dbde892c0567d12a" title="Database.DBConnection.get\lPassagesDBName" alt="" coords="500,71,687,112"/>
+</map>

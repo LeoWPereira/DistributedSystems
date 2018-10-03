@@ -1,0 +1,10 @@
+<map id="GUI.EventsPanel.insertTableFieldPackage" name="GUI.EventsPanel.insertTableFieldPackage">
+<area shape="rect" id="node2" href="$class_classes_1_1_package_interest.html#ab756b8b3fd6ed10306f6d55d2633a385" title="Return if a ticket is a return ticket (not one&#45;way) " alt="" coords="257,5,439,47"/>
+<area shape="rect" id="node3" href="$class_classes_1_1_package_interest.html#a67eda797265e516c9a9c76340ff60547" title="Get the source of the ticket interest. " alt="" coords="253,71,443,112"/>
+<area shape="rect" id="node5" href="$class_classes_1_1_package_interest.html#a47f4427dca49a8e349f7dcc173c182e0" title="Get the destination of the ticket interest. " alt="" coords="240,137,456,163"/>
+<area shape="rect" id="node7" href="$class_classes_1_1_package_interest.html#aef979cfdba473ba98e58f19495be5399" title="Default getter. " alt="" coords="253,188,443,229"/>
+<area shape="rect" id="node8" href="$class_classes_1_1_package_interest.html#a7956db7bd05b73e5d2836d78612296fa" title="Default getter. " alt="" coords="253,253,443,295"/>
+<area shape="rect" id="node9" href="$class_classes_1_1_package_interest.html#aaa7f5285a2951b8ed01b4c00543804ec" title="Default getter. " alt="" coords="253,319,443,360"/>
+<area shape="rect" id="node4" href="$class_classes_1_1_flight_ticket.html#ab9ac021ba2214ea1fa953f6819861a77" title="Default getter. " alt="" coords="517,71,680,112"/>
+<area shape="rect" id="node6" href="$class_classes_1_1_flight_ticket.html#ae999ed81960bb15dd8fabc885a027122" title="Default getter. " alt="" coords="504,137,693,163"/>
+</map>

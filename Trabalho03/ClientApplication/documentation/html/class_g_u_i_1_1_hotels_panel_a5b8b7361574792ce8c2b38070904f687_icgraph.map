@@ -1,0 +1,5 @@
+<map id="GUI.HotelsPanel.cleanTable" name="GUI.HotelsPanel.cleanTable">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotels_panel.html#afddf1726a0c4cc7fe81037a4780ed727" title="GUI.HotelsPanel.processSearch\lButton" alt="" coords="237,5,447,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="495,13,689,39"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_hotels_panel.html#a6c7894197e374d641008c9d7dc730957" title="Default Constructor. " alt="" coords="737,13,929,39"/>
+</map>

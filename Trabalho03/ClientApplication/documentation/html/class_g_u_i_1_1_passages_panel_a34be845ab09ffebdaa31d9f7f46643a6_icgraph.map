@@ -1,0 +1,7 @@
+<map id="GUI.PassagesPanel.processTableSelection" name="GUI.PassagesPanel.processTableSelection">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_passages_panel.html#ac4f61a92d8f602b26a10d7d58b757235" title="The method will handle the initial settings for the table. " alt="" coords="243,5,420,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_passages_panel.html#a070bc6f31210934eb1d5555ee9b654cd" title="Default Constructor. " alt="" coords="1184,7,1385,48"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_passages_panel.html#af29eaeedaabcbad87ac6fa4cf80a5a4e" title="GUI.PassagesPanel.cleanTable" alt="" coords="468,39,673,66"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_passages_panel.html#a1131fcaa0642d79d0b3909b0ce3c8a52" title="GUI.PassagesPanel.process\lSearchButton" alt="" coords="721,36,911,77"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="959,36,1136,77"/>
+</map>

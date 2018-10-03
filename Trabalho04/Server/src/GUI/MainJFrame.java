@@ -424,13 +424,5 @@ public class MainJFrame extends JFrame
 		travelAgencyWebServiceImpl 	= new TravelAgencyServiceImplService();
    
 		travelAgencyWebService 		= travelAgencyWebServiceImpl.getTravelAgencyServiceImplPort();
-  
-		/*
-		System.out.println(travelAgencyWebService.hello("Teste"));
-   
-		AccommodationManager list = travelAgencyWebService.searchHotelByCity("Curitiba");
-	   
-		System.out.println(list.getAccommodationList().get(0).getAccommodationName());
-		*/
 	}
 }

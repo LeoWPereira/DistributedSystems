@@ -1,0 +1,5 @@
+<map id="RMI.ServerInterface.buyPassage" name="RMI.ServerInterface.buyPassage">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_passages_details_panel.html#a4198fbd90d879f9f0a8478b8de2f22a4" title="GUI.PassagesDetailsPanel.processBuy" alt="" coords="264,13,516,39"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_passages_details_panel.html#acf6853bb0dc63783c197b9133d0a34a7" title="GUI.PassagesDetailsPanel.config\lButton" alt="" coords="564,5,781,47"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_passages_details_panel.html#adce3d8172c53d519f596ae5b75322809" title="GUI.PassagesDetailsPanel.\lPassagesDetailsPanel" alt="" coords="829,5,1012,47"/>
+</map>

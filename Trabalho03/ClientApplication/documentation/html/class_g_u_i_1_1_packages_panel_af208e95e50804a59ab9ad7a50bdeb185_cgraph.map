@@ -1,0 +1,16 @@
+<map id="GUI.PackagesPanel.processSearchButton" name="GUI.PackagesPanel.processSearchButton">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_packages_panel.html#a22373f4c94856b8376458bf9aa14f0be" title="GUI.PackagesPanel.cleanTable" alt="" coords="243,35,448,62"/>
+<area shape="rect" id="node5" href="$interface_r_m_i_1_1_server_interface.html#a232b714007b90ce85c09f1a2bca473d8" title="RMI.ServerInterface.search\lPackages" alt="" coords="257,131,434,172"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_packages_panel.html#ad566e3c89978694bdf3abd936e2f422e" title="GUI.PackagesPanel.insert\lTableField" alt="" coords="258,283,433,324"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_packages_panel.html#ab58ab13961a8a599ba3189c81c5a4fcb" title="The method will handle the initial settings for the table. " alt="" coords="531,5,708,47"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_packages_panel.html#a53b5fe5d2123cdda04567db481012231" title="GUI.PackagesPanel.process\lTableSelection" alt="" coords="791,5,980,47"/>
+<area shape="rect" id="node7" href="$class_classes_1_1_packages.html#a9f4d08b67683ae5eb556366a75b95134" title="Default getter. " alt="" coords="527,71,712,112"/>
+<area shape="rect" id="node8" href="$class_classes_1_1_flight_ticket.html#ab9ac021ba2214ea1fa953f6819861a77" title="Default getter. " alt="" coords="538,136,701,177"/>
+<area shape="rect" id="node9" href="$class_classes_1_1_flight_ticket.html#ae999ed81960bb15dd8fabc885a027122" title="Default getter. " alt="" coords="525,202,714,229"/>
+<area shape="rect" id="node10" href="$class_classes_1_1_packages.html#a489cccc35b66334b76082f22ea0066e5" title="Default getter. " alt="" coords="496,253,743,279"/>
+<area shape="rect" id="node11" href="$class_classes_1_1_accommodation.html#a70177d66378aa500361fe9479d06ae13" title="Default getter. " alt="" coords="525,304,714,345"/>
+<area shape="rect" id="node12" href="$class_classes_1_1_flight_ticket.html#ae257c63626b37899d9358edf1b43a320" title="Default getter. " alt="" coords="804,407,967,448"/>
+<area shape="rect" id="node13" href="$class_classes_1_1_packages.html#a01402e57faaa90bf795d4850fdf608b6" title="Default getter. " alt="" coords="527,421,712,463"/>
+<area shape="rect" id="node14" href="$class_classes_1_1_accommodation.html#a155d63b488a2037a6fc95095671e04f0" title="Default getter. " alt="" coords="791,516,980,557"/>
+<area shape="rect" id="node15" href="$class_classes_1_1_packages.html#ab771142598cb7d980b02f21f07c61a86" title="Get the total price of the package. " alt="" coords="529,487,710,528"/>
+</map>

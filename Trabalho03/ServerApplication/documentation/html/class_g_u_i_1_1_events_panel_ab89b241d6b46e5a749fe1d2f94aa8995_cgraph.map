@@ -1,0 +1,5 @@
+<map id="GUI.EventsPanel.showAccommodationInterest" name="GUI.EventsPanel.showAccommodationInterest">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="301,5,553,47"/>
+<area shape="rect" id="node3" href="$class_r_m_i_1_1_server_servent.html#a6a9bea26ffcb148b3bcfe2bd093b5819" title="RMI.ServerServent.getAccommodation\lInterestList" alt="" coords="305,71,549,112"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#a3405a4a86e89cc527cb5578b0ff81f02" title="GUI.EventsPanel.insertTable\lFieldAccommodation" alt="" coords="334,136,521,177"/>
+</map>

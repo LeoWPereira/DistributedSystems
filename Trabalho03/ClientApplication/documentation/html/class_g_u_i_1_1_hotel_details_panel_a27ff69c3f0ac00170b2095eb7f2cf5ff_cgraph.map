@@ -1,0 +1,5 @@
+<map id="GUI.HotelDetailsPanel.configButton" name="GUI.HotelDetailsPanel.configButton">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotel_details_panel.html#a524dc4c20c48c7955138a526356052ae" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="248,5,439,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotel_details_panel.html#a602a8c373a33236df4d4016c77b2e2e7" title="GUI.HotelDetailsPanel.process\lReserve" alt="" coords="243,71,444,112"/>
+<area shape="rect" id="node4" href="$interface_r_m_i_1_1_server_interface.html#a3e93cf1b9dded24a260f50ebdecad688" title="RMI.ServerInterface.reserve\lHotel" alt="" coords="492,71,671,112"/>
+</map>

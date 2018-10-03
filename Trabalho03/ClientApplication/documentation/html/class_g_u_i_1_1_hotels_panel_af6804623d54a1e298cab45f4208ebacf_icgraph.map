@@ -1,0 +1,6 @@
+<map id="GUI.HotelsPanel.insertTableField" name="GUI.HotelsPanel.insertTableField">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotels_panel.html#a6fb20c0b1acf3d0a7384ef23ed7a297e" title="GUI.HotelsPanel.insertTable\lField" alt="" coords="251,5,436,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotels_panel.html#afddf1726a0c4cc7fe81037a4780ed727" title="GUI.HotelsPanel.processSearch\lButton" alt="" coords="239,71,448,112"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="496,78,691,105"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_hotels_panel.html#a6c7894197e374d641008c9d7dc730957" title="Default Constructor. " alt="" coords="739,78,931,105"/>
+</map>

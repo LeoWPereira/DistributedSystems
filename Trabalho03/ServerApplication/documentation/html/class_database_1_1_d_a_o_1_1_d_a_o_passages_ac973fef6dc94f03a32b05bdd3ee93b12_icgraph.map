@@ -1,0 +1,5 @@
+<map id="Database.DAO.DAOPassages.getQuantityLeft" name="Database.DAO.DAOPassages.getQuantityLeft">
+<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_passages.html#a0539f55045130fa4b3a161130e72f505" title="Database.Controller.Ctrl\lPassages.getQuantityLeft" alt="" coords="275,23,447,65"/>
+<area shape="rect" id="node3" href="$class_r_m_i_1_1_server_servent.html#a74b5b269df93e78502d8ea5dd7a51458" title="RMI.ServerServent.buyPassage" alt="" coords="495,5,699,32"/>
+<area shape="rect" id="node4" href="$class_r_m_i_1_1_server_servent.html#af8fc64094194a59fa83f69d0898ced99" title="RMI.ServerServent.buyPackage" alt="" coords="495,56,699,83"/>
+</map>

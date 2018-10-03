@@ -1,0 +1,5 @@
+<map id="Database.Controller.CtrlHotel.insertEntry" name="Database.Controller.CtrlHotel.insertEntry">
+<area shape="rect" id="node2" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a7d3279be042a9208a8e42d4314f5f4ab" title="Database.DAO.DAOHotel.insert\lEntry" alt="" coords="213,39,420,80"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="468,5,655,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a385dfe5fc7d14047401a41c1d3c3aee6" title="Database.DBConnection.get\lHotelDBName" alt="" coords="468,71,655,112"/>
+</map>

@@ -55,23 +55,115 @@ $(function() {
 Inheritance diagram for RMI.ServerInterface:</div>
 <div class="dyncontent">
 <div class="center"><img src="interface_r_m_i_1_1_server_interface__inherit__graph.png" border="0" usemap="#_r_m_i_8_server_interface_inherit__map" alt="Inheritance graph"/></div>
-<map name="_r_m_i_8_server_interface_inherit__map" id="_r_m_i_8_server_interface_inherit__map">
-</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for RMI.ServerInterface:</div>
 <div class="dyncontent">
 <div class="center"><img src="interface_r_m_i_1_1_server_interface__coll__graph.png" border="0" usemap="#_r_m_i_8_server_interface_coll__map" alt="Collaboration graph"/></div>
-<map name="_r_m_i_8_server_interface_coll__map" id="_r_m_i_8_server_interface_coll__map">
-</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1f391f6a77c18d99ec90d3f6df3649d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a1f391f6a77c18d99ec90d3f6df3649d9">call</a> (String clientName, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> refCli)  throws RemoteException</td></tr>
 <tr class="separator:a1f391f6a77c18d99ec90d3f6df3649d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a234d677924e2275ea9443abed0da212b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_classes_1_1_flight_ticket_manager.html">FlightTicketManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a234d677924e2275ea9443abed0da212b">searchPassages</a> (String _source, String _dest, Date _date)  throws RemoteException</td></tr>
+<tr class="separator:a234d677924e2275ea9443abed0da212b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e57e9f82229919754b12d24be7b0f7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_classes_1_1_accommodation_manager.html">AccommodationManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a2e57e9f82229919754b12d24be7b0f7e">searchHotelByCity</a> (String _city)  throws RemoteException</td></tr>
+<tr class="separator:a2e57e9f82229919754b12d24be7b0f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd4c7e0436bfc29dddc8bef389e833e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_classes_1_1_accommodation_manager.html">AccommodationManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#abd4c7e0436bfc29dddc8bef389e833e2">searchHotelByName</a> (String _hotel)  throws RemoteException</td></tr>
+<tr class="separator:abd4c7e0436bfc29dddc8bef389e833e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad29724073bf40954e45ed7367973623"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#aad29724073bf40954e45ed7367973623">buyPassage</a> (<a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticket)  throws RemoteException</td></tr>
+<tr class="separator:aad29724073bf40954e45ed7367973623"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e93cf1b9dded24a260f50ebdecad688"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a3e93cf1b9dded24a260f50ebdecad688">reserveHotel</a> (<a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a> _hotel)  throws RemoteException</td></tr>
+<tr class="separator:a3e93cf1b9dded24a260f50ebdecad688"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a232b714007b90ce85c09f1a2bca473d8"><td class="memItemLeft" align="right" valign="top">ArrayList&lt; <a class="el" href="class_classes_1_1_packages.html">Packages</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a232b714007b90ce85c09f1a2bca473d8">searchPackages</a> (<a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> flightTicketGoing, <a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> flightTicketReturn, <a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a> accommodation)  throws RemoteException</td></tr>
+<tr class="separator:a232b714007b90ce85c09f1a2bca473d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c04e790b3210776a303a0b35c5bcc7e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a7c04e790b3210776a303a0b35c5bcc7e">buyPackage</a> (<a class="el" href="class_classes_1_1_packages.html">Packages</a> _package)  throws RemoteException</td></tr>
+<tr class="separator:a7c04e790b3210776a303a0b35c5bcc7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02641491638467608e377ddeb41adabb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a02641491638467608e377ddeb41adabb">registerPassageInterest</a> (<a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticketTo, <a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticketFrom, int _quantity, float _desiredPrice, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> _refCli, String _clientName)  throws RemoteException</td></tr>
+<tr class="separator:a02641491638467608e377ddeb41adabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42a5aefb640971b653ed0ab79518794f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a42a5aefb640971b653ed0ab79518794f">registerHotelInterest</a> (<a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a> _hotel, int _quantity, int _numberOfGuests, float _desiredPrice, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> _refCli, String _clientName)  throws RemoteException</td></tr>
+<tr class="separator:a42a5aefb640971b653ed0ab79518794f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d75d415cd3cd410828d19e3bb3933a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#ad9d75d415cd3cd410828d19e3bb3933a">registerPackageInterest</a> (<a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticketTo, <a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticketFrom, <a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a> _accommodation, int _quantity, float _desiredPrice, int _numberOfGuests, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> _refCli, String _clientName)  throws RemoteException</td></tr>
+<tr class="separator:ad9d75d415cd3cd410828d19e3bb3933a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad121093d35f68d8097a4d4c559035c84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#ad121093d35f68d8097a4d4c559035c84">unregisterTicketInterest</a> (<a class="el" href="class_classes_1_1_flight_ticket_interest.html">FlightTicketInterest</a> interest)  throws RemoteException</td></tr>
+<tr class="separator:ad121093d35f68d8097a4d4c559035c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a370ad2776334419dd2d7cc4e9fcd7338"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a370ad2776334419dd2d7cc4e9fcd7338">unregisterAccommodationInterest</a> (<a class="el" href="class_classes_1_1_accommodation_interest.html">AccommodationInterest</a> interest)  throws RemoteException</td></tr>
+<tr class="separator:a370ad2776334419dd2d7cc4e9fcd7338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a757d59a905b201ae2fc62252127b52af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a757d59a905b201ae2fc62252127b52af">unregisterPackageInterest</a> (<a class="el" href="class_classes_1_1_package_interest.html">PackageInterest</a> interest)  throws RemoteException</td></tr>
+<tr class="separator:a757d59a905b201ae2fc62252127b52af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7c04e790b3210776a303a0b35c5bcc7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c04e790b3210776a303a0b35c5bcc7e">&#9670;&nbsp;</a></span>buyPackage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RMI.ServerInterface.buyPackage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_packages.html">Packages</a>&#160;</td>
+          <td class="paramname"><em>_package</em></td><td>)</td>
+          <td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_package</td><td>:</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_r_m_i_1_1_server_interface_a7c04e790b3210776a303a0b35c5bcc7e_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_a7c04e790b3210776a303a0b35c5bcc7e_icgraph" alt=""/></div>
+<map name="interface_r_m_i_1_1_server_interface_a7c04e790b3210776a303a0b35c5bcc7e_icgraph" id="interface_r_m_i_1_1_server_interface_a7c04e790b3210776a303a0b35c5bcc7e_icgraph">
+<area shape="rect" id="node2" href="class_g_u_i_1_1_package_details_panel.html#a0e6fcce7268fb69838a25465f4d01b10" title="GUI.PackageDetailsPanel.processBuy" alt="" coords="264,13,509,39"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_package_details_panel.html#a58663ab1e28ce06ac16881c513ae4155" title="GUI.PackageDetailsPanel.config\lButton" alt="" coords="557,5,768,47"/>
+<area shape="rect" id="node4" href="class_g_u_i_1_1_package_details_panel.html#a09ac099876d5ca0913b50f50c82e203f" title="GUI.PackageDetailsPanel.\lPackageDetailsPanel" alt="" coords="816,5,992,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aad29724073bf40954e45ed7367973623"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad29724073bf40954e45ed7367973623">&#9670;&nbsp;</a></span>buyPassage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean RMI.ServerInterface.buyPassage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
+          <td class="paramname"><em>_ticket</em></td><td>)</td>
+          <td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_ticket</td><td>:</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_r_m_i_1_1_server_interface_aad29724073bf40954e45ed7367973623_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_aad29724073bf40954e45ed7367973623_icgraph" alt=""/></div>
+<map name="interface_r_m_i_1_1_server_interface_aad29724073bf40954e45ed7367973623_icgraph" id="interface_r_m_i_1_1_server_interface_aad29724073bf40954e45ed7367973623_icgraph">
+<area shape="rect" id="node2" href="class_g_u_i_1_1_passages_details_panel.html#a4198fbd90d879f9f0a8478b8de2f22a4" title="GUI.PassagesDetailsPanel.processBuy" alt="" coords="264,13,516,39"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_passages_details_panel.html#acf6853bb0dc63783c197b9133d0a34a7" title="GUI.PassagesDetailsPanel.config\lButton" alt="" coords="564,5,781,47"/>
+<area shape="rect" id="node4" href="class_g_u_i_1_1_passages_details_panel.html#adce3d8172c53d519f596ae5b75322809" title="GUI.PassagesDetailsPanel.\lPassagesDetailsPanel" alt="" coords="829,5,1012,47"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a1f391f6a77c18d99ec90d3f6df3649d9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f391f6a77c18d99ec90d3f6df3649d9">&#9670;&nbsp;</a></span>call()</h2>
 
@@ -99,11 +191,555 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">clientName</td><td>- </td></tr>
-    <tr><td class="paramname">refCli</td><td>- </td></tr>
+    <tr><td class="paramname">clientName</td><td></td></tr>
+    <tr><td class="paramname">refCli</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_r_m_i_1_1_server_interface_a1f391f6a77c18d99ec90d3f6df3649d9_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_a1f391f6a77c18d99ec90d3f6df3649d9_icgraph" alt=""/></div>
+<map name="interface_r_m_i_1_1_server_interface_a1f391f6a77c18d99ec90d3f6df3649d9_icgraph" id="interface_r_m_i_1_1_server_interface_a1f391f6a77c18d99ec90d3f6df3649d9_icgraph">
+<area shape="rect" id="node2" href="class_r_m_i_1_1_client_servent.html#a2a8e0b6f6fd410dd13e652353de1ecd0" title="RMI.ClientServent.Client\lServent" alt="" coords="212,5,375,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a42a5aefb640971b653ed0ab79518794f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42a5aefb640971b653ed0ab79518794f">&#9670;&nbsp;</a></span>registerHotelInterest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RMI.ServerInterface.registerHotelInterest </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a>&#160;</td>
+          <td class="paramname"><em>_hotel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_quantity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_numberOfGuests</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>_desiredPrice</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a>&#160;</td>
+          <td class="paramname"><em>_refCli</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>_clientName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_hotel</td><td>: </td></tr>
+    <tr><td class="paramname">_quantity</td><td>: </td></tr>
+    <tr><td class="paramname">_numberOfGuests</td><td>: </td></tr>
+    <tr><td class="paramname">_desiredPrice</td><td>: </td></tr>
+    <tr><td class="paramname">_refCli</td><td>: </td></tr>
+    <tr><td class="paramname">_clientName</td><td>: </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad9d75d415cd3cd410828d19e3bb3933a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9d75d415cd3cd410828d19e3bb3933a">&#9670;&nbsp;</a></span>registerPackageInterest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RMI.ServerInterface.registerPackageInterest </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
+          <td class="paramname"><em>_ticketTo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
+          <td class="paramname"><em>_ticketFrom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a>&#160;</td>
+          <td class="paramname"><em>_accommodation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_quantity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>_desiredPrice</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_numberOfGuests</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a>&#160;</td>
+          <td class="paramname"><em>_refCli</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>_clientName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_ticketTo</td><td>: </td></tr>
+    <tr><td class="paramname">_ticketFrom</td><td>: </td></tr>
+    <tr><td class="paramname">_accommodation</td><td>: </td></tr>
+    <tr><td class="paramname">_quantity</td><td>: </td></tr>
+    <tr><td class="paramname">_desiredPrice</td><td>: </td></tr>
+    <tr><td class="paramname">_numberOfGuests</td><td>: </td></tr>
+    <tr><td class="paramname">_refCli</td><td>: </td></tr>
+    <tr><td class="paramname">_clientName</td><td>: </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a02641491638467608e377ddeb41adabb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02641491638467608e377ddeb41adabb">&#9670;&nbsp;</a></span>registerPassageInterest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RMI.ServerInterface.registerPassageInterest </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
+          <td class="paramname"><em>_ticketTo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
+          <td class="paramname"><em>_ticketFrom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_quantity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>_desiredPrice</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a>&#160;</td>
+          <td class="paramname"><em>_refCli</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>_clientName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_ticket</td><td>: </td></tr>
+    <tr><td class="paramname">_ticketFrom</td><td>: </td></tr>
+    <tr><td class="paramname">_quantity</td><td>: </td></tr>
+    <tr><td class="paramname">_desiredPrice</td><td>: </td></tr>
+    <tr><td class="paramname">_refCli</td><td>: </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3e93cf1b9dded24a260f50ebdecad688"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e93cf1b9dded24a260f50ebdecad688">&#9670;&nbsp;</a></span>reserveHotel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean RMI.ServerInterface.reserveHotel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a>&#160;</td>
+          <td class="paramname"><em>_hotel</em></td><td>)</td>
+          <td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_hotel</td><td>:</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_r_m_i_1_1_server_interface_a3e93cf1b9dded24a260f50ebdecad688_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_a3e93cf1b9dded24a260f50ebdecad688_icgraph" alt=""/></div>
+<map name="interface_r_m_i_1_1_server_interface_a3e93cf1b9dded24a260f50ebdecad688_icgraph" id="interface_r_m_i_1_1_server_interface_a3e93cf1b9dded24a260f50ebdecad688_icgraph">
+<area shape="rect" id="node2" href="class_g_u_i_1_1_hotel_details_panel.html#a602a8c373a33236df4d4016c77b2e2e7" title="GUI.HotelDetailsPanel.process\lReserve" alt="" coords="232,5,433,47"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_hotel_details_panel.html#a27ff69c3f0ac00170b2095eb7f2cf5ff" title="GUI.HotelDetailsPanel.config\lButton" alt="" coords="481,5,671,47"/>
+<area shape="rect" id="node4" href="class_g_u_i_1_1_hotel_details_panel.html#a76dc5d06a7d1bd32b65d1516bdec8ee2" title="GUI.HotelDetailsPanel.Hotel\lDetailsPanel" alt="" coords="719,5,904,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2e57e9f82229919754b12d24be7b0f7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e57e9f82229919754b12d24be7b0f7e">&#9670;&nbsp;</a></span>searchHotelByCity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_classes_1_1_accommodation_manager.html">AccommodationManager</a> RMI.ServerInterface.searchHotelByCity </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>_city</em></td><td>)</td>
+          <td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_city</td><td>:</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_r_m_i_1_1_server_interface_a2e57e9f82229919754b12d24be7b0f7e_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_a2e57e9f82229919754b12d24be7b0f7e_icgraph" alt=""/></div>
+<map name="interface_r_m_i_1_1_server_interface_a2e57e9f82229919754b12d24be7b0f7e_icgraph" id="interface_r_m_i_1_1_server_interface_a2e57e9f82229919754b12d24be7b0f7e_icgraph">
+<area shape="rect" id="node2" href="class_g_u_i_1_1_hotels_panel.html#afddf1726a0c4cc7fe81037a4780ed727" title="GUI.HotelsPanel.processSearch\lButton" alt="" coords="231,5,440,47"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="488,13,683,39"/>
+<area shape="rect" id="node4" href="class_g_u_i_1_1_hotels_panel.html#a6c7894197e374d641008c9d7dc730957" title="Default Constructor. " alt="" coords="731,13,923,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abd4c7e0436bfc29dddc8bef389e833e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd4c7e0436bfc29dddc8bef389e833e2">&#9670;&nbsp;</a></span>searchHotelByName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_classes_1_1_accommodation_manager.html">AccommodationManager</a> RMI.ServerInterface.searchHotelByName </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>_hotel</em></td><td>)</td>
+          <td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_hotel</td><td>:</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_r_m_i_1_1_server_interface_abd4c7e0436bfc29dddc8bef389e833e2_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_abd4c7e0436bfc29dddc8bef389e833e2_icgraph" alt=""/></div>
+<map name="interface_r_m_i_1_1_server_interface_abd4c7e0436bfc29dddc8bef389e833e2_icgraph" id="interface_r_m_i_1_1_server_interface_abd4c7e0436bfc29dddc8bef389e833e2_icgraph">
+<area shape="rect" id="node2" href="class_g_u_i_1_1_hotels_panel.html#afddf1726a0c4cc7fe81037a4780ed727" title="GUI.HotelsPanel.processSearch\lButton" alt="" coords="231,5,440,47"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="488,13,683,39"/>
+<area shape="rect" id="node4" href="class_g_u_i_1_1_hotels_panel.html#a6c7894197e374d641008c9d7dc730957" title="Default Constructor. " alt="" coords="731,13,923,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a232b714007b90ce85c09f1a2bca473d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a232b714007b90ce85c09f1a2bca473d8">&#9670;&nbsp;</a></span>searchPackages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ArrayList&lt;<a class="el" href="class_classes_1_1_packages.html">Packages</a>&gt; RMI.ServerInterface.searchPackages </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
+          <td class="paramname"><em>flightTicketGoing</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
+          <td class="paramname"><em>flightTicketReturn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a>&#160;</td>
+          <td class="paramname"><em>accommodation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flightTicketGoing</td><td>: </td></tr>
+    <tr><td class="paramname">flightTicketReturn</td><td>: </td></tr>
+    <tr><td class="paramname">accommodation</td><td>:</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_r_m_i_1_1_server_interface_a232b714007b90ce85c09f1a2bca473d8_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_a232b714007b90ce85c09f1a2bca473d8_icgraph" alt=""/></div>
+<map name="interface_r_m_i_1_1_server_interface_a232b714007b90ce85c09f1a2bca473d8_icgraph" id="interface_r_m_i_1_1_server_interface_a232b714007b90ce85c09f1a2bca473d8_icgraph">
+<area shape="rect" id="node2" href="class_g_u_i_1_1_packages_panel.html#af208e95e50804a59ab9ad7a50bdeb185" title="GUI.PackagesPanel.process\lSearchButton" alt="" coords="231,5,420,47"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_packages_panel.html#a8aaa2e65f62b9c58c70b01eefa4edd7e" title="This method will handle the initial configurations to the Search Button. " alt="" coords="468,5,645,47"/>
+<area shape="rect" id="node4" href="class_g_u_i_1_1_packages_panel.html#a965d2ef3875b410bf3374ae298d9d229" title="Default Constructor. " alt="" coords="693,5,895,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a234d677924e2275ea9443abed0da212b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a234d677924e2275ea9443abed0da212b">&#9670;&nbsp;</a></span>searchPassages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_classes_1_1_flight_ticket_manager.html">FlightTicketManager</a> RMI.ServerInterface.searchPassages </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>_source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Date&#160;</td>
+          <td class="paramname"><em>_date</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_source</td><td>: </td></tr>
+    <tr><td class="paramname">_dest</td><td>: </td></tr>
+    <tr><td class="paramname">_date</td><td>:</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_r_m_i_1_1_server_interface_a234d677924e2275ea9443abed0da212b_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_a234d677924e2275ea9443abed0da212b_icgraph" alt=""/></div>
+<map name="interface_r_m_i_1_1_server_interface_a234d677924e2275ea9443abed0da212b_icgraph" id="interface_r_m_i_1_1_server_interface_a234d677924e2275ea9443abed0da212b_icgraph">
+<area shape="rect" id="node2" href="class_g_u_i_1_1_passages_panel.html#a1131fcaa0642d79d0b3909b0ce3c8a52" title="GUI.PassagesPanel.process\lSearchButton" alt="" coords="231,5,420,47"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="468,5,645,47"/>
+<area shape="rect" id="node4" href="class_g_u_i_1_1_passages_panel.html#a070bc6f31210934eb1d5555ee9b654cd" title="Default Constructor. " alt="" coords="693,5,895,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a370ad2776334419dd2d7cc4e9fcd7338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a370ad2776334419dd2d7cc4e9fcd7338">&#9670;&nbsp;</a></span>unregisterAccommodationInterest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RMI.ServerInterface.unregisterAccommodationInterest </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_accommodation_interest.html">AccommodationInterest</a>&#160;</td>
+          <td class="paramname"><em>interest</em></td><td>)</td>
+          <td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interest</td><td>: </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_r_m_i_1_1_server_interface_a370ad2776334419dd2d7cc4e9fcd7338_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_a370ad2776334419dd2d7cc4e9fcd7338_icgraph" alt=""/></div>
+<map name="interface_r_m_i_1_1_server_interface_a370ad2776334419dd2d7cc4e9fcd7338_icgraph" id="interface_r_m_i_1_1_server_interface_a370ad2776334419dd2d7cc4e9fcd7338_icgraph">
+<area shape="rect" id="node2" href="class_r_m_i_1_1_client_servent.html#a6c867a8716dd2791a41a2df4cb8558b9" title="Remove accommodation interest from local array and from the server. " alt="" coords="248,71,419,112"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="467,71,668,112"/>
+<area shape="rect" id="node4" href="class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="745,5,939,47"/>
+<area shape="rect" id="node8" href="class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="716,71,968,112"/>
+<area shape="rect" id="node10" href="class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="737,136,947,177"/>
+<area shape="rect" id="node5" href="class_g_u_i_1_1_events_panel.html#abff1f9d90177b29b847a928c86e8025c" title="The method will show the flight ticket interest list in the table. " alt="" coords="1042,5,1238,47"/>
+<area shape="rect" id="node6" href="class_g_u_i_1_1_events_panel.html#a9208fe7f420968feb736ad88a6abc8e2" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="1312,71,1503,112"/>
+<area shape="rect" id="node7" href="class_g_u_i_1_1_events_panel.html#a24da6ae4655cabb2e092bc0e359ce10c" title="Default Constructor. " alt="" coords="1551,78,1747,105"/>
+<area shape="rect" id="node9" href="class_g_u_i_1_1_events_panel.html#ab89b241d6b46e5a749fe1d2f94aa8995" title="The method will show the accommodation interest list in the table. " alt="" coords="1016,71,1264,112"/>
+<area shape="rect" id="node11" href="class_g_u_i_1_1_events_panel.html#aa9bba4186ee8c6a5555b1cae5a7ae529" title="The method will show the package interest list in the table. " alt="" coords="1037,136,1243,177"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a757d59a905b201ae2fc62252127b52af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a757d59a905b201ae2fc62252127b52af">&#9670;&nbsp;</a></span>unregisterPackageInterest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RMI.ServerInterface.unregisterPackageInterest </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_package_interest.html">PackageInterest</a>&#160;</td>
+          <td class="paramname"><em>interest</em></td><td>)</td>
+          <td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interest</td><td>: </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_r_m_i_1_1_server_interface_a757d59a905b201ae2fc62252127b52af_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_a757d59a905b201ae2fc62252127b52af_icgraph" alt=""/></div>
+<map name="interface_r_m_i_1_1_server_interface_a757d59a905b201ae2fc62252127b52af_icgraph" id="interface_r_m_i_1_1_server_interface_a757d59a905b201ae2fc62252127b52af_icgraph">
+<area shape="rect" id="node2" href="class_r_m_i_1_1_client_servent.html#ab7acddccf466625ebf7b3bdb50c015b8" title="Remove package interest from local array and from the server. " alt="" coords="248,71,419,112"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="467,71,668,112"/>
+<area shape="rect" id="node4" href="class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="745,5,939,47"/>
+<area shape="rect" id="node8" href="class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="716,71,968,112"/>
+<area shape="rect" id="node10" href="class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="737,136,947,177"/>
+<area shape="rect" id="node5" href="class_g_u_i_1_1_events_panel.html#abff1f9d90177b29b847a928c86e8025c" title="The method will show the flight ticket interest list in the table. " alt="" coords="1042,5,1238,47"/>
+<area shape="rect" id="node6" href="class_g_u_i_1_1_events_panel.html#a9208fe7f420968feb736ad88a6abc8e2" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="1312,71,1503,112"/>
+<area shape="rect" id="node7" href="class_g_u_i_1_1_events_panel.html#a24da6ae4655cabb2e092bc0e359ce10c" title="Default Constructor. " alt="" coords="1551,78,1747,105"/>
+<area shape="rect" id="node9" href="class_g_u_i_1_1_events_panel.html#ab89b241d6b46e5a749fe1d2f94aa8995" title="The method will show the accommodation interest list in the table. " alt="" coords="1016,71,1264,112"/>
+<area shape="rect" id="node11" href="class_g_u_i_1_1_events_panel.html#aa9bba4186ee8c6a5555b1cae5a7ae529" title="The method will show the package interest list in the table. " alt="" coords="1037,136,1243,177"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad121093d35f68d8097a4d4c559035c84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad121093d35f68d8097a4d4c559035c84">&#9670;&nbsp;</a></span>unregisterTicketInterest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RMI.ServerInterface.unregisterTicketInterest </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket_interest.html">FlightTicketInterest</a>&#160;</td>
+          <td class="paramname"><em>interest</em></td><td>)</td>
+          <td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interest</td><td>: </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="interface_r_m_i_1_1_server_interface_ad121093d35f68d8097a4d4c559035c84_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_ad121093d35f68d8097a4d4c559035c84_icgraph" alt=""/></div>
+<map name="interface_r_m_i_1_1_server_interface_ad121093d35f68d8097a4d4c559035c84_icgraph" id="interface_r_m_i_1_1_server_interface_ad121093d35f68d8097a4d4c559035c84_icgraph">
+<area shape="rect" id="node2" href="class_r_m_i_1_1_client_servent.html#a08b38c7af44c0f70d53bded070742ab6" title="Remove ticket interest from local array and from the server. " alt="" coords="248,71,419,112"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="467,71,668,112"/>
+<area shape="rect" id="node4" href="class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="745,5,939,47"/>
+<area shape="rect" id="node8" href="class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="716,71,968,112"/>
+<area shape="rect" id="node10" href="class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="737,136,947,177"/>
+<area shape="rect" id="node5" href="class_g_u_i_1_1_events_panel.html#abff1f9d90177b29b847a928c86e8025c" title="The method will show the flight ticket interest list in the table. " alt="" coords="1042,5,1238,47"/>
+<area shape="rect" id="node6" href="class_g_u_i_1_1_events_panel.html#a9208fe7f420968feb736ad88a6abc8e2" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="1312,71,1503,112"/>
+<area shape="rect" id="node7" href="class_g_u_i_1_1_events_panel.html#a24da6ae4655cabb2e092bc0e359ce10c" title="Default Constructor. " alt="" coords="1551,78,1747,105"/>
+<area shape="rect" id="node9" href="class_g_u_i_1_1_events_panel.html#ab89b241d6b46e5a749fe1d2f94aa8995" title="The method will show the accommodation interest list in the table. " alt="" coords="1016,71,1264,112"/>
+<area shape="rect" id="node11" href="class_g_u_i_1_1_events_panel.html#aa9bba4186ee8c6a5555b1cae5a7ae529" title="The method will show the package interest list in the table. " alt="" coords="1037,136,1243,177"/>
+</map>
+</div>
 
 </div>
 </div>

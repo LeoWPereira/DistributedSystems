@@ -1,0 +1,4 @@
+<map id="Database.DAO.DAOHotel.searchHotelByHotel" name="Database.DAO.DAOHotel.searchHotelByHotel">
+<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a0bec7f86acb2c6f156e1326d4977de1b" title="Database.Controller.Ctrl\lHotel.searchHotelByHotel" alt="" coords="268,5,439,47"/>
+<area shape="rect" id="node3" href="$class_r_m_i_1_1_server_servent.html#a95846f4a273edc357995b497e4334d96" title="RMI.ServerServent.search\lHotelByName" alt="" coords="487,5,657,47"/>
+</map>

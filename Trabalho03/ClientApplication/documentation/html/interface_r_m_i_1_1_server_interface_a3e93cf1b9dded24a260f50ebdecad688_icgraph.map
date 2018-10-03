@@ -1,0 +1,5 @@
+<map id="RMI.ServerInterface.reserveHotel" name="RMI.ServerInterface.reserveHotel">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotel_details_panel.html#a602a8c373a33236df4d4016c77b2e2e7" title="GUI.HotelDetailsPanel.process\lReserve" alt="" coords="232,5,433,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotel_details_panel.html#a27ff69c3f0ac00170b2095eb7f2cf5ff" title="GUI.HotelDetailsPanel.config\lButton" alt="" coords="481,5,671,47"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_hotel_details_panel.html#a76dc5d06a7d1bd32b65d1516bdec8ee2" title="GUI.HotelDetailsPanel.Hotel\lDetailsPanel" alt="" coords="719,5,904,47"/>
+</map>
