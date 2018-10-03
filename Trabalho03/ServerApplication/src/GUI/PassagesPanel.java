@@ -16,6 +16,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.text.ParseException;
@@ -44,6 +45,7 @@ import Classes.FlightTicket;
 import Classes.FlightTicketManager;
 import Database.Controller.CtrlPassages;
 import Extra.CitiesBrazil;
+import RMI.ServerServent;
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
@@ -132,6 +134,11 @@ public class PassagesPanel extends JPanel
 	 * @brief
 	 */
 	private FlightTicketManager	ticketManager = new FlightTicketManager();
+
+	/**
+	 * @brief	The server RMI object to access the interests lists
+	 */
+	private ServerServent 		serverRMI;
 	
 	/**
 	 * @brief	Default Constructor
@@ -139,10 +146,13 @@ public class PassagesPanel extends JPanel
 	 * @param	_panel	: Panel where the content will be stored
 	 * @param	_stm	:	
 	 */
-	public PassagesPanel(JPanel 	_panel,
-						 Statement	_stm) throws ParseException, SQLException
+	public PassagesPanel(JPanel 		_panel,
+						 Statement		_stm,
+						 ServerServent 	server) throws ParseException, SQLException
 	{
 		ctrlPassages	= new CtrlPassages();
+
+		serverRMI 		= server;
 		
 		internalPanel 	= _panel;
 		
@@ -596,6 +606,16 @@ public class PassagesPanel extends JPanel
 										  "Passagem inserida com sucesso!", 
 										  "Sucesso",
 										  JOptionPane.INFORMATION_MESSAGE);
+
+			try 
+			{
+				serverRMI.notifyTicketsInterests(entry);
+			} 
+			catch (RemoteException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		catch (NumberFormatException e) 
 		{

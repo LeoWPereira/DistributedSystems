@@ -48,14 +48,14 @@ public class Accommodation implements Serializable
 	 */
 	private float 	price;
     
-/**
- * @brief	Default constructor
- * 
- * @param 	_cityName 			: String
- * @param 	_accommodationName 	: String
- * @param 	_quantity 			: int
- * @param 	_price 				: float
- */    
+	/**
+	 * @brief	Default constructor
+	 * 
+	 * @param 	_cityName 			: String
+	 * @param 	_accommodationName 	: String
+	 * @param 	_quantity 			: int
+	 * @param 	_price 				: float
+	 */    
     public Accommodation(String 	_cityName, 
     					 String 	_accommodationName,
     					 int		_quantity,

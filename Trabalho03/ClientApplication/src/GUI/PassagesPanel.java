@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -31,6 +32,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
@@ -42,6 +44,7 @@ import javax.swing.table.DefaultTableModel;
 import Classes.FlightTicket;
 import Classes.FlightTicketManager;
 import Extra.CitiesBrazil;
+import RMI.ClientServent;
 import RMI.ServerInterface;
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
@@ -121,6 +124,11 @@ public class PassagesPanel extends JPanel
 	 * @brief	Member containing the search button
 	 */
 	private JButton 		  buttonSearch;
+
+	/**
+	 * @brief	Member containing the register interest button
+	 */
+	private JButton 		  buttonInterest;
 	
 	/**
 	 * @brief	Member containing the label "Round Trip"
@@ -139,6 +147,11 @@ public class PassagesPanel extends JPanel
 	 * @brief	Member containing a "Date Picker" for Round Trip trips
 	 */
 	private JDatePickerImpl   datePickerRoundTrip;
+
+	/**
+	 * @brief
+	 */
+	private static ClientServent clientRMI;
 	
 	/**
 	 * @brief	Default Constructor
@@ -146,12 +159,15 @@ public class PassagesPanel extends JPanel
 	 * @param	panel	: Panel where the content will be stored
 	 * @param	server	:
 	 */
-	public PassagesPanel(JPanel 			 panel,
-						 ServerInterface	server)
+	public PassagesPanel(JPanel 			panel,
+						 ServerInterface	server,
+						 ClientServent 		client)
 	{
 		internalPanel 	= panel;
 		
 		serverReference	= server;
+
+		clientRMI = client;
 		
 		internalPanel.removeAll();
 		
@@ -482,7 +498,8 @@ public class PassagesPanel extends JPanel
 	 */
 	public void configButton()
 	{
-		buttonSearch = new JButton("Buscar Passagens");
+		buttonSearch 	= new JButton("Buscar Passagens");
+		buttonInterest 	= new JButton("Registrar interesse");
 		
 		// Settings for the Search Button
 		buttonSearch.setBorder(new BevelBorder(BevelBorder.RAISED, 
@@ -519,8 +536,38 @@ public class PassagesPanel extends JPanel
 				}
 			}
 		});
+
+		// Settings for the Register Interest Button
+		buttonInterest.setBorder(new BevelBorder(BevelBorder.RAISED, 
+											   null, 
+											   null, 
+											   null, 
+											   null));
+		
+		buttonInterest.setBackground(new Color(238, 238, 238));
+		buttonInterest.setBounds(10, 330,
+							   350, 30);
+
+		buttonInterest.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				if(checkForEmptyFields())
+				{
+					JOptionPane.showMessageDialog(new JFrame(),
+												  "Existem Campos não preenchidos!", 
+												  "Erro",
+												  JOptionPane.ERROR_MESSAGE);
+				}
+				else
+				{
+					processInterestButton(arg0);
+				}
+			}
+		});
 		
 		internalPanel.add(buttonSearch);
+		internalPanel.add(buttonInterest);
 	}
 	
 	/**
@@ -796,4 +843,74 @@ public class PassagesPanel extends JPanel
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * @brief
+	 */
+	private void processInterestButton(java.awt.event.ActionEvent evt) 
+	{
+        JTextField maxPrice = new JTextField();
+        JTextField quantity = new JTextField();
+        Object[] message = {"Preco maximo:", maxPrice, "Quantidade:", quantity};
+
+        int response = JOptionPane.showConfirmDialog(null, message, "Registro de interesse", JOptionPane.OK_CANCEL_OPTION);
+        
+        if (response == JOptionPane.OK_OPTION) 
+        {
+        	FlightTicket flightTicketTo = null;
+        	FlightTicket flightTicketFrom = null;
+
+            float maxPriceFloat = Float.valueOf(maxPrice.getText());
+            Calendar calendar = Calendar.getInstance();
+		
+			int day 	= datePickerOneWayTrip.getModel().getDay();
+		    int month 	= datePickerOneWayTrip.getModel().getMonth();
+		    int year 	= datePickerOneWayTrip.getModel().getYear();
+		    
+		    calendar.set(year,
+		    			 month,
+		    			 day);
+		    
+			Date goingDate	= new java.sql.Date(calendar.getTime().getTime());
+
+			flightTicketTo = new FlightTicket(comboBoxCitySrc.getSelectedItem().toString(),
+											  comboBoxCityDest.getSelectedItem().toString(),
+   					   					 	  goingDate,
+   					   					 	  0,
+   					   					 	  0);
+
+			if(radioButtonRoundWay.isSelected())
+			{
+				day 	= datePickerRoundTrip.getModel().getDay();
+			    month 	= datePickerRoundTrip.getModel().getMonth();
+			    year 	= datePickerRoundTrip.getModel().getYear();
+			    
+			    calendar.set(year,
+			    			 month,
+			    			 day);
+			    
+			    Date returnDate	= new java.sql.Date(calendar.getTime().getTime());
+
+			    flightTicketFrom = new FlightTicket(comboBoxCityDest.getSelectedItem().toString(),
+			    								  	comboBoxCitySrc.getSelectedItem().toString(),
+   					   					 	  	  	returnDate,
+   					   					 	  	  	0,
+   					   					 	  	  	0);
+			}
+
+			try 
+            {
+                serverReference.registerPassageInterest(flightTicketTo, 
+                										flightTicketFrom,
+                										Integer.valueOf(quantity.getText()),
+                										maxPriceFloat,
+                										clientRMI,
+                										clientRMI.getClientName());
+            } 
+            catch (RemoteException e) 
+			{
+				e.printStackTrace();
+            }
+        }
+    }
 }

@@ -95,7 +95,9 @@ public class MainJFrame extends JFrame
 			public void run()
 			{
 				try
-				{					
+				{		
+					initRMI();
+
 					MainJFrame frame			= new MainJFrame();
 					
 					CtrlPassages ctrlPassage	= new CtrlPassages();
@@ -103,8 +105,6 @@ public class MainJFrame extends JFrame
 					CtrlHotel ctrlHotel 		= new CtrlHotel();
 					
 					dbStatement			= DBConnection.configureDatabase(dbConnection);
-					
-					initRMI();
 					
 					//ctrlPassage.createTable(dbStatement);
 					
@@ -284,7 +284,8 @@ public class MainJFrame extends JFrame
 				try 
 				{
 					passagesPanel = new PassagesPanel(internalPanel, 
-													  dbStatement);
+													  dbStatement,
+													  serverRMI);
 					
 					passagesPanel.setVisible(true);
 				} 
@@ -361,9 +362,24 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				//EventsPanel eventsPanel = new EventsPanel(internalPanel);
+				EventsPanel eventsPanel;
 				
-				//eventsPanel.setVisible(true);
+				try 
+				{
+					eventsPanel = new EventsPanel(internalPanel, 
+											      dbStatement,
+											      serverRMI);
+					
+					eventsPanel.setVisible(true);
+				} 
+				catch (ParseException e) 
+				{
+					e.printStackTrace();
+				} 
+				catch (SQLException e) 
+				{
+					e.printStackTrace();
+				}
 			}
 		});
 		

@@ -261,7 +261,8 @@ public class MainJFrame extends JFrame
 			public void actionPerformed(ActionEvent arg0)
 			{
 				PassagesPanel passagesPanel = new PassagesPanel(internalPanel,
-																serverReference);
+																serverReference,
+																clientRMI);
 				
 				passagesPanel.setVisible(true);
 			}
@@ -280,7 +281,8 @@ public class MainJFrame extends JFrame
 			public void actionPerformed(ActionEvent arg0)
 			{
 				HotelsPanel hotelsPanel = new HotelsPanel(internalPanel,
-														  serverReference);
+														  serverReference,
+														  clientRMI);
 				
 				hotelsPanel.setVisible(true);
 			}

@@ -87,29 +87,32 @@ public interface ServerInterface  extends Remote
      * @brief	
      * 
      * @param 	_ticket			:
-     * @param 	_until			:
+     * @param   _ticketFrom     :
+     * @param 	_quantity		:
      * @param 	_desiredPrice	:
      * @param 	_refCli			:
      */
-    public void registerPassageInterest(FlightTicket	_ticket,
-    									Date 			_until,
+    public void registerPassageInterest(FlightTicket	_ticketTo,
+                                        FlightTicket    _ticketFrom,
+    									int 			_quantity,
     									float 			_desiredPrice,
-    									ClientInterface _refCli)		throws RemoteException;
+    									ClientInterface _refCli,
+                                        String          _clientName)		throws RemoteException;
     
     /**
      * @brief	
      * 
      * @param 	_hotel			:
-     * @param 	_until			:
-     * @param 	_checkin		:
-     * @param 	_checkout		:
+     * @param 	_quantity		:
+     * @param 	_numberOfGuests	:
      * @param 	_desiredPrice	:
      * @param 	_refCli			:
+     * @param   _clientName     :
      */
     public void registerHotelInterest(Accommodation		_hotel, 
-    								  Date 				_until, 
-    								  Date				_checkin, 
-    								  Date				_checkout,
+    								  int               _quantity,
+                                      int               _numberOfGuests,
     								  float 			_desiredPrice,
-    								  ClientInterface	_refCli) 		throws RemoteException;
+    								  ClientInterface	_refCli,
+                                      String            _clientName) 		throws RemoteException;
 }

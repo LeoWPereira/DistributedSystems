@@ -85,32 +85,35 @@ public interface ServerInterface extends Remote
     public boolean reserveHotel(Accommodation	_hotel) throws RemoteException;
     
     /**
-     * @brief	
+     * @brief   
      * 
-     * @param 	_ticket			:
-     * @param 	_until			:
-     * @param 	_desiredPrice	:
-     * @param 	_refCli			:
+     * @param   _ticket         :
+     * @param   _ticketFrom     :
+     * @param   _quantity       :
+     * @param   _desiredPrice   :
+     * @param   _refCli         :
      */
-    public void registerPassageInterest(FlightTicket	_ticket,
-    									Date 			_until,
-    									float 			_desiredPrice,
-    									ClientInterface _refCli)		throws RemoteException;
+    public void registerPassageInterest(FlightTicket    _ticketTo,
+                                        FlightTicket    _ticketFrom,
+                                        int             _quantity,
+                                        float           _desiredPrice,
+                                        ClientInterface _refCli,
+                                        String          _clientName)        throws RemoteException;
     
     /**
-     * @brief	
+     * @brief   
      * 
-     * @param 	_hotel			:
-     * @param 	_until			:
-     * @param 	_checkin		:
-     * @param 	_checkout		:
-     * @param 	_desiredPrice	:
-     * @param 	_refCli			:
+     * @param   _hotel          :
+     * @param   _quantity       :
+     * @param   _numberOfGuests :
+     * @param   _desiredPrice   :
+     * @param   _refCli         :
+     * @param   _clientName     :
      */
-    public void registerHotelInterest(Accommodation		_hotel, 
-    								  Date 				_until, 
-    								  Date				_checkin, 
-    								  Date				_checkout,
-    								  float 			_desiredPrice,
-    								  ClientInterface	_refCli) 		throws RemoteException;
+    public void registerHotelInterest(Accommodation     _hotel, 
+                                      int               _quantity,
+                                      int               _numberOfGuests,
+                                      float             _desiredPrice,
+                                      ClientInterface   _refCli,
+                                      String            _clientName)        throws RemoteException;
 }
