@@ -722,7 +722,7 @@ public class EventsPanel extends JPanel
 		FlightTicket returnTicket = null;
 		boolean isReturnTicket = false;
 		
-		if (JOptionPane.showConfirmDialog(null, "VocÃª deseja excluir o interesse selecionado?", "WARNING",
+		if (JOptionPane.showConfirmDialog(null, "Você deseja excluir o interesse selecionado?", "WARNING",
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
         {
 			if(radioButtonFlightTicket.isSelected())
