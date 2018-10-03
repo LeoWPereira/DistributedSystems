@@ -47,6 +47,7 @@ import RMI.ClientServent;
 import RMI.ServerInterface;
 import Classes.Accommodation;
 import Classes.FlightTicket;
+import Classes.PackageInterest;
 import Classes.Packages;
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
@@ -898,6 +899,25 @@ public class PackagesPanel extends JPanel
                 										Integer.valueOf(guests.getText()),
                 										clientRMI,
                 										clientRMI.getClientName());
+
+                boolean isReturnTicket = true;
+
+                if(flightTicketFrom != null)
+                {
+                	isReturnTicket = true;
+                }
+
+                PackageInterest packageInterest = new PackageInterest(flightTicketTo,
+        													  flightTicketFrom, 
+        													  accommodation,
+        													  isReturnTicket,
+        													  Integer.valueOf(quantity.getText()), 
+        													  maxPriceFloat,
+        													  Integer.valueOf(guests.getText()),
+        													  clientRMI,
+        													  clientRMI.getClientName());
+
+                clientRMI.addPackageInterest(packageInterest);
             } 
             catch (RemoteException e) 
 			{

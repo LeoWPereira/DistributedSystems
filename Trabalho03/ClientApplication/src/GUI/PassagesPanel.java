@@ -42,6 +42,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import Classes.FlightTicket;
+import Classes.FlightTicketInterest;
 import Classes.FlightTicketManager;
 import Extra.CitiesBrazil;
 import RMI.ClientServent;
@@ -906,6 +907,23 @@ public class PassagesPanel extends JPanel
                 										maxPriceFloat,
                 										clientRMI,
                 										clientRMI.getClientName());
+
+                boolean isReturnTicket = true;
+
+                if(flightTicketFrom != null)
+                {
+                	isReturnTicket = true;
+                }
+
+                FlightTicketInterest ticketInterest = new FlightTicketInterest(flightTicketTo,
+        															   flightTicketFrom, 
+        															   isReturnTicket,
+        															   Integer.valueOf(quantity.getText()), 
+        															   maxPriceFloat,
+        															   clientRMI,
+        															   clientRMI.getClientName());
+
+       			clientRMI.addFlightTicketInterest(ticketInterest);
             } 
             catch (RemoteException e) 
 			{

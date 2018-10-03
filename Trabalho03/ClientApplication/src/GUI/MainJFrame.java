@@ -320,7 +320,8 @@ public class MainJFrame extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				EventsPanel eventsPanel = new EventsPanel(internalPanel);
+				EventsPanel eventsPanel = new EventsPanel(internalPanel,
+														  clientRMI);
 				
 				eventsPanel.setVisible(true);
 			}

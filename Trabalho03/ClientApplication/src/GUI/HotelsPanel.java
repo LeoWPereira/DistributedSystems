@@ -41,6 +41,7 @@ import javax.swing.table.DefaultTableModel;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import Classes.Accommodation;
+import Classes.AccommodationInterest;
 import Classes.AccommodationManager;
 import Extra.CitiesBrazil;
 import RMI.ClientServent;
@@ -665,6 +666,15 @@ public class HotelsPanel extends JPanel
                 									  maxPriceFloat,
                 									  clientRMI,
                 									  clientRMI.getClientName());
+
+                AccommodationInterest accommodationInterest = new AccommodationInterest(accommodation,
+		        															   Integer.valueOf(quantity.getText()), 
+		        															   Integer.valueOf(numberOfGuests.getText()),
+		        															   maxPriceFloat, 
+		        															   clientRMI,
+		        															   clientRMI.getClientName());
+
+        		clientRMI.addAccommodationInterest(accommodationInterest);
             } 
             catch (RemoteException e) 
 			{
