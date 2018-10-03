@@ -19,7 +19,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import javax.swing.JOptionPane;
 
@@ -96,10 +95,6 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 	{
 		JOptionPane.showMessageDialog(null, 
 									  "Cliente " + clientName	+ " conectado!");
-		
-		//String message = "Conexão realizada com sucesso";
-		
-        //refCli.eventPopUp(message);
 	}
 
 	@Override

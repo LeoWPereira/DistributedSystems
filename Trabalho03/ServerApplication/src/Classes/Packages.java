@@ -12,7 +12,6 @@
 package Classes;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Class responsible for storing the package info
@@ -20,30 +19,31 @@ import java.util.Date;
 public class Packages implements Serializable
 {
     /**
-	 * @brief
+	 * @brief	Unique Version ID from Class
 	 */
 	private static final long serialVersionUID = 3281860207276377509L;
 	
 	/**
-	 * @brief
+	 * @brief	Instance of FLight Ticket
 	 */
 	private FlightTicket flightTicketGoing;
 
 	/**
-	 * @brief
+	 * @brief	Instance of FLight Ticket
 	 */
 	private FlightTicket flightTicketReturn;
 	
 	/**
-	 * @brief
+	 * @brief	Instance of Accommodation
 	 */
 	private Accommodation accommodation;
+	
     /**
      * @brief	Default Constructor
      * 
-     * @param 	_flightTicketGoing		:
-     * @param 	_flightTicketReturn		:
-     * @param 	_accommodation			:
+     * @param 	_flightTicketGoing		: Instance of FLight Ticket
+     * @param 	_flightTicketReturn		: Instance of FLight Ticket
+     * @param 	_accommodation			: Instance of Accommodation
      */   
     public Packages(FlightTicket 	_flightTicketGoing, 
 					FlightTicket 	_flightTicketReturn, 
@@ -55,19 +55,19 @@ public class Packages implements Serializable
     }
 
 	/**
-	 * @brief Default getter
+	 * @brief 	Default getter
 	 * 
-	 * @return flightTicketGoing
+	 * @return 	flight Ticket Going
 	 */
 	public FlightTicket getFlightTicketGoing() 
 	{
-		return flightTicketGoing;
+		return this.flightTicketGoing;
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default setter
 	 * 
-	 * @param flightTicketGoing
+	 * @param 	_flightTicketGoing	: Instance of FLight Ticket
 	 */
 	public void setFlightTicketGoing(FlightTicket _flightTicketGoing) 
 	{
@@ -75,19 +75,19 @@ public class Packages implements Serializable
 	}
 
 	/**
-	 * @brief Default getter
+	 * @brief 	Default getter
 	 * 
-	 * @return flightTicketReturn
+	 * @return 	flight Ticket Return
 	 */
 	public FlightTicket getFlightTicketReturn() 
 	{
-		return flightTicketReturn;
+		return this.flightTicketReturn;
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default setter
 	 * 
-	 * @param flightTicketReturn
+	 * @param 	_flightTicketReturn	: Instance of FLight Ticket
 	 */
 	public void setFlightTicketReturn(FlightTicket _flightTicketReturn) 
 	{
@@ -95,19 +95,19 @@ public class Packages implements Serializable
 	}
 
 	/**
-	 * @brief Default getter
+	 * @brief 	Default getter
 	 * 
-	 * @return accommodation
+	 * @return 	Accommodation
 	 */
 	public Accommodation getAccommodation() 
 	{
-		return accommodation;
+		return this.accommodation;
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default setter
 	 * 
-	 * @param accommodation
+	 * @param 	_accommodation	: Instance of Accommodation
 	 */
 	public void setAccommodation(Accommodation _accommodation) 
 	{
@@ -115,9 +115,9 @@ public class Packages implements Serializable
 	}
 
 	/**
-	 * @brief Get the total price of the package
+	 * @brief 	Get the total price of the package
 	 * 
-	 * @param totalPrice
+	 * @param 	total Price
 	 */
 	public float getTotalPrice() 
 	{
@@ -125,14 +125,14 @@ public class Packages implements Serializable
 		float ticketReturnPrice 	= 0;
 		float accommodationPrice	= 0;
 
-		ticketGoingPrice = flightTicketGoing.getPrice();
+		ticketGoingPrice = this.flightTicketGoing.getPrice();
 
-		if(flightTicketReturn != null)
+		if(this.flightTicketReturn != null)
 		{
-			ticketReturnPrice = flightTicketReturn.getPrice();
+			ticketReturnPrice = this.flightTicketReturn.getPrice();
 		}
 
-		accommodationPrice = accommodation.getPrice();
+		accommodationPrice = this.accommodation.getPrice();
 
 		return ticketGoingPrice + ticketReturnPrice + accommodationPrice;
 	}
