@@ -19,23 +19,22 @@ import Classes.AccommodationInterest;
 import Classes.FlightTicketInterest;
 import Classes.PackageInterest;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- * @brief   
+ * @brief	Class responsible for  
  */
 public class ClientServent extends UnicastRemoteObject implements ClientInterface
 {
-    /**
-	 * @brief Generated Serial Version ID
+	/**
+	 * @brief	Generated Serial Version ID
 	 */
-	private static final long serialVersionUID = 5470551739044150069L;
+	private static final long serialVersionUID = -6179845856072812728L;
 
 	/**
 	 * @brief Name of the user
 	 */
-	private static String name;
+	private String name;
 
 	/**
 	 * @brief Local list of flight ticket interests

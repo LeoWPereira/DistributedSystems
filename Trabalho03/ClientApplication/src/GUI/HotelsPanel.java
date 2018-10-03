@@ -22,6 +22,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -37,6 +38,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
@@ -374,7 +376,18 @@ public class HotelsPanel extends JPanel
 				}
 				else
 				{
-					processInterestButton(arg0);
+					try 
+					{
+						processInterestButton(arg0);
+					}
+					catch(ParseException e)
+					{
+						e.printStackTrace();
+					}
+					catch (java.text.ParseException e)
+					{
+						e.printStackTrace();
+					}
 				}
 			}
 		});
@@ -627,12 +640,22 @@ public class HotelsPanel extends JPanel
 	/**
 	 * @brief
 	 */
-	private void processInterestButton(java.awt.event.ActionEvent evt) 
+	private void processInterestButton(java.awt.event.ActionEvent evt) throws ParseException, java.text.ParseException
 	{
-        JTextField maxPrice = new JTextField();
-        JTextField quantity = new JTextField();
-        JTextField numberOfGuests = new JTextField();
-        Object[] message = {"Preco maximo:", maxPrice, "Quantidade:", quantity, "No. de Pessoas:", numberOfGuests};
+		MaskFormatter maskPrice		= new MaskFormatter("R$ ###.##");
+		maskPrice.setValidCharacters("0123456789");
+		
+		MaskFormatter maskQuantity	= new MaskFormatter("###");
+		maskQuantity.setValidCharacters("0123456789");
+
+		MaskFormatter maskMaxGuests	= new MaskFormatter("#");
+		maskQuantity.setValidCharacters("0123456789");
+		
+		JFormattedTextField maxPrice 		= new JFormattedTextField(maskPrice);
+		JFormattedTextField quantity 		= new JFormattedTextField(maskQuantity);
+		JFormattedTextField numberOfGuests	= new JFormattedTextField(maskMaxGuests);
+		
+        Object[] message = {"Preço Máximo:", maxPrice, "Quantidade:", quantity, "Nº de Pessoas:", numberOfGuests};
 
         int response = JOptionPane.showConfirmDialog(null, message, "Registro de interesse", JOptionPane.OK_CANCEL_OPTION);
         
@@ -640,7 +663,8 @@ public class HotelsPanel extends JPanel
         {
         	Accommodation accommodation = null;
 
-            float maxPriceFloat = Float.valueOf(maxPrice.getText());
+            float maxPriceFloat = Float.valueOf(maxPrice.getText().substring(3, 
+						 													 9));
 
             if(radioCity.isSelected())
 			{
@@ -699,7 +723,6 @@ public class HotelsPanel extends JPanel
     	}
 		catch (java.text.ParseException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

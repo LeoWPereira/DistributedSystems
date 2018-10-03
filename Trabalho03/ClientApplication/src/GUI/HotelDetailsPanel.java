@@ -17,9 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.text.ParseException;
-import java.util.Date;
 
-import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -28,8 +26,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
@@ -78,11 +74,6 @@ public class HotelDetailsPanel extends JFrame
 	 * @brief
 	 */
 	private float price;
-	
-	/**
-	 * @brief	Member containing the info about the "Reserve" label
-	 */
-	private static JLabel	labelReserve;
 	
 	/**
 	 * @brief	Member containing the class of States and Cities from Brazil
@@ -181,20 +172,13 @@ public class HotelDetailsPanel extends JFrame
 		
 		contentPane.setLayout(null);
 
-		JLabel labelReserve		= new JLabel("Reservar");
 		JLabel labelHotelName	= new JLabel("Nome da Hospedagem: " + hotelName);
-
-		// reserve label configurations
-		labelReserve.setPreferredSize(new Dimension(75, 15));
-		labelReserve.setBounds(160, 5,
-						   	   100, 40);
 
 		// hotel name label configurations
 		labelHotelName.setPreferredSize(new Dimension(75, 15));
 		labelHotelName.setBounds(10, 120,
 						   		 300, 20);
 
-		contentPane.add(labelReserve);
 		contentPane.add(labelHotelName);
 	}
 	
@@ -239,7 +223,7 @@ public class HotelDetailsPanel extends JFrame
 	 */
 	public void configPrice() throws ParseException
 	{
-		JLabel 				labelPrice	= new JLabel("PreÃ§o (R$):");
+		JLabel 				labelPrice	= new JLabel("Preço (R$):");
 		
 		MaskFormatter 		mask		= new MaskFormatter("R$ ###.##");
 

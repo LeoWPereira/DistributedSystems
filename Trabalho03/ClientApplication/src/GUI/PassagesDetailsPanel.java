@@ -88,11 +88,6 @@ public class PassagesDetailsPanel extends JFrame
 	private float price;
 	
 	/**
-	 * @brief	Member containing the info about the "Buy" label
-	 */
-	private static JLabel	labelBuy;
-	
-	/**
 	 * @brief	Member containing the class of States and Cities from Brazil
 	 */
 	private static CitiesBrazil brazil;
@@ -188,15 +183,6 @@ public class PassagesDetailsPanel extends JFrame
 		setContentPane(contentPane);
 		
 		contentPane.setLayout(null);
-
-		JLabel labelBuy	= new JLabel("Comprar");
-
-		// Source label configurations
-		labelBuy.setPreferredSize(new Dimension(75, 15));
-		labelBuy.setBounds(160, 5,
-						   100, 40);
-
-		contentPane.add(labelBuy);
 	}
 	
 	/**
@@ -276,7 +262,11 @@ public class PassagesDetailsPanel extends JFrame
 		
 		// Date textfield configurations
 		textDate.setEnabled(false);
-		textDate.setText(date.toString());
+		
+		textDate.setText(date.toString().substring(4, 7) + ' ' 		+ 
+						 date.toString().substring(8, 10) + ", " 	+
+						 date.toString().substring(24, 28));
+		
 		textDate.setBounds(80, 140, 
 						   80, 20);
 		
