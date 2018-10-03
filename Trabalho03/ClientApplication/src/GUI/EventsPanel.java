@@ -36,6 +36,8 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
@@ -46,9 +48,11 @@ import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import Classes.Accommodation;
 import Classes.AccommodationInterest;
 import Classes.AccommodationManager;
+import Classes.FlightTicket;
 import Classes.FlightTicketInterest;
 import Classes.PackageInterest;
 import Extra.CitiesBrazil;
+import RMI.ClientInterface;
 import RMI.ClientServent;
 
 /**
@@ -687,14 +691,37 @@ public class EventsPanel extends JPanel
 	 */
 	public void processTableSelection()
 	{
+		ClientInterface client = null;
+		FlightTicket goingTicket;
+		FlightTicket returnTicket = null;
+		boolean isReturnTicket = false;
+		
 		if(radioButtonFlightTicket.isSelected())
 		{
-			FlightTicketInterest ticketInterest = new FlightTicketInterest(table.getValueAt(table.getSelectedRow(), 1).toString(),
-																		   table.getValueAt(table.getSelectedRow(), 2).toString(),
-																		   0,
-																		   table.getValueAt(table.getSelectedRow(), 3).toString(),
-																		   table.getValueAt(table.getSelectedRow(), 4).toString(),
-																		   null,
+			goingTicket = new FlightTicket(table.getValueAt(table.getSelectedRow(), 0).toString(),
+											table.getValueAt(table.getSelectedRow(), 1).toString(),
+											null,
+											0,
+											0);
+			
+			if(table.getValueAt(table.getSelectedRow(), 4).toString().equals("Ida/Volta"))
+			{
+				//PackageInterest packageInterest = new PackageInterest();
+				returnTicket = new FlightTicket(table.getValueAt(table.getSelectedRow(), 1).toString(),
+												table.getValueAt(table.getSelectedRow(), 2).toString(),
+												null,
+												0,
+												0);
+				
+				isReturnTicket = true;
+			}
+			
+			FlightTicketInterest ticketInterest = new FlightTicketInterest(goingTicket,
+																		   returnTicket,
+																		   isReturnTicket,
+																		   Integer.valueOf(table.getValueAt(table.getSelectedRow(), 3).toString()),
+																		   Float.valueOf(table.getValueAt(table.getSelectedRow(), 4).toString()),
+																		   client,
 																		   "");
 		}
 		else if(radioButtonAccommodation.isSelected())
@@ -703,16 +730,51 @@ public class EventsPanel extends JPanel
 															table.getValueAt(table.getSelectedRow(), 1).toString(),
 															0,
 															0,
-															0)
+															0);
+			
 			AccommodationInterest accommodationInterest = new AccommodationInterest(accommodation,
-																					table.getValueAt(table.getSelectedRow(), 2).toString(),
-																					table.getValueAt(table.getSelectedRow(), 3).toString(),
-																					table.getValueAt(table.getSelectedRow(), 4).toString(),
-																					null,
+																					Integer.valueOf(table.getValueAt(table.getSelectedRow(), 2).toString()),
+																					Integer.valueOf(table.getValueAt(table.getSelectedRow(), 3).toString()),
+																					Float.valueOf(table.getValueAt(table.getSelectedRow(), 4).toString()),
+																					client,
 																					"");
 		}
 		else
 		{
 			//PackageInterest packageInterest = new PackageInterest();
+			goingTicket = new FlightTicket(table.getValueAt(table.getSelectedRow(), 0).toString(),
+											table.getValueAt(table.getSelectedRow(), 1).toString(),
+											null,
+											0,
+											0);
+			
+			if(table.getValueAt(table.getSelectedRow(), 4).toString().equals("Ida/Volta"))
+			{
+				//PackageInterest packageInterest = new PackageInterest();
+				returnTicket = new FlightTicket(table.getValueAt(table.getSelectedRow(), 1).toString(),
+												table.getValueAt(table.getSelectedRow(), 2).toString(),
+												null,
+												0,
+												0);
+				
+				isReturnTicket = true;
+			}
+			
+			Accommodation accommodation = new Accommodation(table.getValueAt(table.getSelectedRow(), 0).toString(),
+															table.getValueAt(table.getSelectedRow(), 1).toString(),
+															0,
+															0,
+															0);
+			
+			PackageInterest packageInterest = new PackageInterest(goingTicket,
+																  returnTicket,
+																  accommodation,
+																  isReturnTicket,
+																  Integer.valueOf(table.getValueAt(table.getSelectedRow(), 2).toString()),
+																  Float.valueOf(table.getValueAt(table.getSelectedRow(), 4).toString()),
+																  Integer.valueOf(table.getValueAt(table.getSelectedRow(), 3).toString()),
+																  client,
+																  "");
 		}
+	}
 }
