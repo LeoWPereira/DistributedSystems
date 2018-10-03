@@ -17,9 +17,12 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 import Classes.Accommodation;
+import Classes.AccommodationInterest;
 import Classes.AccommodationManager;
 import Classes.FlightTicket;
+import Classes.FlightTicketInterest;
 import Classes.FlightTicketManager;
+import Classes.PackageInterest;
 import Classes.Packages;
 
 /**
@@ -160,4 +163,26 @@ public interface ServerInterface  extends Remote
                                                      int             _numberOfGuests,
                                                      ClientInterface _refCli,
                                                      String          _clientName)       throws RemoteException;
+
+    
+    /**
+     * @brief   
+     * 
+     * @param   interest       :
+     */
+	public void unregisterTicketInterest(FlightTicketInterest interest)  throws RemoteException;
+
+	/**
+     * @brief   
+     * 
+     * @param   interest       :
+     */
+	public void unregisterAccommodationInterest(AccommodationInterest interest)  throws RemoteException;
+
+	/**
+     * @brief   
+     * 
+     * @param   interest       :
+     */
+	public void unregisterPackageInterest(PackageInterest interest)  throws RemoteException;
 }

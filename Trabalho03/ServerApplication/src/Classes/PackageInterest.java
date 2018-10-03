@@ -19,7 +19,7 @@ import RMI.ClientInterface;
 /**
  * @brief   Class responsible for storing the package interest info from the clients
  */
-public class PackageInterest 
+public class PackageInterest implements Serializable
 {
     /**
      * @brief

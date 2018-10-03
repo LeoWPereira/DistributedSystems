@@ -1108,4 +1108,87 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
         
         return;
     }
+
+    /**
+	 * @brief Remove ticket interest from local array and from the server
+	 * 
+	 */
+    @Override
+    public void unregisterTicketInterest(FlightTicketInterest ticketInterest)  throws RemoteException
+    {
+        FlightTicketInterest interest;
+
+    	for(int i = 0; i < listTicketInterest.size(); i++)
+    	{
+            interest = listTicketInterest.get(i);
+
+    		if((ticketInterest.getSource().compareToIgnoreCase(interest.getSource()) == 0)   &&
+              (ticketInterest.getDest().compareToIgnoreCase(interest.getDest()) == 0)       &&
+              (ticketInterest.isReturnTicket() == interest.isReturnTicket()                 &&
+              (ticketInterest.getMaxPrice() == interest.getMaxPrice())))
+    		{
+    			listTicketInterest.remove(i);
+    		}
+    	}
+    	return;
+    }
+
+    /**
+     * @brief Remove accommodation interest from local array and from the server
+     * 
+     */
+    @Override
+    public void unregisterAccommodationInterest(AccommodationInterest accommodationInterest)  throws RemoteException
+    {
+        AccommodationInterest interest;
+
+        for(int i = 0; i < listAccommodationInterest.size(); i++)
+        {
+            interest = listAccommodationInterest.get(i);
+
+            // checks if the interest is by its city name
+            if(accommodationInterest.getAccommodationName().isEmpty())
+            {
+                if((accommodationInterest.getAccommodationCityName().compareToIgnoreCase(interest.getAccommodationCityName()) == 0)   &&
+                  (accommodationInterest.getMaxPrice() == interest.getMaxPrice()))
+                {
+                    listAccommodationInterest.remove(i);
+                }
+            }
+            else
+            {
+
+                if((accommodationInterest.getAccommodationName().compareToIgnoreCase(interest.getAccommodationName()) == 0)   &&
+                  (accommodationInterest.getMaxPrice() == interest.getMaxPrice()))
+                {
+                    listAccommodationInterest.remove(i);
+                }
+            }
+        }
+        return;
+    }
+
+    /**
+     * @brief Remove package interest from local array and from the server
+     * 
+     */
+    @Override
+    public synchronized void unregisterPackageInterest(PackageInterest packageInterest) throws RemoteException
+    {
+        PackageInterest interest;
+
+        for(int i = 0; i < listPackageInterest.size(); i++)
+        {
+            interest = listPackageInterest.get(i);
+
+            if((packageInterest.getSource().compareToIgnoreCase(interest.getSource()) == 0)   &&
+              (packageInterest.getDest().compareToIgnoreCase(interest.getDest()) == 0)       &&
+              (packageInterest.isReturnTicket() == interest.isReturnTicket()                 &&
+              (packageInterest.getMaxPrice() == interest.getMaxPrice())))
+            {
+                listPackageInterest.remove(i);
+            }
+        }
+        return;
+    }
 }
