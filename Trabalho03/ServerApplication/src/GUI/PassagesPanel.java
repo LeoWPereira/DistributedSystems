@@ -610,6 +610,7 @@ public class PassagesPanel extends JPanel
 			try 
 			{
 				serverRMI.notifyTicketsInterests(entry);
+				serverRMI.notifyPackageInterests(entry);
 			} 
 			catch (RemoteException e) 
 			{

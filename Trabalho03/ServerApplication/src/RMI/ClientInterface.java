@@ -15,7 +15,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- * @brief   
+ * @brief	Interface responsible for defining every method of the client
  */
 public interface ClientInterface extends Remote
 {    

@@ -19,43 +19,44 @@ import java.io.Serializable;
 public class Accommodation implements Serializable
 {    
     /**
-	 * @brief
+	 * @brief	Unique Version ID from Class
 	 */
 	private static final long serialVersionUID = -5955676390015753503L;
 	
 	/**
-	 * @brief
+	 * @brief	Name of the destination city
 	 */
 	private String 	cityName;
     
 	/**
-	 * @brief
+	 * @brief	Name of the destination accommodation
 	 */
 	private String 	accommodationName;
     
 	/**
-	 * @brief
+	 * @brief	Quantity of rooms left in the Accommodation
 	 */
 	private int 	quantity;
 	
 	/**
-	 * @brief
+	 * @brief	Max number of guests per room
 	 */
 	private int 	maxGuestsPerRoom;
 	
 	/**
-	 * @brief
+	 * @brief	Price of the room
 	 */
 	private float 	price;
     
-/**
- * @brief	Default constructor
- * 
- * @param 	_cityName 			: String
- * @param 	_accommodationName 	: String
- * @param 	_quantity 			: int
- * @param 	_price 				: float
- */    
+	/**
+	 * @brief	Default constructor
+	 * 
+	 * @param 	_cityName 			: Name of the City
+	 * @param 	_accommodationName 	: Name of the Hotel
+	 * @param 	_quantity 			: Quantity of rooms left
+	 * @param	_maxGuests			: Number of guests per room
+	 * @param 	_price 				: Price of each room
+	 */    
     public Accommodation(String 	_cityName, 
     					 String 	_accommodationName,
     					 int		_quantity,
@@ -70,19 +71,19 @@ public class Accommodation implements Serializable
     }
     
     /**
-     * @brief Default setter
+     * @brief	Default setter
      * 
-     * @param _price	: float
+     * @param 	_price	: float
      */
     public void setPrice(float _price) 
     {
-        price = _price;
+        this.price = _price;
     }
     
     /**
      * @brief	Default getter
      * 
-     * @return 	cityName
+     * @return 	String containing the City Name
      */   
     public String getCityName()
     {
@@ -92,17 +93,37 @@ public class Accommodation implements Serializable
     /**
      * @brief	Default getter
      * 
-     * @return 	accommodationName
+     * @return 	String containing the Accommodation Name
      */ 
     public String getAccommodationName()
     {
         return accommodationName;
     }
+
+    /**
+     * @brief	Default setter
+     * 
+     * @return 	_accommodationName	: String containing the accommodation name
+     */ 
+    public void setAccommodationName(String _accommodationName)
+    {
+        this.accommodationName = _accommodationName;
+    }
+
+    /**
+     * @brief	Default setter
+     * 
+     * @return 	_cityName	:	String containing the City name
+     */   
+    public void setCityName(String _cityName)
+    {
+        this.cityName = _cityName;
+    }
     
     /**
      * @brief	Default getter
      * 
-     * @return 	price
+     * @return 	Float value containing the price for each room
      */ 
     public float getPrice()
     {
@@ -110,9 +131,9 @@ public class Accommodation implements Serializable
     }
 
 	/**
-	 * @brief
+	 * @brief	Default getter
 	 * 
-	 * @return the quantity
+	 * @return 	the quantity of available rooms
 	 */
 	public int getQuantity() 
 	{
@@ -120,9 +141,9 @@ public class Accommodation implements Serializable
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default setter
 	 * 
-	 * @param _quantity	: the quantity to set
+	 * @param 	_quantity	: the quantity of rooms left
 	 */
 	public void setQuantity(int _quantity)
 	{
@@ -130,9 +151,9 @@ public class Accommodation implements Serializable
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default getter
 	 * 
-	 * @return	the maxGuestsPerRoom
+	 * @return	the maximum number of Guests Per Room
 	 */
 	public int getMaxGuestsPerRoom() 
 	{
@@ -140,14 +161,12 @@ public class Accommodation implements Serializable
 	}
 
 	/**
-	 * @brief
+	 * @brief	Default setter
 	 * 
 	 * @param 	_maxGuestsPerRoom	: the maxGuestsPerRoom to set
 	 */
 	public void setMaxGuestsPerRoom(int _maxGuestsPerRoom) 
 	{
-		maxGuestsPerRoom = _maxGuestsPerRoom;
+		this.maxGuestsPerRoom = _maxGuestsPerRoom;
 	}
-    
-   
 }

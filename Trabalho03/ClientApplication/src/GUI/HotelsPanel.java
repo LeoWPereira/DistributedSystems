@@ -22,6 +22,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -33,10 +34,16 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
+
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import Classes.Accommodation;
+import Classes.AccommodationInterest;
 import Classes.AccommodationManager;
 import Extra.CitiesBrazil;
 import RMI.ClientServent;
@@ -369,7 +376,18 @@ public class HotelsPanel extends JPanel
 				}
 				else
 				{
-					processInterestButton(arg0);
+					try 
+					{
+						processInterestButton(arg0);
+					}
+					catch(ParseException e)
+					{
+						e.printStackTrace();
+					}
+					catch (java.text.ParseException e)
+					{
+						e.printStackTrace();
+					}
 				}
 			}
 		});
@@ -472,6 +490,28 @@ public class HotelsPanel extends JPanel
 		}
 		
 		table.setAutoCreateRowSorter(true);
+
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() 
+		{
+			boolean alreadyClicked = false;
+			
+		    public void valueChanged(ListSelectionEvent event) 
+		    {
+		    	if(!alreadyClicked)
+		    	{
+			        if(table.getSelectedRow() > -1)
+			        {
+			        	processTableSelection();
+			        }
+			        
+			        alreadyClicked = true;
+		    	}
+		    	else
+		    	{
+		    		alreadyClicked = false;
+		    	}
+		    }
+		});
 		
 		internalPanel.add(scrollPaneTabela);
 	}
@@ -600,12 +640,22 @@ public class HotelsPanel extends JPanel
 	/**
 	 * @brief
 	 */
-	private void processInterestButton(java.awt.event.ActionEvent evt) 
+	private void processInterestButton(java.awt.event.ActionEvent evt) throws ParseException, java.text.ParseException
 	{
-        JTextField maxPrice = new JTextField();
-        JTextField quantity = new JTextField();
-        JTextField numberOfGuests = new JTextField();
-        Object[] message = {"Preco maximo:", maxPrice, "Quantidade:", quantity, "No. de Pessoas:", numberOfGuests};
+		MaskFormatter maskPrice		= new MaskFormatter("R$ ###.##");
+		maskPrice.setValidCharacters("0123456789");
+		
+		MaskFormatter maskQuantity	= new MaskFormatter("###");
+		maskQuantity.setValidCharacters("0123456789");
+
+		MaskFormatter maskMaxGuests	= new MaskFormatter("#");
+		maskQuantity.setValidCharacters("0123456789");
+		
+		JFormattedTextField maxPrice 		= new JFormattedTextField(maskPrice);
+		JFormattedTextField quantity 		= new JFormattedTextField(maskQuantity);
+		JFormattedTextField numberOfGuests	= new JFormattedTextField(maskMaxGuests);
+		
+        Object[] message = {"Preço Máximo:", maxPrice, "Quantidade:", quantity, "Nº de Pessoas:", numberOfGuests};
 
         int response = JOptionPane.showConfirmDialog(null, message, "Registro de interesse", JOptionPane.OK_CANCEL_OPTION);
         
@@ -613,14 +663,25 @@ public class HotelsPanel extends JPanel
         {
         	Accommodation accommodation = null;
 
-            float maxPriceFloat = Float.valueOf(maxPrice.getText());
-            
-            accommodation = new Accommodation(comboBoxCity.getSelectedItem().toString(), 
-											  textFieldHotel.getText().toString(), 
-											  0, 
-											  0, 
-											  0);
+            float maxPriceFloat = Float.valueOf(maxPrice.getText().substring(3, 
+						 													 9));
 
+            if(radioCity.isSelected())
+			{
+				accommodation = new Accommodation(comboBoxCity.getSelectedItem().toString(), 
+												  "", 
+												  0, 
+												  0, 
+												  0);
+			}
+			else
+			{
+				accommodation = new Accommodation("", 
+												  textFieldHotel.getText().toString(), 
+												  0, 
+												  0, 
+												  0);
+			}
 			try 
             {
                 serverReference.registerHotelInterest(accommodation, 
@@ -629,6 +690,15 @@ public class HotelsPanel extends JPanel
                 									  maxPriceFloat,
                 									  clientRMI,
                 									  clientRMI.getClientName());
+
+                AccommodationInterest accommodationInterest = new AccommodationInterest(accommodation,
+		        															   Integer.valueOf(quantity.getText()), 
+		        															   Integer.valueOf(numberOfGuests.getText()),
+		        															   maxPriceFloat, 
+		        															   clientRMI,
+		        															   clientRMI.getClientName());
+
+        		clientRMI.addAccommodationInterest(accommodationInterest);
             } 
             catch (RemoteException e) 
 			{
@@ -636,4 +706,24 @@ public class HotelsPanel extends JPanel
             }
         }
     }
+
+    /**
+	 * @brief
+	 */
+	public void processTableSelection()
+	{
+		try 
+    	{
+			HotelDetailsPanel detailedPanel = new HotelDetailsPanel(serverReference,
+																	table.getValueAt(table.getSelectedRow(), 1).toString(),
+																	comboBoxState.getSelectedItem().toString(),
+																	table.getValueAt(table.getSelectedRow(), 0).toString(),
+				  													Float.valueOf(table.getValueAt(table.getSelectedRow(), 2).toString()));
+			detailedPanel.setVisible(true);
+    	}
+		catch (java.text.ParseException e) 
+		{
+			e.printStackTrace();
+		}
+	}
 }

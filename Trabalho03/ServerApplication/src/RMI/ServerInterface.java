@@ -14,11 +14,16 @@ package RMI;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.sql.Date;
+import java.util.ArrayList;
 
 import Classes.Accommodation;
+import Classes.AccommodationInterest;
 import Classes.AccommodationManager;
 import Classes.FlightTicket;
+import Classes.FlightTicketInterest;
 import Classes.FlightTicketManager;
+import Classes.PackageInterest;
+import Classes.Packages;
  
 
 /**
@@ -65,6 +70,28 @@ public interface ServerInterface extends Remote
      * @return	
      */
     public AccommodationManager searchHotelByName(String _hotel) throws RemoteException;
+
+    /**
+     * @brief
+     * 
+     * @param   flightTicketGoing    :
+     * @param   flightTicketReturn   :
+     * @param   accommodation        :
+     * 
+     * @return
+     */
+    public ArrayList<Packages> searchPackages(FlightTicket    flightTicketGoing, 
+                                             FlightTicket    flightTicketReturn, 
+                                             Accommodation   accommodation)      throws RemoteException;
+
+    /**
+     * @brief   
+     * 
+     * @param   _package :
+     * 
+     * @return
+     */
+    public int buyPackage(Packages  _package) throws RemoteException;
     
     /**
      * @brief	
@@ -116,4 +143,46 @@ public interface ServerInterface extends Remote
                                       float             _desiredPrice,
                                       ClientInterface   _refCli,
                                       String            _clientName)        throws RemoteException;
+
+    /**
+     * @brief   
+     * 
+     * @param   _ticketTo       :
+     * @param   _ticketFrom     :
+     * @param   _accommodation  :
+     * @param   _quantity       :
+     * @param   _desiredPrice   :
+     * @param   _numberOfGuests :
+     * @param   _refCli         :
+     * @param   _clientName     :
+     */
+    public void registerPackageInterest(FlightTicket    _ticketTo,
+                                                     FlightTicket    _ticketFrom,
+                                                     Accommodation   _accommodation,
+                                                     int             _quantity,
+                                                     float           _desiredPrice,
+                                                     int             _numberOfGuests,
+                                                     ClientInterface _refCli,
+                                                     String          _clientName)       throws RemoteException;
+
+    /**
+     * @brief   
+     * 
+     * @param   interest       :
+     */
+    public void unregisterTicketInterest(FlightTicketInterest interest)  throws RemoteException;
+
+    /**
+     * @brief   
+     * 
+     * @param   interest       :
+     */
+    public void unregisterAccommodationInterest(AccommodationInterest interest)  throws RemoteException;
+
+    /**
+     * @brief   
+     * 
+     * @param   interest       :
+     */
+    public void unregisterPackageInterest(PackageInterest interest)  throws RemoteException;
 }

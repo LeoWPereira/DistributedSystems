@@ -20,40 +20,40 @@ import java.util.ArrayList;
  public class AccommodationManager implements Serializable
  { 
 	 /**
-	 * @brief
+	 * @brief	Unique Version ID from Class
 	 */
 	private static final long serialVersionUID = -6901199176974082169L;
-	
+
 	/**
-	  * @brief
+	  * @brief	Array of Accommodation
 	  */
     private ArrayList<Accommodation> accommodationList = new ArrayList<Accommodation>();
 
     /** 
     * @brief	Get the accommodation list
     * 
-    * @return accommodationList
+    * @return 	Accommodation List
     */
     public ArrayList<Accommodation> getAccommodationList()
     {
-        return accommodationList;
+        return this.accommodationList;
     }
 
     /** 
     * @brief	Insert an accommodation into the database
     * 
-    * @param 	accommodation
+    * @param 	accommodation	:	accommodation instance to be added into array
     */
     public void insertAccommodation(Accommodation accommodation) 
     {
-        accommodationList.add(accommodation);
+        this.accommodationList.add(accommodation);
     }
 
     
     /** 
     * @brief	Removes an accommodation from the database
     * 
-    * @param 	accommodation
+    * @param 	accommodation	: accommodation instance to be removed from array
     */
     public void removeAccommodation(Accommodation accommodation) 
     {
@@ -63,7 +63,7 @@ import java.util.ArrayList;
     /**
     * @brief	Get accommodation by its index
     * 
-    * @param 	index
+    * @param 	index	:	index of the array
     * 
     * @return 	Accommodation
     */
@@ -75,7 +75,7 @@ import java.util.ArrayList;
     /** 
     * @brief	Remove an accommodation by its index
     * 
-    * @param 	index
+    * @param 	index	: index of the array
     */
     public void removeAccommodationByIndex(int index) 
     {
@@ -85,11 +85,11 @@ import java.util.ArrayList;
     /**
     * @brief	Set a price for an accommodation found by its index
     *
-    * @param 	index
-    * @param 	price
+    * @param 	index	:	index of the array
+    * @param 	price	:	new price value
     */
-    public void editPrice(int index, 
-    					  float price)
+    public void editPrice(int 	index,
+    					  float	price)
     {
         (this.accommodationList.get(index)).setPrice(price);
     }
@@ -97,7 +97,7 @@ import java.util.ArrayList;
     /**
     * @brief	Get the accommodation list size
     *
-    * @return 	sizeList
+    * @return 	Size List
     */
     public int getAccommodationListSize() 
     {

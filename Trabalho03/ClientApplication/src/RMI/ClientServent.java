@@ -13,24 +13,48 @@ package RMI;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
-import javax.swing.JFrame;
+import Classes.AccommodationInterest;
+import Classes.FlightTicketInterest;
+import Classes.PackageInterest;
+
 import javax.swing.JOptionPane;
 
 /**
- * @brief   
+ * @brief	Class responsible for  
  */
 public class ClientServent extends UnicastRemoteObject implements ClientInterface
 {
-    /**
-	 * @brief Generated Serial Version ID
+	/**
+	 * @brief	Generated Serial Version ID
 	 */
-	private static final long serialVersionUID = 5470551739044150069L;
+	private static final long serialVersionUID = -6179845856072812728L;
 
 	/**
 	 * @brief Name of the user
 	 */
-	private static String name;
+	private String name;
+
+	/**
+	 * @brief Local list of flight ticket interests
+	 */
+	private ArrayList<FlightTicketInterest> listTicketInterest;
+
+	/**
+	 * @brief Local list of flight ticket interests
+	 */
+	private ArrayList<AccommodationInterest> listAccommodationInterest;
+
+	/**
+	 * @brief Local list of flight ticket interests
+	 */
+	private ArrayList<PackageInterest> listPackageInterest;
+
+    /**
+     * @brief Server RMI object
+     */
+    private ServerInterface serverRMI;
 
 	/**
 	 * @brief	
@@ -43,7 +67,15 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
     {
     	this.name = _name;
 
-        _serverReference.call(_name,
+    	listTicketInterest = new ArrayList<FlightTicketInterest>();
+
+    	listAccommodationInterest = new ArrayList<AccommodationInterest>();
+
+    	listPackageInterest = new ArrayList<PackageInterest>();
+
+        serverRMI = _serverReference;
+
+        serverRMI.call(_name,
         					  this);
     }
     
@@ -71,5 +103,184 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
     public String getClientName()
     {
     	return this.name;
+    }
+
+    /**
+	 * @brief Adds a flight ticket interest into the local array list
+	 * 
+	 */
+    public void addFlightTicketInterest(FlightTicketInterest ticketInterest)
+    {
+    	listTicketInterest.add(ticketInterest);
+
+    	return;
+    }
+
+    /**
+	 * @brief Adds an accommodation interest into the local array list
+	 * 
+	 */
+    public void addAccommodationInterest(AccommodationInterest accommodationInterest)
+    {
+    	listAccommodationInterest.add(accommodationInterest);
+    	
+    	return;
+    }
+
+    /**
+	 * @brief Adds a package interest into the local array list
+	 * 
+	 */
+    public void addPackageInterest(PackageInterest packageInterest)
+    {
+    	listPackageInterest.add(packageInterest);
+    	
+    	return;
+    }
+
+    /**
+	 * @brief Default getter
+	 * 
+	 */
+    public ArrayList<FlightTicketInterest> getTicketInterestList()
+    {
+    	return this.listTicketInterest;
+    }
+
+    /**
+	 * @brief Default getter
+	 * 
+	 */
+    public ArrayList<AccommodationInterest> getAccommodationInterestList()
+    {
+    	return this.listAccommodationInterest;
+    }
+
+    /**
+	 * @brief Default getter
+	 * 
+	 */
+    public ArrayList<PackageInterest> getPackageInterestList()
+    {
+    	return this.listPackageInterest;
+    }
+    
+    /**
+	 * @brief Remove ticket interest from local array and from the server
+	 * 
+	 */
+    public void removeTicketInterest(FlightTicketInterest ticketInterest)
+    {
+        FlightTicketInterest interest;
+
+    	for(int i = 0; i < listTicketInterest.size(); i++)
+    	{
+            interest = listTicketInterest.get(i);
+
+    		if((ticketInterest.getSource().compareToIgnoreCase(interest.getSource()) == 0)   &&
+              (ticketInterest.getDest().compareToIgnoreCase(interest.getDest()) == 0)       &&
+              (ticketInterest.isReturnTicket() == interest.isReturnTicket()                 &&
+              (ticketInterest.getMaxPrice() == interest.getMaxPrice())))
+    		{
+    			listTicketInterest.remove(i);
+
+                try {
+					serverRMI.unregisterTicketInterest(interest);
+				} 
+                catch (RemoteException e) 
+                {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+    		}
+    	}
+    	return;
+    }
+
+    /**
+     * @brief Remove accommodation interest from local array and from the server
+     * 
+     */
+    public void removeAccommodationInterest(AccommodationInterest accommodationInterest)
+    {
+        AccommodationInterest interest;
+
+        for(int i = 0; i < listAccommodationInterest.size(); i++)
+        {
+            interest = listAccommodationInterest.get(i);
+
+            // checks if the interest is by its city name
+            if(accommodationInterest.getAccommodationName().isEmpty())
+            {
+                if((accommodationInterest.getAccommodationCityName().compareToIgnoreCase(interest.getAccommodationCityName()) == 0)   &&
+                  (accommodationInterest.getMaxPrice() == interest.getMaxPrice()))
+                {
+                    listAccommodationInterest.remove(i);
+
+                    try 
+                    {
+						serverRMI.unregisterAccommodationInterest(interest);
+					} 
+                    catch (RemoteException e) 
+                    {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+                }
+            }
+            else
+            {
+
+                if((accommodationInterest.getAccommodationName().compareToIgnoreCase(interest.getAccommodationName()) == 0)   &&
+                  (accommodationInterest.getMaxPrice() == interest.getMaxPrice()))
+                {
+                    listAccommodationInterest.remove(i);
+
+                    try 
+                    {
+						serverRMI.unregisterAccommodationInterest(interest);
+					} 
+                    catch (RemoteException e) 
+                    {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+                }
+            }
+        }
+        return;
+    }
+
+    /**
+     * @brief Remove package interest from local array and from the server
+     * 
+     */
+    public void removePackageInterest(PackageInterest packageInterest)
+    {
+        PackageInterest interest;
+
+        for(int i = 0; i < listPackageInterest.size(); i++)
+        {
+            interest = listPackageInterest.get(i);
+
+            if((packageInterest.getSource().compareToIgnoreCase(interest.getSource()) == 0)   &&
+              (packageInterest.getDest().compareToIgnoreCase(interest.getDest()) == 0)       &&
+              (packageInterest.isReturnTicket() == interest.isReturnTicket()                 &&
+              (packageInterest.getMaxPrice() == interest.getMaxPrice())))
+            {
+                listPackageInterest.remove(i);
+
+                try 
+                {
+					serverRMI.unregisterPackageInterest(interest);
+				} 
+                catch (RemoteException e) 
+                {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
+        }
+        return;
     }
 }

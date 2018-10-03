@@ -25,6 +25,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -32,7 +33,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
@@ -40,8 +40,10 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 
 import Classes.FlightTicket;
+import Classes.FlightTicketInterest;
 import Classes.FlightTicketManager;
 import Extra.CitiesBrazil;
 import RMI.ClientServent;
@@ -561,7 +563,14 @@ public class PassagesPanel extends JPanel
 				}
 				else
 				{
-					processInterestButton(arg0);
+					try 
+					{
+						processInterestButton(arg0);
+					}
+					catch(ParseException e) 
+					{
+						e.printStackTrace();
+					}
 				}
 			}
 		});
@@ -847,11 +856,18 @@ public class PassagesPanel extends JPanel
 	/**
 	 * @brief
 	 */
-	private void processInterestButton(java.awt.event.ActionEvent evt) 
+	private void processInterestButton(java.awt.event.ActionEvent evt) throws ParseException
 	{
-        JTextField maxPrice = new JTextField();
-        JTextField quantity = new JTextField();
-        Object[] message = {"Preco maximo:", maxPrice, "Quantidade:", quantity};
+		MaskFormatter maskPrice	= new MaskFormatter("R$ ###.##");
+		maskPrice.setValidCharacters("0123456789");
+		
+		MaskFormatter maskQuantity	= new MaskFormatter("###");
+		maskQuantity.setValidCharacters("0123456789");
+		
+		JFormattedTextField maxPrice = new JFormattedTextField(maskPrice);
+		JFormattedTextField quantity = new JFormattedTextField(maskQuantity);
+		
+        Object[] message = {"Preço Máximo:", maxPrice, "Quantidade:", quantity};
 
         int response = JOptionPane.showConfirmDialog(null, message, "Registro de interesse", JOptionPane.OK_CANCEL_OPTION);
         
@@ -860,7 +876,8 @@ public class PassagesPanel extends JPanel
         	FlightTicket flightTicketTo = null;
         	FlightTicket flightTicketFrom = null;
 
-            float maxPriceFloat = Float.valueOf(maxPrice.getText());
+            float maxPriceFloat = Float.valueOf(maxPrice.getText().substring(3, 
+			   		  														 9));
             Calendar calendar = Calendar.getInstance();
 		
 			int day 	= datePickerOneWayTrip.getModel().getDay();
@@ -906,6 +923,23 @@ public class PassagesPanel extends JPanel
                 										maxPriceFloat,
                 										clientRMI,
                 										clientRMI.getClientName());
+
+                boolean isReturnTicket = true;
+
+                if(flightTicketFrom != null)
+                {
+                	isReturnTicket = true;
+                }
+
+                FlightTicketInterest ticketInterest = new FlightTicketInterest(flightTicketTo,
+        															   flightTicketFrom, 
+        															   isReturnTicket,
+        															   Integer.valueOf(quantity.getText()), 
+        															   maxPriceFloat,
+        															   clientRMI,
+        															   clientRMI.getClientName());
+
+       			clientRMI.addFlightTicketInterest(ticketInterest);
             } 
             catch (RemoteException e) 
 			{

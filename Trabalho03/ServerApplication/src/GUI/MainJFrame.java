@@ -248,7 +248,6 @@ public class MainJFrame extends JFrame
 		
 		JLabel labelPassages 		= new JLabel("Passagens");
 		JLabel labelHotel 			= new JLabel("Hospedagem");
-		JLabel labelPackages		= new JLabel("Pacotes");
 		JLabel labelEvents 			= new JLabel("Eventos");
 		JLabel labelConfigs 		= new JLabel("Configurações");
 		
@@ -317,7 +316,8 @@ public class MainJFrame extends JFrame
 				try 
 				{
 					hotelsPanel = new HotelsPanel(internalPanel, 
-											      dbStatement);
+											      dbStatement,
+											      serverRMI);
 					
 					hotelsPanel.setVisible(true);
 				} 
@@ -331,28 +331,10 @@ public class MainJFrame extends JFrame
 				}
 			}
 		});
-				
-		// Package button configurations
-		buttonPackages.setBounds(228, 5,
-								 64, 64);
-		
-		buttonPackages.setIcon(new ImageIcon(MainJFrame.class.getResource("/Images/todo.png")));
-		buttonPackages.setBackground(new Color(222, 184, 135));
-		buttonPackages.setBorder(null);
-		
-		buttonPackages.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				//PackagesPanel packagesPanel = new PackagesPanel(internalPanel);
-				
-				//packagesPanel.setVisible(true);
-			}
-		});
 		
 		// Event button configurations
-		buttonEvents.setBounds(336, 5,
-							   64, 64);
+		buttonEvents.setBounds(228, 5,
+				 				64, 64);
 		
 		buttonEvents.setIcon(new ImageIcon(MainJFrame.class.getResource("/Images/booklet.png")));
 		buttonEvents.setBackground(new Color(222, 184, 135));
@@ -384,8 +366,8 @@ public class MainJFrame extends JFrame
 		});
 		
 		// Configuration button configurations
-		buttonConfigs.setBounds(444, 5,
-								64, 64);
+		buttonConfigs.setBounds(336, 5,
+				   				64, 64);
 		
 		buttonConfigs.setIcon(new ImageIcon(MainJFrame.class.getResource("/Images/settings.png")));
 		buttonConfigs.setBackground(new Color(222, 184, 135));
@@ -411,20 +393,15 @@ public class MainJFrame extends JFrame
 		labelHotel.setBounds(115, 73,
 							 90, 15);
 		
-		// Packages label configurations
-		labelPackages.setPreferredSize(new Dimension(80, 15));
-		labelPackages.setBounds(235, 73,
-							    70, 15);
-		
 		// Events label configurations
 		labelEvents.setPreferredSize(new Dimension(80, 15));
-		labelEvents.setBounds(345, 73,
-							  70, 15);
+		labelEvents.setBounds(235, 73,
+			    			  70, 15);
 		
 		// Config label configurations
 		labelConfigs.setPreferredSize(new Dimension(80, 15));
-		labelConfigs.setBounds(445, 73,
-				   			   102, 15);
+		labelConfigs.setBounds(345, 73,
+				  			   70, 15);
 				
 		contentPane.add(panel);
 		
@@ -436,7 +413,6 @@ public class MainJFrame extends JFrame
 		
 		panel.add(labelPassages);
 		panel.add(labelHotel);
-		panel.add(labelPackages);
 		panel.add(labelEvents);
 		panel.add(labelConfigs);
 	}

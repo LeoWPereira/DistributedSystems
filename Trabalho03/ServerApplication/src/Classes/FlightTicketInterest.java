@@ -11,7 +11,6 @@
 
 package Classes;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import RMI.ClientInterface;
@@ -19,40 +18,40 @@ import RMI.ClientInterface;
 /**
  * @brief   Class responsible for storing the flight ticket interest info from the clients
  */
-public class FlightTicketInterest 
+public class FlightTicketInterest implements Serializable
 {
     /**
-     * @brief
+     * @brief	Instance of flight ticket
      */
     private FlightTicket  flightTicketTo;
 
     /**
-     * @brief
+     * @brief	Instance of flight ticket
      */
     private FlightTicket  flightTicketFrom;
 
     /**
-     * @brief
+     * @brief	Passage we are interested into is two-way?
      */
     private boolean returnTicket;
     
     /**
-     * @brief
+     * @brief	Quantity of passages desired
      */
     private int quantity;
     
     /**
-     * @brief
+     * @brief	Max price desired to pay
      */
     private float maxPrice;
 
     /**
-     * @brief
+     * @brief	Reference to Client
      */
     private ClientInterface refCli;
 
     /**
-     * @brief
+     * @brief	Name of the client
      */
     private String clientName;
 
@@ -84,53 +83,53 @@ public class FlightTicketInterest
     }
 
     /**
-     * @brief Return if a ticket is a return ticket (not one-way)
+     * @brief	Return if a ticket is a return ticket (not one-way)
      * 
-     * @param isReturn : boolean - True if it is a return ticket
+     * @param	isReturn	: boolean - True if it is a return ticket
      */
     public boolean isReturnTicket() 
     {
-        return returnTicket;
+        return this.returnTicket;
     }
     
     /**
      * @brief   Get the source of the ticket interest
      * 
-     * @return  source
+     * @return  source flight
      */   
     public String getSource()
     {
-        return flightTicketTo.getSource();
+        return this.flightTicketTo.getSource();
     }
 
     /**
      * @brief   Get the destination of the ticket interest
      * 
-     * @return  cityName
+     * @return  city Name
      */   
     public String getDest()
     {
-        return flightTicketTo.getDest();
+        return this.flightTicketTo.getDest();
     }
 
     /**
      * @brief   Get the source date from the source ticket
      * 
-     * @return  sourceDate
+     * @return  source Date
      */ 
     public Date getSourceDate()
     {
-        return flightTicketTo.getDate();
+        return this.flightTicketTo.getDate();
     }
 
     /**
      * @brief   Get the return date from the return ticket
      * 
-     * @return  returnDate
+     * @return  return Date
      */ 
     public Date getReturnDate()
     {
-        return flightTicketFrom.getDate();
+        return this.flightTicketFrom.getDate();
     }
     
     /**
@@ -140,37 +139,36 @@ public class FlightTicketInterest
      */ 
     public int getQuantity()
     {
-        return quantity;
+        return this.quantity;
     }
 
     /**
-     * @brief Default getter
+     * @brief	Default getter
      * 
-     * @return maxPrice
+     * @return	maxPrice
      */
     public float getMaxPrice() 
     {
-        return maxPrice;
+        return this.maxPrice;
     }
 
     /**
-     * @brief Default getter
+     * @brief 	Default getter
      * 
-     * @return  refCli
+     * @return  reference of the Client
      */
     public ClientInterface getClientInterface() 
     {
-        return refCli;
+        return this.refCli;
     }
 
     /**
-     * @brief Default getter
+     * @brief 	Default getter
      * 
-     * @return  clientName
+     * @return  client Name
      */
     public String getClientName() 
     {
-        return clientName;
+        return this.clientName;
     }
 }
-    
