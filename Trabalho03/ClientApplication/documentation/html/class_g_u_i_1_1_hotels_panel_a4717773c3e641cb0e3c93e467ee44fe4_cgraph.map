@@ -1,3 +1,11 @@
 <map id="GUI.HotelsPanel.configButton" name="GUI.HotelsPanel.configButton">
-<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotels_panel.html#ad16d941850b9bfaa494c7e9b452e2f9c" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="248,5,424,47"/>
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotels_panel.html#ad16d941850b9bfaa494c7e9b452e2f9c" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="265,64,441,105"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotels_panel.html#afddf1726a0c4cc7fe81037a4780ed727" title="GUI.HotelsPanel.processSearch\lButton" alt="" coords="248,129,457,171"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_hotels_panel.html#a5b8b7361574792ce8c2b38070904f687" title="GUI.HotelsPanel.cleanTable" alt="" coords="533,13,717,39"/>
+<area shape="rect" id="node7" href="$interface_r_m_i_1_1_server_interface.html#a2e57e9f82229919754b12d24be7b0f7e" title="RMI.ServerInterface.search\lHotelByCity" alt="" coords="536,64,713,105"/>
+<area shape="rect" id="node8" href="$interface_r_m_i_1_1_server_interface.html#abd4c7e0436bfc29dddc8bef389e833e2" title="RMI.ServerInterface.search\lHotelByName" alt="" coords="536,129,713,171"/>
+<area shape="rect" id="node9" href="$class_classes_1_1_accommodation_manager.html#adf9d8f6131cba90cf76a6acb673605c7" title="Get the accommodation list size. " alt="" coords="505,195,744,236"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_hotels_panel.html#af6804623d54a1e298cab45f4208ebacf" title="The method will handle the insertion of data into the table. " alt="" coords="532,260,717,301"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_hotels_panel.html#a70f0004b0be1f38cf938cfdd702b91ec" title="The method will handle the initial settings for the table. " alt="" coords="792,13,979,39"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_hotels_panel.html#a541684adb88ef74713aea4baee072d1c" title="GUI.HotelsPanel.processTable\lSelection" alt="" coords="1027,5,1225,47"/>
 </map>

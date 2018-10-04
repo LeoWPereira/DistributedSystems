@@ -1,3 +1,11 @@
 <map id="GUI.PassagesPanel.configButton" name="GUI.PassagesPanel.configButton">
-<area shape="rect" id="node2" href="$class_g_u_i_1_1_passages_panel.html#af6fd37e314368b6b1babe2f7aee7217a" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="231,5,428,47"/>
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_passages_panel.html#af6fd37e314368b6b1babe2f7aee7217a" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="231,64,428,105"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_passages_panel.html#a1131fcaa0642d79d0b3909b0ce3c8a52" title="GUI.PassagesPanel.process\lSearchButton" alt="" coords="235,129,424,171"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_passages_panel.html#af29eaeedaabcbad87ac6fa4cf80a5a4e" title="GUI.PassagesPanel.cleanTable" alt="" coords="479,13,685,39"/>
+<area shape="rect" id="node7" href="$interface_r_m_i_1_1_server_interface.html#a234d677924e2275ea9443abed0da212b" title="RMI.ServerInterface.search\lPassages" alt="" coords="493,64,671,105"/>
+<area shape="rect" id="node8" href="$class_classes_1_1_flight_ticket_manager.html#ab646869151b4553f4a05dc1024423ca3" title="Returns the flight ticket list size. " alt="" coords="476,129,688,171"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_passages_panel.html#a915b280d7f5cf63f7ee17edee4df225b" title="The method will handle the insertion of data into the table. " alt="" coords="495,195,669,236"/>
+<area shape="rect" id="node10" href="$class_classes_1_1_flight_ticket_manager.html#a342e10320c2f276ad184cbac62ce2979" title="Get the flight ticket list. " alt="" coords="476,260,688,301"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_passages_panel.html#ac4f61a92d8f602b26a10d7d58b757235" title="The method will handle the initial settings for the table. " alt="" coords="736,5,913,47"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_passages_panel.html#a34be845ab09ffebdaa31d9f7f46643a6" title="GUI.PassagesPanel.process\lTableSelection" alt="" coords="961,5,1151,47"/>
 </map>

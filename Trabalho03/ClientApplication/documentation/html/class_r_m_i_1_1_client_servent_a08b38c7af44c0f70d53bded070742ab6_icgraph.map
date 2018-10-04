@@ -1,0 +1,11 @@
+<map id="RMI.ClientServent.removeTicketInterest" name="RMI.ClientServent.removeTicketInterest">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="224,71,425,112"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="503,5,696,47"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="473,71,725,112"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="495,136,704,177"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#abff1f9d90177b29b847a928c86e8025c" title="The method will show the flight ticket interest list in the table. " alt="" coords="799,5,995,47"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_events_panel.html#a9208fe7f420968feb736ad88a6abc8e2" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="1069,71,1260,112"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_events_panel.html#a24da6ae4655cabb2e092bc0e359ce10c" title="Default Constructor. " alt="" coords="1308,78,1504,105"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_events_panel.html#ab89b241d6b46e5a749fe1d2f94aa8995" title="The method will show the accommodation interest list in the table. " alt="" coords="773,71,1021,112"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_events_panel.html#aa9bba4186ee8c6a5555b1cae5a7ae529" title="The method will show the package interest list in the table. " alt="" coords="795,136,1000,177"/>
+</map>

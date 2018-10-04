@@ -11,6 +11,8 @@
 
 package Classes;
 
+import java.io.Serializable;
+
 import RMI.ClientInterface;
 
 /**

@@ -1,0 +1,5 @@
+<map id="GUI.EventsPanel.showTicketsInterest" name="GUI.EventsPanel.showTicketsInterest">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="249,5,443,47"/>
+<area shape="rect" id="node3" href="$class_r_m_i_1_1_server_servent.html#abca4135110d2770c144e3a4692849817" title="RMI.ServerServent.getTicket\lInterestList" alt="" coords="253,71,439,112"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#a11f1b8efad175573fe369f97db913353" title="GUI.EventsPanel.insertTable\lFieldTicket" alt="" coords="253,136,439,177"/>
+</map>

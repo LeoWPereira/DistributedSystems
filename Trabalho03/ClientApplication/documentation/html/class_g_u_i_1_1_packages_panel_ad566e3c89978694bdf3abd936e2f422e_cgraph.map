@@ -1,0 +1,11 @@
+<map id="GUI.PackagesPanel.insertTableField" name="GUI.PackagesPanel.insertTableField">
+<area shape="rect" id="node2" href="$class_classes_1_1_packages.html#a9f4d08b67683ae5eb556366a75b95134" title="Default getter. " alt="" coords="259,5,444,47"/>
+<area shape="rect" id="node3" href="$class_classes_1_1_flight_ticket.html#ab9ac021ba2214ea1fa953f6819861a77" title="Default getter. " alt="" coords="270,71,433,112"/>
+<area shape="rect" id="node4" href="$class_classes_1_1_flight_ticket.html#ae999ed81960bb15dd8fabc885a027122" title="Default getter. " alt="" coords="257,137,446,163"/>
+<area shape="rect" id="node5" href="$class_classes_1_1_packages.html#a489cccc35b66334b76082f22ea0066e5" title="Default getter. " alt="" coords="228,187,475,214"/>
+<area shape="rect" id="node6" href="$class_classes_1_1_accommodation.html#a70177d66378aa500361fe9479d06ae13" title="Default getter. " alt="" coords="257,239,446,280"/>
+<area shape="rect" id="node7" href="$class_classes_1_1_flight_ticket.html#ae257c63626b37899d9358edf1b43a320" title="Default getter. " alt="" coords="536,341,699,383"/>
+<area shape="rect" id="node8" href="$class_classes_1_1_packages.html#a01402e57faaa90bf795d4850fdf608b6" title="Default getter. " alt="" coords="259,356,444,397"/>
+<area shape="rect" id="node9" href="$class_classes_1_1_accommodation.html#a155d63b488a2037a6fc95095671e04f0" title="Default getter. " alt="" coords="523,451,712,492"/>
+<area shape="rect" id="node10" href="$class_classes_1_1_packages.html#ab771142598cb7d980b02f21f07c61a86" title="Get the total price of the package. " alt="" coords="261,421,442,463"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="GUI.HotelDetailsPanel.HotelDetailsPanel" name="GUI.HotelDetailsPanel.HotelDetailsPanel">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotel_details_panel.html#a7a4ca6a0a0c2fd48718ec73289c21e43" title="Configure the settings of the Frame. " alt="" coords="247,5,420,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotel_details_panel.html#a5e8c258930bb1f81dc8288374101223a" title="Initial settings for the several ComboBox of the Panel. " alt="" coords="239,71,428,112"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_hotel_details_panel.html#a071a6b2cef2cce9002af780c4d595a9e" title="GUI.HotelDetailsPanel.config\lPrice" alt="" coords="239,136,428,177"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_hotel_details_panel.html#a26bd064225de34638ca222155758b066" title="GUI.HotelDetailsPanel.config\lParam" alt="" coords="239,201,428,243"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_hotel_details_panel.html#a27ff69c3f0ac00170b2095eb7f2cf5ff" title="GUI.HotelDetailsPanel.config\lButton" alt="" coords="239,267,428,308"/>
+<area shape="rect" id="node4" href="$class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b" title="Get the States from Brazil. " alt="" coords="485,53,668,79"/>
+<area shape="rect" id="node5" href="$class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d" title="Get the list of Cities of an State of Brazil. " alt="" coords="487,103,666,130"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_hotel_details_panel.html#a524dc4c20c48c7955138a526356052ae" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="481,233,672,275"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_hotel_details_panel.html#a602a8c373a33236df4d4016c77b2e2e7" title="GUI.HotelDetailsPanel.process\lReserve" alt="" coords="476,299,677,340"/>
+<area shape="rect" id="node11" href="$interface_r_m_i_1_1_server_interface.html#a3e93cf1b9dded24a260f50ebdecad688" title="RMI.ServerInterface.reserve\lHotel" alt="" coords="725,299,904,340"/>
+</map>

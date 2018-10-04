@@ -1,3 +1,6 @@
 <map id="GUI.PassagesPanel.configTable" name="GUI.PassagesPanel.configTable">
-<area shape="rect" id="node2" href="$class_g_u_i_1_1_passages_panel.html#a25f03d35912e7053d839660e6366b6bb" title="Default Constructor. " alt="" coords="231,5,432,47"/>
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_passages_panel.html#a070bc6f31210934eb1d5555ee9b654cd" title="Default Constructor. " alt="" coords="947,7,1148,48"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_passages_panel.html#af29eaeedaabcbad87ac6fa4cf80a5a4e" title="GUI.PassagesPanel.cleanTable" alt="" coords="231,39,436,66"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_passages_panel.html#a1131fcaa0642d79d0b3909b0ce3c8a52" title="GUI.PassagesPanel.process\lSearchButton" alt="" coords="484,36,673,77"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="721,36,899,77"/>
 </map>

@@ -1,0 +1,22 @@
+<map id="Classes.Accommodation.getAccommodationName" name="Classes.Accommodation.getAccommodationName">
+<area shape="rect" id="node2" href="$class_classes_1_1_accommodation_interest.html#af109f985c3233c110e063081b5fdc036" title="Default getter. " alt="" coords="243,52,475,93"/>
+<area shape="rect" id="node15" href="$class_classes_1_1_package_interest.html#a1922961983f122115001c632f98d54cf" title="Get the accommodation name from the accommodation. " alt="" coords="264,117,453,159"/>
+<area shape="rect" id="node16" href="$class_g_u_i_1_1_hotels_panel.html#adc7916069a2e61d1033dc655ed1d86fe" title="GUI.HotelsPanel.insertTable\lField" alt="" coords="266,183,451,224"/>
+<area shape="rect" id="node17" href="$class_g_u_i_1_1_packages_panel.html#ad566e3c89978694bdf3abd936e2f422e" title="GUI.PackagesPanel.insert\lTableField" alt="" coords="271,248,446,289"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html#a3405a4a86e89cc527cb5578b0ff81f02" title="GUI.EventsPanel.insertTable\lFieldAccommodation" alt="" coords="524,36,711,77"/>
+<area shape="rect" id="node8" href="$class_r_m_i_1_1_client_servent.html#a6c867a8716dd2791a41a2df4cb8558b9" title="Remove accommodation interest from local array and from the server. " alt="" coords="532,101,703,143"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#ab89b241d6b46e5a749fe1d2f94aa8995" title="The method will show the accommodation interest list in the table. " alt="" coords="1309,36,1557,77"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_events_panel.html#a3e3c4075134ffe86751ceec1f225c924" title="GUI.EventsPanel.insertTable\lFieldAccommodation" alt="" coords="767,36,954,77"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_events_panel.html#a9208fe7f420968feb736ad88a6abc8e2" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="1605,101,1796,143"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_events_panel.html#a24da6ae4655cabb2e092bc0e359ce10c" title="Default Constructor. " alt="" coords="1844,109,2040,135"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="760,101,961,143"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="1039,101,1232,143"/>
+<area shape="rect" id="node12" href="$class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="1009,36,1261,77"/>
+<area shape="rect" id="node13" href="$class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="1031,167,1240,208"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_events_panel.html#abff1f9d90177b29b847a928c86e8025c" title="The method will show the flight ticket interest list in the table. " alt="" coords="1335,101,1531,143"/>
+<area shape="rect" id="node14" href="$class_g_u_i_1_1_events_panel.html#aa9bba4186ee8c6a5555b1cae5a7ae529" title="The method will show the package interest list in the table. " alt="" coords="1331,167,1536,208"/>
+<area shape="rect" id="node18" href="$class_g_u_i_1_1_packages_panel.html#acfbe1faedf2f2e74218ba8c201429f85" title="GUI.PackagesPanel.insert\lTableField" alt="" coords="530,199,705,240"/>
+<area shape="rect" id="node19" href="$class_g_u_i_1_1_packages_panel.html#af208e95e50804a59ab9ad7a50bdeb185" title="GUI.PackagesPanel.process\lSearchButton" alt="" coords="523,264,712,305"/>
+<area shape="rect" id="node20" href="$class_g_u_i_1_1_packages_panel.html#a8aaa2e65f62b9c58c70b01eefa4edd7e" title="This method will handle the initial configurations to the Search Button. " alt="" coords="772,264,949,305"/>
+<area shape="rect" id="node21" href="$class_g_u_i_1_1_packages_panel.html#a965d2ef3875b410bf3374ae298d9d229" title="Default Constructor. " alt="" coords="1035,264,1236,305"/>
+</map>

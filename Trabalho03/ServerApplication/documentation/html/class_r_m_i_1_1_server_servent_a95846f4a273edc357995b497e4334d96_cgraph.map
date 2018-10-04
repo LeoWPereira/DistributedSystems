@@ -1,0 +1,8 @@
+<map id="RMI.ServerServent.searchHotelByName" name="RMI.ServerServent.searchHotelByName">
+<area shape="rect" id="node2" href="$class_database_1_1_d_b_connection.html#a56e17be5b4c6592d2fcb58490be46690" title="Database.DBConnection.configure\lDatabase" alt="" coords="224,5,444,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a0bec7f86acb2c6f156e1326d4977de1b" title="Database.Controller.Ctrl\lHotel.searchHotelByHotel" alt="" coords="249,71,419,112"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_b_connection.html#a9c7fe69d5e2603941a839a47fb62a6a1" title="Database.DBConnection.connect\lToDatabase" alt="" coords="492,5,707,47"/>
+<area shape="rect" id="node5" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#ad23730669c452be1f2ca08b847a54809" title="Database.DAO.DAOHotel.search\lHotelByHotel" alt="" coords="492,71,707,112"/>
+<area shape="rect" id="node6" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="755,37,941,79"/>
+<area shape="rect" id="node7" href="$class_database_1_1_d_b_connection.html#a385dfe5fc7d14047401a41c1d3c3aee6" title="Database.DBConnection.get\lHotelDBName" alt="" coords="755,103,941,144"/>
+</map>

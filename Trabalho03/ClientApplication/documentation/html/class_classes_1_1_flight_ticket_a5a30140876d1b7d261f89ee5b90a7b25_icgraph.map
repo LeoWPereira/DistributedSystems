@@ -1,0 +1,6 @@
+<map id="Classes.FlightTicket.getDate" name="Classes.FlightTicket.getDate">
+<area shape="rect" id="node2" href="$class_classes_1_1_flight_ticket_interest.html#aea65c08b20d3949a6c1f4b3253848314" title="Get the source date from the source ticket. " alt="" coords="243,5,448,47"/>
+<area shape="rect" id="node3" href="$class_classes_1_1_flight_ticket_interest.html#aa67b2a53b00fa7a9ab7ab1d4fd00b8f7" title="Get the return date from the return ticket. " alt="" coords="243,71,448,112"/>
+<area shape="rect" id="node4" href="$class_classes_1_1_package_interest.html#aeaacc4fb88961354aa4ab55cadca18c9" title="Get the source date from the source ticket. " alt="" coords="251,136,440,177"/>
+<area shape="rect" id="node5" href="$class_classes_1_1_package_interest.html#aa2fa628bbc540f056099744bba499d44" title="Get the return date from the return ticket. " alt="" coords="251,201,440,243"/>
+</map>

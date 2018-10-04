@@ -1,0 +1,4 @@
+<map id="Database.DAO.DAOHotel.searchHotelByCity" name="Database.DAO.DAOHotel.searchHotelByCity">
+<area shape="rect" id="node2" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="268,5,455,47"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_b_connection.html#a385dfe5fc7d14047401a41c1d3c3aee6" title="Database.DBConnection.get\lHotelDBName" alt="" coords="268,71,455,112"/>
+</map>

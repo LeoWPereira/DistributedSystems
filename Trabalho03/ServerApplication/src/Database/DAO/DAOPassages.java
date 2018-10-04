@@ -267,11 +267,13 @@ public class DAOPassages
 					 	 rowDate							+
 					 	 "` = '"							+
 					 	 _date								+
-					 	 "' AND `"							+
+					 	 "' AND FORMAT(`"					+
 					 	 rowPrice							+
-					 	 "` LIKE '"							+
+					 	 "`, 2) LIKE FORMAT('"				+
 					 	 _price								+
-					 	 "';";
+					 	 "', 2);";
+		
+		System.out.println(query);
 		
 		ResultSet rs = _stm.executeQuery(query);
 		
@@ -317,11 +319,11 @@ public class DAOPassages
 					 	rowDate								+
 					 	"` = '"								+
 					 	_date								+
-					 	"' AND `"							+
+					 	"' AND FORMAT(`"					+
 					 	rowPrice							+
-					 	"` LIKE '"							+
+					 	"`, 2) LIKE FORMAT('"				+
 					 	_price								+
-					 	"';";
+					 	"', 2);";
 		
 		System.out.println(query);
 		

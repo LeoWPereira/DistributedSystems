@@ -1,0 +1,18 @@
+<map id="GUI.HotelsPanel.HotelsPanel" name="GUI.HotelsPanel.HotelsPanel">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotels_panel.html#a2ce8b1c6bbf266b65d0e4b4ea3f8ab43" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="248,21,437,62"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotels_panel.html#a77527a68f80ce855de413f53d8126913" title="Initial settings for the several ComboBox of the Panel. " alt="" coords="249,86,436,127"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_hotels_panel.html#abde7cdceca40f5b4c9453e7dd2e7d59d" title="Initial settings for the Hotel name Search feature. " alt="" coords="249,151,436,193"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="245,217,440,244"/>
+<area shape="rect" id="node12" href="$class_g_u_i_1_1_hotels_panel.html#a70f0004b0be1f38cf938cfdd702b91ec" title="The method will handle the initial settings for the table. " alt="" coords="1032,277,1219,304"/>
+<area shape="rect" id="node4" href="$class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b" title="Get the States from Brazil. " alt="" coords="501,5,684,32"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_hotels_panel.html#aa44f0307d1b191a80cbd12948f284185" title="The method will handle changes if the State ComboBox. " alt="" coords="494,57,691,98"/>
+<area shape="rect" id="node6" href="$class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d" title="Get the list of Cities of an State of Brazil. " alt="" coords="775,68,954,95"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_hotels_panel.html#ad16d941850b9bfaa494c7e9b452e2f9c" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="505,174,681,215"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_hotels_panel.html#afddf1726a0c4cc7fe81037a4780ed727" title="GUI.HotelsPanel.processSearch\lButton" alt="" coords="488,239,697,281"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_hotels_panel.html#a5b8b7361574792ce8c2b38070904f687" title="GUI.HotelsPanel.cleanTable" alt="" coords="773,120,957,147"/>
+<area shape="rect" id="node14" href="$interface_r_m_i_1_1_server_interface.html#a2e57e9f82229919754b12d24be7b0f7e" title="RMI.ServerInterface.search\lHotelByCity" alt="" coords="776,171,953,213"/>
+<area shape="rect" id="node15" href="$interface_r_m_i_1_1_server_interface.html#abd4c7e0436bfc29dddc8bef389e833e2" title="RMI.ServerInterface.search\lHotelByName" alt="" coords="776,237,953,278"/>
+<area shape="rect" id="node16" href="$class_classes_1_1_accommodation_manager.html#adf9d8f6131cba90cf76a6acb673605c7" title="Get the accommodation list size. " alt="" coords="745,302,984,343"/>
+<area shape="rect" id="node17" href="$class_g_u_i_1_1_hotels_panel.html#af6804623d54a1e298cab45f4208ebacf" title="The method will handle the insertion of data into the table. " alt="" coords="772,367,957,409"/>
+<area shape="rect" id="node13" href="$class_g_u_i_1_1_hotels_panel.html#a541684adb88ef74713aea4baee072d1c" title="GUI.HotelsPanel.processTable\lSelection" alt="" coords="1267,270,1465,311"/>
+</map>

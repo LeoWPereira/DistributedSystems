@@ -427,6 +427,28 @@ public class EventsPanel extends JPanel
 		
 		table.setAutoCreateRowSorter(true);
 		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() 
+		{
+			boolean alreadyClicked = false;
+			
+		    public void valueChanged(ListSelectionEvent event) 
+		    {
+		    	if(!alreadyClicked)
+		    	{
+			        if(table.getSelectedRow() > -1)
+			        {
+			        	processTableSelection();
+			        }
+			        
+			        alreadyClicked = true;
+		    	}
+		    	else
+		    	{
+		    		alreadyClicked = false;
+		    	}
+		    }
+		});
+		
 		internalPanel.add(scrollPaneTabela);
 	}
 
@@ -435,8 +457,6 @@ public class EventsPanel extends JPanel
 	 */
 	public void showAccommodationInterest()
 	{    
-		internalPanel.remove(scrollPaneTabela);
-		
 		configAccommodationInterestTable();
 
 		ArrayList<AccommodationInterest> listAccommodationInterest = clientRMI.getAccommodationInterestList();
@@ -576,6 +596,28 @@ public class EventsPanel extends JPanel
 		
 		table.setAutoCreateRowSorter(true);
 		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() 
+		{
+			boolean alreadyClicked = false;
+			
+		    public void valueChanged(ListSelectionEvent event) 
+		    {
+		    	if(!alreadyClicked)
+		    	{
+			        if(table.getSelectedRow() > -1)
+			        {
+			        	processTableSelection();
+			        }
+			        
+			        alreadyClicked = true;
+		    	}
+		    	else
+		    	{
+		    		alreadyClicked = false;
+		    	}
+		    }
+		});
+		
 		internalPanel.add(scrollPaneTabela);
 	}
 
@@ -584,8 +626,6 @@ public class EventsPanel extends JPanel
 	 */
 	public void showPackageInterest()
 	{    
-		internalPanel.remove(scrollPaneTabela);
-		
 		configPackageInterestTable();
 
 		ArrayList<PackageInterest> listPackageInterest = clientRMI.getPackageInterestList();
@@ -682,7 +722,7 @@ public class EventsPanel extends JPanel
 		FlightTicket returnTicket = null;
 		boolean isReturnTicket = false;
 		
-		if (JOptionPane.showConfirmDialog(null, "VocÃª deseja excluir o interesse selecionado?", "WARNING",
+		if (JOptionPane.showConfirmDialog(null, "Você deseja excluir o interesse selecionado?", "WARNING",
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
         {
 			if(radioButtonFlightTicket.isSelected())
@@ -720,10 +760,10 @@ public class EventsPanel extends JPanel
 				Accommodation accommodation;
 				
 				// hotel name is empty
-				if(table.getValueAt(table.getSelectedRow(), 3).toString().isEmpty())
+				if(table.getValueAt(table.getSelectedRow(), 1).toString().isEmpty())
 				{
 					// use only city name
-					accommodation = new Accommodation(table.getValueAt(table.getSelectedRow(), 2).toString(),
+					accommodation = new Accommodation(table.getValueAt(table.getSelectedRow(), 0).toString(),
 																	"",
 																	0,
 																	0,
@@ -733,7 +773,7 @@ public class EventsPanel extends JPanel
 				{
 					// use only hotel name
 					accommodation = new Accommodation("",
-																	table.getValueAt(table.getSelectedRow(), 3).toString(),
+																	table.getValueAt(table.getSelectedRow(), 1).toString(),
 																	0,
 																	0,
 																	0);
@@ -779,9 +819,9 @@ public class EventsPanel extends JPanel
 																	  returnTicket,
 																	  accommodation,
 																	  isReturnTicket,
-																	  Integer.valueOf(table.getValueAt(table.getSelectedRow(), 2).toString()),
-																	  Float.valueOf(table.getValueAt(table.getSelectedRow(), 4).toString()),
 																	  Integer.valueOf(table.getValueAt(table.getSelectedRow(), 3).toString()),
+																	  Float.valueOf(table.getValueAt(table.getSelectedRow(), 5).toString()),
+																	  Integer.valueOf(table.getValueAt(table.getSelectedRow(), 4).toString()),
 																	  client,
 																	  "");
 				

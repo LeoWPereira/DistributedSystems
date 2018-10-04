@@ -1,0 +1,5 @@
+<map id="Database.Controller.CtrlHotel.searchHotelByHotel" name="Database.Controller.CtrlHotel.searchHotelByHotel">
+<area shape="rect" id="node2" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#ad23730669c452be1f2ca08b847a54809" title="Database.DAO.DAOHotel.search\lHotelByHotel" alt="" coords="224,39,439,80"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="487,5,673,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a385dfe5fc7d14047401a41c1d3c3aee6" title="Database.DBConnection.get\lHotelDBName" alt="" coords="487,71,673,112"/>
+</map>

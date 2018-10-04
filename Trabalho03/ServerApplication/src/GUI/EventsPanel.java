@@ -424,8 +424,6 @@ public class EventsPanel extends JPanel
 	 */
 	public void showAccommodationInterest()
 	{    
-		internalPanel.remove(scrollPaneTabela);
-		
 		configAccommodationInterestTable();
 
 		ArrayList<AccommodationInterest> listAccommodationInterest = serverRMI.getAccommodationInterestList();
@@ -577,8 +575,6 @@ public class EventsPanel extends JPanel
 	 */
 	public void showPackageInterest()
 	{    
-		internalPanel.remove(scrollPaneTabela);
-		
 		configPackageInterestTable();
 
 		ArrayList<PackageInterest> listPackageInterest = serverRMI.getPackageInterestList();

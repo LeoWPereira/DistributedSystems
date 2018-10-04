@@ -1,0 +1,9 @@
+<map id="Classes.FlightTicket.getPrice" name="Classes.FlightTicket.getPrice">
+<area shape="rect" id="node2" href="$class_classes_1_1_packages.html#ab771142598cb7d980b02f21f07c61a86" title="Get the total price of the package. " alt="" coords="216,9,397,51"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_packages_panel.html#ad566e3c89978694bdf3abd936e2f422e" title="GUI.PackagesPanel.insert\lTableField" alt="" coords="445,39,620,80"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_passages_panel.html#afdece3a10dd0199ff3b287de5e1dbcb8" title="GUI.PassagesPanel.insert\lTableField" alt="" coords="219,127,394,168"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_packages_panel.html#acfbe1faedf2f2e74218ba8c201429f85" title="GUI.PackagesPanel.insert\lTableField" alt="" coords="675,5,850,47"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_packages_panel.html#af208e95e50804a59ab9ad7a50bdeb185" title="GUI.PackagesPanel.process\lSearchButton" alt="" coords="668,71,857,112"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_packages_panel.html#a8aaa2e65f62b9c58c70b01eefa4edd7e" title="This method will handle the initial configurations to the Search Button. " alt="" coords="905,71,1083,112"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_packages_panel.html#a965d2ef3875b410bf3374ae298d9d229" title="Default Constructor. " alt="" coords="1131,71,1332,112"/>
+</map>

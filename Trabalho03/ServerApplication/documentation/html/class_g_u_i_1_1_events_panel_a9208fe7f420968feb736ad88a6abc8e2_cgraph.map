@@ -1,0 +1,14 @@
+<map id="GUI.EventsPanel.configRadioButtons" name="GUI.EventsPanel.configRadioButtons">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_events_panel.html#abff1f9d90177b29b847a928c86e8025c" title="The method will show the flight ticket interest list in the table. " alt="" coords="270,104,466,145"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_events_panel.html#ab89b241d6b46e5a749fe1d2f94aa8995" title="The method will show the accommodation interest list in the table. " alt="" coords="244,267,492,308"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_events_panel.html#aa9bba4186ee8c6a5555b1cae5a7ae529" title="The method will show the package interest list in the table. " alt="" coords="265,429,471,471"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="569,5,763,47"/>
+<area shape="rect" id="node4" href="$class_r_m_i_1_1_server_servent.html#abca4135110d2770c144e3a4692849817" title="RMI.ServerServent.getTicket\lInterestList" alt="" coords="573,71,759,112"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_events_panel.html#a11f1b8efad175573fe369f97db913353" title="GUI.EventsPanel.insertTable\lFieldTicket" alt="" coords="573,136,759,177"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="540,201,792,243"/>
+<area shape="rect" id="node8" href="$class_r_m_i_1_1_server_servent.html#a6a9bea26ffcb148b3bcfe2bd093b5819" title="RMI.ServerServent.getAccommodation\lInterestList" alt="" coords="544,267,788,308"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_events_panel.html#a3405a4a86e89cc527cb5578b0ff81f02" title="GUI.EventsPanel.insertTable\lFieldAccommodation" alt="" coords="573,332,759,373"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="561,397,771,439"/>
+<area shape="rect" id="node12" href="$class_r_m_i_1_1_server_servent.html#abcf964cce3b906b834776588f3ce96c0" title="RMI.ServerServent.getPackage\lInterestList" alt="" coords="565,463,767,504"/>
+<area shape="rect" id="node13" href="$class_g_u_i_1_1_events_panel.html#a544e77969e5996a68d413fd7be21f78f" title="GUI.EventsPanel.insertTable\lFieldPackage" alt="" coords="573,528,759,569"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Database.DAO.DAOHotel.getQuantityLeft" name="Database.DAO.DAOHotel.getQuantityLeft">
+<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a17c2ccd0c25e605ced62242b3268f471" title="Database.Controller.Ctrl\lHotel.getQuantityLeft" alt="" coords="247,35,407,76"/>
+<area shape="rect" id="node3" href="$class_r_m_i_1_1_server_servent.html#ab90feee3495520880d46f35a0f15d81d" title="RMI.ServerServent.reserve\lHotel" alt="" coords="470,5,643,47"/>
+<area shape="rect" id="node4" href="$class_r_m_i_1_1_server_servent.html#af8fc64094194a59fa83f69d0898ced99" title="RMI.ServerServent.buyPackage" alt="" coords="455,71,659,98"/>
+</map>

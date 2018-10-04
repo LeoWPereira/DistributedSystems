@@ -1,0 +1,23 @@
+<map id="GUI.EventsPanel.processTableSelection" name="GUI.EventsPanel.processTableSelection">
+<area shape="rect" id="node2" href="$class_r_m_i_1_1_client_servent.html#a08b38c7af44c0f70d53bded070742ab6" title="Remove ticket interest from local array and from the server. " alt="" coords="255,436,425,477"/>
+<area shape="rect" id="node10" href="$class_r_m_i_1_1_client_servent.html#a6c867a8716dd2791a41a2df4cb8558b9" title="Remove accommodation interest from local array and from the server. " alt="" coords="255,697,425,739"/>
+<area shape="rect" id="node17" href="$class_r_m_i_1_1_client_servent.html#ab7acddccf466625ebf7b3bdb50c015b8" title="Remove package interest from local array and from the server. " alt="" coords="255,159,425,200"/>
+<area shape="rect" id="node3" href="$class_classes_1_1_flight_ticket_interest.html#aae4b227a139661d0c4118b3891cb028a" title="Get the source of the ticket interest. " alt="" coords="487,371,692,412"/>
+<area shape="rect" id="node5" href="$class_classes_1_1_flight_ticket_interest.html#ae098cf51df1a0f1086069493b393185c" title="Get the destination of the ticket interest. " alt="" coords="473,319,705,346"/>
+<area shape="rect" id="node7" href="$class_classes_1_1_flight_ticket_interest.html#a6dce2f3875b134b6913c85dafcd2fcdb" title="Return if a ticket is a return ticket (not one&#45;way) " alt="" coords="491,436,688,477"/>
+<area shape="rect" id="node8" href="$class_classes_1_1_flight_ticket_interest.html#af9b8821dbcbab2dc5bc3ccbef69dc54a" title="Default getter. " alt="" coords="487,501,692,543"/>
+<area shape="rect" id="node9" href="$interface_r_m_i_1_1_server_interface.html#ad121093d35f68d8097a4d4c559035c84" title="RMI.ServerInterface.unregister\lTicketInterest" alt="" coords="492,567,687,608"/>
+<area shape="rect" id="node4" href="$class_classes_1_1_flight_ticket.html#ab9ac021ba2214ea1fa953f6819861a77" title="Default getter. " alt="" coords="767,325,929,367"/>
+<area shape="rect" id="node6" href="$class_classes_1_1_flight_ticket.html#ae999ed81960bb15dd8fabc885a027122" title="Default getter. " alt="" coords="753,183,943,210"/>
+<area shape="rect" id="node11" href="$class_classes_1_1_accommodation_interest.html#af109f985c3233c110e063081b5fdc036" title="Default getter. " alt="" coords="473,763,705,804"/>
+<area shape="rect" id="node13" href="$class_classes_1_1_accommodation_interest.html#a1562b82d0e0576b94108e746c598a421" title="Default getter. " alt="" coords="473,828,705,869"/>
+<area shape="rect" id="node15" href="$class_classes_1_1_accommodation_interest.html#a870c629ccf2c83173322211f1e76b0e9" title="Default getter. " alt="" coords="473,632,705,673"/>
+<area shape="rect" id="node16" href="$interface_r_m_i_1_1_server_interface.html#a370ad2776334419dd2d7cc4e9fcd7338" title="RMI.ServerInterface.unregister\lAccommodationInterest" alt="" coords="492,697,687,739"/>
+<area shape="rect" id="node12" href="$class_classes_1_1_accommodation.html#a70177d66378aa500361fe9479d06ae13" title="Default getter. " alt="" coords="753,763,943,804"/>
+<area shape="rect" id="node14" href="$class_classes_1_1_accommodation.html#a631dfa52e654cc57295dcd15ebb7b534" title="Default getter. " alt="" coords="753,828,943,869"/>
+<area shape="rect" id="node18" href="$class_classes_1_1_package_interest.html#a67eda797265e516c9a9c76340ff60547" title="Get the source of the ticket interest. " alt="" coords="495,253,684,295"/>
+<area shape="rect" id="node19" href="$class_classes_1_1_package_interest.html#a47f4427dca49a8e349f7dcc173c182e0" title="Get the destination of the ticket interest. " alt="" coords="481,137,697,163"/>
+<area shape="rect" id="node20" href="$class_classes_1_1_package_interest.html#ab756b8b3fd6ed10306f6d55d2633a385" title="Return if a ticket is a return ticket (not one&#45;way) " alt="" coords="499,188,680,229"/>
+<area shape="rect" id="node21" href="$class_classes_1_1_package_interest.html#aaa7f5285a2951b8ed01b4c00543804ec" title="Default getter. " alt="" coords="495,5,684,47"/>
+<area shape="rect" id="node22" href="$interface_r_m_i_1_1_server_interface.html#a757d59a905b201ae2fc62252127b52af" title="RMI.ServerInterface.unregister\lPackageInterest" alt="" coords="492,71,687,112"/>
+</map>

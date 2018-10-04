@@ -1,0 +1,6 @@
+<map id="GUI.PassagesPanel.insertTableField" name="GUI.PassagesPanel.insertTableField">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_passages_panel.html#ae4625ead31a16485b1abb358ef539345" title="GUI.PassagesPanel.insert\lTableField" alt="" coords="235,5,410,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_passages_panel.html#a1131fcaa0642d79d0b3909b0ce3c8a52" title="GUI.PassagesPanel.process\lSearchButton" alt="" coords="228,71,417,112"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="465,71,643,112"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_passages_panel.html#a070bc6f31210934eb1d5555ee9b654cd" title="Default Constructor. " alt="" coords="691,71,892,112"/>
+</map>

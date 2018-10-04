@@ -1,0 +1,6 @@
+<map id="Database.Controller.CtrlHotel.createTable" name="Database.Controller.CtrlHotel.createTable">
+<area shape="rect" id="node2" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a0ba6b7521c7469b66b05d35d1834e694" title="Database.DAO.DAOHotel.create\lTable" alt="" coords="213,5,424,47"/>
+<area shape="rect" id="node5" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#af857039e0c125916d847ac94c8fa2cf2" title="Database.DAO.DAOHotel.add\lUniqueValues" alt="" coords="221,71,417,112"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="472,5,659,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a385dfe5fc7d14047401a41c1d3c3aee6" title="Database.DBConnection.get\lHotelDBName" alt="" coords="472,71,659,112"/>
+</map>

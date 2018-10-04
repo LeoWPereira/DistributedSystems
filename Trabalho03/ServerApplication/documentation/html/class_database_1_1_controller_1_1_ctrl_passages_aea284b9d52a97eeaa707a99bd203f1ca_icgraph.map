@@ -1,0 +1,12 @@
+<map id="Database.Controller.CtrlPassages.searchPassages" name="Database.Controller.CtrlPassages.searchPassages">
+<area shape="rect" id="node2" href="$class_r_m_i_1_1_server_servent.html#ad5de80ac74f4ca1757334d7155ff4f40" title="RMI.ServerServent.search\lPassages" alt="" coords="235,5,405,47"/>
+<area shape="rect" id="node3" href="$class_r_m_i_1_1_server_servent.html#a5b72ac79548be0c93d3fe4ebf4b92b31" title="RMI.ServerServent.search\lPackages" alt="" coords="235,71,405,112"/>
+<area shape="rect" id="node4" href="$class_r_m_i_1_1_server_servent.html#ad7673097473e756449cc13674f17c071" title="RMI.ServerServent.notify\lTicketsInterests" alt="" coords="239,136,401,177"/>
+<area shape="rect" id="node8" href="$class_r_m_i_1_1_server_servent.html#a7cb189e0936a72ba836b7be9fe5cd01d" title="RMI.ServerServent.notify\lPackageInterests" alt="" coords="239,201,401,243"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_passages_panel.html#ae479ab4e58a40bea8baaed60eebfb56b" title="GUI.PassagesPanel.process\lRegistry" alt="" coords="467,140,656,181"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="726,140,903,181"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_passages_panel.html#a5ac30f327213e2ba360a37266daf7a86" title="Default Constructor. " alt="" coords="960,140,1161,181"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143" title="GUI.HotelsPanel.processRegistry" alt="" coords="453,209,669,235"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="717,209,912,235"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_hotels_panel.html#a0d35b266df47cc7ccbfa28287b06f580" title="Default Constructor. " alt="" coords="965,209,1157,235"/>
+</map>

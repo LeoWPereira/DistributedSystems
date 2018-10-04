@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tas.sd.br/" targetNamespace="http://tas.sd.br/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="buyPassage" type="tns:buyPassage" />
+  <xs:element name="buyPassageResponse" type="tns:buyPassageResponse" />
+  <xs:element name="getAccommodationInterestList" type="tns:getAccommodationInterestList" />
+  <xs:element name="getAccommodationInterestListResponse" type="tns:getAccommodationInterestListResponse" />
+  <xs:element name="getTicketInterestList" type="tns:getTicketInterestList" />
+  <xs:element name="getTicketInterestListResponse" type="tns:getTicketInterestListResponse" />
+  <xs:element name="hello" type="tns:hello" />
+  <xs:element name="helloResponse" type="tns:helloResponse" />
+  <xs:element name="insertHotelEntry" type="tns:insertHotelEntry" />
+  <xs:element name="insertHotelEntryResponse" type="tns:insertHotelEntryResponse" />
+  <xs:element name="insertPassageEntry" type="tns:insertPassageEntry" />
+  <xs:element name="insertPassageEntryResponse" type="tns:insertPassageEntryResponse" />
+  <xs:element name="loadDBHotels" type="tns:loadDBHotels" />
+  <xs:element name="loadDBHotelsResponse" type="tns:loadDBHotelsResponse" />
+  <xs:element name="loadDBPassages" type="tns:loadDBPassages" />
+  <xs:element name="loadDBPassagesResponse" type="tns:loadDBPassagesResponse" />
+  <xs:element name="notifyTicketsInterests" type="tns:notifyTicketsInterests" />
+  <xs:element name="notifyTicketsInterestsResponse" type="tns:notifyTicketsInterestsResponse" />
+  <xs:element name="registerHotelInterest" type="tns:registerHotelInterest" />
+  <xs:element name="registerHotelInterestResponse" type="tns:registerHotelInterestResponse" />
+  <xs:element name="registerPassageInterest" type="tns:registerPassageInterest" />
+  <xs:element name="registerPassageInterestResponse" type="tns:registerPassageInterestResponse" />
+  <xs:element name="reserveHotel" type="tns:reserveHotel" />
+  <xs:element name="reserveHotelResponse" type="tns:reserveHotelResponse" />
+  <xs:element name="searchHotelByCity" type="tns:searchHotelByCity" />
+  <xs:element name="searchHotelByCityResponse" type="tns:searchHotelByCityResponse" />
+  <xs:element name="searchHotelByName" type="tns:searchHotelByName" />
+  <xs:element name="searchHotelByNameResponse" type="tns:searchHotelByNameResponse" />
+  <xs:element name="searchPassages" type="tns:searchPassages" />
+  <xs:element name="searchPassagesResponse" type="tns:searchPassagesResponse" />
+  <xs:complexType name="hello">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="helloResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTicketInterestList">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getTicketInterestListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:flightTicketInterest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flightTicketInterest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="flightTicketTo" type="tns:flightTicket" />
+      <xs:element minOccurs="0" name="flightTicketFrom" type="tns:flightTicket" />
+      <xs:element name="returnTicket" type="xs:boolean" />
+      <xs:element name="quantity" type="xs:int" />
+      <xs:element name="maxPrice" type="xs:float" />
+      <xs:element minOccurs="0" name="clientName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flightTicket">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="source" type="xs:string" />
+      <xs:element minOccurs="0" name="dest" type="xs:string" />
+      <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      <xs:element name="quantity" type="xs:int" />
+      <xs:element name="price" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertHotelEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element name="arg2" type="xs:int" />
+      <xs:element name="arg3" type="xs:int" />
+      <xs:element name="arg4" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertHotelEntryResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getAccommodationInterestList">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getAccommodationInterestListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:accommodationInterest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="accommodationInterest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accommodation" type="tns:accommodation" />
+      <xs:element name="quantity" type="xs:int" />
+      <xs:element name="numberOfGuests" type="xs:int" />
+      <xs:element name="maxPrice" type="xs:float" />
+      <xs:element minOccurs="0" name="clientName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="accommodation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cityName" type="xs:string" />
+      <xs:element minOccurs="0" name="accommodationName" type="xs:string" />
+      <xs:element name="quantity" type="xs:int" />
+      <xs:element name="maxGuestsPerRoom" type="xs:int" />
+      <xs:element name="price" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertPassageEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="tns:date" />
+      <xs:element name="arg3" type="xs:int" />
+      <xs:element name="arg4" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="date">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="insertPassageEntryResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="buyPassage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:flightTicket" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buyPassageResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registerHotelInterest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:accommodation" />
+      <xs:element name="arg1" type="xs:int" />
+      <xs:element name="arg2" type="xs:int" />
+      <xs:element name="arg3" type="xs:float" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registerHotelInterestResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="searchHotelByCity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="searchHotelByCityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:accommodationManager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="accommodationManager">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="accommodationList" nillable="true" type="tns:accommodation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loadDBPassages">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="loadDBPassagesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:flightTicketManager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flightTicketManager">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="flightTicketList" nillable="true" type="tns:flightTicket" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="notifyTicketsInterests">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:flightTicket" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="notifyTicketsInterestsResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="registerPassageInterest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:flightTicket" />
+      <xs:element minOccurs="0" name="arg1" type="tns:flightTicket" />
+      <xs:element name="arg2" type="xs:int" />
+      <xs:element name="arg3" type="xs:float" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registerPassageInterestResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="loadDBHotels">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="loadDBHotelsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:accommodationManager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="searchHotelByName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="searchHotelByNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:accommodationManager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reserveHotel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:accommodation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reserveHotelResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="searchPassages">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="tns:date" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="searchPassagesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:flightTicketManager" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,9 @@
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\bin\Debug\TravelAgencyClient.exe.config
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\bin\Debug\TravelAgencyClient.exe
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\bin\Debug\TravelAgencyClient.pdb
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.csprojAssemblyReference.cache
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.Properties.Resources.resources
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.csproj.GenerateResource.cache
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.csproj.CoreCompileInputs.cache
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.exe
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.pdb

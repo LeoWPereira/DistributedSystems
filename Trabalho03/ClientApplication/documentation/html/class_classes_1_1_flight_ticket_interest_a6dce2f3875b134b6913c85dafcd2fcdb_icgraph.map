@@ -1,0 +1,14 @@
+<map id="Classes.FlightTicketInterest.isReturnTicket" name="Classes.FlightTicketInterest.isReturnTicket">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_events_panel.html#a11f1b8efad175573fe369f97db913353" title="GUI.EventsPanel.insertTable\lFieldTicket" alt="" coords="251,34,437,75"/>
+<area shape="rect" id="node7" href="$class_r_m_i_1_1_client_servent.html#a08b38c7af44c0f70d53bded070742ab6" title="Remove ticket interest from local array and from the server. " alt="" coords="259,99,429,141"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html#abff1f9d90177b29b847a928c86e8025c" title="The method will show the flight ticket interest list in the table. " alt="" coords="1061,34,1257,75"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_events_panel.html#acb43b9521062abeeeef4a91018f44d14" title="GUI.EventsPanel.insertTable\lFieldTicket" alt="" coords="493,34,679,75"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#a9208fe7f420968feb736ad88a6abc8e2" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="1331,99,1521,141"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_events_panel.html#a24da6ae4655cabb2e092bc0e359ce10c" title="Default Constructor. " alt="" coords="1569,107,1765,133"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="485,99,687,141"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="764,34,957,75"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="735,99,987,141"/>
+<area shape="rect" id="node12" href="$class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="756,165,965,206"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_events_panel.html#ab89b241d6b46e5a749fe1d2f94aa8995" title="The method will show the accommodation interest list in the table. " alt="" coords="1035,99,1283,141"/>
+<area shape="rect" id="node13" href="$class_g_u_i_1_1_events_panel.html#aa9bba4186ee8c6a5555b1cae5a7ae529" title="The method will show the package interest list in the table. " alt="" coords="1056,165,1261,206"/>
+</map>
