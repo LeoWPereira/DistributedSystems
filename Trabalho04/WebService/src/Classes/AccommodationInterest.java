@@ -4,42 +4,49 @@
  * @author  Leonardo Winter Pereira
  * @author  Luis Felipe Mazzuchetti Ortiz
  * @version v1.0
- * @date    01 de out de 2018
+ * @date    19 de set de 2018
  * @brief
  ******************************************************************************
  */
 
 package Classes;
 
+import java.io.Serializable;
+
 /**
  * @brief   Class responsible for storing the accommodation interest info from the clients
  */
-public class AccommodationInterest 
+public class AccommodationInterest implements Serializable
 {
     /**
-     * @brief
+	 * @brief	Unique Version ID from Class
+	 */
+	private static final long serialVersionUID = 1374133793766566984L;
+
+	/**
+     * @brief	Member containing an instance of Accommodation
      */
-    public Accommodation	accommodation;
+    public Accommodation  accommodation;
     
     /**
-     * @brief
+     * @brief	Quantity of room one is interested
      */
-    public int 				quantity;
+    public int quantity;
     
     /**
-     * @brief
+     * @brief	Number of guests interested (in this interest event)
      */
-    public int 				numberOfGuests;
+    public int numberOfGuests;
     
     /**
-     * @brief
+     * @brief	Max desired price to pay
      */
-    public float 			maxPrice;
+    public float maxPrice;
 
     /**
-     * @brief
+     * @brief	Client Name
      */
-    public String 			clientName;
+    public String clientName;
 
     /**
      * @brief   Default constructor
@@ -48,13 +55,12 @@ public class AccommodationInterest
      * @param   _quantity           : int
      * @param   _numberOfGuests     : int
      * @param   _maxPrice           : float
-     * @param   _refCli             : ClientInterface
      * @param   _clientName         : String
      */   
     public AccommodationInterest(Accommodation   _accommodation, 
                                  int             _quantity, 
                                  int             _numberOfGuests, 
-                                 float           _maxPrice,
+                                 float           _maxPrice, 
                                  String          _clientName) 
     {
         this.accommodation  =   _accommodation;
@@ -65,23 +71,22 @@ public class AccommodationInterest
     }
 
     /**
-     * @brief Default getter
+     * @brief	Default getter
      * 
-     * @param accommodationName
+     * @param 	Accommodation Name
      */
     public String getAccommodationName() 
     {
-        return accommodation.accommodationName;
+        return this.accommodation.accommodationName;
     }
     
     /**
      * @brief   Default getter
      * 
-     * @return  cityName
+     * @return  City Name
      */   
     public String getAccommodationCityName()
     {
-        return accommodation.cityName;
+        return this.accommodation.cityName;
     }
 }
-    

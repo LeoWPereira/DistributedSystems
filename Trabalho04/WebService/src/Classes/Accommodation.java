@@ -19,42 +19,43 @@ import java.io.Serializable;
 public class Accommodation implements Serializable
 {    
     /**
-	 * @brief
+	 * @brief	Unique Version ID from Class
 	 */
 	private static final long serialVersionUID = -5955676390015753503L;
 	
 	/**
-	 * @brief
+	 * @brief	Name of the destination city
 	 */
-	public String	cityName;
+	public	String 	cityName;
     
 	/**
-	 * @brief
+	 * @brief	Name of the destination accommodation
 	 */
-	public String 	accommodationName;
+	public	String 	accommodationName;
     
 	/**
-	 * @brief
+	 * @brief	Quantity of rooms left in the Accommodation
 	 */
-	public int 		quantity;
+	public	int 	quantity;
 	
 	/**
-	 * @brief
+	 * @brief	Max number of guests per room
 	 */
-	public int 		maxGuestsPerRoom;
+	public 	int 	maxGuestsPerRoom;
 	
 	/**
-	 * @brief
+	 * @brief	Price of the room
 	 */
-	public float 	price;
+	public 	float 	price;
     
 	/**
 	 * @brief	Default constructor
 	 * 
-	 * @param 	_cityName 			: String
-	 * @param 	_accommodationName 	: String
-	 * @param 	_quantity 			: int
-	 * @param 	_price 				: float
+	 * @param 	_cityName 			: Name of the City
+	 * @param 	_accommodationName 	: Name of the Hotel
+	 * @param 	_quantity 			: Quantity of rooms left
+	 * @param	_maxGuests			: Number of guests per room
+	 * @param 	_price 				: Price of each room
 	 */    
     public Accommodation(String 	_cityName, 
     					 String 	_accommodationName,
@@ -62,10 +63,10 @@ public class Accommodation implements Serializable
     					 int		_maxGuests,
     					 float 		_price)
     {
-        cityName 			= _cityName;
-        accommodationName	= _accommodationName;
-        quantity			= _quantity;
-        maxGuestsPerRoom	= _maxGuests;
-        price 				= _price;
+        this.cityName 			= _cityName;
+        this.accommodationName	= _accommodationName;
+        this.quantity			= _quantity;
+        this.maxGuestsPerRoom	= _maxGuests;
+        this.price 				= _price;
     }
 }

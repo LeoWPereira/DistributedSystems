@@ -4,7 +4,7 @@
  * @author  Leonardo Winter Pereira
  * @author  Luis Felipe Mazzuchetti Ortiz
  * @version v1.0
- * @date    01 de out de 2018
+ * @date    19 de set de 2018
  * @brief
  ******************************************************************************
  */
@@ -21,30 +21,29 @@ import java.util.List;
  public class AccommodationManager implements Serializable
  { 
 	 /**
-	 * @brief
+	 * @brief	Unique Version ID from Class
 	 */
 	private static final long serialVersionUID = -6901199176974082169L;
-	
+
 	/**
-	  * @brief
+	  * @brief	Array of Accommodation
 	  */
     public List<Accommodation> accommodationList = new ArrayList<Accommodation>();
 
     /** 
     * @brief	Insert an accommodation into the database
     * 
-    * @param 	accommodation
+    * @param 	accommodation	:	accommodation instance to be added into array
     */
     public void insertAccommodation(Accommodation accommodation) 
     {
-        accommodationList.add(accommodation);
+        this.accommodationList.add(accommodation);
     }
-
     
     /** 
     * @brief	Removes an accommodation from the database
     * 
-    * @param 	accommodation
+    * @param 	accommodation	: accommodation instance to be removed from array
     */
     public void removeAccommodation(Accommodation accommodation) 
     {
@@ -54,7 +53,7 @@ import java.util.List;
     /**
     * @brief	Get accommodation by its index
     * 
-    * @param 	index
+    * @param 	index	:	index of the array
     * 
     * @return 	Accommodation
     */
@@ -66,7 +65,7 @@ import java.util.List;
     /** 
     * @brief	Remove an accommodation by its index
     * 
-    * @param 	index
+    * @param 	index	: index of the array
     */
     public void removeAccommodationByIndex(int index) 
     {
@@ -76,22 +75,12 @@ import java.util.List;
     /**
     * @brief	Set a price for an accommodation found by its index
     *
-    * @param 	index
-    * @param 	price
+    * @param 	_index	:	index of the array
+    * @param 	_price	:	new price value
     */
-    public void editPrice(int index, 
-    					  float price)
+    public void editPrice(int 	_index,
+    					  float	_price)
     {
-        (this.accommodationList.get(index)).price = (price);
-    }
-    
-    /**
-    * @brief	Get the accommodation list size
-    *
-    * @return 	sizeList
-    */
-    public int getAccommodationListSize() 
-    {
-        return this.accommodationList.size();
+        this.accommodationList.get(_index).price = _price;
     }
  }

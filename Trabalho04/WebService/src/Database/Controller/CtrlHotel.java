@@ -4,7 +4,7 @@
  * @author  Leonardo Winter Pereira
  * @author  Luis Felipe Mazzuchetti Ortiz
  * @version v1.0
- * @date    01 de out de 2018
+ * @date    19 de set de 2018
  * @brief
  ******************************************************************************
  */

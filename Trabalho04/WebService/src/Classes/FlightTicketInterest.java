@@ -4,49 +4,55 @@
  * @author  Leonardo Winter Pereira
  * @author  Luis Felipe Mazzuchetti Ortiz
  * @version v1.0
- * @date    01 de out de 2018
+ * @date    19 de set de 2018
  * @brief
  ******************************************************************************
  */
 
 package Classes;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @brief   Class responsible for storing the flight ticket interest info from the clients
  */
-public class FlightTicketInterest 
+public class FlightTicketInterest implements Serializable
 {
-    /**
-     * @brief
+	/**
+	 * @brief	Unique Version ID from Class
+	 */
+	private static final long serialVersionUID = -1430226376074837554L;
+
+	/**
+     * @brief	Instance of flight ticket
      */
-	public FlightTicket		flightTicketTo;
+    public FlightTicket  flightTicketTo;
 
     /**
-     * @brief
+     * @brief	Instance of flight ticket
      */
-	public FlightTicket  	flightTicketFrom;
+    public FlightTicket  flightTicketFrom;
 
     /**
-     * @brief
+     * @brief	Passage we are interested into is two-way?
      */
-	public boolean 			returnTicket;
+    public boolean returnTicket;
     
     /**
-     * @brief
+     * @brief	Quantity of passages desired
      */
-	public int 				quantity;
+    public int quantity;
     
     /**
-     * @brief
+     * @brief	Max price desired to pay
      */
-	public float 			maxPrice;
+    public float maxPrice;
 
     /**
-     * @brief
+     * @brief	Name of the client
      */
-	public String 			clientName;
+    public String clientName;
 
     /**
      * @brief   Default constructor
@@ -55,14 +61,13 @@ public class FlightTicketInterest
      * @param   _flightTicketFrom   : FlightTicket
      * @param   _quantity           : int
      * @param   _maxPrice           : float
-     * @param   _refCli             : ClientInterface
      * @param   _clientName         : String
      */   
     public FlightTicketInterest(FlightTicket    _flightTicketTo, 
                                 FlightTicket    _flightTicketFrom, 
                                 boolean         _returnTicket,
                                 int             _quantity, 
-                                float           _maxPrice,
+                                float           _maxPrice, 
                                 String          _clientName) 
     {
         this.flightTicketTo 	= _flightTicketTo;
@@ -72,55 +77,44 @@ public class FlightTicketInterest
         this.maxPrice 			= _maxPrice;
         this.clientName         = _clientName;
     }
-
-    /**
-     * @brief Return if a ticket is a return ticket (not one-way)
-     * 
-     * @param isReturn : boolean - True if it is a return ticket
-     */
-    public boolean isReturnTicket() 
-    {
-        return returnTicket;
-    }
     
     /**
      * @brief   Get the source of the ticket interest
      * 
-     * @return  source
+     * @return  source flight
      */   
     public String getSource()
     {
-        return flightTicketTo.source;
+        return this.flightTicketTo.source;
     }
 
     /**
      * @brief   Get the destination of the ticket interest
      * 
-     * @return  cityName
+     * @return  city Name
      */   
     public String getDest()
     {
-        return flightTicketTo.dest;
+        return this.flightTicketTo.dest;
     }
 
     /**
      * @brief   Get the source date from the source ticket
      * 
-     * @return  sourceDate
+     * @return  source Date
      */ 
     public Date getSourceDate()
     {
-        return flightTicketTo.date;
+        return this.flightTicketTo.date;
     }
 
     /**
      * @brief   Get the return date from the return ticket
      * 
-     * @return  returnDate
+     * @return  return Date
      */ 
     public Date getReturnDate()
     {
-        return flightTicketFrom.date;
+        return this.flightTicketFrom.date;
     }
 }
-    

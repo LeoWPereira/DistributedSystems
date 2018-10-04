@@ -20,43 +20,43 @@ import java.util.Date;
 public class FlightTicket implements Serializable
 {
     /**
-	 * @brief
+	 * @brief	Unique Version ID from Class
 	 */
 	private static final long serialVersionUID = 3281860207276377509L;
 	
 	/**
-	 * @brief
+	 * @brief	Source City
 	 */
-	public String 			source;
+	public String 		source;
 	
 	/**
-	 * @brief
+	 * @brief	Destination City
 	 */
-	public String 			dest;
+	public String 		dest;
 	
 	/**
-	 * @brief
+	 * @brief	Date of the FLight
 	 */
-	public java.util.Date	date;
+	public Date		date;
 	
 	/**
-	 * @brief
+	 * @brief	Quantity of passages Left
 	 */
-	public int				quantity;
+	public int			quantity;
 	
 	/**
-	 * @brief
+	 * @brief	Price of the passage
 	 */
-	public float			price;
+	public float		price;
 
     /**
      * @brief	Default Constructor
      * 
-     * @param 	_origin			:
-     * @param 	_destination	:
-     * @param 	_date			:
-     * @param 	_qnt			:
-     * @param 	_price			:
+     * @param 	_origin			: Source City
+     * @param 	_destination	: Destination City
+     * @param 	_date			: Date of the passage
+     * @param 	_qnt			: Quantity of available passages
+     * @param 	_price			: Price of the passage
      */   
     public FlightTicket(String 	_origin, 
     					String 	_destination, 
@@ -64,10 +64,10 @@ public class FlightTicket implements Serializable
     					int 	_qnt,
     					float 	_price)
     {
-        source 		= _origin;
-        dest 		= _destination;
-        date 		= _date;
-        quantity	= _qnt;
-        price 		= _price;
+    	this.source 	= _origin;
+    	this.dest		= _destination;
+    	this.date		= _date;
+    	this.quantity	= _qnt;
+    	this.price		= _price;
     }
 }

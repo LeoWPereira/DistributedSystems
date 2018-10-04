@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.text.ParseException;
 
 import javax.swing.DefaultComboBoxModel;
@@ -37,6 +38,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 import Extra.CitiesBrazil;
 import client.FlightTicket;
@@ -553,7 +556,7 @@ public class PassagesPanel extends JPanel
 	 */
 	public void processRegistry()
 	{
-		/*try
+		try
 		{
 			int day 	= datePicker.getModel().getDay();
 		    int month 	= datePicker.getModel().getMonth();
@@ -561,47 +564,52 @@ public class PassagesPanel extends JPanel
 		    
 		    Calendar calendar = Calendar.getInstance();
 		    calendar.set(year, month, day);
-			
+		    
+		    GregorianCalendar c = new GregorianCalendar();
+		    c.setTime(yourDate);
+		    XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+		    
 		    // Insert Entry on the database
-		    travelAgencyWebService.insertPassageEntry(comboBoxCitySrc.getSelectedItem().toString(), 
-							 		 				  comboBoxCityDest.getSelectedItem().toString(),
-							 		 				  new java.sql.Date(calendar.getTime().getTime()),
-							 		 				  Integer.valueOf(textFieldQuantity.getText().toString()),
-							 		 				  Float.valueOf(textFieldPrice.getText().substring(3, 
-							 				 								   		  				   9)));
-			
-			// We will also insert the same entry in our list
-			FlightTicket entry = new FlightTicket();
-			
-			entry.setSource(comboBoxCitySrc.getSelectedItem().toString());
-			entry.setDest(comboBoxCityDest.getSelectedItem().toString());
-			entry.setDate(new java.sql.Date(calendar.getTime().getTime()));
-			entry.setQuantity(Integer.valueOf(textFieldQuantity.getText().toString()));
-			entry.setPrice(Float.valueOf(textFieldPrice.getText().substring(3, 
-							   												9)));
-			
-			// We will also insert the same entry in our list
-			ticketManager.getFlightTicketList().add(entry);
-			
-			// Finally, we update our table
-			insertTableField(entry,
-							 ticketManager.getFlightTicketList().size() - 1);
-			
-			JOptionPane.showMessageDialog(new JFrame(),
-										  "Passagem inserida com sucesso!", 
-										  "Sucesso",
-										  JOptionPane.INFORMATION_MESSAGE);
+		    if(travelAgencyWebService.insertPassageEntry(comboBoxCitySrc.getSelectedItem().toString(), 
+							 		 				     comboBoxCityDest.getSelectedItem().toString(),
+							 		 				     new java.sql.Date(calendar.getTime().getTime()),
+							 		 				     Integer.valueOf(textFieldQuantity.getText().toString()),
+							 		 				     Float.valueOf(textFieldPrice.getText().substring(3, 
+							 				 								   		  				      9))))
+		    {
+				// We will also insert the same entry in our list
+				FlightTicket entry = new FlightTicket();
+				
+				entry.setSource(comboBoxCitySrc.getSelectedItem().toString());
+				entry.setDest(comboBoxCityDest.getSelectedItem().toString());
+				entry.setDate(new java.sql.Date(calendar.getTime().getTime()));
+				entry.setQuantity(Integer.valueOf(textFieldQuantity.getText().toString()));
+				entry.setPrice(Float.valueOf(textFieldPrice.getText().substring(3, 
+								   												9)));
+				
+				// We will also insert the same entry in our list
+				ticketManager.getFlightTicketList().add(entry);
+				
+				// Finally, we update our table
+				insertTableField(entry,
+								 ticketManager.getFlightTicketList().size() - 1);
+				
+				JOptionPane.showMessageDialog(new JFrame(),
+											  "Passagem inserida com sucesso!", 
+											  "Sucesso",
+											  JOptionPane.INFORMATION_MESSAGE);
+		    }
+		    else
+			{
+				JOptionPane.showMessageDialog(new JFrame(),
+						  					  "Passagem já existe no Banco de Dados!", 
+						  					  "Erro",
+						  					  JOptionPane.ERROR_MESSAGE);
+			}
 		}
 		catch (NumberFormatException e) 
 		{
 			e.printStackTrace();
 		}
-		catch(Exception e)
-		{
-			JOptionPane.showMessageDialog(new JFrame(),
-										  "Passagem já existe no Banco de Dados!", 
-										  "Erro",
-										  JOptionPane.ERROR_MESSAGE);
-		}*/
 	}
 }
