@@ -15,6 +15,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
 
 import Classes.FlightTicket;
 import Classes.FlightTicketManager;
@@ -112,13 +113,21 @@ public class CtrlPassages
 	{
 		FlightTicketManager list = new FlightTicketManager();
 		
+		Calendar cal = Calendar.getInstance();
+		
 		ResultSet rs = daoPassages.loadDBPassages(_stm);
 
 		while(rs.next())
 		{
+			java.sql.Date date = rs.getDate(4);
+			
+			cal.setTime(date);
+			
 			FlightTicket ticket = new FlightTicket(rs.getString(2),
 												   rs.getString(3),
-												   rs.getDate(4),
+												   cal.get(Calendar.DAY_OF_MONTH),
+												   cal.get(Calendar.MONTH),
+												   cal.get(Calendar.YEAR),
 												   rs.getInt(5),
 												   rs.getFloat(6));
 			
@@ -145,6 +154,8 @@ public class CtrlPassages
 	{
 		FlightTicketManager list = new FlightTicketManager();
 		
+		Calendar cal = Calendar.getInstance();
+		
 		ResultSet rs = daoPassages.searchPassages(_stm,
 												  _source,
 												  _dest,
@@ -152,9 +163,15 @@ public class CtrlPassages
 
 		while(rs.next())
 		{
+			java.sql.Date date = rs.getDate(4);
+			
+			cal.setTime(date);
+			
 			FlightTicket ticket = new FlightTicket(rs.getString(2),
 												   rs.getString(3),
-												   rs.getDate(4),
+												   cal.get(Calendar.DAY_OF_MONTH),
+												   cal.get(Calendar.MONTH),
+												   cal.get(Calendar.YEAR),
 												   rs.getInt(5),
 												   rs.getFloat(6));
 			

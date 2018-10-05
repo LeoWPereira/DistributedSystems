@@ -4,7 +4,7 @@
  * @author  Leonardo Winter Pereira
  * @author  Luis Felipe Mazzuchetti Ortiz
  * @version v1.0
- * @date    01 de out de 2018
+ * @date    19 de set de 2018
  * @brief
  ******************************************************************************
  */
@@ -21,42 +21,31 @@ import java.util.List;
 public class FlightTicketManager implements Serializable 
 {
     /**
-	 * @brief
+	 * @brief	Unique Version ID from Class
 	 */
 	private static final long serialVersionUID = -9136165180232276846L;
 	
 	/**
-	 * @brief
+	 * @brief	Array of Flight Tickets
 	 */
 	public List<FlightTicket> flightTicketList = new ArrayList<FlightTicket>();
 
     /** 
-    * @brief	Get the flight ticket list
-    * 
-    * @return 	flightTicketList
-    *
-    */
-    public List<FlightTicket> getFlightTicketList()
-    {
-        return this.flightTicketList;
-    }
-
-    /** 
     * @brief	Insert a flight ticket into the database
     * 
-    * @param 	flightTicket
+    * @param 	flight Ticket
     */
     public void insertFlightTicket(FlightTicket flightTicket) 
     {
-        flightTicketList.add(flightTicket);
+        this.flightTicketList.add(flightTicket);
     }
     
     /**
     * @brief	Default getter
     * 
-    * @param 	index	:
+    * @param 	index	: index of the array
     * 
-    * @return 	flightTicket
+    * @return 	flight Ticket
     */
     public FlightTicket getFlightTicket(int index)
     {
@@ -66,7 +55,7 @@ public class FlightTicketManager implements Serializable
     /** 
     * @brief	Remove a flight ticket from database
     * 
-    * @param 	flightTicket	:
+    * @param 	flightTicket	: Flight ticket to be removed
     */
     public void removeFlightTicket(FlightTicket flightTicket) 
     {
@@ -76,7 +65,7 @@ public class FlightTicketManager implements Serializable
     /** 
     * @brief	Remove a flight ticket from database by its index
     * 
-    * @param 	index	:
+    * @param 	index	: index of the array
     */
     public void removeFlightTicketByIndex(int index) 
     {
@@ -86,22 +75,12 @@ public class FlightTicketManager implements Serializable
     /**
     * @brief	Edit a price of a flight ticket by its index
     *
-    * @param 	index	:
-    * @param 	price	:
+    * @param 	_index	: index of the array
+    * @param 	_price	: new price value
     */
-    public void editPrice(int index, float price)
+    public void editPrice(int	_index,
+    					  float	_price)
     {
-        (this.flightTicketList.get(index)).price = price;
-    }
-    
-    /**
-    * @brief	Returns the flight ticket list size
-    *
-    * @return 	listSize	:
-    */
-    public int getFlightTicketListSize() 
-    {
-        return this.flightTicketList.size();
+        this.flightTicketList.get(_index).price = _price;;
     }
 }
-

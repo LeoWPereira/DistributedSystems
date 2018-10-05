@@ -12,7 +12,7 @@
 package Classes;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
 
 /**
  * Class responsible for storing the flight ticket info
@@ -20,54 +20,86 @@ import java.util.Date;
 public class FlightTicket implements Serializable
 {
     /**
-	 * @brief
+	 * @brief	Unique Version ID from Class
 	 */
 	private static final long serialVersionUID = 3281860207276377509L;
 	
 	/**
-	 * @brief
+	 * @brief	Source City
 	 */
-	public String 			source;
+	public String 		source;
+	
+	/**
+	 * @brief	Destination City
+	 */
+	public String 		dest;
 	
 	/**
 	 * @brief
 	 */
-	public String 			dest;
+	public int 		dateDay;
 	
 	/**
 	 * @brief
 	 */
-	public java.util.Date	date;
+	public int 		dateMonth;
 	
 	/**
 	 * @brief
 	 */
-	public int				quantity;
+	public int 		dateYear;
 	
 	/**
-	 * @brief
+	 * @brief	Quantity of passages Left
 	 */
-	public float			price;
+	public int			quantity;
+	
+	/**
+	 * @brief	Price of the passage
+	 */
+	public float		price;
 
     /**
      * @brief	Default Constructor
      * 
-     * @param 	_origin			:
-     * @param 	_destination	:
-     * @param 	_date			:
-     * @param 	_qnt			:
-     * @param 	_price			:
+     * @param 	_origin			: Source City
+     * @param 	_destination	: Destination City
+     * @param 	_dateDay		: Date day of the passage
+     * @param 	_dateMonth		: Date month of the passage
+     * @param 	_dateYear		: Date year of the passage
+     * @param 	_qnt			: Quantity of available passages
+     * @param 	_price			: Price of the passage
      */   
     public FlightTicket(String 	_origin, 
-    					String 	_destination, 
-    					Date 	_date, 
+    					String 	_destination,
+    					int 	_dateDay,
+    					int		_dateMonth,
+    					int		_dateYear,
     					int 	_qnt,
     					float 	_price)
     {
-        source 		= _origin;
-        dest 		= _destination;
-        date 		= _date;
-        quantity	= _qnt;
-        price 		= _price;
+    	this.source 	= _origin;
+    	this.dest		= _destination;
+    	this.dateDay	= _dateDay;
+    	this.dateMonth	= _dateMonth;
+    	this.dateYear	= _dateYear;
+    	this.quantity	= _qnt;
+    	this.price		= _price;
+    }
+    
+    /**
+     * @brief
+     * 
+     * @return
+     */
+    public java.sql.Date getSqlDate()
+    {
+    	Calendar calendar = Calendar.getInstance();
+	    
+		calendar.set(this.dateYear,
+					 this.dateMonth,
+					 this.dateDay);
+		
+		return new java.sql.Date(calendar.getTime().getTime());
     }
 }

@@ -14,9 +14,8 @@
 package br.sd.tas;
 
 import java.rmi.RemoteException;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -27,12 +26,12 @@ import Classes.AccommodationManager;
 import Classes.FlightTicket;
 import Classes.FlightTicketInterest;
 import Classes.FlightTicketManager;
+import Classes.PackageInterest;
+import Classes.Packages;
 
 @WebService
 public interface TravelAgencyService
 {
-	@WebMethod String hello(String	_txt);
-	
 	/**
 	 * @brief	
 	 * 
@@ -60,37 +59,47 @@ public interface TravelAgencyService
 	 * @param 	_maxGuestsPerRoom	:
 	 * @param 	_price				:
 	 * 
+	 * @return	True in case of success
+	 * 
 	 * @throws 	RemoteException
 	 */
-	@WebMethod void insertHotelEntry(String 		_city,
-									 String 		_hotel,
-									 int			_quantity,
-									 int			_maxGuestsPerRoom,
-									 float			_price) throws RemoteException;
+	@WebMethod boolean insertHotelEntry(String 		_city,
+									    String 		_hotel,
+									    int			_quantity,
+									    int			_maxGuestsPerRoom,
+									    float		_price) throws RemoteException;
 	
 	/**
 	 * @brief	
 	 * 
 	 * @param 	_source				:
 	 * @param 	_dest				:
-	 * @param 	_date				:
+	 * @param 	_dateDay			:
+	 * @param 	_dateMonth			:
+	 * @param 	_dateYear			:
 	 * @param 	_quantity			:
 	 * @param 	_price				:
 	 * 
+	 * @return	True in case of success
+	 * 
 	 * @throws 	RemoteException
 	 */
-	@WebMethod void insertPassageEntry(String 		_source,
-								       String 		_dest,
-									   Date			_date,
-									   int			_quantity,
-									   float		_price) throws RemoteException;
+	@WebMethod boolean insertPassageEntry(String 		_source,
+							   	          String 		_dest,
+							   	          int			_dateDay,
+							   	          int			_dateMonth,
+							   	          int			_dateYear,
+									      int			_quantity,
+									      float			_price) throws RemoteException;
 	
 	/**
     * @brief	
     * 
-    * @param 	_source	:
-    * @param 	_dest	:
-    * @param 	_date	:
+    * @param 	_source		:
+    * @param 	_dest		:
+    * @param 	_dateDay	:
+	* @param 	_dateMonth	:
+	* @param 	_dateYear	:
     * 
     * @return
     * 
@@ -98,7 +107,9 @@ public interface TravelAgencyService
     */
    @WebMethod FlightTicketManager searchPassages(String	_source, 
 											     String	_dest, 
-											     Date 	_date) throws RemoteException;
+											     int	_dateDay,
+									   	         int	_dateMonth,
+									   	         int	_dateYear) throws RemoteException;
    
    	/**
     * @brief	
@@ -144,6 +155,31 @@ public interface TravelAgencyService
     */
    @WebMethod boolean reserveHotel(Accommodation _hotel) throws RemoteException;
 
+   /**
+    * @brief
+    * 
+    * @param   flightTicketGoing    :
+    * @param   flightTicketReturn   :
+    * @param   accommodation        :
+    * 
+    * @return
+    */
+   @WebMethod List<Packages> searchPackages(FlightTicket	_flightTicketGoing, 
+                                            FlightTicket    _flightTicketReturn, 
+                                            Accommodation   _accommodation)      throws RemoteException;
+   
+   /**
+    * @brief   
+    * 
+    * @param   _package 	: Package
+    * 
+    * @return result int 	: 1 - Success
+    *						  2 - Not enough passages
+    *						  3 - Not enough rooms
+    *						  4 - Guests exceeded
+    */
+   @WebMethod int buyPackage(Packages	_package) throws RemoteException;
+   
    	/**
     * @brief	
     * 
@@ -178,20 +214,46 @@ public interface TravelAgencyService
 									     float 				_desiredPrice,
 									     String            	_clientName) 		throws RemoteException;
 
+   /**
+    * @brief   
+    * 
+    * @param   _ticketTo       :
+    * @param   _ticketFrom     :
+    * @param   _accommodation  :
+    * @param   _quantity       :
+    * @param   _desiredPrice   :
+    * @param   _numberOfGuests :
+    * @param   _clientName     :
+    */
+   @WebMethod void registerPackageInterest(FlightTicket    _ticketTo,
+           								   FlightTicket    _ticketFrom,
+           								   Accommodation   _accommodation,
+           								   int             _quantity,
+           								   float           _desiredPrice,
+           								   int 			 _numberOfGuests,
+           								   String          _clientName) 		throws RemoteException;
+   
    	/**
     * @brief	
     * 
     * @return	
     */
-   @WebMethod public ArrayList<FlightTicketInterest> getTicketInterestList();
+   @WebMethod List<FlightTicketInterest> getTicketInterestList();
 
    	/**
     * @brief	
     * 
     * @return	
     */
-   @WebMethod  ArrayList<AccommodationInterest> getAccommodationInterestList();
+   @WebMethod List<AccommodationInterest> getAccommodationInterestList();
 
+   /**
+    * @brief	
+    * 
+    * @return	
+    */
+   @WebMethod List<PackageInterest> getPackageInterestList();
+   
    	/**
     * @brief	
     * 
@@ -200,4 +262,52 @@ public interface TravelAgencyService
     * @throws 	RemoteException
     */
    @WebMethod void notifyTicketsInterests(FlightTicket _flightTicket) throws RemoteException;
+   
+   /**
+    * @brief	
+    * 
+    * @param 	_accommodation	:
+    * 
+    * @throws 	RemoteException
+    */
+   @WebMethod void notifyAccommodationInterests(Accommodation _accommodation) throws RemoteException;
+   
+   /**
+    * @brief	
+    * 
+    * @param 	_flightTicket	:
+    * 
+    * @throws 	RemoteException
+    */
+   @WebMethod void notifyPackageInterests(FlightTicket _flightTicket) throws RemoteException;
+   
+   /**
+    * @brief	
+    * 
+    * @param 	_accommodation	:
+    * 
+    * @throws 	RemoteException
+    */
+   @WebMethod void notifyPackageInterestsByAccommodation(Accommodation _accommodation) throws RemoteException;
+   
+   /**
+	 * @brief 	Remove ticket interest from local array and from the server
+	 * 
+	 * @param	_ticketInterest	:
+	 */
+   @WebMethod void unregisterTicketInterestByFlightTicket(FlightTicketInterest _ticketInterest)  throws RemoteException;
+   
+   /**
+    * @brief 	Remove accommodation interest from local array and from the server
+    * 
+    * @param	_accommodationInterest	:
+    */
+   @WebMethod void unregisterAccommodationInterest(AccommodationInterest _accommodationInterest)  throws RemoteException;
+   
+   /**
+    * @brief 	Remove package interest from local array and from the server
+    * 
+    * @param	_packageInterest	:
+    */
+   @WebMethod void unregisterPackageInterest(PackageInterest _packageInterest) throws RemoteException;
 }

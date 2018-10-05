@@ -12,9 +12,10 @@
 package br.sd.tas;
 
 import java.rmi.RemoteException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 import javax.jws.WebService;
 
@@ -27,6 +28,8 @@ import Classes.AccommodationManager;
 import Classes.FlightTicket;
 import Classes.FlightTicketInterest;
 import Classes.FlightTicketManager;
+import Classes.PackageInterest;
+import Classes.Packages;
 import Database.DBConnection;
 import Database.Controller.CtrlHotel;
 import Database.Controller.CtrlPassages;
@@ -34,30 +37,19 @@ import Database.Controller.CtrlPassages;
 @WebService(endpointInterface = "br.sd.tas.TravelAgencyService")
 public class TravelAgencyServiceImpl implements TravelAgencyService
 {
-	/**
-	 * @brief
-	 */
 	private CtrlPassages ctrlPassages;
 	
-	/**
-	 * @brief
-	 */
 	private CtrlHotel ctrlHotel;
 
-	/**
-	 * @brief
-	 */
-	private ArrayList<FlightTicketInterest> listTicketInterest;
+	private List<FlightTicketInterest> listTicketInterest;
 
-	/**
-	 * @brief
-	 */
-	private ArrayList<AccommodationInterest> listAccommodationInterest;
+	private List<AccommodationInterest> listAccommodationInterest;
 	
-	/**
-	 * @brief	Member holding every info about the connection to the DB
-	 */
+	private List<PackageInterest> listPackageInterest;
+	
 	private static Connection	dbConnection;
+	
+	private static Statement	dbStatement;
 	
 	public TravelAgencyServiceImpl()
 	{
@@ -68,12 +60,17 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		listTicketInterest 			= new ArrayList<FlightTicketInterest>();
 		
         listAccommodationInterest	= new ArrayList<AccommodationInterest>();
-	}
-	
-	@Override
-	public String hello(String	_txt)
-	{
-		return _txt;
+        
+        listPackageInterest 		= new ArrayList<PackageInterest>();
+        
+        try
+        {
+			dbStatement 			= DBConnection.configureDatabase(dbConnection);
+		}
+        catch (SQLException e)
+        {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
@@ -83,9 +80,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		
 		try
 		{
-			Statement _stm = DBConnection.configureDatabase(dbConnection);
-			
-			list = ctrlHotel.loadDBHotels(_stm);
+			list = ctrlHotel.loadDBHotels(dbStatement);
 		}
 		catch(SQLException e)
 		{
@@ -102,9 +97,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		
 		try
 		{
-			Statement _stm = DBConnection.configureDatabase(dbConnection);
-			
-			list = ctrlPassages.loadDBPassages(_stm);
+			list = ctrlPassages.loadDBPassages(dbStatement);
 		}
 		catch(SQLException e)
 		{
@@ -115,68 +108,90 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	}
 	
 	@Override
-	public void insertHotelEntry(String 		_city,
-								 String 		_hotel,
-								 int			_quantity,
-								 int			_maxGuestsPerRoom,
-								 float			_price) throws RemoteException
+	public boolean insertHotelEntry(String 		_city,
+								    String 		_hotel,
+								    int			_quantity,
+								    int			_maxGuestsPerRoom,
+								    float		_price) throws RemoteException
 	{
+		boolean success;
+		
 		try
 		{
-			Statement _stm = DBConnection.configureDatabase(dbConnection);
-			
-			ctrlHotel.insertEntry(_stm,
+			ctrlHotel.insertEntry(dbStatement,
 								  _city, 
 								  _hotel, 
 								  _quantity, 
 								  _maxGuestsPerRoom, 
 								  _price);
+			
+			success = true;
 		}
 		catch(SQLException e)
 		{
-			e.printStackTrace();
+			success = false;
 		}
+		
+		return success;
 	}
 	
 	@Override
-	public void insertPassageEntry(String 		_source,
-							       String 		_dest,
-								   Date			_date,
-								   int			_quantity,
-								   float		_price) throws RemoteException
+	public boolean insertPassageEntry(String 		_source,
+							          String 		_dest,
+							          int			_dateDay,
+						   	          int			_dateMonth,
+						   	          int			_dateYear,
+								      int			_quantity,
+								      float			_price) throws RemoteException
 	{
+		boolean success;
+		
+		Calendar calendar = Calendar.getInstance();
+	    
+		calendar.set(_dateYear,
+	    			 _dateMonth,
+	    			 _dateDay);
+	    
 		try
 		{
-			Statement _stm = DBConnection.configureDatabase(dbConnection);
-			
-			ctrlPassages.insertEntry(_stm,
+			ctrlPassages.insertEntry(dbStatement,
 									 _source,
 									 _dest, 
-									 _date, 
+									 new java.sql.Date(calendar.getTime().getTime()), 
 									 _quantity, 
 									 _price);
+			
+			success = true;
 		}
 		catch(SQLException e)
 		{
-			e.printStackTrace();
+			success = false;
 		}
+		
+		return success;
 	}
 	
 	@Override
 	public FlightTicketManager searchPassages(String	_source,
 											  String 	_dest,
-											  Date 		_date) throws RemoteException
+											  int		_dateDay,
+									   	      int		_dateMonth,
+									   	      int		_dateYear) throws RemoteException
 	{
 		FlightTicketManager list = new FlightTicketManager();
 		
-		try 
+		Calendar calendar = Calendar.getInstance();
+	    
+		calendar.set(_dateYear,
+	    			 _dateMonth,
+	    			 _dateDay);
+		
+		try
 		{
-			Statement _stm = DBConnection.configureDatabase(dbConnection);
-			
-			list = ctrlPassages.searchPassages(_stm,
+			list = ctrlPassages.searchPassages(dbStatement,
 											   _source, 
 											   _dest, 
-											   _date);
+											   new java.sql.Date(calendar.getTime().getTime()));
 		} 
 		catch (SQLException e) 
 		{
@@ -193,9 +208,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		
 		try 
 		{
-			Statement _stm = DBConnection.configureDatabase(dbConnection);
-			
-			list = ctrlHotel.searchHotelByCity(_stm,
+			list = ctrlHotel.searchHotelByCity(dbStatement,
 											   _city);
 		} 
 		catch (SQLException e) 
@@ -213,9 +226,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		
 		try 
 		{
-			Statement _stm = DBConnection.configureDatabase(dbConnection);
-			
-			list = ctrlHotel.searchHotelByHotel(_stm,
+			list = ctrlHotel.searchHotelByHotel(dbStatement,
 												_hotel);
 		} 
 		catch (SQLException e) 
@@ -233,20 +244,18 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	    
 		try 
 		{
-			Statement _stm = DBConnection.configureDatabase(dbConnection);
-			
-			int ticketsLeft = ctrlPassages.getQuantityLeft(_stm,
+			int ticketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
 														   _ticket.source,
 														   _ticket.dest,
-														   new java.sql.Date(_ticket.date.getTime()),
+														   _ticket.getSqlDate(),
 														   _ticket.price);
 
 			if(ticketsLeft >= _ticket.quantity)
 			{
-				ctrlPassages.updateQuantity(_stm,
+				ctrlPassages.updateQuantity(dbStatement,
 										    _ticket.source,
 										    _ticket.dest,
-										    new java.sql.Date(_ticket.date.getTime()),
+										    _ticket.getSqlDate(),
 										    _ticket.price,
 										    ticketsLeft - _ticket.quantity);
 				
@@ -273,16 +282,14 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	    
 		try 
 		{
-			Statement _stm = DBConnection.configureDatabase(dbConnection);
-			
-			int roomsLeft = ctrlHotel.getQuantityLeft(_stm,
+			int roomsLeft = ctrlHotel.getQuantityLeft(dbStatement,
 													  _hotel.cityName,
 													  _hotel.accommodationName,
 													  _hotel.price);
 
 			if(roomsLeft >= _hotel.quantity)
 			{
-				ctrlHotel.updateQuantity(_stm,
+				ctrlHotel.updateQuantity(dbStatement,
 										 _hotel.cityName,
 										 _hotel.accommodationName,
 										 _hotel.price,
@@ -345,20 +352,252 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	}
 	
 	@Override
-	public ArrayList<FlightTicketInterest> getTicketInterestList()
+	public List<FlightTicketInterest> getTicketInterestList()
 	{
-		return listTicketInterest;
+		return this.listTicketInterest;
 	}
 	
 	@Override
-	public ArrayList<AccommodationInterest> getAccommodationInterestList()
+	public List<AccommodationInterest> getAccommodationInterestList()
 	{
-		return listAccommodationInterest;
+		return this.listAccommodationInterest;
 	}
 	
+	@Override
+	public List<PackageInterest> getPackageInterestList()
+	{
+		return this.listPackageInterest;
+	}
+
+	@Override
+	public List<Packages> searchPackages(FlightTicket	_flightTicketGoing,
+										 FlightTicket 	_flightTicketReturn,
+										 Accommodation 	_accommodation) throws RemoteException
+	{
+		List<Packages> 			list 				= new ArrayList<Packages>();
+    	FlightTicketManager 	listTicketGoing 	= new FlightTicketManager();
+    	FlightTicketManager 	listTicketReturn 	= new FlightTicketManager();
+    	AccommodationManager 	listAccommodation 	= new AccommodationManager();
+
+    	FlightTicket 			flightTicketGoingFound;
+    	FlightTicket 			flightTicketReturnFound;
+    	Accommodation 			accommodationFound = null;
+    	Packages 				pack;
+		
+		// First, search for the going ticket
+		try 
+		{			
+			listTicketGoing = ctrlPassages.searchPassages(dbStatement,
+											   			  _flightTicketGoing.source, 
+											   			  _flightTicketGoing.dest, 
+											   			  _flightTicketGoing.getSqlDate());
+			
+			// Verifies if there is a return ticket
+			if(_flightTicketReturn != null)
+			{
+				// search for the return ticket					
+				listTicketReturn = ctrlPassages.searchPassages(dbStatement,
+												   			   _flightTicketReturn.source, 
+												   			   _flightTicketReturn.dest, 
+												   			   _flightTicketReturn.getSqlDate());
+			}
+			
+			// search for accommodation by city name
+			listAccommodation = ctrlHotel.searchHotelByCity(dbStatement,
+											   				_accommodation.cityName);
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		// Fills a package for each combination of going ticket, return ticket and accommodation
+		for(int i = 0; i < listTicketGoing.flightTicketList.size(); i++)
+		{
+			flightTicketGoingFound = listTicketGoing.getFlightTicket(i);
+			
+			for(int j = 0; j < listAccommodation.accommodationList.size(); j++)
+			{
+				accommodationFound = listAccommodation.getAccommodation(j);
+
+				// If there is a return ticket
+				if(_flightTicketReturn != null)
+				{
+					for(int k = 0; k < listTicketReturn.flightTicketList.size(); k++)
+					{
+						flightTicketReturnFound = listTicketReturn.getFlightTicket(k);
+
+						pack = new Packages(flightTicketGoingFound,
+										    flightTicketReturnFound,
+										    accommodationFound);
+
+						list.add(pack);
+					}
+				}
+				else
+				{
+					flightTicketReturnFound = null;
+					
+					pack = new Packages(flightTicketGoingFound,
+										flightTicketReturnFound,
+										accommodationFound);
+
+					list.add(pack);
+				}
+			}
+		}
+		
+		return list;
+	}
+
+	@Override
+	public int buyPackage(Packages _package) throws RemoteException
+	{
+		int 	result 				= 0;
+    	int 	goingTicketsLeft 	= 0;
+    	int 	returnTicketsLeft 	= 0;
+    	int 	roomsLeft 			= 0;
+    	
+    	boolean	isReturnTicket 				= false;
+    	boolean returnTicketAvailability 	= true;
+
+    	if(_package.flightTicketReturn != null)
+		{
+			isReturnTicket = true;
+		}
+
+    	try
+		{
+    		goingTicketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
+														    _package.flightTicketGoing.source,
+														    _package.flightTicketGoing.dest,
+														    _package.flightTicketGoing.getSqlDate(),
+														    _package.flightTicketGoing.price);
+
+			if(isReturnTicket)
+			{
+				returnTicketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
+															     _package.flightTicketReturn.source,
+															     _package.flightTicketReturn.dest,
+															     _package.flightTicketReturn.getSqlDate(),
+															     _package.flightTicketReturn.price);
+				
+				if(returnTicketsLeft <= _package.flightTicketReturn.quantity)
+				{
+					returnTicketAvailability = false;
+				}
+			}
+
+			roomsLeft = ctrlHotel.getQuantityLeft(dbStatement,
+												  _package.accommodation.cityName,
+												  _package.accommodation.accommodationName,
+												  _package.accommodation.price);
+
+			// checks if there are enough going tickets
+			if((goingTicketsLeft >= _package.flightTicketGoing.quantity) &&
+			   (returnTicketAvailability))
+			{
+				// checks if there are enough rooms left
+				if(roomsLeft >= _package.accommodation.quantity)
+				{
+					// Finally, buy the package and update database
+					ctrlPassages.updateQuantity(dbStatement,
+										    	_package.flightTicketGoing.source,
+										    	_package.flightTicketGoing.dest,
+										    	_package.flightTicketGoing.getSqlDate(),
+										    	_package.flightTicketGoing.price,
+										    	goingTicketsLeft - _package.flightTicketGoing.quantity);
+					
+					if(isReturnTicket)
+					{
+						ctrlPassages.updateQuantity(dbStatement,
+											    	_package.flightTicketReturn.source,
+											    	_package.flightTicketReturn.dest,
+											    	_package.flightTicketReturn.getSqlDate(),
+											    	_package.flightTicketReturn.price,
+											    	returnTicketsLeft - _package.flightTicketReturn.quantity);
+					}
+
+					ctrlHotel.updateQuantity(dbStatement,
+										 	 _package.accommodation.cityName,
+										 	 _package.accommodation.accommodationName,
+										 	 _package.accommodation.price,
+										 	 roomsLeft - _package.accommodation.quantity);
+
+					// Succeded
+					result = 1;
+				}
+				else
+				{
+					// Not enough rooms
+					result = 3;
+				}
+			}
+			else
+			{
+				// Not enough passages
+				result = 2;
+			}			
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+
+    	return result;
+	}
+
+	@Override
+	public void registerPackageInterest(FlightTicket	_ticketTo,
+										FlightTicket 	_ticketFrom, 
+										Accommodation 	_accommodation,
+										int 			_quantity, 
+										float 			_desiredPrice, 
+										int 			_numberOfGuests, 
+										String 			_clientName) throws RemoteException 
+	{
+	
+	}
+
 	@Override
 	public void notifyTicketsInterests(FlightTicket flightTicket) throws RemoteException
 	{
-		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void notifyAccommodationInterests(Accommodation _accommodation) throws RemoteException 
+	{
+		
+	}
+
+	@Override
+	public void notifyPackageInterests(FlightTicket _flightTicket) throws RemoteException
+	{
+		
+	}
+
+	@Override
+	public void notifyPackageInterestsByAccommodation(Accommodation _accommodation) throws RemoteException
+	{
+		
+	}
+
+	@Override
+	public void unregisterTicketInterestByFlightTicket(FlightTicketInterest _ticketInterest) throws RemoteException 
+	{
+		
+	}
+
+	@Override
+	public void unregisterAccommodationInterest(AccommodationInterest _accommodationInterest) throws RemoteException 
+	{
+		
+	}
+
+	@Override
+	public void unregisterPackageInterest(PackageInterest _packageInterest) throws RemoteException 
+	{
+		
 	}
 }

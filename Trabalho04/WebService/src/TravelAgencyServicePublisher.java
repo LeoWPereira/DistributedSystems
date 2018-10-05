@@ -13,6 +13,10 @@ import javax.xml.ws.Endpoint;
 
 import br.sd.tas.TravelAgencyServiceImpl;
 
+/**
+ * @brief	This class is responsible for invoking the main method, as well
+ * 			as publishing the service properly said
+ */
 public class TravelAgencyServicePublisher
 {
    public static void main(String[] args)

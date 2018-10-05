@@ -541,45 +541,46 @@ table 							= new JTable();
 		try
 		{
 			// Insert Entry on the database
-			travelAgencyWebService.insertHotelEntry(comboBoxCity.getSelectedItem().toString(), 
-								  			   		textFieldHotel.getText().toString(), 
-								  			   		Integer.valueOf(textFieldQuantity.getText().toString()), 
-								  			   		Integer.valueOf(textFieldMaxGuestsRoom.getText().toString()),
-								  			   		Float.valueOf(textFieldPrice.getText().substring(3, 
-		   									   									   					 9)));
-			
-			// We will also insert the same entry in our list
-			Accommodation entry = new Accommodation();
-			
-			entry.setCityName(comboBoxCity.getSelectedItem().toString());
-			entry.setAccommodationName(textFieldHotel.getText().toString());
-			entry.setQuantity(Integer.valueOf(textFieldQuantity.getText().toString()));
-			entry.setMaxGuestsPerRoom(Integer.valueOf(textFieldMaxGuestsRoom.getText().toString()));
-			entry.setPrice(Float.valueOf(textFieldPrice.getText().substring(3, 
-							 												9)));
-			
-			// Finally, we update our table
-			hotelManager.getAccommodationList().add(entry);
-			
-			// Finally, we update our table
-			insertTableField(entry,
-							 hotelManager.getAccommodationList().size() - 1);
-			
-			JOptionPane.showMessageDialog(new JFrame(),
-										  "Hospedagem inserida com sucesso!", 
-										  "Sucesso",
-										  JOptionPane.INFORMATION_MESSAGE);
+			if(travelAgencyWebService.insertHotelEntry(comboBoxCity.getSelectedItem().toString(), 
+								  			   		   textFieldHotel.getText().toString(), 
+								  			   		   Integer.valueOf(textFieldQuantity.getText().toString()), 
+								  			   		   Integer.valueOf(textFieldMaxGuestsRoom.getText().toString()),
+								  			   		   Float.valueOf(textFieldPrice.getText().substring(3, 
+		   									   									   					    9))))
+			{
+				// We will also insert the same entry in our list
+				Accommodation entry = new Accommodation();
+				
+				entry.setCityName(comboBoxCity.getSelectedItem().toString());
+				entry.setAccommodationName(textFieldHotel.getText().toString());
+				entry.setQuantity(Integer.valueOf(textFieldQuantity.getText().toString()));
+				entry.setMaxGuestsPerRoom(Integer.valueOf(textFieldMaxGuestsRoom.getText().toString()));
+				entry.setPrice(Float.valueOf(textFieldPrice.getText().substring(3, 
+								 												9)));
+				
+				// Finally, we update our table
+				hotelManager.getAccommodationList().add(entry);
+				
+				// Finally, we update our table
+				insertTableField(entry,
+								 hotelManager.getAccommodationList().size() - 1);
+				
+				JOptionPane.showMessageDialog(new JFrame(),
+											  "Hospedagem inserida com sucesso!", 
+											  "Sucesso",
+											  JOptionPane.INFORMATION_MESSAGE);
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(new JFrame(),
+						  					  "Passagem já existe no Banco de Dados!", 
+						  					  "Erro",
+						  					  JOptionPane.ERROR_MESSAGE);
+			}
 		}
 		catch (NumberFormatException e) 
 		{
 			e.printStackTrace();
-		}
-		catch (Exception e)
-		{
-			JOptionPane.showMessageDialog(new JFrame(),
-										  "Passagem já existe no Banco de Dados!", 
-										  "Erro",
-										  JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

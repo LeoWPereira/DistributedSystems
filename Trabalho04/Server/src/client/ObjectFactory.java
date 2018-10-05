@@ -24,14 +24,21 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _HelloResponse_QNAME = new QName("http://tas.sd.br/", "helloResponse");
+    private final static QName _UnregisterTicketInterestByFlightTicketResponse_QNAME = new QName("http://tas.sd.br/", "unregisterTicketInterestByFlightTicketResponse");
     private final static QName _NotifyTicketsInterestsResponse_QNAME = new QName("http://tas.sd.br/", "notifyTicketsInterestsResponse");
     private final static QName _RegisterPassageInterestResponse_QNAME = new QName("http://tas.sd.br/", "registerPassageInterestResponse");
+    private final static QName _UnregisterTicketInterestByFlightTicket_QNAME = new QName("http://tas.sd.br/", "unregisterTicketInterestByFlightTicket");
     private final static QName _LoadDBPassagesResponse_QNAME = new QName("http://tas.sd.br/", "loadDBPassagesResponse");
+    private final static QName _SearchPackagesResponse_QNAME = new QName("http://tas.sd.br/", "searchPackagesResponse");
+    private final static QName _NotifyPackageInterestsByAccommodationResponse_QNAME = new QName("http://tas.sd.br/", "notifyPackageInterestsByAccommodationResponse");
+    private final static QName _NotifyAccommodationInterestsResponse_QNAME = new QName("http://tas.sd.br/", "notifyAccommodationInterestsResponse");
+    private final static QName _SearchPackages_QNAME = new QName("http://tas.sd.br/", "searchPackages");
     private final static QName _BuyPassage_QNAME = new QName("http://tas.sd.br/", "buyPassage");
+    private final static QName _GetPackageInterestListResponse_QNAME = new QName("http://tas.sd.br/", "getPackageInterestListResponse");
     private final static QName _GetTicketInterestList_QNAME = new QName("http://tas.sd.br/", "getTicketInterestList");
     private final static QName _BuyPassageResponse_QNAME = new QName("http://tas.sd.br/", "buyPassageResponse");
-    private final static QName _Hello_QNAME = new QName("http://tas.sd.br/", "hello");
+    private final static QName _BuyPackageResponse_QNAME = new QName("http://tas.sd.br/", "buyPackageResponse");
+    private final static QName _UnregisterAccommodationInterest_QNAME = new QName("http://tas.sd.br/", "unregisterAccommodationInterest");
     private final static QName _SearchHotelByNameResponse_QNAME = new QName("http://tas.sd.br/", "searchHotelByNameResponse");
     private final static QName _ReserveHotel_QNAME = new QName("http://tas.sd.br/", "reserveHotel");
     private final static QName _SearchHotelByName_QNAME = new QName("http://tas.sd.br/", "searchHotelByName");
@@ -40,20 +47,31 @@ public class ObjectFactory {
     private final static QName _NotifyTicketsInterests_QNAME = new QName("http://tas.sd.br/", "notifyTicketsInterests");
     private final static QName _GetAccommodationInterestListResponse_QNAME = new QName("http://tas.sd.br/", "getAccommodationInterestListResponse");
     private final static QName _ReserveHotelResponse_QNAME = new QName("http://tas.sd.br/", "reserveHotelResponse");
+    private final static QName _NotifyAccommodationInterests_QNAME = new QName("http://tas.sd.br/", "notifyAccommodationInterests");
     private final static QName _LoadDBPassages_QNAME = new QName("http://tas.sd.br/", "loadDBPassages");
+    private final static QName _NotifyPackageInterestsByAccommodation_QNAME = new QName("http://tas.sd.br/", "notifyPackageInterestsByAccommodation");
     private final static QName _LoadDBHotelsResponse_QNAME = new QName("http://tas.sd.br/", "loadDBHotelsResponse");
     private final static QName _InsertHotelEntryResponse_QNAME = new QName("http://tas.sd.br/", "insertHotelEntryResponse");
     private final static QName _RegisterHotelInterestResponse_QNAME = new QName("http://tas.sd.br/", "registerHotelInterestResponse");
+    private final static QName _GetPackageInterestList_QNAME = new QName("http://tas.sd.br/", "getPackageInterestList");
+    private final static QName _BuyPackage_QNAME = new QName("http://tas.sd.br/", "buyPackage");
     private final static QName _GetTicketInterestListResponse_QNAME = new QName("http://tas.sd.br/", "getTicketInterestListResponse");
     private final static QName _RegisterHotelInterest_QNAME = new QName("http://tas.sd.br/", "registerHotelInterest");
     private final static QName _SearchPassagesResponse_QNAME = new QName("http://tas.sd.br/", "searchPassagesResponse");
+    private final static QName _NotifyPackageInterests_QNAME = new QName("http://tas.sd.br/", "notifyPackageInterests");
     private final static QName _InsertPassageEntry_QNAME = new QName("http://tas.sd.br/", "insertPassageEntry");
     private final static QName _GetAccommodationInterestList_QNAME = new QName("http://tas.sd.br/", "getAccommodationInterestList");
     private final static QName _InsertHotelEntry_QNAME = new QName("http://tas.sd.br/", "insertHotelEntry");
+    private final static QName _RegisterPackageInterest_QNAME = new QName("http://tas.sd.br/", "registerPackageInterest");
     private final static QName _LoadDBHotels_QNAME = new QName("http://tas.sd.br/", "loadDBHotels");
     private final static QName _RegisterPassageInterest_QNAME = new QName("http://tas.sd.br/", "registerPassageInterest");
+    private final static QName _UnregisterPackageInterest_QNAME = new QName("http://tas.sd.br/", "unregisterPackageInterest");
+    private final static QName _UnregisterPackageInterestResponse_QNAME = new QName("http://tas.sd.br/", "unregisterPackageInterestResponse");
+    private final static QName _NotifyPackageInterestsResponse_QNAME = new QName("http://tas.sd.br/", "notifyPackageInterestsResponse");
+    private final static QName _RegisterPackageInterestResponse_QNAME = new QName("http://tas.sd.br/", "registerPackageInterestResponse");
     private final static QName _InsertPassageEntryResponse_QNAME = new QName("http://tas.sd.br/", "insertPassageEntryResponse");
     private final static QName _SearchHotelByCity_QNAME = new QName("http://tas.sd.br/", "searchHotelByCity");
+    private final static QName _UnregisterAccommodationInterestResponse_QNAME = new QName("http://tas.sd.br/", "unregisterAccommodationInterestResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: client
@@ -68,6 +86,22 @@ public class ObjectFactory {
      */
     public RegisterPassageInterest createRegisterPassageInterest() {
         return new RegisterPassageInterest();
+    }
+
+    /**
+     * Create an instance of {@link UnregisterPackageInterest }
+     * 
+     */
+    public UnregisterPackageInterest createUnregisterPackageInterest() {
+        return new UnregisterPackageInterest();
+    }
+
+    /**
+     * Create an instance of {@link UnregisterPackageInterestResponse }
+     * 
+     */
+    public UnregisterPackageInterestResponse createUnregisterPackageInterestResponse() {
+        return new UnregisterPackageInterestResponse();
     }
 
     /**
@@ -87,11 +121,43 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UnregisterAccommodationInterestResponse }
+     * 
+     */
+    public UnregisterAccommodationInterestResponse createUnregisterAccommodationInterestResponse() {
+        return new UnregisterAccommodationInterestResponse();
+    }
+
+    /**
+     * Create an instance of {@link NotifyPackageInterestsResponse }
+     * 
+     */
+    public NotifyPackageInterestsResponse createNotifyPackageInterestsResponse() {
+        return new NotifyPackageInterestsResponse();
+    }
+
+    /**
+     * Create an instance of {@link RegisterPackageInterestResponse }
+     * 
+     */
+    public RegisterPackageInterestResponse createRegisterPackageInterestResponse() {
+        return new RegisterPackageInterestResponse();
+    }
+
+    /**
      * Create an instance of {@link InsertPassageEntryResponse }
      * 
      */
     public InsertPassageEntryResponse createInsertPassageEntryResponse() {
         return new InsertPassageEntryResponse();
+    }
+
+    /**
+     * Create an instance of {@link BuyPackage }
+     * 
+     */
+    public BuyPackage createBuyPackage() {
+        return new BuyPackage();
     }
 
     /**
@@ -119,11 +185,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link NotifyPackageInterests }
+     * 
+     */
+    public NotifyPackageInterests createNotifyPackageInterests() {
+        return new NotifyPackageInterests();
+    }
+
+    /**
      * Create an instance of {@link RegisterHotelInterestResponse }
      * 
      */
     public RegisterHotelInterestResponse createRegisterHotelInterestResponse() {
         return new RegisterHotelInterestResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetPackageInterestList }
+     * 
+     */
+    public GetPackageInterestList createGetPackageInterestList() {
+        return new GetPackageInterestList();
+    }
+
+    /**
+     * Create an instance of {@link RegisterPackageInterest }
+     * 
+     */
+    public RegisterPackageInterest createRegisterPackageInterest() {
+        return new RegisterPackageInterest();
     }
 
     /**
@@ -231,11 +321,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link NotifyAccommodationInterests }
+     * 
+     */
+    public NotifyAccommodationInterests createNotifyAccommodationInterests() {
+        return new NotifyAccommodationInterests();
+    }
+
+    /**
      * Create an instance of {@link LoadDBPassages }
      * 
      */
     public LoadDBPassages createLoadDBPassages() {
         return new LoadDBPassages();
+    }
+
+    /**
+     * Create an instance of {@link NotifyPackageInterestsByAccommodation }
+     * 
+     */
+    public NotifyPackageInterestsByAccommodation createNotifyPackageInterestsByAccommodation() {
+        return new NotifyPackageInterestsByAccommodation();
+    }
+
+    /**
+     * Create an instance of {@link UnregisterTicketInterestByFlightTicket }
+     * 
+     */
+    public UnregisterTicketInterestByFlightTicket createUnregisterTicketInterestByFlightTicket() {
+        return new UnregisterTicketInterestByFlightTicket();
     }
 
     /**
@@ -247,11 +361,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link HelloResponse }
+     * Create an instance of {@link SearchPackagesResponse }
      * 
      */
-    public HelloResponse createHelloResponse() {
-        return new HelloResponse();
+    public SearchPackagesResponse createSearchPackagesResponse() {
+        return new SearchPackagesResponse();
+    }
+
+    /**
+     * Create an instance of {@link NotifyPackageInterestsByAccommodationResponse }
+     * 
+     */
+    public NotifyPackageInterestsByAccommodationResponse createNotifyPackageInterestsByAccommodationResponse() {
+        return new NotifyPackageInterestsByAccommodationResponse();
+    }
+
+    /**
+     * Create an instance of {@link UnregisterTicketInterestByFlightTicketResponse }
+     * 
+     */
+    public UnregisterTicketInterestByFlightTicketResponse createUnregisterTicketInterestByFlightTicketResponse() {
+        return new UnregisterTicketInterestByFlightTicketResponse();
     }
 
     /**
@@ -271,11 +401,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Hello }
+     * Create an instance of {@link BuyPackageResponse }
      * 
      */
-    public Hello createHello() {
-        return new Hello();
+    public BuyPackageResponse createBuyPackageResponse() {
+        return new BuyPackageResponse();
+    }
+
+    /**
+     * Create an instance of {@link UnregisterAccommodationInterest }
+     * 
+     */
+    public UnregisterAccommodationInterest createUnregisterAccommodationInterest() {
+        return new UnregisterAccommodationInterest();
+    }
+
+    /**
+     * Create an instance of {@link NotifyAccommodationInterestsResponse }
+     * 
+     */
+    public NotifyAccommodationInterestsResponse createNotifyAccommodationInterestsResponse() {
+        return new NotifyAccommodationInterestsResponse();
+    }
+
+    /**
+     * Create an instance of {@link SearchPackages }
+     * 
+     */
+    public SearchPackages createSearchPackages() {
+        return new SearchPackages();
     }
 
     /**
@@ -284,6 +438,14 @@ public class ObjectFactory {
      */
     public BuyPassage createBuyPassage() {
         return new BuyPassage();
+    }
+
+    /**
+     * Create an instance of {@link GetPackageInterestListResponse }
+     * 
+     */
+    public GetPackageInterestListResponse createGetPackageInterestListResponse() {
+        return new GetPackageInterestListResponse();
     }
 
     /**
@@ -303,14 +465,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Date }
-     * 
-     */
-    public Date createDate() {
-        return new Date();
-    }
-
-    /**
      * Create an instance of {@link FlightTicketManager }
      * 
      */
@@ -319,11 +473,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link PackageInterest }
+     * 
+     */
+    public PackageInterest createPackageInterest() {
+        return new PackageInterest();
+    }
+
+    /**
      * Create an instance of {@link FlightTicket }
      * 
      */
     public FlightTicket createFlightTicket() {
         return new FlightTicket();
+    }
+
+    /**
+     * Create an instance of {@link Packages }
+     * 
+     */
+    public Packages createPackages() {
+        return new Packages();
+    }
+
+    /**
+     * Create an instance of {@link FlightTicketInterest }
+     * 
+     */
+    public FlightTicketInterest createFlightTicketInterest() {
+        return new FlightTicketInterest();
     }
 
     /**
@@ -351,20 +529,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link FlightTicketInterest }
+     * Create an instance of {@link JAXBElement }{@code <}{@link UnregisterTicketInterestByFlightTicketResponse }{@code >}}
      * 
      */
-    public FlightTicketInterest createFlightTicketInterest() {
-        return new FlightTicketInterest();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link HelloResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "helloResponse")
-    public JAXBElement<HelloResponse> createHelloResponse(HelloResponse value) {
-        return new JAXBElement<HelloResponse>(_HelloResponse_QNAME, HelloResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "unregisterTicketInterestByFlightTicketResponse")
+    public JAXBElement<UnregisterTicketInterestByFlightTicketResponse> createUnregisterTicketInterestByFlightTicketResponse(UnregisterTicketInterestByFlightTicketResponse value) {
+        return new JAXBElement<UnregisterTicketInterestByFlightTicketResponse>(_UnregisterTicketInterestByFlightTicketResponse_QNAME, UnregisterTicketInterestByFlightTicketResponse.class, null, value);
     }
 
     /**
@@ -386,6 +556,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UnregisterTicketInterestByFlightTicket }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "unregisterTicketInterestByFlightTicket")
+    public JAXBElement<UnregisterTicketInterestByFlightTicket> createUnregisterTicketInterestByFlightTicket(UnregisterTicketInterestByFlightTicket value) {
+        return new JAXBElement<UnregisterTicketInterestByFlightTicket>(_UnregisterTicketInterestByFlightTicket_QNAME, UnregisterTicketInterestByFlightTicket.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link LoadDBPassagesResponse }{@code >}}
      * 
      */
@@ -395,12 +574,57 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchPackagesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "searchPackagesResponse")
+    public JAXBElement<SearchPackagesResponse> createSearchPackagesResponse(SearchPackagesResponse value) {
+        return new JAXBElement<SearchPackagesResponse>(_SearchPackagesResponse_QNAME, SearchPackagesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyPackageInterestsByAccommodationResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "notifyPackageInterestsByAccommodationResponse")
+    public JAXBElement<NotifyPackageInterestsByAccommodationResponse> createNotifyPackageInterestsByAccommodationResponse(NotifyPackageInterestsByAccommodationResponse value) {
+        return new JAXBElement<NotifyPackageInterestsByAccommodationResponse>(_NotifyPackageInterestsByAccommodationResponse_QNAME, NotifyPackageInterestsByAccommodationResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyAccommodationInterestsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "notifyAccommodationInterestsResponse")
+    public JAXBElement<NotifyAccommodationInterestsResponse> createNotifyAccommodationInterestsResponse(NotifyAccommodationInterestsResponse value) {
+        return new JAXBElement<NotifyAccommodationInterestsResponse>(_NotifyAccommodationInterestsResponse_QNAME, NotifyAccommodationInterestsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SearchPackages }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "searchPackages")
+    public JAXBElement<SearchPackages> createSearchPackages(SearchPackages value) {
+        return new JAXBElement<SearchPackages>(_SearchPackages_QNAME, SearchPackages.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link BuyPassage }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://tas.sd.br/", name = "buyPassage")
     public JAXBElement<BuyPassage> createBuyPassage(BuyPassage value) {
         return new JAXBElement<BuyPassage>(_BuyPassage_QNAME, BuyPassage.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPackageInterestListResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "getPackageInterestListResponse")
+    public JAXBElement<GetPackageInterestListResponse> createGetPackageInterestListResponse(GetPackageInterestListResponse value) {
+        return new JAXBElement<GetPackageInterestListResponse>(_GetPackageInterestListResponse_QNAME, GetPackageInterestListResponse.class, null, value);
     }
 
     /**
@@ -422,12 +646,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Hello }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuyPackageResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "hello")
-    public JAXBElement<Hello> createHello(Hello value) {
-        return new JAXBElement<Hello>(_Hello_QNAME, Hello.class, null, value);
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "buyPackageResponse")
+    public JAXBElement<BuyPackageResponse> createBuyPackageResponse(BuyPackageResponse value) {
+        return new JAXBElement<BuyPackageResponse>(_BuyPackageResponse_QNAME, BuyPackageResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UnregisterAccommodationInterest }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "unregisterAccommodationInterest")
+    public JAXBElement<UnregisterAccommodationInterest> createUnregisterAccommodationInterest(UnregisterAccommodationInterest value) {
+        return new JAXBElement<UnregisterAccommodationInterest>(_UnregisterAccommodationInterest_QNAME, UnregisterAccommodationInterest.class, null, value);
     }
 
     /**
@@ -503,12 +736,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyAccommodationInterests }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "notifyAccommodationInterests")
+    public JAXBElement<NotifyAccommodationInterests> createNotifyAccommodationInterests(NotifyAccommodationInterests value) {
+        return new JAXBElement<NotifyAccommodationInterests>(_NotifyAccommodationInterests_QNAME, NotifyAccommodationInterests.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link LoadDBPassages }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://tas.sd.br/", name = "loadDBPassages")
     public JAXBElement<LoadDBPassages> createLoadDBPassages(LoadDBPassages value) {
         return new JAXBElement<LoadDBPassages>(_LoadDBPassages_QNAME, LoadDBPassages.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyPackageInterestsByAccommodation }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "notifyPackageInterestsByAccommodation")
+    public JAXBElement<NotifyPackageInterestsByAccommodation> createNotifyPackageInterestsByAccommodation(NotifyPackageInterestsByAccommodation value) {
+        return new JAXBElement<NotifyPackageInterestsByAccommodation>(_NotifyPackageInterestsByAccommodation_QNAME, NotifyPackageInterestsByAccommodation.class, null, value);
     }
 
     /**
@@ -539,6 +790,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetPackageInterestList }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "getPackageInterestList")
+    public JAXBElement<GetPackageInterestList> createGetPackageInterestList(GetPackageInterestList value) {
+        return new JAXBElement<GetPackageInterestList>(_GetPackageInterestList_QNAME, GetPackageInterestList.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuyPackage }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "buyPackage")
+    public JAXBElement<BuyPackage> createBuyPackage(BuyPackage value) {
+        return new JAXBElement<BuyPackage>(_BuyPackage_QNAME, BuyPackage.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetTicketInterestListResponse }{@code >}}
      * 
      */
@@ -563,6 +832,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://tas.sd.br/", name = "searchPassagesResponse")
     public JAXBElement<SearchPassagesResponse> createSearchPassagesResponse(SearchPassagesResponse value) {
         return new JAXBElement<SearchPassagesResponse>(_SearchPassagesResponse_QNAME, SearchPassagesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyPackageInterests }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "notifyPackageInterests")
+    public JAXBElement<NotifyPackageInterests> createNotifyPackageInterests(NotifyPackageInterests value) {
+        return new JAXBElement<NotifyPackageInterests>(_NotifyPackageInterests_QNAME, NotifyPackageInterests.class, null, value);
     }
 
     /**
@@ -593,6 +871,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterPackageInterest }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "registerPackageInterest")
+    public JAXBElement<RegisterPackageInterest> createRegisterPackageInterest(RegisterPackageInterest value) {
+        return new JAXBElement<RegisterPackageInterest>(_RegisterPackageInterest_QNAME, RegisterPackageInterest.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link LoadDBHotels }{@code >}}
      * 
      */
@@ -611,6 +898,42 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UnregisterPackageInterest }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "unregisterPackageInterest")
+    public JAXBElement<UnregisterPackageInterest> createUnregisterPackageInterest(UnregisterPackageInterest value) {
+        return new JAXBElement<UnregisterPackageInterest>(_UnregisterPackageInterest_QNAME, UnregisterPackageInterest.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UnregisterPackageInterestResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "unregisterPackageInterestResponse")
+    public JAXBElement<UnregisterPackageInterestResponse> createUnregisterPackageInterestResponse(UnregisterPackageInterestResponse value) {
+        return new JAXBElement<UnregisterPackageInterestResponse>(_UnregisterPackageInterestResponse_QNAME, UnregisterPackageInterestResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NotifyPackageInterestsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "notifyPackageInterestsResponse")
+    public JAXBElement<NotifyPackageInterestsResponse> createNotifyPackageInterestsResponse(NotifyPackageInterestsResponse value) {
+        return new JAXBElement<NotifyPackageInterestsResponse>(_NotifyPackageInterestsResponse_QNAME, NotifyPackageInterestsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterPackageInterestResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "registerPackageInterestResponse")
+    public JAXBElement<RegisterPackageInterestResponse> createRegisterPackageInterestResponse(RegisterPackageInterestResponse value) {
+        return new JAXBElement<RegisterPackageInterestResponse>(_RegisterPackageInterestResponse_QNAME, RegisterPackageInterestResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link InsertPassageEntryResponse }{@code >}}
      * 
      */
@@ -626,6 +949,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://tas.sd.br/", name = "searchHotelByCity")
     public JAXBElement<SearchHotelByCity> createSearchHotelByCity(SearchHotelByCity value) {
         return new JAXBElement<SearchHotelByCity>(_SearchHotelByCity_QNAME, SearchHotelByCity.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UnregisterAccommodationInterestResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "unregisterAccommodationInterestResponse")
+    public JAXBElement<UnregisterAccommodationInterestResponse> createUnregisterAccommodationInterestResponse(UnregisterAccommodationInterestResponse value) {
+        return new JAXBElement<UnregisterAccommodationInterestResponse>(_UnregisterAccommodationInterestResponse_QNAME, UnregisterAccommodationInterestResponse.class, null, value);
     }
 
 }
