@@ -7,3 +7,13 @@ D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgency
 D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.csproj.CoreCompileInputs.cache
 D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.exe
 D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.pdb
+D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\bin\Debug\TravelAgencyClient.exe.config
+D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\bin\Debug\TravelAgencyClient.exe
+D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\bin\Debug\TravelAgencyClient.pdb
+D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.csprojAssemblyReference.cache
+D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.Form1.resources
+D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.Properties.Resources.resources
+D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.csproj.GenerateResource.cache
+D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.csproj.CoreCompileInputs.cache
+D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.exe
+D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.pdb
