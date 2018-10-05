@@ -12,16 +12,15 @@
 package br.sd.tas;
 
 import java.rmi.RemoteException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.jws.WebService;
 
 import java.sql.Connection;
 import java.sql.Statement;
-import java.sql.Date;
 
 import Classes.Accommodation;
 import Classes.AccommodationInterest;
@@ -139,18 +138,26 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	@Override
 	public boolean insertPassageEntry(String 		_source,
 							          String 		_dest,
-								      Date			_date,
+							          int			_dateDay,
+						   	          int			_dateMonth,
+						   	          int			_dateYear,
 								      int			_quantity,
 								      float			_price) throws RemoteException
 	{
 		boolean success;
 		
+		Calendar calendar = Calendar.getInstance();
+	    
+		calendar.set(_dateYear,
+	    			 _dateMonth,
+	    			 _dateDay);
+	    
 		try
 		{
 			ctrlPassages.insertEntry(dbStatement,
 									 _source,
 									 _dest, 
-									 _date, 
+									 new java.sql.Date(calendar.getTime().getTime()), 
 									 _quantity, 
 									 _price);
 			
@@ -167,16 +174,24 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	@Override
 	public FlightTicketManager searchPassages(String	_source,
 											  String 	_dest,
-											  Date 		_date) throws RemoteException
+											  int		_dateDay,
+									   	      int		_dateMonth,
+									   	      int		_dateYear) throws RemoteException
 	{
 		FlightTicketManager list = new FlightTicketManager();
 		
-		try 
+		Calendar calendar = Calendar.getInstance();
+	    
+		calendar.set(_dateYear,
+	    			 _dateMonth,
+	    			 _dateDay);
+		
+		try
 		{
 			list = ctrlPassages.searchPassages(dbStatement,
 											   _source, 
 											   _dest, 
-											   _date);
+											   new java.sql.Date(calendar.getTime().getTime()));
 		} 
 		catch (SQLException e) 
 		{
@@ -232,7 +247,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 			int ticketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
 														   _ticket.source,
 														   _ticket.dest,
-														   new java.sql.Date(_ticket.date.getTime()),
+														   _ticket.getSqlDate(),
 														   _ticket.price);
 
 			if(ticketsLeft >= _ticket.quantity)
@@ -240,7 +255,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 				ctrlPassages.updateQuantity(dbStatement,
 										    _ticket.source,
 										    _ticket.dest,
-										    new java.sql.Date(_ticket.date.getTime()),
+										    _ticket.getSqlDate(),
 										    _ticket.price,
 										    ticketsLeft - _ticket.quantity);
 				
@@ -375,7 +390,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 			listTicketGoing = ctrlPassages.searchPassages(dbStatement,
 											   			  _flightTicketGoing.source, 
 											   			  _flightTicketGoing.dest, 
-											   			  new java.sql.Date(_flightTicketGoing.date.getTime()));
+											   			  _flightTicketGoing.getSqlDate());
 			
 			// Verifies if there is a return ticket
 			if(_flightTicketReturn != null)
@@ -384,7 +399,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 				listTicketReturn = ctrlPassages.searchPassages(dbStatement,
 												   			   _flightTicketReturn.source, 
 												   			   _flightTicketReturn.dest, 
-												   			   new java.sql.Date(_flightTicketReturn.date.getTime()));
+												   			   _flightTicketReturn.getSqlDate());
 			}
 			
 			// search for accommodation by city name
@@ -456,7 +471,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
     		goingTicketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
 														    _package.flightTicketGoing.source,
 														    _package.flightTicketGoing.dest,
-														    new java.sql.Date(_package.flightTicketGoing.date.getTime()),
+														    _package.flightTicketGoing.getSqlDate(),
 														    _package.flightTicketGoing.price);
 
 			if(isReturnTicket)
@@ -464,7 +479,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 				returnTicketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
 															     _package.flightTicketReturn.source,
 															     _package.flightTicketReturn.dest,
-															     new java.sql.Date(_package.flightTicketReturn.date.getTime()),
+															     _package.flightTicketReturn.getSqlDate(),
 															     _package.flightTicketReturn.price);
 				
 				if(returnTicketsLeft <= _package.flightTicketReturn.quantity)
@@ -489,7 +504,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 					ctrlPassages.updateQuantity(dbStatement,
 										    	_package.flightTicketGoing.source,
 										    	_package.flightTicketGoing.dest,
-										    	new java.sql.Date(_package.flightTicketGoing.date.getTime()),
+										    	_package.flightTicketGoing.getSqlDate(),
 										    	_package.flightTicketGoing.price,
 										    	goingTicketsLeft - _package.flightTicketGoing.quantity);
 					
@@ -498,7 +513,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 						ctrlPassages.updateQuantity(dbStatement,
 											    	_package.flightTicketReturn.source,
 											    	_package.flightTicketReturn.dest,
-											    	new java.sql.Date(_package.flightTicketReturn.date.getTime()),
+											    	_package.flightTicketReturn.getSqlDate(),
 											    	_package.flightTicketReturn.price,
 											    	returnTicketsLeft - _package.flightTicketReturn.quantity);
 					}

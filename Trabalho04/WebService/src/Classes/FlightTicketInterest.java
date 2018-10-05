@@ -12,6 +12,7 @@
 package Classes;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -105,7 +106,13 @@ public class FlightTicketInterest implements Serializable
      */ 
     public Date getSourceDate()
     {
-        return this.flightTicketTo.date;
+    	Calendar calendar = Calendar.getInstance();
+	    
+		calendar.set(this.flightTicketTo.dateYear,
+					 this.flightTicketTo.dateMonth,
+					 this.flightTicketTo.dateDay);
+		
+		return new java.sql.Date(calendar.getTime().getTime());
     }
 
     /**
@@ -115,6 +122,12 @@ public class FlightTicketInterest implements Serializable
      */ 
     public Date getReturnDate()
     {
-        return this.flightTicketFrom.date;
+    	Calendar calendar = Calendar.getInstance();
+	    
+		calendar.set(this.flightTicketFrom.dateYear,
+					 this.flightTicketFrom.dateMonth,
+					 this.flightTicketFrom.dateDay);
+		
+		return new java.sql.Date(calendar.getTime().getTime());
     }
 }

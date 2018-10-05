@@ -12,7 +12,7 @@
 package Classes;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
 
 /**
  * Class responsible for storing the flight ticket info
@@ -35,9 +35,19 @@ public class FlightTicket implements Serializable
 	public String 		dest;
 	
 	/**
-	 * @brief	Date of the FLight
+	 * @brief
 	 */
-	public Date		date;
+	public int 		dateDay;
+	
+	/**
+	 * @brief
+	 */
+	public int 		dateMonth;
+	
+	/**
+	 * @brief
+	 */
+	public int 		dateYear;
 	
 	/**
 	 * @brief	Quantity of passages Left
@@ -54,20 +64,42 @@ public class FlightTicket implements Serializable
      * 
      * @param 	_origin			: Source City
      * @param 	_destination	: Destination City
-     * @param 	_date			: Date of the passage
+     * @param 	_dateDay		: Date day of the passage
+     * @param 	_dateMonth		: Date month of the passage
+     * @param 	_dateYear		: Date year of the passage
      * @param 	_qnt			: Quantity of available passages
      * @param 	_price			: Price of the passage
      */   
     public FlightTicket(String 	_origin, 
-    					String 	_destination, 
-    					Date 	_date, 
+    					String 	_destination,
+    					int 	_dateDay,
+    					int		_dateMonth,
+    					int		_dateYear,
     					int 	_qnt,
     					float 	_price)
     {
     	this.source 	= _origin;
     	this.dest		= _destination;
-    	this.date		= _date;
+    	this.dateDay	= _dateDay;
+    	this.dateMonth	= _dateMonth;
+    	this.dateYear	= _dateYear;
     	this.quantity	= _qnt;
     	this.price		= _price;
+    }
+    
+    /**
+     * @brief
+     * 
+     * @return
+     */
+    public java.sql.Date getSqlDate()
+    {
+    	Calendar calendar = Calendar.getInstance();
+	    
+		calendar.set(this.dateYear,
+					 this.dateMonth,
+					 this.dateDay);
+		
+		return new java.sql.Date(calendar.getTime().getTime());
     }
 }

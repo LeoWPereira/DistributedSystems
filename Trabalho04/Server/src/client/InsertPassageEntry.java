@@ -18,9 +18,11 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="arg2" type="{http://tas.sd.br/}date" minOccurs="0"/>
+ *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}float"/>
+ *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="arg5" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="arg6" type="{http://www.w3.org/2001/XMLSchema}float"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,15 +37,19 @@ import javax.xml.bind.annotation.XmlType;
     "arg1",
     "arg2",
     "arg3",
-    "arg4"
+    "arg4",
+    "arg5",
+    "arg6"
 })
 public class InsertPassageEntry {
 
     protected String arg0;
     protected String arg1;
-    protected Date arg2;
+    protected int arg2;
     protected int arg3;
-    protected float arg4;
+    protected int arg4;
+    protected int arg5;
+    protected float arg6;
 
     /**
      * Gets the value of the arg0 property.
@@ -96,24 +102,16 @@ public class InsertPassageEntry {
     /**
      * Gets the value of the arg2 property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Date }
-     *     
      */
-    public Date getArg2() {
+    public int getArg2() {
         return arg2;
     }
 
     /**
      * Sets the value of the arg2 property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Date }
-     *     
      */
-    public void setArg2(Date value) {
+    public void setArg2(int value) {
         this.arg2 = value;
     }
 
@@ -137,7 +135,7 @@ public class InsertPassageEntry {
      * Gets the value of the arg4 property.
      * 
      */
-    public float getArg4() {
+    public int getArg4() {
         return arg4;
     }
 
@@ -145,8 +143,40 @@ public class InsertPassageEntry {
      * Sets the value of the arg4 property.
      * 
      */
-    public void setArg4(float value) {
+    public void setArg4(int value) {
         this.arg4 = value;
+    }
+
+    /**
+     * Gets the value of the arg5 property.
+     * 
+     */
+    public int getArg5() {
+        return arg5;
+    }
+
+    /**
+     * Sets the value of the arg5 property.
+     * 
+     */
+    public void setArg5(int value) {
+        this.arg5 = value;
+    }
+
+    /**
+     * Gets the value of the arg6 property.
+     * 
+     */
+    public float getArg6() {
+        return arg6;
+    }
+
+    /**
+     * Sets the value of the arg6 property.
+     * 
+     */
+    public void setArg6(float value) {
+        this.arg6 = value;
     }
 
 }
