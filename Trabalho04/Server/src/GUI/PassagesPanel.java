@@ -16,11 +16,9 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.rmi.RemoteException;
 import java.sql.SQLException;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.text.ParseException;
+import java.util.Calendar;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -38,8 +36,6 @@ import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import Extra.CitiesBrazil;
 import client.FlightTicket;
@@ -362,7 +358,13 @@ public class PassagesPanel extends JPanel
 									_row, 
 									1);
 		
-		table.getModel().setValueAt(_passage.getDate(),
+		Calendar calendar = Calendar.getInstance();
+	    
+		calendar.set(_passage.getDateYear(),
+					 _passage.getDateMonth(),
+					 _passage.getDateDay());
+		
+		table.getModel().setValueAt(new java.sql.Date(calendar.getTime().getTime()),
 									_row, 
 									2);
 		
@@ -562,17 +564,12 @@ public class PassagesPanel extends JPanel
 		    int month 	= datePicker.getModel().getMonth();
 		    int year 	= datePicker.getModel().getYear();
 		    
-		    Calendar calendar = Calendar.getInstance();
-		    calendar.set(year, month, day);
-		    
-		    GregorianCalendar c = new GregorianCalendar();
-		    c.setTime(yourDate);
-		    XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
-		    
 		    // Insert Entry on the database
 		    if(travelAgencyWebService.insertPassageEntry(comboBoxCitySrc.getSelectedItem().toString(), 
 							 		 				     comboBoxCityDest.getSelectedItem().toString(),
-							 		 				     new java.sql.Date(calendar.getTime().getTime()),
+							 		 				     day,
+							 		 				     month,
+							 		 				     year,
 							 		 				     Integer.valueOf(textFieldQuantity.getText().toString()),
 							 		 				     Float.valueOf(textFieldPrice.getText().substring(3, 
 							 				 								   		  				      9))))
@@ -582,7 +579,10 @@ public class PassagesPanel extends JPanel
 				
 				entry.setSource(comboBoxCitySrc.getSelectedItem().toString());
 				entry.setDest(comboBoxCityDest.getSelectedItem().toString());
-				entry.setDate(new java.sql.Date(calendar.getTime().getTime()));
+				entry.setDateDay(day);
+				entry.setDateMonth(month);
+				entry.setDateYear(year);
+				//entry.setDate(new java.sql.Date(calendar.getTime().getTime()));
 				entry.setQuantity(Integer.valueOf(textFieldQuantity.getText().toString()));
 				entry.setPrice(Float.valueOf(textFieldPrice.getText().substring(3, 
 								   												9)));

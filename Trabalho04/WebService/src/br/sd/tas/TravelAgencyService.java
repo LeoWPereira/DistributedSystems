@@ -14,7 +14,6 @@
 package br.sd.tas;
 
 import java.rmi.RemoteException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -75,7 +74,9 @@ public interface TravelAgencyService
 	 * 
 	 * @param 	_source				:
 	 * @param 	_dest				:
-	 * @param 	_date				:
+	 * @param 	_dateDay			:
+	 * @param 	_dateMonth			:
+	 * @param 	_dateYear			:
 	 * @param 	_quantity			:
 	 * @param 	_price				:
 	 * 
@@ -85,16 +86,20 @@ public interface TravelAgencyService
 	 */
 	@WebMethod boolean insertPassageEntry(String 		_source,
 							   	          String 		_dest,
-									      Date			_date,
+							   	          int			_dateDay,
+							   	          int			_dateMonth,
+							   	          int			_dateYear,
 									      int			_quantity,
 									      float			_price) throws RemoteException;
 	
 	/**
     * @brief	
     * 
-    * @param 	_source	:
-    * @param 	_dest	:
-    * @param 	_date	:
+    * @param 	_source		:
+    * @param 	_dest		:
+    * @param 	_dateDay	:
+	* @param 	_dateMonth	:
+	* @param 	_dateYear	:
     * 
     * @return
     * 
@@ -102,7 +107,9 @@ public interface TravelAgencyService
     */
    @WebMethod FlightTicketManager searchPassages(String	_source, 
 											     String	_dest, 
-											     Date 	_date) throws RemoteException;
+											     int	_dateDay,
+									   	         int	_dateMonth,
+									   	         int	_dateYear) throws RemoteException;
    
    	/**
     * @brief	
