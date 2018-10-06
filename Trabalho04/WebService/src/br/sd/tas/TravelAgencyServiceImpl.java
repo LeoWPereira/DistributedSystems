@@ -183,7 +183,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		Calendar calendar = Calendar.getInstance();
 	    
 		calendar.set(_dateYear,
-	    			 _dateMonth,
+	    			 _dateMonth - 1,
 	    			 _dateDay);
 		
 		try

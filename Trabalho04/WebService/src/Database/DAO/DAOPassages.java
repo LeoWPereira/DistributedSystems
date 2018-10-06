@@ -211,23 +211,27 @@ public class DAOPassages
 									String 		_dest,
 									Date		_date) throws SQLException
 	{
-		ResultSet rs = _stm.executeQuery("SELECT * FROM `"					+
-										 DBConnection.getDatabaseName()		+
-									 	 "`.`" 								+
-									 	 DBConnection.getPassagesDBName() 	+
-										 "` WHERE `"						+
-									 	 rowSource							+
-									 	 "` = '"							+
-									 	 _source							+
-									 	 "' AND `"							+
-									 	 rowDestination						+
-									 	 "` = '"							+
-									 	 _dest								+
-									 	 "' AND `"							+
-									 	 rowDate							+
-									 	 "` = '"							+
-									 	 _date								+
-									 	 "';");
+		String query = "SELECT * FROM `"					+
+					   DBConnection.getDatabaseName()		+
+				 	   "`.`" 								+
+				 	   DBConnection.getPassagesDBName() 	+
+					   "` WHERE `"							+
+				 	   rowSource							+
+				 	   "` = '"								+
+				 	   _source								+
+				 	   "' AND `"							+
+				 	   rowDestination						+
+				 	   "` = '"								+
+				 	   _dest								+
+				 	   "' AND `"							+
+				 	   rowDate								+
+				 	   "` = '"								+
+				 	   _date								+
+				 	   "';";
+		
+		System.out.println(query);
+		
+		ResultSet rs = _stm.executeQuery(query);
 		
 		return rs;
 	}
