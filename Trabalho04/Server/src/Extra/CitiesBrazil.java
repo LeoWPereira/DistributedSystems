@@ -27,7 +27,7 @@ public class CitiesBrazil
 	 * 
 	 * The Row is the index of the state, while the column represents a vector of cities
 	 */
-	String[,] cities = new String[,] { { " " },
+	String[][] cities = new String[][] { { " " },
 			{ "  ", "Acrelândia", "Assis Brasil", "Brasiléia", "Bujari", "Capixaba", "Cruzeiro do Sul",
 					"Epitaciolândia", "Feijó", "Jordão", "Mâncio Lima", "Manoel Urbano", "Marechal Thaumaturgo",
 					"Plácido de Castro", "Porto Acre", "Porto Walter", "Rio Branco", "Rodrigues Alves",

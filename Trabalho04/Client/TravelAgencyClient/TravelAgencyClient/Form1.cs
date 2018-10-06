@@ -5,9 +5,14 @@ namespace TravelAgencyClient
 {
     public partial class Form1 : Form
     {
+        private localhost.TravelAgencyServiceImplService webService;
+
         public Form1()
         {
             InitializeComponent();
+
+            // Firstly, configure the web service object
+            webService = new localhost.TravelAgencyServiceImplService();
 
             configStatesAndCities();
         }
@@ -158,9 +163,59 @@ namespace TravelAgencyClient
             return;
         }
 
+        private bool ticketCheckEmptyFields()
+        {
+            bool returnValue = true;
+
+            if(stateSrcComboBox.Text.Equals("  ") ||
+                stateDestComboBox.Text.Equals("  ") ||
+                citySrcComboBox.Text.Equals("  ") ||
+                cityDestComboBox.Text.Equals("  ") ||
+                stateSrcComboBox.Text.Equals("  ") ||
+                stateSrcComboBox.Text.Equals("  "))
+            {
+                returnValue = false;
+            }
+
+            return returnValue;
+
+        }
+
         private void searchTicketButton_Click(object sender, EventArgs e)
         {
+            localhost.flightTicket[] goingList;
+            localhost.flightTicket[] returnList;
 
+            if (ticketCheckEmptyFields())
+            {
+                // Send request to the webservice
+                goingList = webService.searchPassages("Acrelândia",
+                                                 "Cruzeiro do Sul",
+                                                 10,
+                                                 10,
+                                                 2018);
+
+                // Send request to the webservice
+                goingList = webService.searchPassages(citySrcComboBox.Text.ToString(),
+                                                 cityDestComboBox.Text.ToString(),
+                                                 Convert.ToInt32(goingTicketDate.Value.Day),
+                                                 Convert.ToInt32(goingTicketDate.Value.Month),
+                                                 Convert.ToInt32(goingTicketDate.Value.Year));
+
+                localhost.accommodation[] list = webService.searchHotelByCity("Curitiba");
+
+                if (returnRadioButton.Checked)
+                {
+                    // Send request to the webservice
+                    returnList = webService.searchPassages(citySrcComboBox.SelectedItem.ToString(),
+                                                     cityDestComboBox.SelectedItem.ToString(),
+                                                     Convert.ToInt32(goingTicketDate.Value.Day),
+                                                     Convert.ToInt32(goingTicketDate.Value.Month),
+                                                     Convert.ToInt32(goingTicketDate.Value.Year));
+                }
+            }
+
+            return;
         }
 
         private void searchHotelButton_Click(object sender, EventArgs e)
