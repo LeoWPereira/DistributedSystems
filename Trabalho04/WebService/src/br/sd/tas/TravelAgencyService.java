@@ -238,11 +238,17 @@ public interface TravelAgencyService
    	/**
     * @brief	
     * 
-    * @param 	_ticketTo		:
-    * @param 	_ticketFrom		:
+    * @param 	_citySource
+	* @param 	_cityDest
+	* @param 	_goingDay
+	* @param 	_goingMonth
+	* @param 	_goingYear
+	* @param 	_returnTicket
+	* @param 	_returnDay
+	* @param 	_returnMonth
+	* @param 	_returnYear
     * @param 	_quantity		:
     * @param 	_desiredPrice	:
-    * @param 	_clientName		:
     * 
     * @throws 	RemoteException
     */
@@ -261,19 +267,19 @@ public interface TravelAgencyService
    	/**
     * @brief	
     * 
-    * @param 	_hotel			:
+    * @param 	_cityName		:
+    * @param    _hotelName		:
     * @param 	_quantity		:
     * @param 	_numberOfGuests	:
     * @param 	_desiredPrice	:
-    * @param 	_clientName		:
     * 
     * @throws 	RemoteException
     */
-   @WebMethod void registerHotelInterest(Accommodation		_hotel, 
-									     int               	_quantity,
-									     int              	_numberOfGuests,
-									     float 				_desiredPrice,
-									     String            	_clientName) 		throws RemoteException;
+   @WebMethod void registerHotelInterest(String 	    _cityName, 
+										 String			_hotelName,
+										 int 			_quantity,
+										 int 			_numberOfGuests,
+										 float 			_desiredPrice) throws RemoteException;
 
    /**
     * @brief   

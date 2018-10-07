@@ -357,17 +357,17 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	}
 	
 	@Override
-	public void registerHotelInterest(Accommodation	_hotel, 
+	public void registerHotelInterest(String 	    _cityName, 
+									  String		_hotelName,
 									  int 			_quantity,
 									  int 			_numberOfGuests,
-									  float 		_desiredPrice,
-									  String 		_clientName) throws RemoteException
+									  float 		_desiredPrice) throws RemoteException
 	{
-		AccommodationInterest accommodationInterest = new AccommodationInterest(_hotel,
+		AccommodationInterest accommodationInterest = new AccommodationInterest(_cityName,
+																			    _hotelName,
 																			    _quantity, 
 																			    _numberOfGuests,
-																			    _desiredPrice,
-																			    _clientName);
+																			    _desiredPrice);
 
 		this.listAccommodationInterest.add(accommodationInterest);
 	}
