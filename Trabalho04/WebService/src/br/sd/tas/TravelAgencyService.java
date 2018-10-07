@@ -136,49 +136,107 @@ public interface TravelAgencyService
    	/**
     * @brief	
     * 
-    * @param 	_ticket	:
+    * @param 	_source
+	* @param 	_dest
+	* @param 	_day
+	* @param 	_month
+	* @param 	_year
+	* @param 	_quantity
+	* @param 	_price
     * 
     * @return
     * 
     * @throws 	RemoteException
     */
-   @WebMethod boolean buyPassage(FlightTicket _ticket) throws RemoteException;
+   @WebMethod boolean buyPassage(String _source,
+							     String _dest,
+							     int    _day,
+							     int 	 _month,
+							     int 	 _year,
+							     int 	 _quantity,
+							     float  _price) throws RemoteException;
 
    	/**
     * @brief	
     * 
-    * @param 	_hotel	:
+    * @param 	_cityName
+	* @param 	_accommodationName
+	* @param 	_quantity
+	* @param 	_price
     * 
     * @return
     * 
     * @throws 	RemoteException
     */
-   @WebMethod boolean reserveHotel(Accommodation _hotel) throws RemoteException;
+   @WebMethod boolean reserveHotel(String _cityName,
+								   String _accommodationName,
+								   int    _quantity,
+								   float  _price) throws RemoteException;
 
    /**
     * @brief
     * 
-    * @param   flightTicketGoing    :
-    * @param   flightTicketReturn   :
-    * @param   accommodation        :
+    * @param   _source        :
+    * @param   _dest   		  :
+    * @param   _goingDay      :
+    * @param   _goingMonth    :
+    * @param   _goingYear     :
+    * @param   _isReturn      :
+    * @param   _returnDay     :
+    * @param   _returnMonth   :
+    * @param   _returnYear    :
     * 
     * @return
     */
-   @WebMethod List<Packages> searchPackages(FlightTicket	_flightTicketGoing, 
-                                            FlightTicket    _flightTicketReturn, 
-                                            Accommodation   _accommodation)      throws RemoteException;
+   @WebMethod List<Packages> searchPackages(String _source,
+										     String _dest,
+										     int    _goingDay,
+										     int 	_goingMonth,
+										     int 	_goingYear,
+										     boolean _isReturn,
+										     int    _returnDay,
+										     int 	_returnMonth,
+										     int 	_returnYear) throws RemoteException;
    
    /**
     * @brief   
     * 
-    * @param   _package 	: Package
+    * @param   _source,
+	* @param   _dest,
+	* @param   _hotelName,
+	* @param   _goingDay,
+	* @param   _goingMonth,
+	* @param   _goingYear,
+	* @param   _isReturn,
+	* @param   _returnDay,
+	* @param   _returnMonth,
+	* @param   _returnYear,
+	* @param   _goingTicketPrice,
+	* @param   _returnTicketPrice,
+	* @param   _hotelPrice,
+	* @param   _quantity,
+	* @param   _numberOfGuests
     * 
     * @return result int 	: 1 - Success
     *						  2 - Not enough passages
     *						  3 - Not enough rooms
     *						  4 - Guests exceeded
     */
-   @WebMethod int buyPackage(Packages	_package) throws RemoteException;
+   @WebMethod int buyPackage(String  _source,
+						     String  _dest,
+						     String  _hotelName,
+						     int     _goingDay,
+						     int 	  _goingMonth,
+						     int 	  _goingYear,
+						     boolean _isReturn,
+						     int     _returnDay,
+						     int 	  _returnMonth,
+						     int 	  _returnYear,
+						     float	  _goingTicketPrice,
+						     float	  _returnTicketPrice,
+						     float   _hotelPrice,
+						     int 	  _quantity,
+						     int 	  _numberOfGuests) throws RemoteException;
    
    	/**
     * @brief	

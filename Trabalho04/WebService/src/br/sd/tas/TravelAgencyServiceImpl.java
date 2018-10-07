@@ -238,26 +238,38 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	}
 	
 	@Override
-	public boolean buyPassage(FlightTicket _ticket) throws RemoteException
+	public boolean buyPassage(String _source,
+						      String _dest,
+						      int    _day,
+						      int 	 _month,
+						      int 	 _year,
+						      int 	 _quantity,
+						      float  _price) throws RemoteException
 	{
 		boolean returnValue = false;
+		
+		Calendar calendar = Calendar.getInstance();
+	    
+		calendar.set(_year,
+					 _month - 1,
+	    			 _day);
 	    
 		try 
 		{
 			int ticketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
-														   _ticket.source,
-														   _ticket.dest,
-														   _ticket.getSqlDate(),
-														   _ticket.price);
+														   _source,
+														   _dest,
+														   new java.sql.Date(calendar.getTime().getTime()),
+														   _price);
 
-			if(ticketsLeft >= _ticket.quantity)
+			if(ticketsLeft >= _quantity)
 			{
 				ctrlPassages.updateQuantity(dbStatement,
-										    _ticket.source,
-										    _ticket.dest,
-										    _ticket.getSqlDate(),
-										    _ticket.price,
-										    ticketsLeft - _ticket.quantity);
+											_source,
+											_dest,
+											new java.sql.Date(calendar.getTime().getTime()),
+										    _price,
+										    ticketsLeft - _quantity);
 				
 				returnValue = true;
 			}
@@ -276,24 +288,27 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	}
 	
 	@Override
-	public boolean reserveHotel(Accommodation _hotel) throws RemoteException
+	public boolean reserveHotel(String _cityName,
+								String _accommodationName,
+								int    _quantity,
+								float  _price) throws RemoteException
 	{
 		boolean returnValue = false;
 	    
 		try 
 		{
 			int roomsLeft = ctrlHotel.getQuantityLeft(dbStatement,
-													  _hotel.cityName,
-													  _hotel.accommodationName,
-													  _hotel.price);
+													  _cityName,
+													  _accommodationName,
+													  _price);
 
-			if(roomsLeft >= _hotel.quantity)
+			if(roomsLeft >= _quantity)
 			{
 				ctrlHotel.updateQuantity(dbStatement,
-										 _hotel.cityName,
-										 _hotel.accommodationName,
-										 _hotel.price,
-										 roomsLeft - _hotel.quantity);
+										 _cityName,
+										 _accommodationName,
+										 _price,
+										 roomsLeft - _quantity);
 				
 				returnValue = true;
 			}
@@ -370,9 +385,15 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	}
 
 	@Override
-	public List<Packages> searchPackages(FlightTicket	_flightTicketGoing,
-										 FlightTicket 	_flightTicketReturn,
-										 Accommodation 	_accommodation) throws RemoteException
+	public List<Packages> searchPackages(String _source,
+									     String _dest,
+									     int    _goingDay,
+									     int 	_goingMonth,
+									     int 	_goingYear,
+									     boolean _isReturn,
+									     int    _returnDay,
+									     int 	_returnMonth,
+									     int 	_returnYear) throws RemoteException
 	{
 		List<Packages> 			list 				= new ArrayList<Packages>();
     	FlightTicketManager 	listTicketGoing 	= new FlightTicketManager();
@@ -386,25 +407,35 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		
 		// First, search for the going ticket
 		try 
-		{			
+		{		
+			Calendar calendar = Calendar.getInstance();
+		    
+			calendar.set(_goingYear,
+					     _goingMonth - 1,
+					     _goingDay);
+			
 			listTicketGoing = ctrlPassages.searchPassages(dbStatement,
-											   			  _flightTicketGoing.source, 
-											   			  _flightTicketGoing.dest, 
-											   			  _flightTicketGoing.getSqlDate());
+														  _source, 
+														  _dest, 
+														  new java.sql.Date(calendar.getTime().getTime()));
 			
 			// Verifies if there is a return ticket
-			if(_flightTicketReturn != null)
+			if(_isReturn)
 			{
+				calendar.set(_returnYear,
+							 _returnMonth - 1,
+							 _returnDay);
+				
 				// search for the return ticket					
 				listTicketReturn = ctrlPassages.searchPassages(dbStatement,
-												   			   _flightTicketReturn.source, 
-												   			   _flightTicketReturn.dest, 
-												   			   _flightTicketReturn.getSqlDate());
+															   _dest, 
+															   _source, 
+															   new java.sql.Date(calendar.getTime().getTime()));
 			}
 			
 			// search for accommodation by city name
 			listAccommodation = ctrlHotel.searchHotelByCity(dbStatement,
-											   				_accommodation.cityName);
+															_dest);
 		}
 		catch (SQLException e) 
 		{
@@ -421,7 +452,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 				accommodationFound = listAccommodation.getAccommodation(j);
 
 				// If there is a return ticket
-				if(_flightTicketReturn != null)
+				if(_isReturn)
 				{
 					for(int k = 0; k < listTicketReturn.flightTicketList.size(); k++)
 					{
@@ -451,78 +482,100 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	}
 
 	@Override
-	public int buyPackage(Packages _package) throws RemoteException
+	public int buyPackage(String  _source,
+					      String  _dest,
+					      String  _hotelName,
+					      int     _goingDay,
+					      int 	  _goingMonth,
+					      int 	  _goingYear,
+					      boolean _isReturn,
+					      int     _returnDay,
+					      int 	  _returnMonth,
+					      int 	  _returnYear,
+					      float	  _goingTicketPrice,
+					      float	  _returnTicketPrice,
+					      float   _hotelPrice,
+					      int 	  _quantity,
+					      int 	  _numberOfGuests) throws RemoteException
 	{
 		int 	result 				= 0;
     	int 	goingTicketsLeft 	= 0;
     	int 	returnTicketsLeft 	= 0;
     	int 	roomsLeft 			= 0;
     	
-    	boolean	isReturnTicket 				= false;
     	boolean returnTicketAvailability 	= true;
-
-    	if(_package.flightTicketReturn != null)
-		{
-			isReturnTicket = true;
-		}
 
     	try
 		{
+    		Calendar calendar = Calendar.getInstance();
+		    
+			calendar.set(_goingYear,
+					     _goingMonth - 1,
+					     _goingDay);
+			
     		goingTicketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
-														    _package.flightTicketGoing.source,
-														    _package.flightTicketGoing.dest,
-														    _package.flightTicketGoing.getSqlDate(),
-														    _package.flightTicketGoing.price);
+    														_source,
+    														_dest,
+    														new java.sql.Date(calendar.getTime().getTime()),
+    														_goingTicketPrice);
 
-			if(isReturnTicket)
+			if(_isReturn)
 			{
-				returnTicketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
-															     _package.flightTicketReturn.source,
-															     _package.flightTicketReturn.dest,
-															     _package.flightTicketReturn.getSqlDate(),
-															     _package.flightTicketReturn.price);
+				calendar.set(_returnYear,
+							 _returnMonth - 1,
+							 _returnDay);
 				
-				if(returnTicketsLeft <= _package.flightTicketReturn.quantity)
+				returnTicketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
+																 _dest,
+																 _source,
+																 new java.sql.Date(calendar.getTime().getTime()),
+															     _returnTicketPrice);
+				
+				if(returnTicketsLeft <= _quantity)
 				{
 					returnTicketAvailability = false;
 				}
 			}
 
 			roomsLeft = ctrlHotel.getQuantityLeft(dbStatement,
-												  _package.accommodation.cityName,
-												  _package.accommodation.accommodationName,
-												  _package.accommodation.price);
+												  _dest,
+												  _hotelName,
+												  _hotelPrice);
 
 			// checks if there are enough going tickets
-			if((goingTicketsLeft >= _package.flightTicketGoing.quantity) &&
+			if((goingTicketsLeft >= _quantity) &&
 			   (returnTicketAvailability))
 			{
 				// checks if there are enough rooms left
-				if(roomsLeft >= _package.accommodation.quantity)
+				if(roomsLeft >= _quantity)
 				{
+					calendar.set(_goingYear,
+						     _goingMonth - 1,
+						     _goingDay);
+					
 					// Finally, buy the package and update database
 					ctrlPassages.updateQuantity(dbStatement,
-										    	_package.flightTicketGoing.source,
-										    	_package.flightTicketGoing.dest,
-										    	_package.flightTicketGoing.getSqlDate(),
-										    	_package.flightTicketGoing.price,
-										    	goingTicketsLeft - _package.flightTicketGoing.quantity);
+										    	_source,
+										    	_dest,
+										    	new java.sql.Date(calendar.getTime().getTime()),
+										    	_goingTicketPrice,
+										    	goingTicketsLeft - _quantity);
 					
-					if(isReturnTicket)
+					if(_isReturn)
 					{
 						ctrlPassages.updateQuantity(dbStatement,
-											    	_package.flightTicketReturn.source,
-											    	_package.flightTicketReturn.dest,
-											    	_package.flightTicketReturn.getSqlDate(),
-											    	_package.flightTicketReturn.price,
-											    	returnTicketsLeft - _package.flightTicketReturn.quantity);
+													_dest,
+											    	_source,
+											    	new java.sql.Date(calendar.getTime().getTime()),
+											    	_returnTicketPrice,
+											    	returnTicketsLeft - _quantity);
 					}
 
 					ctrlHotel.updateQuantity(dbStatement,
-										 	 _package.accommodation.cityName,
-										 	 _package.accommodation.accommodationName,
-										 	 _package.accommodation.price,
-										 	 roomsLeft - _package.accommodation.quantity);
+											 _dest,
+										 	 _hotelName,
+										 	 _hotelPrice,
+										 	 roomsLeft - _quantity);
 
 					// Succeded
 					result = 1;

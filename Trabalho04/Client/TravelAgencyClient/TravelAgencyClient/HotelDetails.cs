@@ -14,16 +14,31 @@ namespace TravelAgencyClient
     {
         private localhost.TravelAgencyServiceImplService webService;
 
-        private String citySource;
-        private String cityDest;
-        private int day;
-        private int month;
-        private int year;
+        private String cityName;
+        private String hotelName;
         private float price;
 
-        public HotelDetails()
+        public HotelDetails(String _cityName,
+                            String _hotelName,
+                            float  _price)
         {
             InitializeComponent();
+
+            cityName  = _cityName;
+            hotelName = _hotelName;
+            price     = _price;
+
+            // Firstly, configure the web service object
+            webService = new localhost.TravelAgencyServiceImplService();
+
+            cityLabel.Text      = cityName;
+            hotelNameLabel.Text = hotelName;
+            priceLabel.Text     = price.ToString();
+        }
+
+        private void reserveButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

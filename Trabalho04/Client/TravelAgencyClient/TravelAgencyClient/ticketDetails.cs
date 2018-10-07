@@ -60,20 +60,17 @@ namespace TravelAgencyClient
 
         private void buyButton_Click(object sender, EventArgs e)
         {
-            localhost.flightTicket ticket = null;
             bool success = false;
 
             if(checkForEmptyFields())
             {
-                ticket.source       = citySource;
-                ticket.dest         = cityDest;
-                ticket.dateDay      = day;
-                ticket.dateMonth    = month;
-                ticket.dateYear     = year;
-                ticket.price        = price;
-                ticket.quantity     = Convert.ToInt32(qtyText.Text);
-
-                success = webService.buyPassage(ticket);
+                success = webService.buyPassage(citySource,
+                                      cityDest,
+                                      day,
+                                      month,
+                                      year,
+                                      Convert.ToInt32(qtyText.Text),
+                                      price);
             }
         }
     }

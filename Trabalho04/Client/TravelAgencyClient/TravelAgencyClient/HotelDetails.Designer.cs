@@ -76,6 +76,7 @@
             this.reserveButton.TabIndex = 13;
             this.reserveButton.Text = "Reservar";
             this.reserveButton.UseVisualStyleBackColor = true;
+            this.reserveButton.Click += new System.EventHandler(this.reserveButton_Click);
             // 
             // label4
             // 

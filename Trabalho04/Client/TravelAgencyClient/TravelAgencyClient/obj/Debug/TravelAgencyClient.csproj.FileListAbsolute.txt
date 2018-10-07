@@ -18,3 +18,4 @@ D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgen
 D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.exe
 D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.pdb
 D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.ticketDetails.resources
+D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.HotelDetails.resources
