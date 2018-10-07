@@ -61,6 +61,12 @@
     <Compile Include="HotelDetails.Designer.cs">
       <DependentUpon>HotelDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="HotelInterest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HotelInterest.Designer.cs">
+      <DependentUpon>HotelInterest.cs</DependentUpon>
+    </Compile>
     <Compile Include="PackageDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HotelDetails.resx">
       <DependentUpon>HotelDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HotelInterest.resx">
+      <DependentUpon>HotelInterest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PackageDetails.resx">
       <DependentUpon>PackageDetails.cs</DependentUpon>

@@ -273,6 +273,8 @@ namespace TravelAgencyClient
         {
             string[] row;
 
+            ticketDataGridView.Rows.Clear();
+
             ticketDataGridView.ColumnCount = 4;
             ticketDataGridView.Columns[0].Name = "Origem";
             ticketDataGridView.Columns[1].Name = "Destino";
@@ -348,6 +350,8 @@ namespace TravelAgencyClient
         {
             string[] row;
 
+            hotelDataGridView.Rows.Clear();
+
             hotelDataGridView.ColumnCount = 4;
             hotelDataGridView.Columns[0].Name = "Cidade";
             hotelDataGridView.Columns[1].Name = "Nome do Hotel";
@@ -366,13 +370,6 @@ namespace TravelAgencyClient
                 row = new string[] { accommodation[i].cityName, accommodation[i].accommodationName,
                                      accommodation[i].maxGuestsPerRoom.ToString(), accommodation[i].price.ToString()};
                 hotelDataGridView.Rows.Add(row);
-            }
-            else
-            {
-                var result = MessageBox.Show("Existem campos não preenchidos!",
-                                             "Aviso",
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Warning);
             }
 
             return;
@@ -435,6 +432,8 @@ namespace TravelAgencyClient
             float totalPrice;
             float returnTicketPrice;
             String tipo;
+
+            packageDataGridView.Rows.Clear();
 
             packageDataGridView.ColumnCount = 9;
             packageDataGridView.Columns[0].Name = "Tipo";
@@ -574,14 +573,23 @@ namespace TravelAgencyClient
             {
                 if (searchByHotelRadioButton.Checked)
                 {
-                    //list = webService.searchHotelByName(hotelTextBox.Text.ToString());
+                    String hotelName = hotelTextBox.Text;
+                    String cityName = "";
+
+                    HotelInterest hotelInterest = new HotelInterest(cityName,
+                                                                    hotelName);
+
+                    hotelInterest.Show();
                 }
                 else
                 {
-                    webService.registerHotelInterestByCityAsync(cityHotelCombo.Text, 
-                                                                1,
-                                                                2,
-                                                                (float)299.99);
+                    String hotelName = "";
+                    String cityName = cityHotelCombo.Text;
+
+                    HotelInterest hotelInterest = new HotelInterest(cityName,
+                                                                    hotelName);
+
+                    hotelInterest.Show();
                 }
             }
             else
