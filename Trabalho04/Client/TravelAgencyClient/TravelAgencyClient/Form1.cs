@@ -603,7 +603,31 @@ namespace TravelAgencyClient
 
         private void interestPackageButton_Click(object sender, EventArgs e)
         {
+            if (packageCheckEmptyFields())
+            {
+                bool isReturn = false;
 
+                if (returnPackageRadioButton.Checked)
+                {
+                    isReturn = true;
+                }
+                // Send request to the webservice
+                PackageInterest packageInterest = new PackageInterest(citySrcPackCombo.Text.ToString(),
+                                                                       cityDestPackCombo.Text.ToString(),
+                                                                       dateGoingPackage.Value.Day,
+                                                                       dateGoingPackage.Value.Month,
+                                                                       dateGoingPackage.Value.Year,
+                                                                       isReturn,
+                                                                       dateReturnPackage.Value.Day,
+                                                                       dateReturnPackage.Value.Month,
+                                                                       dateReturnPackage.Value.Year);
+
+                packageInterest.Show();
+            }
+            else
+            {
+                MessageBox.Show("Há campos que ainda não foram preenchidos");
+            }
         }
 
         private void ticketInterestRadioButton_CheckedChanged(object sender, EventArgs e)

@@ -314,21 +314,32 @@ public interface TravelAgencyService
    /**
     * @brief   
     * 
-    * @param   _ticketTo       :
-    * @param   _ticketFrom     :
-    * @param   _accommodation  :
+    * @param   _citySource
+	* @param   _cityDest
+	* @param   _goingDay
+	* @param   _goingMonth
+	* @param   _goingYear
+	* @param   _isReturn
+	* @param   _returnDay
+	* @param   _returnMonth
+	* @param   _returnYear
     * @param   _quantity       :
     * @param   _desiredPrice   :
     * @param   _numberOfGuests :
     * @param   _clientName     :
     */
-   @WebMethod void registerPackageInterest(FlightTicket    _ticketTo,
-           								   FlightTicket    _ticketFrom,
-           								   Accommodation   _accommodation,
-           								   int             _quantity,
-           								   float           _desiredPrice,
-           								   int 			 _numberOfGuests,
-           								   String          _clientName) 		throws RemoteException;
+   @WebMethod void registerPackageInterest(String 			_citySource,
+								           String 			_cityDest,
+								           int 				_goingDay,
+								           int 				_goingMonth,
+								           int 				_goingYear,
+								           boolean 			_isReturn,
+								           int 				_returnDay,
+								           int 				_returnMonth,
+								           int 				_returnYear,
+										   int 				_quantity, 
+										   float 			_desiredPrice, 
+										   int 				_numberOfGuests) throws RemoteException ;
    
    	/**
     * @brief	
