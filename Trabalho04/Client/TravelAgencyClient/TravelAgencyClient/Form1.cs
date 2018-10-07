@@ -269,21 +269,49 @@ namespace TravelAgencyClient
         {
             string[] row;
 
-            ticketDataGridView.ColumnCount = 5;
+            ticketDataGridView.ColumnCount = 4;
             ticketDataGridView.Columns[0].Name = "Origem";
             ticketDataGridView.Columns[1].Name = "Destino";
             ticketDataGridView.Columns[2].Name = "Data";
             ticketDataGridView.Columns[3].Name = "Preço";
-            ticketDataGridView.Columns[4].Name = "Comprar";
 
-            for(int i = 0; i < goingTicket.Length; i++)
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            ticketDataGridView.Columns.Add(btn);
+            btn.HeaderText = "Comprar";
+            btn.Text = "Comprar";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+
+            for (int i = 0; i < goingTicket.Length; i++)
             {
                 row = new string[] { goingTicket[i].source, goingTicket[i].dest, goingTicket[i].dateDay + "-" + goingTicket[i].dateMonth + "-" + 
-                                     goingTicket[i].dateYear, goingTicket[i].price.ToString(), "" };
+                                     goingTicket[i].dateYear, goingTicket[i].price.ToString()};
                 ticketDataGridView.Rows.Add(row);
             }
 
             return;
+        }
+
+        private void ticketDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                String citySource = ticketDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                String cityDest   = ticketDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+                int    day        = goingTicketDate.Value.Day;
+                int    month      = goingTicketDate.Value.Month;
+                int    year       = goingTicketDate.Value.Year;
+                float  price      = (float) Convert.ToDouble(ticketDataGridView.Rows[e.RowIndex].Cells[3].Value);
+
+                ticketDetails ticketDet = new ticketDetails(citySource,
+                                                            cityDest,
+                                                            day,
+                                                            month,
+                                                            year,
+                                                            price);
+
+                ticketDet.Show();
+            }
         }
 
         private void searchHotelButton_Click(object sender, EventArgs e)
@@ -361,5 +389,6 @@ namespace TravelAgencyClient
         {
 
         }
+
     }
 }

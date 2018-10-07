@@ -98,10 +98,11 @@
             this.Control.Controls.Add(this.accommodationTab);
             this.Control.Controls.Add(this.packageTab);
             this.Control.Controls.Add(this.eventsTab);
-            this.Control.Location = new System.Drawing.Point(12, 12);
+            this.Control.Location = new System.Drawing.Point(28, 27);
+            this.Control.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.Control.Name = "Control";
             this.Control.SelectedIndex = 0;
-            this.Control.Size = new System.Drawing.Size(869, 426);
+            this.Control.Size = new System.Drawing.Size(2028, 950);
             this.Control.TabIndex = 0;
             // 
             // ticketsTab
@@ -122,10 +123,11 @@
             this.ticketsTab.Controls.Add(this.returnRadioButton);
             this.ticketsTab.Controls.Add(this.sourceLabel);
             this.ticketsTab.Controls.Add(this.goingRadioButton);
-            this.ticketsTab.Location = new System.Drawing.Point(4, 22);
+            this.ticketsTab.Location = new System.Drawing.Point(10, 47);
+            this.ticketsTab.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.ticketsTab.Name = "ticketsTab";
-            this.ticketsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ticketsTab.Size = new System.Drawing.Size(861, 400);
+            this.ticketsTab.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.ticketsTab.Size = new System.Drawing.Size(2008, 893);
             this.ticketsTab.TabIndex = 0;
             this.ticketsTab.Text = "Passagens";
             this.ticketsTab.UseVisualStyleBackColor = true;
@@ -134,75 +136,89 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(563, 14);
+            this.label1.Location = new System.Drawing.Point(1314, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.Size = new System.Drawing.Size(195, 40);
             this.label1.TabIndex = 18;
             this.label1.Text = "Passagens";
             // 
             // ticketDataGridView
             // 
+            this.ticketDataGridView.AllowUserToAddRows = false;
+            this.ticketDataGridView.AllowUserToDeleteRows = false;
+            this.ticketDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ticketDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.ticketDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ticketDataGridView.Location = new System.Drawing.Point(357, 37);
+            this.ticketDataGridView.Location = new System.Drawing.Point(837, 83);
+            this.ticketDataGridView.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.ticketDataGridView.Name = "ticketDataGridView";
-            this.ticketDataGridView.Size = new System.Drawing.Size(499, 357);
+            this.ticketDataGridView.Size = new System.Drawing.Size(1164, 796);
             this.ticketDataGridView.TabIndex = 17;
+            this.ticketDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ticketDataGridView_CellClick);
             // 
             // returnTicketDate
             // 
-            this.returnTicketDate.Location = new System.Drawing.Point(119, 242);
+            this.returnTicketDate.Location = new System.Drawing.Point(278, 540);
+            this.returnTicketDate.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.returnTicketDate.Name = "returnTicketDate";
-            this.returnTicketDate.Size = new System.Drawing.Size(197, 20);
+            this.returnTicketDate.Size = new System.Drawing.Size(454, 35);
             this.returnTicketDate.TabIndex = 16;
             this.returnTicketDate.Visible = false;
             // 
             // goingTicketDate
             // 
-            this.goingTicketDate.Location = new System.Drawing.Point(119, 193);
+            this.goingTicketDate.Location = new System.Drawing.Point(278, 431);
+            this.goingTicketDate.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.goingTicketDate.Name = "goingTicketDate";
-            this.goingTicketDate.Size = new System.Drawing.Size(197, 20);
+            this.goingTicketDate.Size = new System.Drawing.Size(454, 35);
             this.goingTicketDate.TabIndex = 15;
             // 
             // cityDestComboBox
             // 
             this.cityDestComboBox.FormattingEnabled = true;
-            this.cityDestComboBox.Location = new System.Drawing.Point(160, 134);
+            this.cityDestComboBox.Location = new System.Drawing.Point(373, 299);
+            this.cityDestComboBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.cityDestComboBox.Name = "cityDestComboBox";
-            this.cityDestComboBox.Size = new System.Drawing.Size(156, 21);
+            this.cityDestComboBox.Size = new System.Drawing.Size(359, 37);
             this.cityDestComboBox.TabIndex = 14;
             // 
             // stateDestComboBox
             // 
             this.stateDestComboBox.FormattingEnabled = true;
-            this.stateDestComboBox.Location = new System.Drawing.Point(98, 134);
+            this.stateDestComboBox.Location = new System.Drawing.Point(229, 299);
+            this.stateDestComboBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.stateDestComboBox.Name = "stateDestComboBox";
-            this.stateDestComboBox.Size = new System.Drawing.Size(56, 21);
+            this.stateDestComboBox.Size = new System.Drawing.Size(125, 37);
             this.stateDestComboBox.TabIndex = 13;
             this.stateDestComboBox.SelectedIndexChanged += new System.EventHandler(this.stateDestComboBox_SelectedIndexChanged);
             // 
             // citySrcComboBox
             // 
             this.citySrcComboBox.FormattingEnabled = true;
-            this.citySrcComboBox.Location = new System.Drawing.Point(160, 91);
+            this.citySrcComboBox.Location = new System.Drawing.Point(373, 203);
+            this.citySrcComboBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.citySrcComboBox.Name = "citySrcComboBox";
-            this.citySrcComboBox.Size = new System.Drawing.Size(156, 21);
+            this.citySrcComboBox.Size = new System.Drawing.Size(359, 37);
             this.citySrcComboBox.TabIndex = 12;
             // 
             // stateSrcComboBox
             // 
             this.stateSrcComboBox.FormattingEnabled = true;
-            this.stateSrcComboBox.Location = new System.Drawing.Point(98, 91);
+            this.stateSrcComboBox.Location = new System.Drawing.Point(229, 203);
+            this.stateSrcComboBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.stateSrcComboBox.Name = "stateSrcComboBox";
-            this.stateSrcComboBox.Size = new System.Drawing.Size(56, 21);
+            this.stateSrcComboBox.Size = new System.Drawing.Size(125, 37);
             this.stateSrcComboBox.TabIndex = 11;
             this.stateSrcComboBox.SelectedIndexChanged += new System.EventHandler(this.stateSrcComboBox_SelectedIndexChanged);
             // 
             // searchTicketButton
             // 
             this.searchTicketButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTicketButton.Location = new System.Drawing.Point(63, 348);
+            this.searchTicketButton.Location = new System.Drawing.Point(147, 776);
+            this.searchTicketButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.searchTicketButton.Name = "searchTicketButton";
-            this.searchTicketButton.Size = new System.Drawing.Size(183, 35);
+            this.searchTicketButton.Size = new System.Drawing.Size(427, 78);
             this.searchTicketButton.TabIndex = 10;
             this.searchTicketButton.Text = "Procurar passagens";
             this.searchTicketButton.UseVisualStyleBackColor = true;
@@ -211,9 +227,10 @@
             // interestTicketButton
             // 
             this.interestTicketButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestTicketButton.Location = new System.Drawing.Point(63, 295);
+            this.interestTicketButton.Location = new System.Drawing.Point(147, 658);
+            this.interestTicketButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.interestTicketButton.Name = "interestTicketButton";
-            this.interestTicketButton.Size = new System.Drawing.Size(183, 35);
+            this.interestTicketButton.Size = new System.Drawing.Size(427, 78);
             this.interestTicketButton.TabIndex = 9;
             this.interestTicketButton.Text = "Registrar interesse";
             this.interestTicketButton.UseVisualStyleBackColor = true;
@@ -223,9 +240,10 @@
             // 
             this.returnDateLabel.AutoSize = true;
             this.returnDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.returnDateLabel.Location = new System.Drawing.Point(28, 242);
+            this.returnDateLabel.Location = new System.Drawing.Point(65, 540);
+            this.returnDateLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.returnDateLabel.Name = "returnDateLabel";
-            this.returnDateLabel.Size = new System.Drawing.Size(85, 20);
+            this.returnDateLabel.Size = new System.Drawing.Size(189, 40);
             this.returnDateLabel.TabIndex = 8;
             this.returnDateLabel.Text = "Data volta:";
             this.returnDateLabel.Visible = false;
@@ -234,9 +252,10 @@
             // 
             this.goingDateLabel.AutoSize = true;
             this.goingDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goingDateLabel.Location = new System.Drawing.Point(28, 193);
+            this.goingDateLabel.Location = new System.Drawing.Point(65, 431);
+            this.goingDateLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.goingDateLabel.Name = "goingDateLabel";
-            this.goingDateLabel.Size = new System.Drawing.Size(73, 20);
+            this.goingDateLabel.Size = new System.Drawing.Size(161, 40);
             this.goingDateLabel.TabIndex = 7;
             this.goingDateLabel.Text = "Data ida:";
             // 
@@ -244,9 +263,10 @@
             // 
             this.destLabel.AutoSize = true;
             this.destLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.destLabel.Location = new System.Drawing.Point(28, 135);
+            this.destLabel.Location = new System.Drawing.Point(65, 301);
+            this.destLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.destLabel.Name = "destLabel";
-            this.destLabel.Size = new System.Drawing.Size(68, 20);
+            this.destLabel.Size = new System.Drawing.Size(149, 40);
             this.destLabel.TabIndex = 6;
             this.destLabel.Text = "Destino:";
             // 
@@ -254,9 +274,10 @@
             // 
             this.returnRadioButton.AutoSize = true;
             this.returnRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.returnRadioButton.Location = new System.Drawing.Point(170, 37);
+            this.returnRadioButton.Location = new System.Drawing.Point(397, 83);
+            this.returnRadioButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.returnRadioButton.Name = "returnRadioButton";
-            this.returnRadioButton.Size = new System.Drawing.Size(99, 24);
+            this.returnRadioButton.Size = new System.Drawing.Size(209, 44);
             this.returnRadioButton.TabIndex = 5;
             this.returnRadioButton.Text = "Ida / Volta";
             this.returnRadioButton.UseVisualStyleBackColor = true;
@@ -266,9 +287,10 @@
             // 
             this.sourceLabel.AutoSize = true;
             this.sourceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sourceLabel.Location = new System.Drawing.Point(28, 89);
+            this.sourceLabel.Location = new System.Drawing.Point(65, 199);
+            this.sourceLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.sourceLabel.Name = "sourceLabel";
-            this.sourceLabel.Size = new System.Drawing.Size(64, 20);
+            this.sourceLabel.Size = new System.Drawing.Size(145, 40);
             this.sourceLabel.TabIndex = 2;
             this.sourceLabel.Text = "Origem:";
             // 
@@ -277,9 +299,10 @@
             this.goingRadioButton.AutoSize = true;
             this.goingRadioButton.Checked = true;
             this.goingRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goingRadioButton.Location = new System.Drawing.Point(63, 37);
+            this.goingRadioButton.Location = new System.Drawing.Point(147, 83);
+            this.goingRadioButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.goingRadioButton.Name = "goingRadioButton";
-            this.goingRadioButton.Size = new System.Drawing.Size(50, 24);
+            this.goingRadioButton.Size = new System.Drawing.Size(97, 44);
             this.goingRadioButton.TabIndex = 0;
             this.goingRadioButton.TabStop = true;
             this.goingRadioButton.Text = "Ida";
@@ -299,10 +322,11 @@
             this.accommodationTab.Controls.Add(this.searchByCityRadioButton);
             this.accommodationTab.Controls.Add(this.localLabel);
             this.accommodationTab.Controls.Add(this.searchByHotelRadioButton);
-            this.accommodationTab.Location = new System.Drawing.Point(4, 22);
+            this.accommodationTab.Location = new System.Drawing.Point(10, 47);
+            this.accommodationTab.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.accommodationTab.Name = "accommodationTab";
-            this.accommodationTab.Padding = new System.Windows.Forms.Padding(3);
-            this.accommodationTab.Size = new System.Drawing.Size(768, 400);
+            this.accommodationTab.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.accommodationTab.Size = new System.Drawing.Size(2008, 893);
             this.accommodationTab.TabIndex = 1;
             this.accommodationTab.Text = "Hotéis";
             this.accommodationTab.UseVisualStyleBackColor = true;
@@ -311,42 +335,51 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(519, 14);
+            this.label2.Location = new System.Drawing.Point(1348, 36);
+            this.label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.Size = new System.Drawing.Size(119, 40);
             this.label2.TabIndex = 34;
             this.label2.Text = "Hotéis";
             // 
             // hotelTextBox
             // 
-            this.hotelTextBox.Location = new System.Drawing.Point(149, 91);
+            this.hotelTextBox.Location = new System.Drawing.Point(348, 203);
+            this.hotelTextBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.hotelTextBox.Name = "hotelTextBox";
-            this.hotelTextBox.Size = new System.Drawing.Size(170, 20);
+            this.hotelTextBox.Size = new System.Drawing.Size(391, 35);
             this.hotelTextBox.TabIndex = 33;
             // 
             // hotelDataGridView
             // 
+            this.hotelDataGridView.AllowUserToAddRows = false;
+            this.hotelDataGridView.AllowUserToDeleteRows = false;
+            this.hotelDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.hotelDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.hotelDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.hotelDataGridView.Location = new System.Drawing.Point(347, 37);
+            this.hotelDataGridView.Location = new System.Drawing.Point(810, 83);
+            this.hotelDataGridView.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.hotelDataGridView.Name = "hotelDataGridView";
-            this.hotelDataGridView.Size = new System.Drawing.Size(405, 357);
+            this.hotelDataGridView.Size = new System.Drawing.Size(1168, 796);
             this.hotelDataGridView.TabIndex = 32;
             // 
             // cityHotelCombo
             // 
             this.cityHotelCombo.FormattingEnabled = true;
-            this.cityHotelCombo.Location = new System.Drawing.Point(150, 91);
+            this.cityHotelCombo.Location = new System.Drawing.Point(350, 203);
+            this.cityHotelCombo.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.cityHotelCombo.Name = "cityHotelCombo";
-            this.cityHotelCombo.Size = new System.Drawing.Size(156, 21);
+            this.cityHotelCombo.Size = new System.Drawing.Size(359, 37);
             this.cityHotelCombo.TabIndex = 27;
             this.cityHotelCombo.Visible = false;
             // 
             // stateHotelCombo
             // 
             this.stateHotelCombo.FormattingEnabled = true;
-            this.stateHotelCombo.Location = new System.Drawing.Point(88, 91);
+            this.stateHotelCombo.Location = new System.Drawing.Point(205, 203);
+            this.stateHotelCombo.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.stateHotelCombo.Name = "stateHotelCombo";
-            this.stateHotelCombo.Size = new System.Drawing.Size(56, 21);
+            this.stateHotelCombo.Size = new System.Drawing.Size(125, 37);
             this.stateHotelCombo.TabIndex = 26;
             this.stateHotelCombo.Visible = false;
             this.stateHotelCombo.SelectedIndexChanged += new System.EventHandler(this.stateHotelCombo_SelectedIndexChanged);
@@ -354,9 +387,10 @@
             // searchHotelButton
             // 
             this.searchHotelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchHotelButton.Location = new System.Drawing.Point(53, 348);
+            this.searchHotelButton.Location = new System.Drawing.Point(124, 776);
+            this.searchHotelButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.searchHotelButton.Name = "searchHotelButton";
-            this.searchHotelButton.Size = new System.Drawing.Size(183, 35);
+            this.searchHotelButton.Size = new System.Drawing.Size(427, 78);
             this.searchHotelButton.TabIndex = 25;
             this.searchHotelButton.Text = "Procurar hotéis";
             this.searchHotelButton.UseVisualStyleBackColor = true;
@@ -365,9 +399,10 @@
             // interestHotelButton
             // 
             this.interestHotelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestHotelButton.Location = new System.Drawing.Point(53, 295);
+            this.interestHotelButton.Location = new System.Drawing.Point(124, 658);
+            this.interestHotelButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.interestHotelButton.Name = "interestHotelButton";
-            this.interestHotelButton.Size = new System.Drawing.Size(183, 35);
+            this.interestHotelButton.Size = new System.Drawing.Size(427, 78);
             this.interestHotelButton.TabIndex = 24;
             this.interestHotelButton.Text = "Registrar interesse";
             this.interestHotelButton.UseVisualStyleBackColor = true;
@@ -377,9 +412,10 @@
             // 
             this.hotelNameLabel.AutoSize = true;
             this.hotelNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelNameLabel.Location = new System.Drawing.Point(18, 92);
+            this.hotelNameLabel.Location = new System.Drawing.Point(42, 205);
+            this.hotelNameLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.hotelNameLabel.Name = "hotelNameLabel";
-            this.hotelNameLabel.Size = new System.Drawing.Size(116, 20);
+            this.hotelNameLabel.Size = new System.Drawing.Size(261, 40);
             this.hotelNameLabel.TabIndex = 21;
             this.hotelNameLabel.Text = "Nome do hotel:";
             // 
@@ -387,9 +423,10 @@
             // 
             this.searchByCityRadioButton.AutoSize = true;
             this.searchByCityRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchByCityRadioButton.Location = new System.Drawing.Point(169, 37);
+            this.searchByCityRadioButton.Location = new System.Drawing.Point(394, 83);
+            this.searchByCityRadioButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.searchByCityRadioButton.Name = "searchByCityRadioButton";
-            this.searchByCityRadioButton.Size = new System.Drawing.Size(150, 24);
+            this.searchByCityRadioButton.Size = new System.Drawing.Size(326, 44);
             this.searchByCityRadioButton.TabIndex = 20;
             this.searchByCityRadioButton.Text = "Busca por cidade";
             this.searchByCityRadioButton.UseVisualStyleBackColor = true;
@@ -399,9 +436,10 @@
             // 
             this.localLabel.AutoSize = true;
             this.localLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.localLabel.Location = new System.Drawing.Point(18, 89);
+            this.localLabel.Location = new System.Drawing.Point(42, 199);
+            this.localLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.localLabel.Name = "localLabel";
-            this.localLabel.Size = new System.Drawing.Size(51, 20);
+            this.localLabel.Size = new System.Drawing.Size(113, 40);
             this.localLabel.TabIndex = 19;
             this.localLabel.Text = "Local:";
             this.localLabel.Visible = false;
@@ -411,9 +449,10 @@
             this.searchByHotelRadioButton.AutoSize = true;
             this.searchByHotelRadioButton.Checked = true;
             this.searchByHotelRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchByHotelRadioButton.Location = new System.Drawing.Point(22, 37);
+            this.searchByHotelRadioButton.Location = new System.Drawing.Point(51, 83);
+            this.searchByHotelRadioButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.searchByHotelRadioButton.Name = "searchByHotelRadioButton";
-            this.searchByHotelRadioButton.Size = new System.Drawing.Size(141, 24);
+            this.searchByHotelRadioButton.Size = new System.Drawing.Size(304, 44);
             this.searchByHotelRadioButton.TabIndex = 18;
             this.searchByHotelRadioButton.TabStop = true;
             this.searchByHotelRadioButton.Text = "Busca por Hotel";
@@ -438,10 +477,11 @@
             this.packageTab.Controls.Add(this.returnPackageRadioButton);
             this.packageTab.Controls.Add(this.label8);
             this.packageTab.Controls.Add(this.goingPackageRadioButton);
-            this.packageTab.Location = new System.Drawing.Point(4, 22);
+            this.packageTab.Location = new System.Drawing.Point(10, 47);
+            this.packageTab.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.packageTab.Name = "packageTab";
-            this.packageTab.Padding = new System.Windows.Forms.Padding(3);
-            this.packageTab.Size = new System.Drawing.Size(768, 400);
+            this.packageTab.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.packageTab.Size = new System.Drawing.Size(2008, 893);
             this.packageTab.TabIndex = 2;
             this.packageTab.Text = "Pacotes";
             this.packageTab.UseVisualStyleBackColor = true;
@@ -450,75 +490,88 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(513, 14);
+            this.label3.Location = new System.Drawing.Point(1325, 36);
+            this.label3.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 20);
+            this.label3.Size = new System.Drawing.Size(147, 40);
             this.label3.TabIndex = 48;
             this.label3.Text = "Pacotes";
             // 
             // packageDataGridView
             // 
+            this.packageDataGridView.AllowUserToAddRows = false;
+            this.packageDataGridView.AllowUserToDeleteRows = false;
+            this.packageDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.packageDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.packageDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.packageDataGridView.Location = new System.Drawing.Point(348, 37);
+            this.packageDataGridView.Location = new System.Drawing.Point(812, 83);
+            this.packageDataGridView.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.packageDataGridView.Name = "packageDataGridView";
-            this.packageDataGridView.Size = new System.Drawing.Size(405, 357);
+            this.packageDataGridView.Size = new System.Drawing.Size(1182, 796);
             this.packageDataGridView.TabIndex = 47;
             // 
             // dateReturnPackage
             // 
-            this.dateReturnPackage.Location = new System.Drawing.Point(110, 242);
+            this.dateReturnPackage.Location = new System.Drawing.Point(257, 540);
+            this.dateReturnPackage.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.dateReturnPackage.Name = "dateReturnPackage";
-            this.dateReturnPackage.Size = new System.Drawing.Size(197, 20);
+            this.dateReturnPackage.Size = new System.Drawing.Size(454, 35);
             this.dateReturnPackage.TabIndex = 46;
             this.dateReturnPackage.Visible = false;
             // 
             // dateGoingPackage
             // 
-            this.dateGoingPackage.Location = new System.Drawing.Point(110, 193);
+            this.dateGoingPackage.Location = new System.Drawing.Point(257, 431);
+            this.dateGoingPackage.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.dateGoingPackage.Name = "dateGoingPackage";
-            this.dateGoingPackage.Size = new System.Drawing.Size(197, 20);
+            this.dateGoingPackage.Size = new System.Drawing.Size(454, 35);
             this.dateGoingPackage.TabIndex = 45;
             // 
             // cityDestPackCombo
             // 
             this.cityDestPackCombo.FormattingEnabled = true;
-            this.cityDestPackCombo.Location = new System.Drawing.Point(151, 134);
+            this.cityDestPackCombo.Location = new System.Drawing.Point(352, 299);
+            this.cityDestPackCombo.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.cityDestPackCombo.Name = "cityDestPackCombo";
-            this.cityDestPackCombo.Size = new System.Drawing.Size(156, 21);
+            this.cityDestPackCombo.Size = new System.Drawing.Size(359, 37);
             this.cityDestPackCombo.TabIndex = 44;
             // 
             // stateDestPackCombo
             // 
             this.stateDestPackCombo.FormattingEnabled = true;
-            this.stateDestPackCombo.Location = new System.Drawing.Point(89, 134);
+            this.stateDestPackCombo.Location = new System.Drawing.Point(208, 299);
+            this.stateDestPackCombo.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.stateDestPackCombo.Name = "stateDestPackCombo";
-            this.stateDestPackCombo.Size = new System.Drawing.Size(56, 21);
+            this.stateDestPackCombo.Size = new System.Drawing.Size(125, 37);
             this.stateDestPackCombo.TabIndex = 43;
             this.stateDestPackCombo.SelectedIndexChanged += new System.EventHandler(this.stateDestPackCombo_SelectedIndexChanged);
             // 
             // citySrcPackCombo
             // 
             this.citySrcPackCombo.FormattingEnabled = true;
-            this.citySrcPackCombo.Location = new System.Drawing.Point(151, 91);
+            this.citySrcPackCombo.Location = new System.Drawing.Point(352, 203);
+            this.citySrcPackCombo.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.citySrcPackCombo.Name = "citySrcPackCombo";
-            this.citySrcPackCombo.Size = new System.Drawing.Size(156, 21);
+            this.citySrcPackCombo.Size = new System.Drawing.Size(359, 37);
             this.citySrcPackCombo.TabIndex = 42;
             // 
             // stateSrcPackCombo
             // 
             this.stateSrcPackCombo.FormattingEnabled = true;
-            this.stateSrcPackCombo.Location = new System.Drawing.Point(89, 91);
+            this.stateSrcPackCombo.Location = new System.Drawing.Point(208, 203);
+            this.stateSrcPackCombo.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.stateSrcPackCombo.Name = "stateSrcPackCombo";
-            this.stateSrcPackCombo.Size = new System.Drawing.Size(56, 21);
+            this.stateSrcPackCombo.Size = new System.Drawing.Size(125, 37);
             this.stateSrcPackCombo.TabIndex = 41;
             this.stateSrcPackCombo.SelectedIndexChanged += new System.EventHandler(this.stateSrcPackCombo_SelectedIndexChanged);
             // 
             // searchPackagesButton
             // 
             this.searchPackagesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchPackagesButton.Location = new System.Drawing.Point(54, 348);
+            this.searchPackagesButton.Location = new System.Drawing.Point(126, 776);
+            this.searchPackagesButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.searchPackagesButton.Name = "searchPackagesButton";
-            this.searchPackagesButton.Size = new System.Drawing.Size(183, 35);
+            this.searchPackagesButton.Size = new System.Drawing.Size(427, 78);
             this.searchPackagesButton.TabIndex = 40;
             this.searchPackagesButton.Text = "Procurar pacotes";
             this.searchPackagesButton.UseVisualStyleBackColor = true;
@@ -527,9 +580,10 @@
             // interestPackageButton
             // 
             this.interestPackageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestPackageButton.Location = new System.Drawing.Point(54, 295);
+            this.interestPackageButton.Location = new System.Drawing.Point(126, 658);
+            this.interestPackageButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.interestPackageButton.Name = "interestPackageButton";
-            this.interestPackageButton.Size = new System.Drawing.Size(183, 35);
+            this.interestPackageButton.Size = new System.Drawing.Size(427, 78);
             this.interestPackageButton.TabIndex = 39;
             this.interestPackageButton.Text = "Registrar interesse";
             this.interestPackageButton.UseVisualStyleBackColor = true;
@@ -539,9 +593,10 @@
             // 
             this.returnPackageDateLabel.AutoSize = true;
             this.returnPackageDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.returnPackageDateLabel.Location = new System.Drawing.Point(19, 242);
+            this.returnPackageDateLabel.Location = new System.Drawing.Point(44, 540);
+            this.returnPackageDateLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.returnPackageDateLabel.Name = "returnPackageDateLabel";
-            this.returnPackageDateLabel.Size = new System.Drawing.Size(85, 20);
+            this.returnPackageDateLabel.Size = new System.Drawing.Size(189, 40);
             this.returnPackageDateLabel.TabIndex = 38;
             this.returnPackageDateLabel.Text = "Data volta:";
             this.returnPackageDateLabel.Visible = false;
@@ -550,9 +605,10 @@
             // 
             this.labels.AutoSize = true;
             this.labels.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labels.Location = new System.Drawing.Point(19, 193);
+            this.labels.Location = new System.Drawing.Point(44, 431);
+            this.labels.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.labels.Name = "labels";
-            this.labels.Size = new System.Drawing.Size(73, 20);
+            this.labels.Size = new System.Drawing.Size(161, 40);
             this.labels.TabIndex = 37;
             this.labels.Text = "Data ida:";
             // 
@@ -560,9 +616,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(19, 135);
+            this.label7.Location = new System.Drawing.Point(44, 301);
+            this.label7.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 20);
+            this.label7.Size = new System.Drawing.Size(149, 40);
             this.label7.TabIndex = 36;
             this.label7.Text = "Destino:";
             // 
@@ -570,9 +627,10 @@
             // 
             this.returnPackageRadioButton.AutoSize = true;
             this.returnPackageRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.returnPackageRadioButton.Location = new System.Drawing.Point(161, 37);
+            this.returnPackageRadioButton.Location = new System.Drawing.Point(376, 83);
+            this.returnPackageRadioButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.returnPackageRadioButton.Name = "returnPackageRadioButton";
-            this.returnPackageRadioButton.Size = new System.Drawing.Size(99, 24);
+            this.returnPackageRadioButton.Size = new System.Drawing.Size(209, 44);
             this.returnPackageRadioButton.TabIndex = 35;
             this.returnPackageRadioButton.Text = "Ida / Volta";
             this.returnPackageRadioButton.UseVisualStyleBackColor = true;
@@ -582,9 +640,10 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(19, 89);
+            this.label8.Location = new System.Drawing.Point(44, 199);
+            this.label8.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 20);
+            this.label8.Size = new System.Drawing.Size(145, 40);
             this.label8.TabIndex = 34;
             this.label8.Text = "Origem:";
             // 
@@ -593,9 +652,10 @@
             this.goingPackageRadioButton.AutoSize = true;
             this.goingPackageRadioButton.Checked = true;
             this.goingPackageRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goingPackageRadioButton.Location = new System.Drawing.Point(54, 37);
+            this.goingPackageRadioButton.Location = new System.Drawing.Point(126, 83);
+            this.goingPackageRadioButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.goingPackageRadioButton.Name = "goingPackageRadioButton";
-            this.goingPackageRadioButton.Size = new System.Drawing.Size(50, 24);
+            this.goingPackageRadioButton.Size = new System.Drawing.Size(97, 44);
             this.goingPackageRadioButton.TabIndex = 33;
             this.goingPackageRadioButton.TabStop = true;
             this.goingPackageRadioButton.Text = "Ida";
@@ -609,10 +669,11 @@
             this.eventsTab.Controls.Add(this.interestDataGridView);
             this.eventsTab.Controls.Add(this.hotelInterestRadioButton);
             this.eventsTab.Controls.Add(this.ticketInterestRadioButton);
-            this.eventsTab.Location = new System.Drawing.Point(4, 22);
+            this.eventsTab.Location = new System.Drawing.Point(10, 47);
+            this.eventsTab.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.eventsTab.Name = "eventsTab";
-            this.eventsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.eventsTab.Size = new System.Drawing.Size(768, 400);
+            this.eventsTab.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.eventsTab.Size = new System.Drawing.Size(2008, 893);
             this.eventsTab.TabIndex = 3;
             this.eventsTab.Text = "Eventos";
             this.eventsTab.UseVisualStyleBackColor = true;
@@ -621,9 +682,10 @@
             // 
             this.interestLabel.AutoSize = true;
             this.interestLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestLabel.Location = new System.Drawing.Point(324, 10);
+            this.interestLabel.Location = new System.Drawing.Point(902, 28);
+            this.interestLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.interestLabel.Name = "interestLabel";
-            this.interestLabel.Size = new System.Drawing.Size(95, 24);
+            this.interestLabel.Size = new System.Drawing.Size(213, 48);
             this.interestLabel.TabIndex = 64;
             this.interestLabel.Text = "Interesses";
             // 
@@ -631,9 +693,10 @@
             // 
             this.packageInterestRadioButton.AutoSize = true;
             this.packageInterestRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.packageInterestRadioButton.Location = new System.Drawing.Point(537, 37);
+            this.packageInterestRadioButton.Location = new System.Drawing.Point(1508, 91);
+            this.packageInterestRadioButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.packageInterestRadioButton.Name = "packageInterestRadioButton";
-            this.packageInterestRadioButton.Size = new System.Drawing.Size(85, 24);
+            this.packageInterestRadioButton.Size = new System.Drawing.Size(178, 44);
             this.packageInterestRadioButton.TabIndex = 63;
             this.packageInterestRadioButton.TabStop = true;
             this.packageInterestRadioButton.Text = "Pacotes";
@@ -642,19 +705,25 @@
             // 
             // interestDataGridView
             // 
+            this.interestDataGridView.AllowUserToAddRows = false;
+            this.interestDataGridView.AllowUserToDeleteRows = false;
+            this.interestDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.interestDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.interestDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.interestDataGridView.Location = new System.Drawing.Point(29, 67);
+            this.interestDataGridView.Location = new System.Drawing.Point(68, 149);
+            this.interestDataGridView.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.interestDataGridView.Name = "interestDataGridView";
-            this.interestDataGridView.Size = new System.Drawing.Size(711, 327);
+            this.interestDataGridView.Size = new System.Drawing.Size(1881, 729);
             this.interestDataGridView.TabIndex = 62;
             // 
             // hotelInterestRadioButton
             // 
             this.hotelInterestRadioButton.AutoSize = true;
             this.hotelInterestRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelInterestRadioButton.Location = new System.Drawing.Point(337, 37);
+            this.hotelInterestRadioButton.Location = new System.Drawing.Point(928, 83);
+            this.hotelInterestRadioButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.hotelInterestRadioButton.Name = "hotelInterestRadioButton";
-            this.hotelInterestRadioButton.Size = new System.Drawing.Size(73, 24);
+            this.hotelInterestRadioButton.Size = new System.Drawing.Size(150, 44);
             this.hotelInterestRadioButton.TabIndex = 50;
             this.hotelInterestRadioButton.TabStop = true;
             this.hotelInterestRadioButton.Text = "Hotéis";
@@ -665,9 +734,10 @@
             // 
             this.ticketInterestRadioButton.AutoSize = true;
             this.ticketInterestRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ticketInterestRadioButton.Location = new System.Drawing.Point(114, 37);
+            this.ticketInterestRadioButton.Location = new System.Drawing.Point(266, 83);
+            this.ticketInterestRadioButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.ticketInterestRadioButton.Name = "ticketInterestRadioButton";
-            this.ticketInterestRadioButton.Size = new System.Drawing.Size(106, 24);
+            this.ticketInterestRadioButton.Size = new System.Drawing.Size(226, 44);
             this.ticketInterestRadioButton.TabIndex = 48;
             this.ticketInterestRadioButton.TabStop = true;
             this.ticketInterestRadioButton.Text = "Passagens";
@@ -676,10 +746,11 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 450);
+            this.ClientSize = new System.Drawing.Size(2063, 1004);
             this.Controls.Add(this.Control);
+            this.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.Name = "Form1";
             this.Text = "Cliente";
             this.Control.ResumeLayout(false);
