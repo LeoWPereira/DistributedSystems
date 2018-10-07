@@ -367,13 +367,6 @@ namespace TravelAgencyClient
                                      accommodation[i].maxGuestsPerRoom.ToString(), accommodation[i].price.ToString()};
                 hotelDataGridView.Rows.Add(row);
             }
-            else
-            {
-                var result = MessageBox.Show("Existem campos não preenchidos!",
-                                             "Aviso",
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Warning);
-            }
 
             return;
         }

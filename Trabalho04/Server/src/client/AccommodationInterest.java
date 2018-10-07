@@ -16,11 +16,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="accommodation" type="{http://tas.sd.br/}accommodation" minOccurs="0"/>
+ *         &lt;element name="cityName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="accommodationName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="quantity" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="numberOfGuests" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="maxPrice" type="{http://www.w3.org/2001/XMLSchema}float"/>
- *         &lt;element name="clientName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,42 +31,66 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "accommodationInterest", propOrder = {
-    "accommodation",
+    "cityName",
+    "accommodationName",
     "quantity",
     "numberOfGuests",
-    "maxPrice",
-    "clientName"
+    "maxPrice"
 })
 public class AccommodationInterest {
 
-    protected Accommodation accommodation;
+    protected String cityName;
+    protected String accommodationName;
     protected int quantity;
     protected int numberOfGuests;
     protected float maxPrice;
-    protected String clientName;
 
     /**
-     * Gets the value of the accommodation property.
+     * Gets the value of the cityName property.
      * 
      * @return
      *     possible object is
-     *     {@link Accommodation }
+     *     {@link String }
      *     
      */
-    public Accommodation getAccommodation() {
-        return accommodation;
+    public String getCityName() {
+        return cityName;
     }
 
     /**
-     * Sets the value of the accommodation property.
+     * Sets the value of the cityName property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Accommodation }
+     *     {@link String }
      *     
      */
-    public void setAccommodation(Accommodation value) {
-        this.accommodation = value;
+    public void setCityName(String value) {
+        this.cityName = value;
+    }
+
+    /**
+     * Gets the value of the accommodationName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAccommodationName() {
+        return accommodationName;
+    }
+
+    /**
+     * Sets the value of the accommodationName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAccommodationName(String value) {
+        this.accommodationName = value;
     }
 
     /**
@@ -115,30 +139,6 @@ public class AccommodationInterest {
      */
     public void setMaxPrice(float value) {
         this.maxPrice = value;
-    }
-
-    /**
-     * Gets the value of the clientName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getClientName() {
-        return clientName;
-    }
-
-    /**
-     * Sets the value of the clientName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setClientName(String value) {
-        this.clientName = value;
     }
 
 }

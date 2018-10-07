@@ -30,7 +30,6 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="arg11" type="{http://www.w3.org/2001/XMLSchema}float"/>
  *         &lt;element name="arg12" type="{http://www.w3.org/2001/XMLSchema}float"/>
  *         &lt;element name="arg13" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="arg14" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -54,8 +53,7 @@ import javax.xml.bind.annotation.XmlType;
     "arg10",
     "arg11",
     "arg12",
-    "arg13",
-    "arg14"
+    "arg13"
 })
 public class BuyPackage {
 
@@ -73,7 +71,6 @@ public class BuyPackage {
     protected float arg11;
     protected float arg12;
     protected int arg13;
-    protected int arg14;
 
     /**
      * Gets the value of the arg0 property.
@@ -321,22 +318,6 @@ public class BuyPackage {
      */
     public void setArg13(int value) {
         this.arg13 = value;
-    }
-
-    /**
-     * Gets the value of the arg14 property.
-     * 
-     */
-    public int getArg14() {
-        return arg14;
-    }
-
-    /**
-     * Sets the value of the arg14 property.
-     * 
-     */
-    public void setArg14(int value) {
-        this.arg14 = value;
     }
 
 }

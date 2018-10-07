@@ -21,3 +21,8 @@ D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgen
 D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.HotelDetails.resources
 D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.PackageDetails.resources
 D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.TicketInterest.resources
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.Form1.resources
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.HotelDetails.resources
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.PackageDetails.resources
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.ticketDetails.resources
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.TicketInterest.resources
