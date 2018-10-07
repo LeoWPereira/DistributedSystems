@@ -392,12 +392,12 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		
 		boolean notified = false;
 		
+		System.out.println("Registrado Interesse em Hotel na cidade de " + _cityName + " pelo preço máximo de R$" + _desiredPrice);
+		
 		while(!notified)
 		{
 			try
 			{
-				System.out.println("Registrado Interesse em Hotel na cidade de " + _cityName + " pelo preço máximo de R$" + _desiredPrice);
-				
 				countDownLatchHotelByCityNameInterest.await();
 				
 				AccommodationManager list = this.searchHotelByCity(_cityName);
@@ -417,10 +417,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 					}
 				}
 				
-				if(!notified)
-				{
-					countDownLatchHotelByCityNameInterest = new CountDownLatch(1);
-				}
+				countDownLatchHotelByCityNameInterest = new CountDownLatch(1);
 				
 			}
 			catch (InterruptedException e)

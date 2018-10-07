@@ -21,4 +21,12 @@ D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgen
 D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.HotelDetails.resources
 D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.PackageDetails.resources
 D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.TicketInterest.resources
+<<<<<<< HEAD
 D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.HotelInterest.resources
+=======
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.Form1.resources
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.HotelDetails.resources
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.PackageDetails.resources
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.ticketDetails.resources
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.TicketInterest.resources
+>>>>>>> 882964cc79c2014cfbd87f2fdf77dd3ceaa68eb1
