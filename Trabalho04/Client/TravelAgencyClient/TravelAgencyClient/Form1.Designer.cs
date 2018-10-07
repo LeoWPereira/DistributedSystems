@@ -362,6 +362,7 @@
             this.hotelDataGridView.Name = "hotelDataGridView";
             this.hotelDataGridView.Size = new System.Drawing.Size(1168, 796);
             this.hotelDataGridView.TabIndex = 32;
+            this.hotelDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hotelDataGridView_CellClick_1);
             // 
             // cityHotelCombo
             // 
@@ -509,6 +510,7 @@
             this.packageDataGridView.Name = "packageDataGridView";
             this.packageDataGridView.Size = new System.Drawing.Size(1182, 796);
             this.packageDataGridView.TabIndex = 47;
+            this.packageDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.packageDataGridView_CellClick);
             // 
             // dateReturnPackage
             // 

@@ -182,10 +182,10 @@ namespace TravelAgencyClient
         {
             bool returnValue = true;
 
-            if(stateSrcComboBox.Text.Equals("  ") ||
-                stateDestComboBox.Text.Equals("  ") ||
-                citySrcComboBox.Text.Equals("  ") ||
-                cityDestComboBox.Text.Equals("  "))
+            if(stateSrcComboBox.Text.Equals("") ||
+                stateDestComboBox.Text.Equals("") ||
+                citySrcComboBox.Text.Equals("") ||
+                cityDestComboBox.Text.Equals(""))
             {
                 returnValue = false;
             }
@@ -207,8 +207,8 @@ namespace TravelAgencyClient
             }
             else
             {
-                if (stateHotelCombo.Text.Equals("  ") ||
-                    cityHotelCombo.Text.Equals("  "))
+                if (stateHotelCombo.Text.Equals("") ||
+                    cityHotelCombo.Text.Equals(""))
                 {
                     returnValue = false;
                 }
@@ -222,10 +222,10 @@ namespace TravelAgencyClient
         {
             bool returnValue = true;
 
-            if (stateSrcPackCombo.Text.Equals("  ") ||
-                stateDestPackCombo.Text.Equals("  ") ||
-                citySrcPackCombo.Text.Equals("  ") ||
-                cityDestPackCombo.Text.Equals("  "))
+            if (stateSrcPackCombo.Text.Equals("") ||
+                stateDestPackCombo.Text.Equals("") ||
+                citySrcPackCombo.Text.Equals("") ||
+                cityDestPackCombo.Text.Equals(""))
             {
                 returnValue = false;
             }
@@ -260,6 +260,10 @@ namespace TravelAgencyClient
 
                 configTicketDataGrid(goingList, returnList);
             }
+            else
+            {
+                MessageBox.Show("Há campos que ainda não foram preenchidos");
+            }
 
             return;
         }
@@ -284,7 +288,8 @@ namespace TravelAgencyClient
 
             for (int i = 0; i < goingTicket.Length; i++)
             {
-                row = new string[] { goingTicket[i].source, goingTicket[i].dest, goingTicket[i].dateDay + "-" + goingTicket[i].dateMonth + "-" + 
+                int month = goingTicket[i].dateMonth + 1;
+                row = new string[] { goingTicket[i].source, goingTicket[i].dest, goingTicket[i].dateDay + "-" + month + "-" + 
                                      goingTicket[i].dateYear, goingTicket[i].price.ToString()};
                 ticketDataGridView.Rows.Add(row);
             }
@@ -328,6 +333,39 @@ namespace TravelAgencyClient
                 {
                     list = webService.searchHotelByCity(cityHotelCombo.SelectedItem.ToString());
                 }
+
+                configHotelDataGrid(list);
+            }
+            else
+            {
+                MessageBox.Show("Há campos que ainda não foram preenchidos");
+            }
+
+            return;
+        }
+
+        private void configHotelDataGrid(localhost.accommodation[] accommodation)
+        {
+            string[] row;
+
+            hotelDataGridView.ColumnCount = 4;
+            hotelDataGridView.Columns[0].Name = "Cidade";
+            hotelDataGridView.Columns[1].Name = "Nome do Hotel";
+            hotelDataGridView.Columns[2].Name = "Capacidade";
+            hotelDataGridView.Columns[3].Name = "Preço";
+
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            hotelDataGridView.Columns.Add(btn);
+            btn.HeaderText = "Reservar";
+            btn.Text = "Reservar";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+
+            for (int i = 0; i < accommodation.Length; i++)
+            {
+                row = new string[] { accommodation[i].cityName, accommodation[i].accommodationName,
+                                     accommodation[i].maxGuestsPerRoom.ToString(), accommodation[i].price.ToString()};
+                hotelDataGridView.Rows.Add(row);
             }
             else
             {
@@ -340,36 +378,184 @@ namespace TravelAgencyClient
             return;
         }
 
+        private void hotelDataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                String cityName = hotelDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                String hotelName = hotelDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+                int numberOfGuests = Convert.ToInt32(hotelDataGridView.Rows[e.RowIndex].Cells[2].Value);
+                float price = (float)Convert.ToDouble(hotelDataGridView.Rows[e.RowIndex].Cells[3].Value);
+
+                HotelDetails hotelDetails = new HotelDetails(cityName,
+                                                            hotelName,
+                                                            numberOfGuests,
+                                                            price);
+
+                hotelDetails.Show();
+            }
+        }
+
         private void searchPackagesButton_Click(object sender, EventArgs e)
         {
             localhost.packages[] list;
-            localhost.flightTicket goingTicket;
-            localhost.flightTicket returnTicket = null;
-            localhost.accommodation accommodation;
+            bool isReturn = false;
 
-            if (ticketCheckEmptyFields())
+            if (packageCheckEmptyFields())
             {
-                /* goingTicket = new localhost.flightTicket(citySrcComboBox.Text.ToString(),
-                                                          cityDestComboBox.Text.ToString(),
-                                                          goingTicketDate.Value.Day,
-                                                          goingTicketDate.Value.Month,
-                                                          goingTicketDate.Value.Year,
-                                                          0,
-                                                          0);*/
-
-
                 if (returnPackageRadioButton.Checked)
                 {
-                    
+                    isReturn = true;
+                }
+
+                list = webService.searchPackages(citySrcPackCombo.Text.ToString(),
+                                                 cityDestPackCombo.Text.ToString(),
+                                                 dateGoingPackage.Value.Day,
+                                                 dateGoingPackage.Value.Month,
+                                                 dateGoingPackage.Value.Year,
+                                                 isReturn,
+                                                 dateReturnPackage.Value.Day,
+                                                 dateReturnPackage.Value.Month,
+                                                 dateReturnPackage.Value.Year);
+
+
+                configPackageDataGrid(list);
+            }
+            else
+            {
+                MessageBox.Show("Há campos que ainda não foram preenchidos");
+            }
+
+            return;
+        }
+
+        private void configPackageDataGrid(localhost.packages[] packages)
+        {
+            string[] row;
+            float totalPrice;
+            float returnTicketPrice;
+            String tipo;
+
+            packageDataGridView.ColumnCount = 9;
+            packageDataGridView.Columns[0].Name = "Tipo";
+            packageDataGridView.Columns[1].Name = "Origem";
+            packageDataGridView.Columns[2].Name = "Destino";
+            packageDataGridView.Columns[3].Name = "Hotel";
+            packageDataGridView.Columns[4].Name = "Capacidade";
+            packageDataGridView.Columns[5].Name = "Preço Total";
+            packageDataGridView.Columns[6].Name = "Preço Ida";
+            packageDataGridView.Columns[7].Name = "Preço Volta";
+            packageDataGridView.Columns[8].Name = "Preço Hotel";
+
+            // Hide the prices columns (only used for storing info)
+            packageDataGridView.Columns[6].Visible = false;
+            packageDataGridView.Columns[7].Visible = false;
+            packageDataGridView.Columns[8].Visible = false;
+
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            packageDataGridView.Columns.Add(btn);
+            btn.HeaderText = "Comprar";
+            btn.Text = "Comprar";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+
+            if (packages != null)
+            {
+                for (int i = 0; i < packages.Length; i++)
+                {
+                    if (packages[i].flightTicketReturn != null)
+                    {
+                        totalPrice = packages[i].flightTicketGoing.price + packages[i].flightTicketReturn.price +
+                                     packages[i].accommodation.price;
+                        returnTicketPrice = packages[i].flightTicketReturn.price;
+                        tipo = "Ida/Volta";
+                    }
+                    else
+                    {
+                        totalPrice = packages[i].flightTicketGoing.price + packages[i].accommodation.price;
+                        tipo = "Ida";
+                        returnTicketPrice = 0;
+                    }
+
+                    row = new string[] { tipo, packages[i].flightTicketGoing.source,
+                                         packages[i].flightTicketGoing.dest, packages[i].accommodation.accommodationName,
+                                         packages[i].accommodation.maxGuestsPerRoom.ToString(), totalPrice.ToString(),
+                                         packages[i].flightTicketGoing.price.ToString(), returnTicketPrice.ToString(),
+                                         packages[i].accommodation.price.ToString()};
+
+                    packageDataGridView.Rows.Add(row);
                 }
             }
 
             return;
         }
 
+        private void packageDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == 9)
+            {
+                String goingCityName = packageDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+                String returnCityName = packageDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+                String hotelName = packageDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+                bool isReturn = false;
+                int numberOfGuests = Convert.ToInt32(packageDataGridView.Rows[e.RowIndex].Cells[4].Value);
+                float price = (float)Convert.ToDouble(packageDataGridView.Rows[e.RowIndex].Cells[5].Value);
+                float goingTicketPrice = (float)Convert.ToDouble(packageDataGridView.Rows[e.RowIndex].Cells[6].Value);
+                float returnTicketPrice = (float)Convert.ToDouble(packageDataGridView.Rows[e.RowIndex].Cells[7].Value);
+                float hotelPrice = (float)Convert.ToDouble(packageDataGridView.Rows[e.RowIndex].Cells[8].Value);
+
+                if (packageDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString().Equals("Ida/Volta"))
+                {
+                    isReturn = true;
+                }
+
+                PackageDetails hotelDetails = new PackageDetails(goingCityName,
+                                                                 returnCityName,
+                                                                 hotelName,
+                                                                 dateGoingPackage.Value.Day,
+                                                                 dateGoingPackage.Value.Month,
+                                                                 dateGoingPackage.Value.Year,
+                                                                 isReturn,
+                                                                 dateReturnPackage.Value.Day,
+                                                                 dateReturnPackage.Value.Month,
+                                                                 dateReturnPackage.Value.Year,
+                                                                 numberOfGuests,
+                                                                 goingTicketPrice,
+                                                                 returnTicketPrice,
+                                                                 hotelPrice,
+                                                                 price);
+
+                hotelDetails.Show();
+            }
+        }
+
         private void interestTicketButton_Click(object sender, EventArgs e)
         {
+            if (ticketCheckEmptyFields())
+            {
+                bool isReturn = false;
 
+                if(returnRadioButton.Checked)
+                {
+                    isReturn = true;
+                }
+                // Send request to the webservice
+                TicketInterest ticketInterest = new TicketInterest(citySrcComboBox.Text.ToString(),
+                                                                   cityDestComboBox.Text.ToString(),
+                                                                   goingTicketDate.Value.Day,
+                                                                   goingTicketDate.Value.Month,
+                                                                   goingTicketDate.Value.Year,
+                                                                   isReturn,
+                                                                   returnTicketDate.Value.Day,
+                                                                   returnTicketDate.Value.Month,
+                                                                   returnTicketDate.Value.Year);
+
+                ticketInterest.Show();
+            }
+            else
+            {
+                MessageBox.Show("Há campos que ainda não foram preenchidos");
+            }
         }
 
         private void interestOnHotelCompleted(object arg, localhost.registerHotelInterestByCityCompletedEventArgs e)
@@ -426,6 +612,5 @@ namespace TravelAgencyClient
         {
 
         }
-
     }
 }

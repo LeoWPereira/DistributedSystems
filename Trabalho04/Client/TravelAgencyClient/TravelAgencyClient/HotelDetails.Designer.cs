@@ -36,14 +36,14 @@
             this.Label = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.guestsText = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.priceLabel = new System.Windows.Forms.Label();
+            this.guestsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // qtyText
             // 
-            this.qtyText.Location = new System.Drawing.Point(366, 241);
+            this.qtyText.Location = new System.Drawing.Point(323, 295);
             this.qtyText.Name = "qtyText";
             this.qtyText.Size = new System.Drawing.Size(100, 35);
             this.qtyText.TabIndex = 17;
@@ -82,7 +82,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(133, 241);
+            this.label4.Location = new System.Drawing.Point(115, 295);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(176, 36);
             this.label4.TabIndex = 12;
@@ -112,18 +112,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(59, 294);
+            this.label2.Location = new System.Drawing.Point(59, 238);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(288, 36);
             this.label2.TabIndex = 18;
             this.label2.Text = "Número de pessoas:";
-            // 
-            // guestsText
-            // 
-            this.guestsText.Location = new System.Drawing.Point(366, 294);
-            this.guestsText.Name = "guestsText";
-            this.guestsText.Size = new System.Drawing.Size(100, 35);
-            this.guestsText.TabIndex = 19;
             // 
             // label3
             // 
@@ -145,14 +138,24 @@
             this.priceLabel.TabIndex = 21;
             this.priceLabel.Text = "priceLabel";
             // 
+            // guestsLabel
+            // 
+            this.guestsLabel.AutoSize = true;
+            this.guestsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guestsLabel.Location = new System.Drawing.Point(361, 238);
+            this.guestsLabel.Name = "guestsLabel";
+            this.guestsLabel.Size = new System.Drawing.Size(176, 36);
+            this.guestsLabel.TabIndex = 22;
+            this.guestsLabel.Text = "guestsLabel";
+            // 
             // HotelDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 464);
+            this.Controls.Add(this.guestsLabel);
             this.Controls.Add(this.priceLabel);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.guestsText);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.qtyText);
             this.Controls.Add(this.hotelNameLabel);
@@ -178,8 +181,8 @@
         private System.Windows.Forms.Label Label;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox guestsText;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label priceLabel;
+        private System.Windows.Forms.Label guestsLabel;
     }
 }

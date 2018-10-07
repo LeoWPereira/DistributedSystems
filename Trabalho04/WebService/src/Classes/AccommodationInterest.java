@@ -24,9 +24,14 @@ public class AccommodationInterest implements Serializable
 	private static final long serialVersionUID = 1374133793766566984L;
 
 	/**
-     * @brief	Member containing an instance of Accommodation
+     * @brief
      */
-    public Accommodation  accommodation;
+    public String  cityName;
+    
+    /**
+     * @brief
+     */
+    public String  accommodationName;
     
     /**
      * @brief	Quantity of room one is interested
@@ -44,11 +49,6 @@ public class AccommodationInterest implements Serializable
     public float maxPrice;
 
     /**
-     * @brief	Client Name
-     */
-    public String clientName;
-
-    /**
      * @brief   Default constructor
      * 
      * @param   _accommodation      : Accomodation
@@ -57,17 +57,17 @@ public class AccommodationInterest implements Serializable
      * @param   _maxPrice           : float
      * @param   _clientName         : String
      */   
-    public AccommodationInterest(Accommodation   _accommodation, 
+    public AccommodationInterest(String			 _cityName, 
+    							 String 		 _accommodationName,
                                  int             _quantity, 
                                  int             _numberOfGuests, 
-                                 float           _maxPrice, 
-                                 String          _clientName) 
+                                 float           _maxPrice) 
     {
-        this.accommodation  =   _accommodation;
-        this.quantity       =   _quantity;
-        this.numberOfGuests =   _numberOfGuests;
-        this.maxPrice       =   _maxPrice;
-        this.clientName     =   _clientName;
+        this.cityName  		 	 =   _cityName;
+        this.accommodationName   =   _accommodationName;
+        this.quantity       	 =   _quantity;
+        this.numberOfGuests 	 =   _numberOfGuests;
+        this.maxPrice       	 =   _maxPrice;
     }
 
     /**
@@ -77,7 +77,7 @@ public class AccommodationInterest implements Serializable
      */
     public String getAccommodationName() 
     {
-        return this.accommodation.accommodationName;
+        return this.accommodationName;
     }
     
     /**
@@ -87,6 +87,6 @@ public class AccommodationInterest implements Serializable
      */   
     public String getAccommodationCityName()
     {
-        return this.accommodation.cityName;
+        return this.cityName;
     }
 }

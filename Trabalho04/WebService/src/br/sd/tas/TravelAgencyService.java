@@ -215,62 +215,71 @@ public interface TravelAgencyService
 	* @param   _returnTicketPrice,
 	* @param   _hotelPrice,
 	* @param   _quantity,
-	* @param   _numberOfGuests
     * 
     * @return result int 	: 1 - Success
     *						  2 - Not enough passages
     *						  3 - Not enough rooms
-    *						  4 - Guests exceeded
     */
-   @WebMethod int buyPackage(String  _source,
-						     String  _dest,
-						     String  _hotelName,
-						     int     _goingDay,
-						     int 	  _goingMonth,
-						     int 	  _goingYear,
-						     boolean _isReturn,
-						     int     _returnDay,
-						     int 	  _returnMonth,
-						     int 	  _returnYear,
-						     float	  _goingTicketPrice,
-						     float	  _returnTicketPrice,
-						     float   _hotelPrice,
-						     int 	  _quantity,
-						     int 	  _numberOfGuests) throws RemoteException;
+   @WebMethod public int buyPackage(String  _source,
+								    String  _dest,
+								    String  _hotelName,
+								    int     _goingDay,
+								    int 	  _goingMonth,
+								    int 	  _goingYear,
+								    boolean _isReturn,
+								    int     _returnDay,
+								    int 	  _returnMonth,
+								    int 	  _returnYear,
+								    float	  _goingTicketPrice,
+								    float	  _returnTicketPrice,
+								    float   _hotelPrice,
+								    int 	  _quantity) throws RemoteException;
    
    	/**
     * @brief	
     * 
-    * @param 	_ticketTo		:
-    * @param 	_ticketFrom		:
+    * @param 	_citySource
+	* @param 	_cityDest
+	* @param 	_goingDay
+	* @param 	_goingMonth
+	* @param 	_goingYear
+	* @param 	_returnTicket
+	* @param 	_returnDay
+	* @param 	_returnMonth
+	* @param 	_returnYear
     * @param 	_quantity		:
     * @param 	_desiredPrice	:
-    * @param 	_clientName		:
     * 
     * @throws 	RemoteException
     */
-   @WebMethod  void registerPassageInterest(FlightTicket    _ticketTo,
-									        FlightTicket    _ticketFrom,
-									        int             _quantity,
-									        float           _desiredPrice,
-									        String          _clientName) 		throws RemoteException;
+   @WebMethod  void registerPassageInterest(String    		_citySource, 
+											String    		_cityDest, 
+											int    			_goingDay,
+								            int    			_goingMonth,
+								            int    			_goingYear,
+								            boolean         _returnTicket,
+								            int    			_returnDay,
+								            int    			_returnMonth,
+								            int    			_returnYear,
+											int 			_quantity,
+											float 			_desiredPrice) throws RemoteException;
 
    	/**
     * @brief	
     * 
-    * @param 	_hotel			:
+    * @param 	_cityName		:
+    * @param    _hotelName		:
     * @param 	_quantity		:
     * @param 	_numberOfGuests	:
     * @param 	_desiredPrice	:
-    * @param 	_clientName		:
     * 
     * @throws 	RemoteException
     */
-   @WebMethod void registerHotelInterest(Accommodation		_hotel, 
-									     int               	_quantity,
-									     int              	_numberOfGuests,
-									     float 				_desiredPrice,
-									     String            	_clientName) 		throws RemoteException;
+	@WebMethod void registerHotelInterest(String 	    _cityName, 
+										  String		_hotelName,
+										  int 			_quantity,
+										  int 			_numberOfGuests,
+										  float 		_desiredPrice) throws RemoteException;
    
    /**
     * @brief	
