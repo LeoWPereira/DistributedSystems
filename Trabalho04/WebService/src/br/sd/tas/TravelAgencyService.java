@@ -271,6 +271,36 @@ public interface TravelAgencyService
 									     int              	_numberOfGuests,
 									     float 				_desiredPrice,
 									     String            	_clientName) 		throws RemoteException;
+   
+   /**
+    * @brief	
+    * 
+    * @param 	_cityName		:
+    * @param 	_quantity		:
+    * @param 	_numberOfGuests	:
+    * @param 	_desiredPrice	:
+    * 
+    * @throws 	RemoteException
+    */
+   @WebMethod String registerHotelInterestByCity(String		_cityName, 
+									     	     int      	_quantity,
+									     	     int      	_numberOfGuests,
+									     	     float 		_desiredPrice) 		throws RemoteException;
+   
+   /**
+    * @brief	
+    * 
+    * @param 	_hotelName		:
+    * @param 	_quantity		:
+    * @param 	_numberOfGuests	:
+    * @param 	_desiredPrice	:
+    * 
+    * @throws 	RemoteException
+    */
+   @WebMethod String registerHotelInterestByHotel(String	_hotelName, 
+									     	      int       _quantity,
+									     	      int       _numberOfGuests,
+									     	      float 	_desiredPrice) 		throws RemoteException;
 
    /**
     * @brief   
@@ -311,61 +341,4 @@ public interface TravelAgencyService
     * @return	
     */
    @WebMethod List<PackageInterest> getPackageInterestList();
-   
-   	/**
-    * @brief	
-    * 
-    * @param 	_flightTicket	:
-    * 
-    * @throws 	RemoteException
-    */
-   @WebMethod void notifyTicketsInterests(FlightTicket _flightTicket) throws RemoteException;
-   
-   /**
-    * @brief	
-    * 
-    * @param 	_accommodation	:
-    * 
-    * @throws 	RemoteException
-    */
-   @WebMethod void notifyAccommodationInterests(Accommodation _accommodation) throws RemoteException;
-   
-   /**
-    * @brief	
-    * 
-    * @param 	_flightTicket	:
-    * 
-    * @throws 	RemoteException
-    */
-   @WebMethod void notifyPackageInterests(FlightTicket _flightTicket) throws RemoteException;
-   
-   /**
-    * @brief	
-    * 
-    * @param 	_accommodation	:
-    * 
-    * @throws 	RemoteException
-    */
-   @WebMethod void notifyPackageInterestsByAccommodation(Accommodation _accommodation) throws RemoteException;
-   
-   /**
-	 * @brief 	Remove ticket interest from local array and from the server
-	 * 
-	 * @param	_ticketInterest	:
-	 */
-   @WebMethod void unregisterTicketInterestByFlightTicket(FlightTicketInterest _ticketInterest)  throws RemoteException;
-   
-   /**
-    * @brief 	Remove accommodation interest from local array and from the server
-    * 
-    * @param	_accommodationInterest	:
-    */
-   @WebMethod void unregisterAccommodationInterest(AccommodationInterest _accommodationInterest)  throws RemoteException;
-   
-   /**
-    * @brief 	Remove package interest from local array and from the server
-    * 
-    * @param	_packageInterest	:
-    */
-   @WebMethod void unregisterPackageInterest(PackageInterest _packageInterest) throws RemoteException;
 }

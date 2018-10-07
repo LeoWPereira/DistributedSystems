@@ -7,22 +7,19 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for buyPassage complex type.
+ * <p>Java class for registerHotelInterestByCity complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="buyPassage">
+ * &lt;complexType name="registerHotelInterestByCity">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="arg5" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="arg6" type="{http://www.w3.org/2001/XMLSchema}float"/>
+ *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}float"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -32,24 +29,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "buyPassage", propOrder = {
+@XmlType(name = "registerHotelInterestByCity", propOrder = {
     "arg0",
     "arg1",
     "arg2",
-    "arg3",
-    "arg4",
-    "arg5",
-    "arg6"
+    "arg3"
 })
-public class BuyPassage {
+public class RegisterHotelInterestByCity {
 
     protected String arg0;
-    protected String arg1;
+    protected int arg1;
     protected int arg2;
-    protected int arg3;
-    protected int arg4;
-    protected int arg5;
-    protected float arg6;
+    protected float arg3;
 
     /**
      * Gets the value of the arg0 property.
@@ -78,24 +69,16 @@ public class BuyPassage {
     /**
      * Gets the value of the arg1 property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getArg1() {
+    public int getArg1() {
         return arg1;
     }
 
     /**
      * Sets the value of the arg1 property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setArg1(String value) {
+    public void setArg1(int value) {
         this.arg1 = value;
     }
 
@@ -119,7 +102,7 @@ public class BuyPassage {
      * Gets the value of the arg3 property.
      * 
      */
-    public int getArg3() {
+    public float getArg3() {
         return arg3;
     }
 
@@ -127,56 +110,8 @@ public class BuyPassage {
      * Sets the value of the arg3 property.
      * 
      */
-    public void setArg3(int value) {
+    public void setArg3(float value) {
         this.arg3 = value;
-    }
-
-    /**
-     * Gets the value of the arg4 property.
-     * 
-     */
-    public int getArg4() {
-        return arg4;
-    }
-
-    /**
-     * Sets the value of the arg4 property.
-     * 
-     */
-    public void setArg4(int value) {
-        this.arg4 = value;
-    }
-
-    /**
-     * Gets the value of the arg5 property.
-     * 
-     */
-    public int getArg5() {
-        return arg5;
-    }
-
-    /**
-     * Sets the value of the arg5 property.
-     * 
-     */
-    public void setArg5(int value) {
-        this.arg5 = value;
-    }
-
-    /**
-     * Gets the value of the arg6 property.
-     * 
-     */
-    public float getArg6() {
-        return arg6;
-    }
-
-    /**
-     * Sets the value of the arg6 property.
-     * 
-     */
-    public void setArg6(float value) {
-        this.arg6 = value;
     }
 
 }

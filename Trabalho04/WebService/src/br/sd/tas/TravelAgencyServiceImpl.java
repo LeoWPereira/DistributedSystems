@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 import javax.jws.WebService;
 
@@ -50,6 +51,10 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	private static Connection	dbConnection;
 	
 	private static Statement	dbStatement;
+	
+	private static CountDownLatch countDownLatchHotelByCityNameInterest = new CountDownLatch(1);
+	
+	private static CountDownLatch countDownLatchHotelByHotelNameInterest = new CountDownLatch(1);
 	
 	public TravelAgencyServiceImpl()
 	{
@@ -131,6 +136,11 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		{
 			success = false;
 		}
+		
+		// Finally, we will allow our latch to fire the action of
+		// looking if there is any interest
+		countDownLatchHotelByCityNameInterest.countDown();
+		countDownLatchHotelByHotelNameInterest.countDown();
 		
 		return success;
 	}
@@ -364,6 +374,106 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 																			    _clientName);
 
 		this.listAccommodationInterest.add(accommodationInterest);
+	}
+	
+	@Override
+	public String registerHotelInterestByCity(String	_cityName,
+	     	   								  int     	_quantity,
+	     	   								  int    	_numberOfGuests,
+	     	   								  float 	_desiredPrice) 		throws RemoteException
+	{
+		String output = "Interesse ainda não encontrado no sistema";
+		
+		boolean notified = false;
+		
+		while(!notified)
+		{
+			try
+			{
+				System.out.println("Registrado Interesse em Hotel na cidade de " + _cityName + " pelo preço máximo de R$" + _desiredPrice);
+				
+				countDownLatchHotelByCityNameInterest.await();
+				
+				AccommodationManager list = this.searchHotelByCity(_cityName);
+				
+				if(list != null)
+				{
+					for(Accommodation accommodation : list.accommodationList)
+					{
+						if(accommodation.price <= _desiredPrice)
+						{
+							output = "Um Hotel na cidade " + _cityName + " com preço <= R$" + _desiredPrice + " foi inserido no Banco de Dados";
+							
+							notified = true;
+							
+							break;
+						}
+					}
+				}
+				
+				if(!notified)
+				{
+					countDownLatchHotelByCityNameInterest = new CountDownLatch(1);
+				}
+				
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		return output;
+	}
+
+	@Override
+	public String registerHotelInterestByHotel(String	_hotelName, 
+	     	   								   int      _quantity,
+	     	   								   int      _numberOfGuests,
+	     	   								   float 	_desiredPrice) 		throws RemoteException
+	{
+		String output = "Interesse ainda não encontrado no sistema";
+		
+		boolean notified = false;
+		
+		System.out.println("Registrado Interesse no Hotel " + _hotelName + " pelo preço máximo de R$" + _desiredPrice);
+
+		while(!notified)
+		{
+			try
+			{				
+				countDownLatchHotelByHotelNameInterest.await();
+				
+				AccommodationManager list = this.searchHotelByName(_hotelName);
+				
+				if(list != null)
+				{
+					for(Accommodation accommodation : list.accommodationList)
+					{
+						if(accommodation.price <= _desiredPrice)
+						{
+							output = "Um Hotel " + _hotelName + " na cidade " + accommodation.cityName + " com preço <= R$" + _desiredPrice + " foi inserido no Banco de Dados";
+							
+							notified = true;
+							
+							break;
+						}
+					}
+				}
+				
+				if(!notified)
+				{
+					countDownLatchHotelByHotelNameInterest = new CountDownLatch(1);
+				}
+				
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		return output;
 	}
 	
 	@Override
@@ -610,47 +720,5 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 										String 			_clientName) throws RemoteException 
 	{
 	
-	}
-
-	@Override
-	public void notifyTicketsInterests(FlightTicket flightTicket) throws RemoteException
-	{
-		
-	}
-	
-	@Override
-	public void notifyAccommodationInterests(Accommodation _accommodation) throws RemoteException 
-	{
-		
-	}
-
-	@Override
-	public void notifyPackageInterests(FlightTicket _flightTicket) throws RemoteException
-	{
-		
-	}
-
-	@Override
-	public void notifyPackageInterestsByAccommodation(Accommodation _accommodation) throws RemoteException
-	{
-		
-	}
-
-	@Override
-	public void unregisterTicketInterestByFlightTicket(FlightTicketInterest _ticketInterest) throws RemoteException 
-	{
-		
-	}
-
-	@Override
-	public void unregisterAccommodationInterest(AccommodationInterest _accommodationInterest) throws RemoteException 
-	{
-		
-	}
-
-	@Override
-	public void unregisterPackageInterest(PackageInterest _packageInterest) throws RemoteException 
-	{
-		
 	}
 }

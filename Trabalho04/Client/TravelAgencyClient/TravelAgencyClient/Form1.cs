@@ -322,12 +322,19 @@ namespace TravelAgencyClient
             {
                 if (searchByHotelRadioButton.Checked)
                 {
-                    list = webService.searchHotelByCity(hotelTextBox.Text.ToString());
+                    list = webService.searchHotelByName(hotelTextBox.Text.ToString());
                 }
                 else
                 {
                     list = webService.searchHotelByCity(cityHotelCombo.SelectedItem.ToString());
                 }
+            }
+            else
+            {
+                var result = MessageBox.Show("Existem campos não preenchidos!",
+                                             "Aviso",
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Warning);
             }
 
             return;
@@ -365,9 +372,39 @@ namespace TravelAgencyClient
 
         }
 
+        private void interestOnHotelCompleted(object arg, localhost.registerHotelInterestByCityCompletedEventArgs e)
+        {
+            var result = MessageBox.Show(e.Result,
+                                         "Notificação",
+                                         MessageBoxButtons.OK,
+                                         MessageBoxIcon.Information);
+        }
+
         private void interestHotelButton_Click(object sender, EventArgs e)
         {
+            webService.registerHotelInterestByCityCompleted += new localhost.registerHotelInterestByCityCompletedEventHandler(interestOnHotelCompleted);
 
+            if (hotelCheckEmptyFields())
+            {
+                if (searchByHotelRadioButton.Checked)
+                {
+                    //list = webService.searchHotelByName(hotelTextBox.Text.ToString());
+                }
+                else
+                {
+                    webService.registerHotelInterestByCityAsync(cityHotelCombo.Text, 
+                                                                1,
+                                                                2,
+                                                                (float)299.99);
+                }
+            }
+            else
+            {
+                var result = MessageBox.Show("Existem campos não preenchidos!",
+                                             "Aviso",
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Warning);
+            }
         }
 
         private void interestPackageButton_Click(object sender, EventArgs e)
