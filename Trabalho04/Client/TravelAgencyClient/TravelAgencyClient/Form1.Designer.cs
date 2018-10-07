@@ -101,7 +101,7 @@
             this.Control.Location = new System.Drawing.Point(12, 12);
             this.Control.Name = "Control";
             this.Control.SelectedIndex = 0;
-            this.Control.Size = new System.Drawing.Size(776, 426);
+            this.Control.Size = new System.Drawing.Size(869, 426);
             this.Control.TabIndex = 0;
             // 
             // ticketsTab
@@ -125,7 +125,7 @@
             this.ticketsTab.Location = new System.Drawing.Point(4, 22);
             this.ticketsTab.Name = "ticketsTab";
             this.ticketsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ticketsTab.Size = new System.Drawing.Size(768, 400);
+            this.ticketsTab.Size = new System.Drawing.Size(861, 400);
             this.ticketsTab.TabIndex = 0;
             this.ticketsTab.Text = "Passagens";
             this.ticketsTab.UseVisualStyleBackColor = true;
@@ -134,7 +134,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(512, 14);
+            this.label1.Location = new System.Drawing.Point(563, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 20);
             this.label1.TabIndex = 18;
@@ -145,7 +145,7 @@
             this.ticketDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ticketDataGridView.Location = new System.Drawing.Point(357, 37);
             this.ticketDataGridView.Name = "ticketDataGridView";
-            this.ticketDataGridView.Size = new System.Drawing.Size(405, 357);
+            this.ticketDataGridView.Size = new System.Drawing.Size(499, 357);
             this.ticketDataGridView.TabIndex = 17;
             // 
             // returnTicketDate
@@ -678,7 +678,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(884, 450);
             this.Controls.Add(this.Control);
             this.Name = "Form1";
             this.Text = "Cliente";

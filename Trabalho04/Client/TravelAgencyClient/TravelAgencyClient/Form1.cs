@@ -95,6 +95,9 @@ namespace TravelAgencyClient
 
             String[] cities = citiesBrazil.getCities(state);
 
+            // clear the comboBox
+            citySrcComboBox.Items.Clear();
+
             for (int i = 0; i < cities.Length; i++)
             {
                 citySrcComboBox.Items.Add(cities[i]);
@@ -109,6 +112,9 @@ namespace TravelAgencyClient
             String state = stateDestComboBox.SelectedItem.ToString();
 
             String[] cities = citiesBrazil.getCities(state);
+
+            // clear the comboBox
+            cityDestComboBox.Items.Clear();
 
             for (int i = 0; i < cities.Length; i++)
             {
@@ -125,6 +131,9 @@ namespace TravelAgencyClient
 
             String[] cities = citiesBrazil.getCities(state);
 
+            // clear the comboBox
+            cityHotelCombo.Items.Clear();
+
             for (int i = 0; i < cities.Length; i++)
             {
                 cityHotelCombo.Items.Add(cities[i]);
@@ -139,6 +148,9 @@ namespace TravelAgencyClient
             String state = stateSrcPackCombo.SelectedItem.ToString();
 
             String[] cities = citiesBrazil.getCities(state);
+
+            // clear the comboBox
+            citySrcPackCombo.Items.Clear();
 
             for (int i = 0; i < cities.Length; i++)
             {
@@ -155,6 +167,9 @@ namespace TravelAgencyClient
 
             String[] cities = citiesBrazil.getCities(state);
 
+            // clear the comboBox
+            cityDestPackCombo.Items.Clear();
+
             for (int i = 0; i < cities.Length; i++)
             {
                 cityDestPackCombo.Items.Add(cities[i]);
@@ -170,9 +185,47 @@ namespace TravelAgencyClient
             if(stateSrcComboBox.Text.Equals("  ") ||
                 stateDestComboBox.Text.Equals("  ") ||
                 citySrcComboBox.Text.Equals("  ") ||
-                cityDestComboBox.Text.Equals("  ") ||
-                stateSrcComboBox.Text.Equals("  ") ||
-                stateSrcComboBox.Text.Equals("  "))
+                cityDestComboBox.Text.Equals("  "))
+            {
+                returnValue = false;
+            }
+
+            return returnValue;
+
+        }
+
+        private bool hotelCheckEmptyFields()
+        {
+            bool returnValue = true;
+
+            if(searchByHotelRadioButton.Checked)
+            {
+                if(hotelTextBox.Text.Equals(""))
+                {
+                    returnValue = false;
+                }
+            }
+            else
+            {
+                if (stateHotelCombo.Text.Equals("  ") ||
+                    cityHotelCombo.Text.Equals("  "))
+                {
+                    returnValue = false;
+                }
+            }
+
+            return returnValue;
+
+        }
+
+        private bool packageCheckEmptyFields()
+        {
+            bool returnValue = true;
+
+            if (stateSrcPackCombo.Text.Equals("  ") ||
+                stateDestPackCombo.Text.Equals("  ") ||
+                citySrcPackCombo.Text.Equals("  ") ||
+                cityDestPackCombo.Text.Equals("  "))
             {
                 returnValue = false;
             }
@@ -184,35 +237,50 @@ namespace TravelAgencyClient
         private void searchTicketButton_Click(object sender, EventArgs e)
         {
             localhost.flightTicket[] goingList;
-            localhost.flightTicket[] returnList;
+            localhost.flightTicket[] returnList = null;
 
             if (ticketCheckEmptyFields())
             {
                 // Send request to the webservice
-                goingList = webService.searchPassages("Acrelândia",
-                                                 "Cruzeiro do Sul",
-                                                 10,
-                                                 10,
-                                                 2018);
-
-                // Send request to the webservice
                 goingList = webService.searchPassages(citySrcComboBox.Text.ToString(),
                                                  cityDestComboBox.Text.ToString(),
-                                                 Convert.ToInt32(goingTicketDate.Value.Day),
-                                                 Convert.ToInt32(goingTicketDate.Value.Month),
-                                                 Convert.ToInt32(goingTicketDate.Value.Year));
-
-                localhost.accommodation[] list = webService.searchHotelByCity("Curitiba");
+                                                 goingTicketDate.Value.Day,
+                                                 goingTicketDate.Value.Month,
+                                                 goingTicketDate.Value.Year);
 
                 if (returnRadioButton.Checked)
                 {
                     // Send request to the webservice
-                    returnList = webService.searchPassages(citySrcComboBox.SelectedItem.ToString(),
-                                                     cityDestComboBox.SelectedItem.ToString(),
-                                                     Convert.ToInt32(goingTicketDate.Value.Day),
-                                                     Convert.ToInt32(goingTicketDate.Value.Month),
-                                                     Convert.ToInt32(goingTicketDate.Value.Year));
+                    returnList = webService.searchPassages(cityDestComboBox.SelectedItem.ToString(),
+                                                           citySrcComboBox.SelectedItem.ToString(),
+                                                           returnTicketDate.Value.Day,
+                                                           returnTicketDate.Value.Month,
+                                                           returnTicketDate.Value.Year);
                 }
+
+                configTicketDataGrid(goingList, returnList);
+            }
+
+            return;
+        }
+
+        private void configTicketDataGrid(localhost.flightTicket[] goingTicket,
+                                          localhost.flightTicket[] returnTicket)
+        {
+            string[] row;
+
+            ticketDataGridView.ColumnCount = 5;
+            ticketDataGridView.Columns[0].Name = "Origem";
+            ticketDataGridView.Columns[1].Name = "Destino";
+            ticketDataGridView.Columns[2].Name = "Data";
+            ticketDataGridView.Columns[3].Name = "Preço";
+            ticketDataGridView.Columns[4].Name = "Comprar";
+
+            for(int i = 0; i < goingTicket.Length; i++)
+            {
+                row = new string[] { goingTicket[i].source, goingTicket[i].dest, goingTicket[i].dateDay + "-" + goingTicket[i].dateMonth + "-" + 
+                                     goingTicket[i].dateYear, goingTicket[i].price.ToString(), "" };
+                ticketDataGridView.Rows.Add(row);
             }
 
             return;
@@ -220,12 +288,48 @@ namespace TravelAgencyClient
 
         private void searchHotelButton_Click(object sender, EventArgs e)
         {
+            localhost.accommodation[] list;
 
+            if (hotelCheckEmptyFields())
+            {
+                if (searchByHotelRadioButton.Checked)
+                {
+                    list = webService.searchHotelByCity(hotelTextBox.Text.ToString());
+                }
+                else
+                {
+                    list = webService.searchHotelByCity(cityHotelCombo.SelectedItem.ToString());
+                }
+            }
+
+            return;
         }
 
         private void searchPackagesButton_Click(object sender, EventArgs e)
         {
+            localhost.packages[] list;
+            localhost.flightTicket goingTicket;
+            localhost.flightTicket returnTicket = null;
+            localhost.accommodation accommodation;
 
+            if (ticketCheckEmptyFields())
+            {
+                /* goingTicket = new localhost.flightTicket(citySrcComboBox.Text.ToString(),
+                                                          cityDestComboBox.Text.ToString(),
+                                                          goingTicketDate.Value.Day,
+                                                          goingTicketDate.Value.Month,
+                                                          goingTicketDate.Value.Year,
+                                                          0,
+                                                          0);*/
+
+
+                if (returnPackageRadioButton.Checked)
+                {
+                    
+                }
+            }
+
+            return;
         }
 
         private void interestTicketButton_Click(object sender, EventArgs e)

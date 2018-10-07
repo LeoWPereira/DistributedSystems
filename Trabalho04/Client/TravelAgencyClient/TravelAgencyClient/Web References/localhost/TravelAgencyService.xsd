@@ -63,7 +63,9 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="source" type="xs:string" />
       <xs:element minOccurs="0" name="dest" type="xs:string" />
-      <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      <xs:element name="dateDay" type="xs:int" />
+      <xs:element name="dateMonth" type="xs:int" />
+      <xs:element name="dateYear" type="xs:int" />
       <xs:element name="quantity" type="xs:int" />
       <xs:element name="price" type="xs:float" />
     </xs:sequence>
@@ -284,20 +286,20 @@
   <xs:complexType name="notifyAccommodationInterestsResponse">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="unregisterPackageInterest">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:packageInterest" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="unregisterPackageInterestResponse">
-    <xs:sequence />
-  </xs:complexType>
   <xs:complexType name="notifyTicketsInterests">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="tns:flightTicket" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="notifyTicketsInterestsResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="unregisterPackageInterest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:packageInterest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="unregisterPackageInterestResponse">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="registerPassageInterest">
@@ -320,6 +322,16 @@
       <xs:element minOccurs="0" name="return" type="tns:accommodationManager" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="reserveHotel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:accommodation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reserveHotelResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="searchPassages">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="xs:string" />
@@ -332,16 +344,6 @@
   <xs:complexType name="searchPassagesResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:flightTicketManager" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="reserveHotel">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:accommodation" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="reserveHotelResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="searchHotelByName">
