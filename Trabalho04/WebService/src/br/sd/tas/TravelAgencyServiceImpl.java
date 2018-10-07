@@ -327,25 +327,31 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	}
 	
 	@Override
-	public void registerPassageInterest(FlightTicket	_ticketTo,
-										FlightTicket 	_ticketFrom,
+	public void registerPassageInterest(String    		_citySource, 
+										String    		_cityDest, 
+										int    			_goingDay,
+							            int    			_goingMonth,
+							            int    			_goingYear,
+							            boolean         _returnTicket,
+							            int    			_returnDay,
+							            int    			_returnMonth,
+							            int    			_returnYear,
 										int 			_quantity,
-										float 			_desiredPrice, 
-										String 			_clientName) throws RemoteException
+										float 			_desiredPrice) throws RemoteException
 	{
-		boolean _isReturnTicket = true;
-
-		if(_ticketFrom == null)
-		{
-			_isReturnTicket = false;
-		}
-
-        FlightTicketInterest ticketInterest = new FlightTicketInterest(_ticketTo,
-        															   _ticketFrom, 
-        															   _isReturnTicket,
+        FlightTicketInterest ticketInterest = new FlightTicketInterest(_citySource, 
+																	   _cityDest, 
+																	   _goingDay,
+															           _goingMonth,
+															           _goingYear,
+															           _returnTicket,
+															           _returnDay,
+															           _returnMonth,
+															           _returnYear,
         															   _quantity, 
-        															   _desiredPrice,
-        															   _clientName);
+        															   _desiredPrice);
+        
+        
 
         this.listTicketInterest.add(ticketInterest);
 	}

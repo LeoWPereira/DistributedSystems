@@ -246,11 +246,17 @@ public interface TravelAgencyService
     * 
     * @throws 	RemoteException
     */
-   @WebMethod  void registerPassageInterest(FlightTicket    _ticketTo,
-									        FlightTicket    _ticketFrom,
-									        int             _quantity,
-									        float           _desiredPrice,
-									        String          _clientName) 		throws RemoteException;
+   @WebMethod  void registerPassageInterest(String    		_citySource, 
+											String    		_cityDest, 
+											int    			_goingDay,
+								            int    			_goingMonth,
+								            int    			_goingYear,
+								            boolean         _returnTicket,
+								            int    			_returnDay,
+								            int    			_returnMonth,
+								            int    			_returnYear,
+											int 			_quantity,
+											float 			_desiredPrice) throws RemoteException;
 
    	/**
     * @brief	

@@ -524,7 +524,31 @@ namespace TravelAgencyClient
 
         private void interestTicketButton_Click(object sender, EventArgs e)
         {
+            if (ticketCheckEmptyFields())
+            {
+                bool isReturn = false;
 
+                if(returnRadioButton.Checked)
+                {
+                    isReturn = true;
+                }
+                // Send request to the webservice
+                TicketInterest ticketInterest = new TicketInterest(citySrcComboBox.Text.ToString(),
+                                                                   cityDestComboBox.Text.ToString(),
+                                                                   goingTicketDate.Value.Day,
+                                                                   goingTicketDate.Value.Month,
+                                                                   goingTicketDate.Value.Year,
+                                                                   isReturn,
+                                                                   returnTicketDate.Value.Day,
+                                                                   returnTicketDate.Value.Month,
+                                                                   returnTicketDate.Value.Year);
+
+                ticketInterest.Show();
+            }
+            else
+            {
+                MessageBox.Show("Há campos que ainda não foram preenchidos");
+            }
         }
 
         private void interestHotelButton_Click(object sender, EventArgs e)

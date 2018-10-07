@@ -26,14 +26,14 @@ public class FlightTicketInterest implements Serializable
 	private static final long serialVersionUID = -1430226376074837554L;
 
 	/**
-     * @brief	Instance of flight ticket
+     * @brief	Source city
      */
-    public FlightTicket  flightTicketTo;
+    public String citySource;
 
     /**
-     * @brief	Instance of flight ticket
+     * @brief	Destination city
      */
-    public FlightTicket  flightTicketFrom;
+    public String  cityDest;
 
     /**
      * @brief	Passage we are interested into is two-way?
@@ -49,34 +49,68 @@ public class FlightTicketInterest implements Serializable
      * @brief	Max price desired to pay
      */
     public float maxPrice;
-
+    
     /**
-     * @brief	Name of the client
+     * @brief
      */
-    public String clientName;
+    public int goingDay;
+    
+    /**
+     * @brief
+     */
+    public int goingMonth;
+    
+    /**
+     * @brief
+     */
+    public int goingYear;
+    
+    /**
+     * @brief
+     */
+    public int returnDay;
+    
+    /**
+     * @brief
+     */
+    public int returnMonth;
+    
+    /**
+     * @brief
+     */
+    public int returnYear;
 
     /**
      * @brief   Default constructor
      * 
-     * @param   _flightTicketTo     : FlightTicket
-     * @param   _flightTicketFrom   : FlightTicket
+     * @param   _citySource     	: String
+     * @param   _cityDest   		: String
      * @param   _quantity           : int
      * @param   _maxPrice           : float
-     * @param   _clientName         : String
      */   
-    public FlightTicketInterest(FlightTicket    _flightTicketTo, 
-                                FlightTicket    _flightTicketFrom, 
+    public FlightTicketInterest(String    		_citySource, 
+    							String    		_cityDest, 
+    							int    			_goingDay,
+                                int    			_goingMonth,
+                                int    			_goingYear,
                                 boolean         _returnTicket,
+                                int    			_returnDay,
+                                int    			_returnMonth,
+                                int    			_returnYear,
                                 int             _quantity, 
-                                float           _maxPrice, 
-                                String          _clientName) 
+                                float           _maxPrice) 
     {
-        this.flightTicketTo 	= _flightTicketTo;
-        this.flightTicketFrom 	= _flightTicketFrom;
+        this.citySource 		= _citySource;
+        this.cityDest 			= _cityDest;
         this.returnTicket       = _returnTicket;
+        this.goingDay 			= _goingDay;
+        this.goingMonth 		= _goingMonth;
+        this.goingYear       	= _goingYear;
+        this.returnDay 			= _returnDay;
+        this.returnMonth 		= _returnMonth;
+        this.returnYear       	= _returnYear;
         this.quantity 			= _quantity;
         this.maxPrice 			= _maxPrice;
-        this.clientName         = _clientName;
     }
     
     /**
@@ -86,7 +120,7 @@ public class FlightTicketInterest implements Serializable
      */   
     public String getSource()
     {
-        return this.flightTicketTo.source;
+        return this.citySource;
     }
 
     /**
@@ -96,7 +130,7 @@ public class FlightTicketInterest implements Serializable
      */   
     public String getDest()
     {
-        return this.flightTicketTo.dest;
+        return this.cityDest;
     }
 
     /**
@@ -108,9 +142,9 @@ public class FlightTicketInterest implements Serializable
     {
     	Calendar calendar = Calendar.getInstance();
 	    
-		calendar.set(this.flightTicketTo.dateYear,
-					 this.flightTicketTo.dateMonth,
-					 this.flightTicketTo.dateDay);
+		calendar.set(goingYear,
+					 goingMonth - 1,
+					 goingDay);
 		
 		return new java.sql.Date(calendar.getTime().getTime());
     }
@@ -124,9 +158,9 @@ public class FlightTicketInterest implements Serializable
     {
     	Calendar calendar = Calendar.getInstance();
 	    
-		calendar.set(this.flightTicketFrom.dateYear,
-					 this.flightTicketFrom.dateMonth,
-					 this.flightTicketFrom.dateDay);
+		calendar.set(returnYear,
+					 returnMonth - 1,
+					 returnDay);
 		
 		return new java.sql.Date(calendar.getTime().getTime());
     }

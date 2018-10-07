@@ -29,31 +29,9 @@ namespace TravelAgencyClient.localhost {
     [System.Web.Services.WebServiceBindingAttribute(Name="TravelAgencyServiceImplPortBinding", Namespace="http://tas.sd.br/")]
     public partial class TravelAgencyServiceImplService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback buyPackageOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback unregisterTicketInterestByFlightTicketOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback notifyPackageInterestsByAccommodationOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback buyPassageOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback searchPackagesOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback reserveHotelOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback searchPassagesOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback loadDBPassagesOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback loadDBHotelsOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback insertHotelEntryOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback getPackageInterestListOperationCompleted;
+        private System.Threading.SendOrPostCallback registerPackageInterestOperationCompleted;
         
         private System.Threading.SendOrPostCallback notifyAccommodationInterestsOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback getTicketInterestListOperationCompleted;
         
         private System.Threading.SendOrPostCallback unregisterPackageInterestOperationCompleted;
         
@@ -61,21 +39,43 @@ namespace TravelAgencyClient.localhost {
         
         private System.Threading.SendOrPostCallback notifyTicketsInterestsOperationCompleted;
         
-        private System.Threading.SendOrPostCallback registerPackageInterestOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback getAccommodationInterestListOperationCompleted;
-        
         private System.Threading.SendOrPostCallback unregisterAccommodationInterestOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback searchHotelByNameOperationCompleted;
         
         private System.Threading.SendOrPostCallback registerPassageInterestOperationCompleted;
         
-        private System.Threading.SendOrPostCallback registerHotelInterestOperationCompleted;
+        private System.Threading.SendOrPostCallback searchHotelByCityOperationCompleted;
         
         private System.Threading.SendOrPostCallback insertPassageEntryOperationCompleted;
         
-        private System.Threading.SendOrPostCallback searchHotelByCityOperationCompleted;
+        private System.Threading.SendOrPostCallback registerHotelInterestOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getTicketInterestListOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getAccommodationInterestListOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getPackageInterestListOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback searchHotelByNameOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback loadDBHotelsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback searchPassagesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback loadDBPassagesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback insertHotelEntryOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback reserveHotelOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback buyPassageOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback buyPackageOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback searchPackagesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback unregisterTicketInterestByFlightTicketOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback notifyPackageInterestsByAccommodationOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -116,43 +116,10 @@ namespace TravelAgencyClient.localhost {
         }
         
         /// <remarks/>
-        public event buyPackageCompletedEventHandler buyPackageCompleted;
-        
-        /// <remarks/>
-        public event unregisterTicketInterestByFlightTicketCompletedEventHandler unregisterTicketInterestByFlightTicketCompleted;
-        
-        /// <remarks/>
-        public event notifyPackageInterestsByAccommodationCompletedEventHandler notifyPackageInterestsByAccommodationCompleted;
-        
-        /// <remarks/>
-        public event buyPassageCompletedEventHandler buyPassageCompleted;
-        
-        /// <remarks/>
-        public event searchPackagesCompletedEventHandler searchPackagesCompleted;
-        
-        /// <remarks/>
-        public event reserveHotelCompletedEventHandler reserveHotelCompleted;
-        
-        /// <remarks/>
-        public event searchPassagesCompletedEventHandler searchPassagesCompleted;
-        
-        /// <remarks/>
-        public event loadDBPassagesCompletedEventHandler loadDBPassagesCompleted;
-        
-        /// <remarks/>
-        public event loadDBHotelsCompletedEventHandler loadDBHotelsCompleted;
-        
-        /// <remarks/>
-        public event insertHotelEntryCompletedEventHandler insertHotelEntryCompleted;
-        
-        /// <remarks/>
-        public event getPackageInterestListCompletedEventHandler getPackageInterestListCompleted;
+        public event registerPackageInterestCompletedEventHandler registerPackageInterestCompleted;
         
         /// <remarks/>
         public event notifyAccommodationInterestsCompletedEventHandler notifyAccommodationInterestsCompleted;
-        
-        /// <remarks/>
-        public event getTicketInterestListCompletedEventHandler getTicketInterestListCompleted;
         
         /// <remarks/>
         public event unregisterPackageInterestCompletedEventHandler unregisterPackageInterestCompleted;
@@ -164,146 +131,66 @@ namespace TravelAgencyClient.localhost {
         public event notifyTicketsInterestsCompletedEventHandler notifyTicketsInterestsCompleted;
         
         /// <remarks/>
-        public event registerPackageInterestCompletedEventHandler registerPackageInterestCompleted;
-        
-        /// <remarks/>
-        public event getAccommodationInterestListCompletedEventHandler getAccommodationInterestListCompleted;
-        
-        /// <remarks/>
         public event unregisterAccommodationInterestCompletedEventHandler unregisterAccommodationInterestCompleted;
-        
-        /// <remarks/>
-        public event searchHotelByNameCompletedEventHandler searchHotelByNameCompleted;
         
         /// <remarks/>
         public event registerPassageInterestCompletedEventHandler registerPassageInterestCompleted;
         
         /// <remarks/>
-        public event registerHotelInterestCompletedEventHandler registerHotelInterestCompleted;
+        public event searchHotelByCityCompletedEventHandler searchHotelByCityCompleted;
         
         /// <remarks/>
         public event insertPassageEntryCompletedEventHandler insertPassageEntryCompleted;
         
         /// <remarks/>
-        public event searchHotelByCityCompletedEventHandler searchHotelByCityCompleted;
+        public event registerHotelInterestCompletedEventHandler registerHotelInterestCompleted;
+        
+        /// <remarks/>
+        public event getTicketInterestListCompletedEventHandler getTicketInterestListCompleted;
+        
+        /// <remarks/>
+        public event getAccommodationInterestListCompletedEventHandler getAccommodationInterestListCompleted;
+        
+        /// <remarks/>
+        public event getPackageInterestListCompletedEventHandler getPackageInterestListCompleted;
+        
+        /// <remarks/>
+        public event searchHotelByNameCompletedEventHandler searchHotelByNameCompleted;
+        
+        /// <remarks/>
+        public event loadDBHotelsCompletedEventHandler loadDBHotelsCompleted;
+        
+        /// <remarks/>
+        public event searchPassagesCompletedEventHandler searchPassagesCompleted;
+        
+        /// <remarks/>
+        public event loadDBPassagesCompletedEventHandler loadDBPassagesCompleted;
+        
+        /// <remarks/>
+        public event insertHotelEntryCompletedEventHandler insertHotelEntryCompleted;
+        
+        /// <remarks/>
+        public event reserveHotelCompletedEventHandler reserveHotelCompleted;
+        
+        /// <remarks/>
+        public event buyPassageCompletedEventHandler buyPassageCompleted;
+        
+        /// <remarks/>
+        public event buyPackageCompletedEventHandler buyPackageCompleted;
+        
+        /// <remarks/>
+        public event searchPackagesCompletedEventHandler searchPackagesCompleted;
+        
+        /// <remarks/>
+        public event unregisterTicketInterestByFlightTicketCompletedEventHandler unregisterTicketInterestByFlightTicketCompleted;
+        
+        /// <remarks/>
+        public event notifyPackageInterestsByAccommodationCompletedEventHandler notifyPackageInterestsByAccommodationCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int buyPackage([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg4, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg5, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] bool arg6, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg7, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg8, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg9, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg10, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg11, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg12, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg13) {
-            object[] results = this.Invoke("buyPackage", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3,
-                        arg4,
-                        arg5,
-                        arg6,
-                        arg7,
-                        arg8,
-                        arg9,
-                        arg10,
-                        arg11,
-                        arg12,
-                        arg13});
-            return ((int)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void buyPackageAsync(string arg0, string arg1, string arg2, int arg3, int arg4, int arg5, bool arg6, int arg7, int arg8, int arg9, float arg10, float arg11, float arg12, int arg13) {
-            this.buyPackageAsync(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, null);
-        }
-        
-        /// <remarks/>
-        public void buyPackageAsync(string arg0, string arg1, string arg2, int arg3, int arg4, int arg5, bool arg6, int arg7, int arg8, int arg9, float arg10, float arg11, float arg12, int arg13, object userState) {
-            if ((this.buyPackageOperationCompleted == null)) {
-                this.buyPackageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnbuyPackageOperationCompleted);
-            }
-            this.InvokeAsync("buyPackage", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3,
-                        arg4,
-                        arg5,
-                        arg6,
-                        arg7,
-                        arg8,
-                        arg9,
-                        arg10,
-                        arg11,
-                        arg12,
-                        arg13}, this.buyPackageOperationCompleted, userState);
-        }
-        
-        private void OnbuyPackageOperationCompleted(object arg) {
-            if ((this.buyPackageCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.buyPackageCompleted(this, new buyPackageCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void unregisterTicketInterestByFlightTicket([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] flightTicketInterest arg0) {
-            this.Invoke("unregisterTicketInterestByFlightTicket", new object[] {
-                        arg0});
-        }
-        
-        /// <remarks/>
-        public void unregisterTicketInterestByFlightTicketAsync(flightTicketInterest arg0) {
-            this.unregisterTicketInterestByFlightTicketAsync(arg0, null);
-        }
-        
-        /// <remarks/>
-        public void unregisterTicketInterestByFlightTicketAsync(flightTicketInterest arg0, object userState) {
-            if ((this.unregisterTicketInterestByFlightTicketOperationCompleted == null)) {
-                this.unregisterTicketInterestByFlightTicketOperationCompleted = new System.Threading.SendOrPostCallback(this.OnunregisterTicketInterestByFlightTicketOperationCompleted);
-            }
-            this.InvokeAsync("unregisterTicketInterestByFlightTicket", new object[] {
-                        arg0}, this.unregisterTicketInterestByFlightTicketOperationCompleted, userState);
-        }
-        
-        private void OnunregisterTicketInterestByFlightTicketOperationCompleted(object arg) {
-            if ((this.unregisterTicketInterestByFlightTicketCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.unregisterTicketInterestByFlightTicketCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void notifyPackageInterestsByAccommodation([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] accommodation arg0) {
-            this.Invoke("notifyPackageInterestsByAccommodation", new object[] {
-                        arg0});
-        }
-        
-        /// <remarks/>
-        public void notifyPackageInterestsByAccommodationAsync(accommodation arg0) {
-            this.notifyPackageInterestsByAccommodationAsync(arg0, null);
-        }
-        
-        /// <remarks/>
-        public void notifyPackageInterestsByAccommodationAsync(accommodation arg0, object userState) {
-            if ((this.notifyPackageInterestsByAccommodationOperationCompleted == null)) {
-                this.notifyPackageInterestsByAccommodationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnnotifyPackageInterestsByAccommodationOperationCompleted);
-            }
-            this.InvokeAsync("notifyPackageInterestsByAccommodation", new object[] {
-                        arg0}, this.notifyPackageInterestsByAccommodationOperationCompleted, userState);
-        }
-        
-        private void OnnotifyPackageInterestsByAccommodationOperationCompleted(object arg) {
-            if ((this.notifyPackageInterestsByAccommodationCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.notifyPackageInterestsByAccommodationCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool buyPassage([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg4, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg5, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg6) {
-            object[] results = this.Invoke("buyPassage", new object[] {
+        public void registerPackageInterest([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] flightTicket arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] flightTicket arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] accommodation arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg4, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg5, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg6) {
+            this.Invoke("registerPackageInterest", new object[] {
                         arg0,
                         arg1,
                         arg2,
@@ -311,278 +198,32 @@ namespace TravelAgencyClient.localhost {
                         arg4,
                         arg5,
                         arg6});
-            return ((bool)(results[0]));
         }
         
         /// <remarks/>
-        public void buyPassageAsync(string arg0, string arg1, int arg2, int arg3, int arg4, int arg5, float arg6) {
-            this.buyPassageAsync(arg0, arg1, arg2, arg3, arg4, arg5, arg6, null);
+        public void registerPackageInterestAsync(flightTicket arg0, flightTicket arg1, accommodation arg2, int arg3, float arg4, int arg5, string arg6) {
+            this.registerPackageInterestAsync(arg0, arg1, arg2, arg3, arg4, arg5, arg6, null);
         }
         
         /// <remarks/>
-        public void buyPassageAsync(string arg0, string arg1, int arg2, int arg3, int arg4, int arg5, float arg6, object userState) {
-            if ((this.buyPassageOperationCompleted == null)) {
-                this.buyPassageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnbuyPassageOperationCompleted);
+        public void registerPackageInterestAsync(flightTicket arg0, flightTicket arg1, accommodation arg2, int arg3, float arg4, int arg5, string arg6, object userState) {
+            if ((this.registerPackageInterestOperationCompleted == null)) {
+                this.registerPackageInterestOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregisterPackageInterestOperationCompleted);
             }
-            this.InvokeAsync("buyPassage", new object[] {
+            this.InvokeAsync("registerPackageInterest", new object[] {
                         arg0,
                         arg1,
                         arg2,
                         arg3,
                         arg4,
                         arg5,
-                        arg6}, this.buyPassageOperationCompleted, userState);
+                        arg6}, this.registerPackageInterestOperationCompleted, userState);
         }
         
-        private void OnbuyPassageOperationCompleted(object arg) {
-            if ((this.buyPassageCompleted != null)) {
+        private void OnregisterPackageInterestOperationCompleted(object arg) {
+            if ((this.registerPackageInterestCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.buyPassageCompleted(this, new buyPassageCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public packages[] searchPackages([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg4, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] bool arg5, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg6, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg7, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg8) {
-            object[] results = this.Invoke("searchPackages", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3,
-                        arg4,
-                        arg5,
-                        arg6,
-                        arg7,
-                        arg8});
-            return ((packages[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void searchPackagesAsync(string arg0, string arg1, int arg2, int arg3, int arg4, bool arg5, int arg6, int arg7, int arg8) {
-            this.searchPackagesAsync(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, null);
-        }
-        
-        /// <remarks/>
-        public void searchPackagesAsync(string arg0, string arg1, int arg2, int arg3, int arg4, bool arg5, int arg6, int arg7, int arg8, object userState) {
-            if ((this.searchPackagesOperationCompleted == null)) {
-                this.searchPackagesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsearchPackagesOperationCompleted);
-            }
-            this.InvokeAsync("searchPackages", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3,
-                        arg4,
-                        arg5,
-                        arg6,
-                        arg7,
-                        arg8}, this.searchPackagesOperationCompleted, userState);
-        }
-        
-        private void OnsearchPackagesOperationCompleted(object arg) {
-            if ((this.searchPackagesCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.searchPackagesCompleted(this, new searchPackagesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool reserveHotel([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg3) {
-            object[] results = this.Invoke("reserveHotel", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3});
-            return ((bool)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void reserveHotelAsync(string arg0, string arg1, int arg2, float arg3) {
-            this.reserveHotelAsync(arg0, arg1, arg2, arg3, null);
-        }
-        
-        /// <remarks/>
-        public void reserveHotelAsync(string arg0, string arg1, int arg2, float arg3, object userState) {
-            if ((this.reserveHotelOperationCompleted == null)) {
-                this.reserveHotelOperationCompleted = new System.Threading.SendOrPostCallback(this.OnreserveHotelOperationCompleted);
-            }
-            this.InvokeAsync("reserveHotel", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3}, this.reserveHotelOperationCompleted, userState);
-        }
-        
-        private void OnreserveHotelOperationCompleted(object arg) {
-            if ((this.reserveHotelCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.reserveHotelCompleted(this, new reserveHotelCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlArrayAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute("flightTicketList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public flightTicket[] searchPassages([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg4) {
-            object[] results = this.Invoke("searchPassages", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3,
-                        arg4});
-            return ((flightTicket[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void searchPassagesAsync(string arg0, string arg1, int arg2, int arg3, int arg4) {
-            this.searchPassagesAsync(arg0, arg1, arg2, arg3, arg4, null);
-        }
-        
-        /// <remarks/>
-        public void searchPassagesAsync(string arg0, string arg1, int arg2, int arg3, int arg4, object userState) {
-            if ((this.searchPassagesOperationCompleted == null)) {
-                this.searchPassagesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsearchPassagesOperationCompleted);
-            }
-            this.InvokeAsync("searchPassages", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3,
-                        arg4}, this.searchPassagesOperationCompleted, userState);
-        }
-        
-        private void OnsearchPassagesOperationCompleted(object arg) {
-            if ((this.searchPassagesCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.searchPassagesCompleted(this, new searchPassagesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlArrayAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute("flightTicketList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public flightTicket[] loadDBPassages() {
-            object[] results = this.Invoke("loadDBPassages", new object[0]);
-            return ((flightTicket[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void loadDBPassagesAsync() {
-            this.loadDBPassagesAsync(null);
-        }
-        
-        /// <remarks/>
-        public void loadDBPassagesAsync(object userState) {
-            if ((this.loadDBPassagesOperationCompleted == null)) {
-                this.loadDBPassagesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnloadDBPassagesOperationCompleted);
-            }
-            this.InvokeAsync("loadDBPassages", new object[0], this.loadDBPassagesOperationCompleted, userState);
-        }
-        
-        private void OnloadDBPassagesOperationCompleted(object arg) {
-            if ((this.loadDBPassagesCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.loadDBPassagesCompleted(this, new loadDBPassagesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlArrayAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute("accommodationList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public accommodation[] loadDBHotels() {
-            object[] results = this.Invoke("loadDBHotels", new object[0]);
-            return ((accommodation[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void loadDBHotelsAsync() {
-            this.loadDBHotelsAsync(null);
-        }
-        
-        /// <remarks/>
-        public void loadDBHotelsAsync(object userState) {
-            if ((this.loadDBHotelsOperationCompleted == null)) {
-                this.loadDBHotelsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnloadDBHotelsOperationCompleted);
-            }
-            this.InvokeAsync("loadDBHotels", new object[0], this.loadDBHotelsOperationCompleted, userState);
-        }
-        
-        private void OnloadDBHotelsOperationCompleted(object arg) {
-            if ((this.loadDBHotelsCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.loadDBHotelsCompleted(this, new loadDBHotelsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool insertHotelEntry([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg4) {
-            object[] results = this.Invoke("insertHotelEntry", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3,
-                        arg4});
-            return ((bool)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void insertHotelEntryAsync(string arg0, string arg1, int arg2, int arg3, float arg4) {
-            this.insertHotelEntryAsync(arg0, arg1, arg2, arg3, arg4, null);
-        }
-        
-        /// <remarks/>
-        public void insertHotelEntryAsync(string arg0, string arg1, int arg2, int arg3, float arg4, object userState) {
-            if ((this.insertHotelEntryOperationCompleted == null)) {
-                this.insertHotelEntryOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertHotelEntryOperationCompleted);
-            }
-            this.InvokeAsync("insertHotelEntry", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3,
-                        arg4}, this.insertHotelEntryOperationCompleted, userState);
-        }
-        
-        private void OninsertHotelEntryOperationCompleted(object arg) {
-            if ((this.insertHotelEntryCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.insertHotelEntryCompleted(this, new insertHotelEntryCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public packageInterest[] getPackageInterestList() {
-            object[] results = this.Invoke("getPackageInterestList", new object[0]);
-            return ((packageInterest[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void getPackageInterestListAsync() {
-            this.getPackageInterestListAsync(null);
-        }
-        
-        /// <remarks/>
-        public void getPackageInterestListAsync(object userState) {
-            if ((this.getPackageInterestListOperationCompleted == null)) {
-                this.getPackageInterestListOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetPackageInterestListOperationCompleted);
-            }
-            this.InvokeAsync("getPackageInterestList", new object[0], this.getPackageInterestListOperationCompleted, userState);
-        }
-        
-        private void OngetPackageInterestListOperationCompleted(object arg) {
-            if ((this.getPackageInterestListCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.getPackageInterestListCompleted(this, new getPackageInterestListCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.registerPackageInterestCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -611,34 +252,6 @@ namespace TravelAgencyClient.localhost {
             if ((this.notifyAccommodationInterestsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.notifyAccommodationInterestsCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public flightTicketInterest[] getTicketInterestList() {
-            object[] results = this.Invoke("getTicketInterestList", new object[0]);
-            return ((flightTicketInterest[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void getTicketInterestListAsync() {
-            this.getTicketInterestListAsync(null);
-        }
-        
-        /// <remarks/>
-        public void getTicketInterestListAsync(object userState) {
-            if ((this.getTicketInterestListOperationCompleted == null)) {
-                this.getTicketInterestListOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetTicketInterestListOperationCompleted);
-            }
-            this.InvokeAsync("getTicketInterestList", new object[0], this.getTicketInterestListOperationCompleted, userState);
-        }
-        
-        private void OngetTicketInterestListOperationCompleted(object arg) {
-            if ((this.getTicketInterestListCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.getTicketInterestListCompleted(this, new getTicketInterestListCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -728,74 +341,6 @@ namespace TravelAgencyClient.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void registerPackageInterest([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] flightTicket arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] flightTicket arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] accommodation arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg4, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg5, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg6) {
-            this.Invoke("registerPackageInterest", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3,
-                        arg4,
-                        arg5,
-                        arg6});
-        }
-        
-        /// <remarks/>
-        public void registerPackageInterestAsync(flightTicket arg0, flightTicket arg1, accommodation arg2, int arg3, float arg4, int arg5, string arg6) {
-            this.registerPackageInterestAsync(arg0, arg1, arg2, arg3, arg4, arg5, arg6, null);
-        }
-        
-        /// <remarks/>
-        public void registerPackageInterestAsync(flightTicket arg0, flightTicket arg1, accommodation arg2, int arg3, float arg4, int arg5, string arg6, object userState) {
-            if ((this.registerPackageInterestOperationCompleted == null)) {
-                this.registerPackageInterestOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregisterPackageInterestOperationCompleted);
-            }
-            this.InvokeAsync("registerPackageInterest", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3,
-                        arg4,
-                        arg5,
-                        arg6}, this.registerPackageInterestOperationCompleted, userState);
-        }
-        
-        private void OnregisterPackageInterestOperationCompleted(object arg) {
-            if ((this.registerPackageInterestCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.registerPackageInterestCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public accommodationInterest[] getAccommodationInterestList() {
-            object[] results = this.Invoke("getAccommodationInterestList", new object[0]);
-            return ((accommodationInterest[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void getAccommodationInterestListAsync() {
-            this.getAccommodationInterestListAsync(null);
-        }
-        
-        /// <remarks/>
-        public void getAccommodationInterestListAsync(object userState) {
-            if ((this.getAccommodationInterestListOperationCompleted == null)) {
-                this.getAccommodationInterestListOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetAccommodationInterestListOperationCompleted);
-            }
-            this.InvokeAsync("getAccommodationInterestList", new object[0], this.getAccommodationInterestListOperationCompleted, userState);
-        }
-        
-        private void OngetAccommodationInterestListOperationCompleted(object arg) {
-            if ((this.getAccommodationInterestListCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.getAccommodationInterestListCompleted(this, new getAccommodationInterestListCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void unregisterAccommodationInterest([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] accommodationInterest arg0) {
             this.Invoke("unregisterAccommodationInterest", new object[] {
                         arg0});
@@ -824,53 +369,28 @@ namespace TravelAgencyClient.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlArrayAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute("accommodationList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public accommodation[] searchHotelByName([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0) {
-            object[] results = this.Invoke("searchHotelByName", new object[] {
-                        arg0});
-            return ((accommodation[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void searchHotelByNameAsync(string arg0) {
-            this.searchHotelByNameAsync(arg0, null);
-        }
-        
-        /// <remarks/>
-        public void searchHotelByNameAsync(string arg0, object userState) {
-            if ((this.searchHotelByNameOperationCompleted == null)) {
-                this.searchHotelByNameOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsearchHotelByNameOperationCompleted);
-            }
-            this.InvokeAsync("searchHotelByName", new object[] {
-                        arg0}, this.searchHotelByNameOperationCompleted, userState);
-        }
-        
-        private void OnsearchHotelByNameOperationCompleted(object arg) {
-            if ((this.searchHotelByNameCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.searchHotelByNameCompleted(this, new searchHotelByNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void registerPassageInterest([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] flightTicket arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] flightTicket arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg4) {
+        public void registerPassageInterest([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg4, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] bool arg5, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg6, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg7, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg8, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg9, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg10) {
             this.Invoke("registerPassageInterest", new object[] {
                         arg0,
                         arg1,
                         arg2,
                         arg3,
-                        arg4});
+                        arg4,
+                        arg5,
+                        arg6,
+                        arg7,
+                        arg8,
+                        arg9,
+                        arg10});
         }
         
         /// <remarks/>
-        public void registerPassageInterestAsync(flightTicket arg0, flightTicket arg1, int arg2, float arg3, string arg4) {
-            this.registerPassageInterestAsync(arg0, arg1, arg2, arg3, arg4, null);
+        public void registerPassageInterestAsync(string arg0, string arg1, int arg2, int arg3, int arg4, bool arg5, int arg6, int arg7, int arg8, int arg9, float arg10) {
+            this.registerPassageInterestAsync(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, null);
         }
         
         /// <remarks/>
-        public void registerPassageInterestAsync(flightTicket arg0, flightTicket arg1, int arg2, float arg3, string arg4, object userState) {
+        public void registerPassageInterestAsync(string arg0, string arg1, int arg2, int arg3, int arg4, bool arg5, int arg6, int arg7, int arg8, int arg9, float arg10, object userState) {
             if ((this.registerPassageInterestOperationCompleted == null)) {
                 this.registerPassageInterestOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregisterPassageInterestOperationCompleted);
             }
@@ -879,7 +399,13 @@ namespace TravelAgencyClient.localhost {
                         arg1,
                         arg2,
                         arg3,
-                        arg4}, this.registerPassageInterestOperationCompleted, userState);
+                        arg4,
+                        arg5,
+                        arg6,
+                        arg7,
+                        arg8,
+                        arg9,
+                        arg10}, this.registerPassageInterestOperationCompleted, userState);
         }
         
         private void OnregisterPassageInterestOperationCompleted(object arg) {
@@ -891,37 +417,32 @@ namespace TravelAgencyClient.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void registerHotelInterest([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] accommodation arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg4) {
-            this.Invoke("registerHotelInterest", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3,
-                        arg4});
+        [return: System.Xml.Serialization.XmlArrayAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute("accommodationList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public accommodation[] searchHotelByCity([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0) {
+            object[] results = this.Invoke("searchHotelByCity", new object[] {
+                        arg0});
+            return ((accommodation[])(results[0]));
         }
         
         /// <remarks/>
-        public void registerHotelInterestAsync(accommodation arg0, int arg1, int arg2, float arg3, string arg4) {
-            this.registerHotelInterestAsync(arg0, arg1, arg2, arg3, arg4, null);
+        public void searchHotelByCityAsync(string arg0) {
+            this.searchHotelByCityAsync(arg0, null);
         }
         
         /// <remarks/>
-        public void registerHotelInterestAsync(accommodation arg0, int arg1, int arg2, float arg3, string arg4, object userState) {
-            if ((this.registerHotelInterestOperationCompleted == null)) {
-                this.registerHotelInterestOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregisterHotelInterestOperationCompleted);
+        public void searchHotelByCityAsync(string arg0, object userState) {
+            if ((this.searchHotelByCityOperationCompleted == null)) {
+                this.searchHotelByCityOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsearchHotelByCityOperationCompleted);
             }
-            this.InvokeAsync("registerHotelInterest", new object[] {
-                        arg0,
-                        arg1,
-                        arg2,
-                        arg3,
-                        arg4}, this.registerHotelInterestOperationCompleted, userState);
+            this.InvokeAsync("searchHotelByCity", new object[] {
+                        arg0}, this.searchHotelByCityOperationCompleted, userState);
         }
         
-        private void OnregisterHotelInterestOperationCompleted(object arg) {
-            if ((this.registerHotelInterestCompleted != null)) {
+        private void OnsearchHotelByCityOperationCompleted(object arg) {
+            if ((this.searchHotelByCityCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.registerHotelInterestCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.searchHotelByCityCompleted(this, new searchHotelByCityCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -969,32 +490,523 @@ namespace TravelAgencyClient.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void registerHotelInterest([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] accommodation arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg4) {
+            this.Invoke("registerHotelInterest", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3,
+                        arg4});
+        }
+        
+        /// <remarks/>
+        public void registerHotelInterestAsync(accommodation arg0, int arg1, int arg2, float arg3, string arg4) {
+            this.registerHotelInterestAsync(arg0, arg1, arg2, arg3, arg4, null);
+        }
+        
+        /// <remarks/>
+        public void registerHotelInterestAsync(accommodation arg0, int arg1, int arg2, float arg3, string arg4, object userState) {
+            if ((this.registerHotelInterestOperationCompleted == null)) {
+                this.registerHotelInterestOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregisterHotelInterestOperationCompleted);
+            }
+            this.InvokeAsync("registerHotelInterest", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3,
+                        arg4}, this.registerHotelInterestOperationCompleted, userState);
+        }
+        
+        private void OnregisterHotelInterestOperationCompleted(object arg) {
+            if ((this.registerHotelInterestCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.registerHotelInterestCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public flightTicketInterest[] getTicketInterestList() {
+            object[] results = this.Invoke("getTicketInterestList", new object[0]);
+            return ((flightTicketInterest[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getTicketInterestListAsync() {
+            this.getTicketInterestListAsync(null);
+        }
+        
+        /// <remarks/>
+        public void getTicketInterestListAsync(object userState) {
+            if ((this.getTicketInterestListOperationCompleted == null)) {
+                this.getTicketInterestListOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetTicketInterestListOperationCompleted);
+            }
+            this.InvokeAsync("getTicketInterestList", new object[0], this.getTicketInterestListOperationCompleted, userState);
+        }
+        
+        private void OngetTicketInterestListOperationCompleted(object arg) {
+            if ((this.getTicketInterestListCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getTicketInterestListCompleted(this, new getTicketInterestListCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public accommodationInterest[] getAccommodationInterestList() {
+            object[] results = this.Invoke("getAccommodationInterestList", new object[0]);
+            return ((accommodationInterest[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getAccommodationInterestListAsync() {
+            this.getAccommodationInterestListAsync(null);
+        }
+        
+        /// <remarks/>
+        public void getAccommodationInterestListAsync(object userState) {
+            if ((this.getAccommodationInterestListOperationCompleted == null)) {
+                this.getAccommodationInterestListOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetAccommodationInterestListOperationCompleted);
+            }
+            this.InvokeAsync("getAccommodationInterestList", new object[0], this.getAccommodationInterestListOperationCompleted, userState);
+        }
+        
+        private void OngetAccommodationInterestListOperationCompleted(object arg) {
+            if ((this.getAccommodationInterestListCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getAccommodationInterestListCompleted(this, new getAccommodationInterestListCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public packageInterest[] getPackageInterestList() {
+            object[] results = this.Invoke("getPackageInterestList", new object[0]);
+            return ((packageInterest[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getPackageInterestListAsync() {
+            this.getPackageInterestListAsync(null);
+        }
+        
+        /// <remarks/>
+        public void getPackageInterestListAsync(object userState) {
+            if ((this.getPackageInterestListOperationCompleted == null)) {
+                this.getPackageInterestListOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetPackageInterestListOperationCompleted);
+            }
+            this.InvokeAsync("getPackageInterestList", new object[0], this.getPackageInterestListOperationCompleted, userState);
+        }
+        
+        private void OngetPackageInterestListOperationCompleted(object arg) {
+            if ((this.getPackageInterestListCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getPackageInterestListCompleted(this, new getPackageInterestListCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute("accommodationList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public accommodation[] searchHotelByCity([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0) {
-            object[] results = this.Invoke("searchHotelByCity", new object[] {
+        public accommodation[] searchHotelByName([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0) {
+            object[] results = this.Invoke("searchHotelByName", new object[] {
                         arg0});
             return ((accommodation[])(results[0]));
         }
         
         /// <remarks/>
-        public void searchHotelByCityAsync(string arg0) {
-            this.searchHotelByCityAsync(arg0, null);
+        public void searchHotelByNameAsync(string arg0) {
+            this.searchHotelByNameAsync(arg0, null);
         }
         
         /// <remarks/>
-        public void searchHotelByCityAsync(string arg0, object userState) {
-            if ((this.searchHotelByCityOperationCompleted == null)) {
-                this.searchHotelByCityOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsearchHotelByCityOperationCompleted);
+        public void searchHotelByNameAsync(string arg0, object userState) {
+            if ((this.searchHotelByNameOperationCompleted == null)) {
+                this.searchHotelByNameOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsearchHotelByNameOperationCompleted);
             }
-            this.InvokeAsync("searchHotelByCity", new object[] {
-                        arg0}, this.searchHotelByCityOperationCompleted, userState);
+            this.InvokeAsync("searchHotelByName", new object[] {
+                        arg0}, this.searchHotelByNameOperationCompleted, userState);
         }
         
-        private void OnsearchHotelByCityOperationCompleted(object arg) {
-            if ((this.searchHotelByCityCompleted != null)) {
+        private void OnsearchHotelByNameOperationCompleted(object arg) {
+            if ((this.searchHotelByNameCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.searchHotelByCityCompleted(this, new searchHotelByCityCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.searchHotelByNameCompleted(this, new searchHotelByNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute("accommodationList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public accommodation[] loadDBHotels() {
+            object[] results = this.Invoke("loadDBHotels", new object[0]);
+            return ((accommodation[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void loadDBHotelsAsync() {
+            this.loadDBHotelsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void loadDBHotelsAsync(object userState) {
+            if ((this.loadDBHotelsOperationCompleted == null)) {
+                this.loadDBHotelsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnloadDBHotelsOperationCompleted);
+            }
+            this.InvokeAsync("loadDBHotels", new object[0], this.loadDBHotelsOperationCompleted, userState);
+        }
+        
+        private void OnloadDBHotelsOperationCompleted(object arg) {
+            if ((this.loadDBHotelsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.loadDBHotelsCompleted(this, new loadDBHotelsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute("flightTicketList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public flightTicket[] searchPassages([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg4) {
+            object[] results = this.Invoke("searchPassages", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3,
+                        arg4});
+            return ((flightTicket[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void searchPassagesAsync(string arg0, string arg1, int arg2, int arg3, int arg4) {
+            this.searchPassagesAsync(arg0, arg1, arg2, arg3, arg4, null);
+        }
+        
+        /// <remarks/>
+        public void searchPassagesAsync(string arg0, string arg1, int arg2, int arg3, int arg4, object userState) {
+            if ((this.searchPassagesOperationCompleted == null)) {
+                this.searchPassagesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsearchPassagesOperationCompleted);
+            }
+            this.InvokeAsync("searchPassages", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3,
+                        arg4}, this.searchPassagesOperationCompleted, userState);
+        }
+        
+        private void OnsearchPassagesOperationCompleted(object arg) {
+            if ((this.searchPassagesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.searchPassagesCompleted(this, new searchPassagesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute("flightTicketList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public flightTicket[] loadDBPassages() {
+            object[] results = this.Invoke("loadDBPassages", new object[0]);
+            return ((flightTicket[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void loadDBPassagesAsync() {
+            this.loadDBPassagesAsync(null);
+        }
+        
+        /// <remarks/>
+        public void loadDBPassagesAsync(object userState) {
+            if ((this.loadDBPassagesOperationCompleted == null)) {
+                this.loadDBPassagesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnloadDBPassagesOperationCompleted);
+            }
+            this.InvokeAsync("loadDBPassages", new object[0], this.loadDBPassagesOperationCompleted, userState);
+        }
+        
+        private void OnloadDBPassagesOperationCompleted(object arg) {
+            if ((this.loadDBPassagesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.loadDBPassagesCompleted(this, new loadDBPassagesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool insertHotelEntry([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg4) {
+            object[] results = this.Invoke("insertHotelEntry", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3,
+                        arg4});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void insertHotelEntryAsync(string arg0, string arg1, int arg2, int arg3, float arg4) {
+            this.insertHotelEntryAsync(arg0, arg1, arg2, arg3, arg4, null);
+        }
+        
+        /// <remarks/>
+        public void insertHotelEntryAsync(string arg0, string arg1, int arg2, int arg3, float arg4, object userState) {
+            if ((this.insertHotelEntryOperationCompleted == null)) {
+                this.insertHotelEntryOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertHotelEntryOperationCompleted);
+            }
+            this.InvokeAsync("insertHotelEntry", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3,
+                        arg4}, this.insertHotelEntryOperationCompleted, userState);
+        }
+        
+        private void OninsertHotelEntryOperationCompleted(object arg) {
+            if ((this.insertHotelEntryCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.insertHotelEntryCompleted(this, new insertHotelEntryCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool reserveHotel([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg3) {
+            object[] results = this.Invoke("reserveHotel", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void reserveHotelAsync(string arg0, string arg1, int arg2, float arg3) {
+            this.reserveHotelAsync(arg0, arg1, arg2, arg3, null);
+        }
+        
+        /// <remarks/>
+        public void reserveHotelAsync(string arg0, string arg1, int arg2, float arg3, object userState) {
+            if ((this.reserveHotelOperationCompleted == null)) {
+                this.reserveHotelOperationCompleted = new System.Threading.SendOrPostCallback(this.OnreserveHotelOperationCompleted);
+            }
+            this.InvokeAsync("reserveHotel", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3}, this.reserveHotelOperationCompleted, userState);
+        }
+        
+        private void OnreserveHotelOperationCompleted(object arg) {
+            if ((this.reserveHotelCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.reserveHotelCompleted(this, new reserveHotelCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool buyPassage([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg4, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg5, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg6) {
+            object[] results = this.Invoke("buyPassage", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3,
+                        arg4,
+                        arg5,
+                        arg6});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void buyPassageAsync(string arg0, string arg1, int arg2, int arg3, int arg4, int arg5, float arg6) {
+            this.buyPassageAsync(arg0, arg1, arg2, arg3, arg4, arg5, arg6, null);
+        }
+        
+        /// <remarks/>
+        public void buyPassageAsync(string arg0, string arg1, int arg2, int arg3, int arg4, int arg5, float arg6, object userState) {
+            if ((this.buyPassageOperationCompleted == null)) {
+                this.buyPassageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnbuyPassageOperationCompleted);
+            }
+            this.InvokeAsync("buyPassage", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3,
+                        arg4,
+                        arg5,
+                        arg6}, this.buyPassageOperationCompleted, userState);
+        }
+        
+        private void OnbuyPassageOperationCompleted(object arg) {
+            if ((this.buyPassageCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.buyPassageCompleted(this, new buyPassageCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int buyPackage([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg4, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg5, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] bool arg6, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg7, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg8, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg9, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg10, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg11, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] float arg12, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg13) {
+            object[] results = this.Invoke("buyPackage", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3,
+                        arg4,
+                        arg5,
+                        arg6,
+                        arg7,
+                        arg8,
+                        arg9,
+                        arg10,
+                        arg11,
+                        arg12,
+                        arg13});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void buyPackageAsync(string arg0, string arg1, string arg2, int arg3, int arg4, int arg5, bool arg6, int arg7, int arg8, int arg9, float arg10, float arg11, float arg12, int arg13) {
+            this.buyPackageAsync(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, null);
+        }
+        
+        /// <remarks/>
+        public void buyPackageAsync(string arg0, string arg1, string arg2, int arg3, int arg4, int arg5, bool arg6, int arg7, int arg8, int arg9, float arg10, float arg11, float arg12, int arg13, object userState) {
+            if ((this.buyPackageOperationCompleted == null)) {
+                this.buyPackageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnbuyPackageOperationCompleted);
+            }
+            this.InvokeAsync("buyPackage", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3,
+                        arg4,
+                        arg5,
+                        arg6,
+                        arg7,
+                        arg8,
+                        arg9,
+                        arg10,
+                        arg11,
+                        arg12,
+                        arg13}, this.buyPackageOperationCompleted, userState);
+        }
+        
+        private void OnbuyPackageOperationCompleted(object arg) {
+            if ((this.buyPackageCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.buyPackageCompleted(this, new buyPackageCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public packages[] searchPackages([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string arg1, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg2, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg3, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg4, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] bool arg5, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg6, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg7, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int arg8) {
+            object[] results = this.Invoke("searchPackages", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3,
+                        arg4,
+                        arg5,
+                        arg6,
+                        arg7,
+                        arg8});
+            return ((packages[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void searchPackagesAsync(string arg0, string arg1, int arg2, int arg3, int arg4, bool arg5, int arg6, int arg7, int arg8) {
+            this.searchPackagesAsync(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, null);
+        }
+        
+        /// <remarks/>
+        public void searchPackagesAsync(string arg0, string arg1, int arg2, int arg3, int arg4, bool arg5, int arg6, int arg7, int arg8, object userState) {
+            if ((this.searchPackagesOperationCompleted == null)) {
+                this.searchPackagesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsearchPackagesOperationCompleted);
+            }
+            this.InvokeAsync("searchPackages", new object[] {
+                        arg0,
+                        arg1,
+                        arg2,
+                        arg3,
+                        arg4,
+                        arg5,
+                        arg6,
+                        arg7,
+                        arg8}, this.searchPackagesOperationCompleted, userState);
+        }
+        
+        private void OnsearchPackagesOperationCompleted(object arg) {
+            if ((this.searchPackagesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.searchPackagesCompleted(this, new searchPackagesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void unregisterTicketInterestByFlightTicket([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] flightTicketInterest arg0) {
+            this.Invoke("unregisterTicketInterestByFlightTicket", new object[] {
+                        arg0});
+        }
+        
+        /// <remarks/>
+        public void unregisterTicketInterestByFlightTicketAsync(flightTicketInterest arg0) {
+            this.unregisterTicketInterestByFlightTicketAsync(arg0, null);
+        }
+        
+        /// <remarks/>
+        public void unregisterTicketInterestByFlightTicketAsync(flightTicketInterest arg0, object userState) {
+            if ((this.unregisterTicketInterestByFlightTicketOperationCompleted == null)) {
+                this.unregisterTicketInterestByFlightTicketOperationCompleted = new System.Threading.SendOrPostCallback(this.OnunregisterTicketInterestByFlightTicketOperationCompleted);
+            }
+            this.InvokeAsync("unregisterTicketInterestByFlightTicket", new object[] {
+                        arg0}, this.unregisterTicketInterestByFlightTicketOperationCompleted, userState);
+        }
+        
+        private void OnunregisterTicketInterestByFlightTicketOperationCompleted(object arg) {
+            if ((this.unregisterTicketInterestByFlightTicketCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.unregisterTicketInterestByFlightTicketCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://tas.sd.br/", ResponseNamespace="http://tas.sd.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void notifyPackageInterestsByAccommodation([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] accommodation arg0) {
+            this.Invoke("notifyPackageInterestsByAccommodation", new object[] {
+                        arg0});
+        }
+        
+        /// <remarks/>
+        public void notifyPackageInterestsByAccommodationAsync(accommodation arg0) {
+            this.notifyPackageInterestsByAccommodationAsync(arg0, null);
+        }
+        
+        /// <remarks/>
+        public void notifyPackageInterestsByAccommodationAsync(accommodation arg0, object userState) {
+            if ((this.notifyPackageInterestsByAccommodationOperationCompleted == null)) {
+                this.notifyPackageInterestsByAccommodationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnnotifyPackageInterestsByAccommodationOperationCompleted);
+            }
+            this.InvokeAsync("notifyPackageInterestsByAccommodation", new object[] {
+                        arg0}, this.notifyPackageInterestsByAccommodationOperationCompleted, userState);
+        }
+        
+        private void OnnotifyPackageInterestsByAccommodationOperationCompleted(object arg) {
+            if ((this.notifyPackageInterestsByAccommodationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.notifyPackageInterestsByAccommodationCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1014,93 +1026,6 @@ namespace TravelAgencyClient.localhost {
                 return true;
             }
             return false;
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tas.sd.br/")]
-    public partial class flightTicketInterest {
-        
-        private flightTicket flightTicketToField;
-        
-        private flightTicket flightTicketFromField;
-        
-        private bool returnTicketField;
-        
-        private int quantityField;
-        
-        private float maxPriceField;
-        
-        private string clientNameField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public flightTicket flightTicketTo {
-            get {
-                return this.flightTicketToField;
-            }
-            set {
-                this.flightTicketToField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public flightTicket flightTicketFrom {
-            get {
-                return this.flightTicketFromField;
-            }
-            set {
-                this.flightTicketFromField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool returnTicket {
-            get {
-                return this.returnTicketField;
-            }
-            set {
-                this.returnTicketField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int quantity {
-            get {
-                return this.quantityField;
-            }
-            set {
-                this.quantityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public float maxPrice {
-            get {
-                return this.maxPriceField;
-            }
-            set {
-                this.maxPriceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string clientName {
-            get {
-                return this.clientNameField;
-            }
-            set {
-                this.clientNameField = value;
-            }
         }
     }
     
@@ -1210,17 +1135,35 @@ namespace TravelAgencyClient.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tas.sd.br/")]
-    public partial class accommodationInterest {
+    public partial class packages {
+        
+        private flightTicket flightTicketGoingField;
+        
+        private flightTicket flightTicketReturnField;
         
         private accommodation accommodationField;
         
-        private int quantityField;
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public flightTicket flightTicketGoing {
+            get {
+                return this.flightTicketGoingField;
+            }
+            set {
+                this.flightTicketGoingField = value;
+            }
+        }
         
-        private int numberOfGuestsField;
-        
-        private float maxPriceField;
-        
-        private string clientNameField;
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public flightTicket flightTicketReturn {
+            get {
+                return this.flightTicketReturnField;
+            }
+            set {
+                this.flightTicketReturnField = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -1230,50 +1173,6 @@ namespace TravelAgencyClient.localhost {
             }
             set {
                 this.accommodationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int quantity {
-            get {
-                return this.quantityField;
-            }
-            set {
-                this.quantityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int numberOfGuests {
-            get {
-                return this.numberOfGuestsField;
-            }
-            set {
-                this.numberOfGuestsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public float maxPrice {
-            get {
-                return this.maxPriceField;
-            }
-            set {
-                this.maxPriceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string clientName {
-            get {
-                return this.clientNameField;
-            }
-            set {
-                this.clientNameField = value;
             }
         }
     }
@@ -1348,6 +1247,232 @@ namespace TravelAgencyClient.localhost {
             }
             set {
                 this.priceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tas.sd.br/")]
+    public partial class flightTicketInterest {
+        
+        private string citySourceField;
+        
+        private string cityDestField;
+        
+        private bool returnTicketField;
+        
+        private int quantityField;
+        
+        private float maxPriceField;
+        
+        private int goingDayField;
+        
+        private int goingMonthField;
+        
+        private int goingYearField;
+        
+        private int returnDayField;
+        
+        private int returnMonthField;
+        
+        private int returnYearField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string citySource {
+            get {
+                return this.citySourceField;
+            }
+            set {
+                this.citySourceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string cityDest {
+            get {
+                return this.cityDestField;
+            }
+            set {
+                this.cityDestField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool returnTicket {
+            get {
+                return this.returnTicketField;
+            }
+            set {
+                this.returnTicketField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int quantity {
+            get {
+                return this.quantityField;
+            }
+            set {
+                this.quantityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public float maxPrice {
+            get {
+                return this.maxPriceField;
+            }
+            set {
+                this.maxPriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int goingDay {
+            get {
+                return this.goingDayField;
+            }
+            set {
+                this.goingDayField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int goingMonth {
+            get {
+                return this.goingMonthField;
+            }
+            set {
+                this.goingMonthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int goingYear {
+            get {
+                return this.goingYearField;
+            }
+            set {
+                this.goingYearField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int returnDay {
+            get {
+                return this.returnDayField;
+            }
+            set {
+                this.returnDayField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int returnMonth {
+            get {
+                return this.returnMonthField;
+            }
+            set {
+                this.returnMonthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int returnYear {
+            get {
+                return this.returnYearField;
+            }
+            set {
+                this.returnYearField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tas.sd.br/")]
+    public partial class accommodationInterest {
+        
+        private accommodation accommodationField;
+        
+        private int quantityField;
+        
+        private int numberOfGuestsField;
+        
+        private float maxPriceField;
+        
+        private string clientNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public accommodation accommodation {
+            get {
+                return this.accommodationField;
+            }
+            set {
+                this.accommodationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int quantity {
+            get {
+                return this.quantityField;
+            }
+            set {
+                this.quantityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int numberOfGuests {
+            get {
+                return this.numberOfGuestsField;
+            }
+            set {
+                this.numberOfGuestsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public float maxPrice {
+            get {
+                return this.maxPriceField;
+            }
+            set {
+                this.maxPriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string clientName {
+            get {
+                return this.clientNameField;
+            }
+            set {
+                this.clientNameField = value;
             }
         }
     }
@@ -1466,100 +1591,72 @@ namespace TravelAgencyClient.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tas.sd.br/")]
-    public partial class packages {
-        
-        private flightTicket flightTicketGoingField;
-        
-        private flightTicket flightTicketReturnField;
-        
-        private accommodation accommodationField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public flightTicket flightTicketGoing {
-            get {
-                return this.flightTicketGoingField;
-            }
-            set {
-                this.flightTicketGoingField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public flightTicket flightTicketReturn {
-            get {
-                return this.flightTicketReturnField;
-            }
-            set {
-                this.flightTicketReturnField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public accommodation accommodation {
-            get {
-                return this.accommodationField;
-            }
-            set {
-                this.accommodationField = value;
-            }
-        }
-    }
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void registerPackageInterestCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void buyPackageCompletedEventHandler(object sender, buyPackageCompletedEventArgs e);
+    public delegate void notifyAccommodationInterestsCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void unregisterPackageInterestCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void notifyPackageInterestsCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void notifyTicketsInterestsCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void unregisterAccommodationInterestCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void registerPassageInterestCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void searchHotelByCityCompletedEventHandler(object sender, searchHotelByCityCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class buyPackageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class searchHotelByCityCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal buyPackageCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal searchHotelByCityCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public int Result {
+        public accommodation[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
+                return ((accommodation[])(this.results[0]));
             }
         }
     }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void unregisterTicketInterestByFlightTicketCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void notifyPackageInterestsByAccommodationCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void buyPassageCompletedEventHandler(object sender, buyPassageCompletedEventArgs e);
+    public delegate void insertPassageEntryCompletedEventHandler(object sender, insertPassageEntryCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class buyPassageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class insertPassageEntryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal buyPassageCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal insertPassageEntryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1575,52 +1672,134 @@ namespace TravelAgencyClient.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void searchPackagesCompletedEventHandler(object sender, searchPackagesCompletedEventArgs e);
+    public delegate void registerHotelInterestCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void getTicketInterestListCompletedEventHandler(object sender, getTicketInterestListCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class searchPackagesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class getTicketInterestListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal searchPackagesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal getTicketInterestListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public packages[] Result {
+        public flightTicketInterest[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((packages[])(this.results[0]));
+                return ((flightTicketInterest[])(this.results[0]));
             }
         }
     }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void reserveHotelCompletedEventHandler(object sender, reserveHotelCompletedEventArgs e);
+    public delegate void getAccommodationInterestListCompletedEventHandler(object sender, getAccommodationInterestListCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class reserveHotelCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class getAccommodationInterestListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal reserveHotelCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal getAccommodationInterestListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public bool Result {
+        public accommodationInterest[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
+                return ((accommodationInterest[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void getPackageInterestListCompletedEventHandler(object sender, getPackageInterestListCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getPackageInterestListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getPackageInterestListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public packageInterest[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((packageInterest[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void searchHotelByNameCompletedEventHandler(object sender, searchHotelByNameCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class searchHotelByNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal searchHotelByNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public accommodation[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((accommodation[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void loadDBHotelsCompletedEventHandler(object sender, loadDBHotelsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class loadDBHotelsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal loadDBHotelsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public accommodation[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((accommodation[])(this.results[0]));
             }
         }
     }
@@ -1679,32 +1858,6 @@ namespace TravelAgencyClient.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void loadDBHotelsCompletedEventHandler(object sender, loadDBHotelsCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class loadDBHotelsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal loadDBHotelsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public accommodation[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((accommodation[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void insertHotelEntryCompletedEventHandler(object sender, insertHotelEntryCompletedEventArgs e);
     
     /// <remarks/>
@@ -1731,153 +1884,17 @@ namespace TravelAgencyClient.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void getPackageInterestListCompletedEventHandler(object sender, getPackageInterestListCompletedEventArgs e);
+    public delegate void reserveHotelCompletedEventHandler(object sender, reserveHotelCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class getPackageInterestListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class reserveHotelCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal getPackageInterestListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public packageInterest[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((packageInterest[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void notifyAccommodationInterestsCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void getTicketInterestListCompletedEventHandler(object sender, getTicketInterestListCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class getTicketInterestListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal getTicketInterestListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public flightTicketInterest[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((flightTicketInterest[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void unregisterPackageInterestCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void notifyPackageInterestsCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void notifyTicketsInterestsCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void registerPackageInterestCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void getAccommodationInterestListCompletedEventHandler(object sender, getAccommodationInterestListCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class getAccommodationInterestListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal getAccommodationInterestListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public accommodationInterest[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((accommodationInterest[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void unregisterAccommodationInterestCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void searchHotelByNameCompletedEventHandler(object sender, searchHotelByNameCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class searchHotelByNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal searchHotelByNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public accommodation[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((accommodation[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void registerPassageInterestCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void registerHotelInterestCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void insertPassageEntryCompletedEventHandler(object sender, insertPassageEntryCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class insertPassageEntryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal insertPassageEntryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal reserveHotelCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1893,29 +1910,89 @@ namespace TravelAgencyClient.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void searchHotelByCityCompletedEventHandler(object sender, searchHotelByCityCompletedEventArgs e);
+    public delegate void buyPassageCompletedEventHandler(object sender, buyPassageCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class searchHotelByCityCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class buyPassageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal searchHotelByCityCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal buyPassageCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public accommodation[] Result {
+        public bool Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((accommodation[])(this.results[0]));
+                return ((bool)(this.results[0]));
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void buyPackageCompletedEventHandler(object sender, buyPackageCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class buyPackageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal buyPackageCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void searchPackagesCompletedEventHandler(object sender, searchPackagesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class searchPackagesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal searchPackagesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public packages[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((packages[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void unregisterTicketInterestByFlightTicketCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void notifyPackageInterestsByAccommodationCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

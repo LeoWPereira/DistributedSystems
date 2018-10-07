@@ -152,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 504);
+            this.ClientSize = new System.Drawing.Size(622, 506);
             this.Controls.Add(this.priceLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.qtyText);
