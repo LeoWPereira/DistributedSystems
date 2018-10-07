@@ -215,28 +215,25 @@ public interface TravelAgencyService
 	* @param   _returnTicketPrice,
 	* @param   _hotelPrice,
 	* @param   _quantity,
-	* @param   _numberOfGuests
     * 
     * @return result int 	: 1 - Success
     *						  2 - Not enough passages
     *						  3 - Not enough rooms
-    *						  4 - Guests exceeded
     */
-   @WebMethod int buyPackage(String  _source,
-						     String  _dest,
-						     String  _hotelName,
-						     int     _goingDay,
-						     int 	  _goingMonth,
-						     int 	  _goingYear,
-						     boolean _isReturn,
-						     int     _returnDay,
-						     int 	  _returnMonth,
-						     int 	  _returnYear,
-						     float	  _goingTicketPrice,
-						     float	  _returnTicketPrice,
-						     float   _hotelPrice,
-						     int 	  _quantity,
-						     int 	  _numberOfGuests) throws RemoteException;
+   @WebMethod public int buyPackage(String  _source,
+								    String  _dest,
+								    String  _hotelName,
+								    int     _goingDay,
+								    int 	  _goingMonth,
+								    int 	  _goingYear,
+								    boolean _isReturn,
+								    int     _returnDay,
+								    int 	  _returnMonth,
+								    int 	  _returnYear,
+								    float	  _goingTicketPrice,
+								    float	  _returnTicketPrice,
+								    float   _hotelPrice,
+								    int 	  _quantity) throws RemoteException;
    
    	/**
     * @brief	

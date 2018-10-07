@@ -495,8 +495,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 					      float	  _goingTicketPrice,
 					      float	  _returnTicketPrice,
 					      float   _hotelPrice,
-					      int 	  _quantity,
-					      int 	  _numberOfGuests) throws RemoteException
+					      int 	  _quantity) throws RemoteException
 	{
 		int 	result 				= 0;
     	int 	goingTicketsLeft 	= 0;

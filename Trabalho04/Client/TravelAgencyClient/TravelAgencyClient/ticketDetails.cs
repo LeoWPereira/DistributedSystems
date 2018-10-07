@@ -71,6 +71,20 @@ namespace TravelAgencyClient
                                       year,
                                       Convert.ToInt32(qtyText.Text),
                                       price);
+
+                if(success)
+                {
+                    MessageBox.Show("Passagem comprada com sucesso!");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Não há quantidade de passagens suficiente!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Há campos que ainda não foram preenchidos");
             }
         }
     }
