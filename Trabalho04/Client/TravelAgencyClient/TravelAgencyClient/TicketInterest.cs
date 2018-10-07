@@ -78,21 +78,31 @@ namespace TravelAgencyClient
             return returnValue;
         }
 
+        private void interestOnPassageCompleted(object arg, localhost.registerPassageInterestCompletedEventArgs e)
+        {
+            var result = MessageBox.Show(e.Result,
+                                         "Notificação",
+                                         MessageBoxButtons.OK,
+                                         MessageBoxIcon.Information);
+        }
+
         private void registerButton_Click(object sender, EventArgs e)
         {
             if (checkForEmptyFields())
             {
-                 webService.registerPassageInterest(citySource,
-                                                    cityDest,
-                                                    goingDay,
-                                                    goingMonth,
-                                                    goingYear,
-                                                    isReturn,
-                                                    returnDay,
-                                                    returnMonth,
-                                                    returnYear,
-                                                    Convert.ToInt32(qtyText.Text),
-                                                    (float)Convert.ToDouble(priceText.Text));
+                webService.registerPassageInterestCompleted += new localhost.registerPassageInterestCompletedEventHandler(interestOnPassageCompleted);
+
+                webService.registerPassageInterestAsync(citySource,
+                                                         cityDest,
+                                                         goingDay,
+                                                         goingMonth,
+                                                         goingYear,
+                                                         isReturn,
+                                                         returnDay,
+                                                         returnMonth,
+                                                         returnYear,
+                                                         Convert.ToInt32(qtyText.Text),
+                                                         (float)Convert.ToDouble(priceText.Text));
 
                     MessageBox.Show("Interesse registrado com sucesso!");
                     Close();
