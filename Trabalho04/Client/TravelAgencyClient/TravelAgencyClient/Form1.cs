@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using TravelAgencyClient.Classes;
 
 namespace TravelAgencyClient
 {
     public partial class Form1 : Form
     {
         private localhost.TravelAgencyServiceImplService webService;
+
+        private List<FlightTicketInterest>  registeredTicketInterests   = new List<FlightTicketInterest>();
+        private List<AccommodationInterest> registeredHotelInterests    = new List<AccommodationInterest>();
+        private List<PackageInt>            registeredPackageInterests  = new List<PackageInt>();
 
         public Form1()
         {
@@ -274,6 +280,7 @@ namespace TravelAgencyClient
             string[] row;
 
             ticketDataGridView.Rows.Clear();
+            ticketDataGridView.Columns.Clear();
 
             ticketDataGridView.ColumnCount = 4;
             ticketDataGridView.Columns[0].Name = "Origem";
@@ -351,6 +358,7 @@ namespace TravelAgencyClient
             string[] row;
 
             hotelDataGridView.Rows.Clear();
+            hotelDataGridView.Columns.Clear();
 
             hotelDataGridView.ColumnCount = 4;
             hotelDataGridView.Columns[0].Name = "Cidade";
@@ -434,6 +442,7 @@ namespace TravelAgencyClient
             String tipo;
 
             packageDataGridView.Rows.Clear();
+            packageDataGridView.Columns.Clear();
 
             packageDataGridView.ColumnCount = 9;
             packageDataGridView.Columns[0].Name = "Tipo";
@@ -508,7 +517,7 @@ namespace TravelAgencyClient
                     isReturn = true;
                 }
 
-                PackageDetails hotelDetails = new PackageDetails(goingCityName,
+                PackageDetails packDetails = new PackageDetails(goingCityName,
                                                                  returnCityName,
                                                                  hotelName,
                                                                  dateGoingPackage.Value.Day,
@@ -524,7 +533,7 @@ namespace TravelAgencyClient
                                                                  hotelPrice,
                                                                  price);
 
-                hotelDetails.Show();
+                packDetails.Show();
             }
         }
 
@@ -549,7 +558,11 @@ namespace TravelAgencyClient
                                                                    returnTicketDate.Value.Month,
                                                                    returnTicketDate.Value.Year);
 
-                ticketInterest.Show();
+                ticketInterest.ShowDialog();
+
+                FlightTicketInterest ticketInt = ticketInterest.RegisteredInterest;
+
+                registeredTicketInterests.Add(ticketInt);
             }
             else
             {
@@ -579,7 +592,11 @@ namespace TravelAgencyClient
                     HotelInterest hotelInterest = new HotelInterest(cityName,
                                                                     hotelName);
 
-                    hotelInterest.Show();
+                    hotelInterest.ShowDialog();
+
+                    AccommodationInterest hotelInt = hotelInterest.RegisteredInterest;
+
+                    registeredHotelInterests.Add(hotelInt);
                 }
                 else
                 {
@@ -589,7 +606,11 @@ namespace TravelAgencyClient
                     HotelInterest hotelInterest = new HotelInterest(cityName,
                                                                     hotelName);
 
-                    hotelInterest.Show();
+                    hotelInterest.ShowDialog();
+
+                    AccommodationInterest hotelInt = hotelInterest.RegisteredInterest;
+
+                    registeredHotelInterests.Add(hotelInt);
                 }
             }
             else
@@ -622,7 +643,11 @@ namespace TravelAgencyClient
                                                                        dateReturnPackage.Value.Month,
                                                                        dateReturnPackage.Value.Year);
 
-                packageInterest.Show();
+                packageInterest.ShowDialog();
+
+                PackageInt packageInt = packageInterest.RegisteredInterest;
+
+                registeredPackageInterests.Add(packageInt);
             }
             else
             {
@@ -632,17 +657,131 @@ namespace TravelAgencyClient
 
         private void ticketInterestRadioButton_CheckedChanged(object sender, EventArgs e)
         {
+            string[] row;
 
+            interestDataGridView.Rows.Clear();
+            interestDataGridView.Columns.Clear();
+
+            interestDataGridView.ColumnCount = 7;
+            interestDataGridView.Columns[0].Name = "Tipo";
+            interestDataGridView.Columns[1].Name = "Origem";
+            interestDataGridView.Columns[2].Name = "Destino";
+            interestDataGridView.Columns[3].Name = "Data ida";
+            interestDataGridView.Columns[4].Name = "Data volta";
+            interestDataGridView.Columns[5].Name = "Quantidade";
+            interestDataGridView.Columns[6].Name = "Preço Máx";
+
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            interestDataGridView.Columns.Add(btn);
+            btn.HeaderText = "Excluir";
+            btn.Text = "Excluir";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+
+            for (int i = 0; i < registeredTicketInterests.Count; i++)
+            {
+                if (!registeredTicketInterests[i].returnTicket)
+                {
+                    row = new string[] { "Ida", registeredTicketInterests[i].citySource, registeredTicketInterests[i].cityDest,
+                        registeredTicketInterests[i].goingDay + "-" + registeredTicketInterests[i].goingMonth + "-" + registeredTicketInterests[i].goingYear, "-",
+                        registeredTicketInterests[i].quantity.ToString(), registeredTicketInterests[i].maxPrice.ToString()};
+                }
+                else
+                {
+                    row = new string[] { "Ida/Volta", registeredTicketInterests[i].citySource, registeredTicketInterests[i].cityDest,
+                        registeredTicketInterests[i].goingDay + "-" + registeredTicketInterests[i].goingMonth + "-" + registeredTicketInterests[i].goingYear,
+                        registeredTicketInterests[i].returnDay + "-" + registeredTicketInterests[i].returnMonth + "-" + registeredTicketInterests[i].returnYear,
+                        registeredTicketInterests[i].quantity.ToString(), registeredTicketInterests[i].maxPrice.ToString()};
+                }
+
+                interestDataGridView.Rows.Add(row);
+            }
+
+            return;
         }
 
         private void hotelInterestRadioButton_CheckedChanged(object sender, EventArgs e)
         {
+            string[] row;
 
+            interestDataGridView.Rows.Clear();
+            interestDataGridView.Columns.Clear();
+
+            interestDataGridView.ColumnCount = 5;
+            interestDataGridView.Columns[0].Name = "Cidade";
+            interestDataGridView.Columns[1].Name = "Nome do Hotel";
+            interestDataGridView.Columns[2].Name = "Capacidade";
+            interestDataGridView.Columns[3].Name = "Quantidade";
+            interestDataGridView.Columns[4].Name = "Preço Máx";
+
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            interestDataGridView.Columns.Add(btn);
+            btn.HeaderText = "Excluir";
+            btn.Text = "Excluir";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+
+            for (int i = 0; i < registeredHotelInterests.Count; i++)
+            {
+                row = new string[] { registeredHotelInterests[i].cityName, registeredHotelInterests[i].accommodationName,
+                                     registeredHotelInterests[i].numberOfGuests.ToString(), registeredHotelInterests[i].quantity.ToString(),
+                                     registeredHotelInterests[i].maxPrice.ToString()};
+
+                interestDataGridView.Rows.Add(row);
+            }
+
+            return;
         }
 
         private void packageInterestRadioButton_CheckedChanged(object sender, EventArgs e)
         {
+            string[] row;
 
+            interestDataGridView.Rows.Clear();
+            interestDataGridView.Columns.Clear();
+
+            interestDataGridView.ColumnCount = 8;
+            interestDataGridView.Columns[0].Name = "Tipo";
+            interestDataGridView.Columns[1].Name = "Origem";
+            interestDataGridView.Columns[2].Name = "Destino";
+            interestDataGridView.Columns[3].Name = "Data ida";
+            interestDataGridView.Columns[4].Name = "Data volta";
+            interestDataGridView.Columns[5].Name = "Capacidade";
+            interestDataGridView.Columns[6].Name = "Quantidade";
+            interestDataGridView.Columns[7].Name = "Preço Total";
+
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            interestDataGridView.Columns.Add(btn);
+            btn.HeaderText = "Excluir";
+            btn.Text = "Excluir";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+
+            for (int i = 0; i < registeredPackageInterests.Count; i++)
+            {
+                if (registeredPackageInterests[i].isReturn)
+                {
+                    row = new string[] { "Ida/Volta", registeredPackageInterests[i].citySource, registeredPackageInterests[i].cityDest,
+                                         registeredPackageInterests[i].goingDay + "-" + registeredPackageInterests[i].goingMonth + "-" + registeredPackageInterests[i].goingYear,
+                                         registeredPackageInterests[i].returnDay + "-" + registeredPackageInterests[i].returnMonth + "-" + registeredPackageInterests[i].returnYear,
+                                         registeredPackageInterests[i].numberOfGuests.ToString(), registeredPackageInterests[i].quantity.ToString(),
+                                         registeredPackageInterests[i].maxPrice.ToString()};
+
+                    interestDataGridView.Rows.Add(row);
+                }
+                else
+                {
+                    row = new string[] { "Ida", registeredPackageInterests[i].citySource, registeredPackageInterests[i].cityDest,
+                                         registeredPackageInterests[i].goingDay + "-" + registeredPackageInterests[i].goingMonth + "-" + registeredPackageInterests[i].goingYear,
+                                         "-",
+                                         registeredPackageInterests[i].numberOfGuests.ToString(), registeredPackageInterests[i].quantity.ToString(),
+                                         registeredPackageInterests[i].maxPrice.ToString()};
+
+                    interestDataGridView.Rows.Add(row);
+                }
+            }
+
+            return;
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelAgencyClient.Classes;
 
 namespace TravelAgencyClient
 {
@@ -39,7 +40,7 @@ namespace TravelAgencyClient
             else
             {
                 hotelNameLabel.Visible = false;
-                hotelNameLabel.Visible = false;
+                hotelFixLabel.Visible = false;
                 cityLabel.Text = hotelName;
             }
             cityLabel.Text = cityName;
@@ -76,6 +77,19 @@ namespace TravelAgencyClient
             else
             {
                 MessageBox.Show("Há campos que ainda não foram preenchidos");
+            }
+        }
+
+        public AccommodationInterest RegisteredInterest
+        {
+            get
+            {
+                AccommodationInterest hotelInt = new AccommodationInterest(cityName,
+                                                                           hotelName,
+                                                                           Convert.ToInt32(qtyText.Text),
+                                                                           Convert.ToInt32(guestsText.Text),
+                                                                           (float)Convert.ToDouble(priceText.Text));
+                return hotelInt;
             }
         }
     }
