@@ -363,7 +363,7 @@ namespace TravelAgencyClient
             hotelDataGridView.ColumnCount = 4;
             hotelDataGridView.Columns[0].Name = "Cidade";
             hotelDataGridView.Columns[1].Name = "Nome do Hotel";
-            hotelDataGridView.Columns[2].Name = "Capacidade";
+            hotelDataGridView.Columns[2].Name = "Hóspedes / Quarto";
             hotelDataGridView.Columns[3].Name = "Preço";
 
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
@@ -449,7 +449,7 @@ namespace TravelAgencyClient
             packageDataGridView.Columns[1].Name = "Origem";
             packageDataGridView.Columns[2].Name = "Destino";
             packageDataGridView.Columns[3].Name = "Hotel";
-            packageDataGridView.Columns[4].Name = "Capacidade";
+            packageDataGridView.Columns[4].Name = "Hóspedes / Quarto";
             packageDataGridView.Columns[5].Name = "Preço Total";
             packageDataGridView.Columns[6].Name = "Preço Ida";
             packageDataGridView.Columns[7].Name = "Preço Volta";
@@ -570,48 +570,32 @@ namespace TravelAgencyClient
             }
         }
 
-        private void interestOnHotelCompleted(object arg, localhost.registerHotelInterestByCityCompletedEventArgs e)
-        {
-            var result = MessageBox.Show(e.Result,
-                                         "Notificação",
-                                         MessageBoxButtons.OK,
-                                         MessageBoxIcon.Information);
-        }
-
         private void interestHotelButton_Click(object sender, EventArgs e)
         {
-            webService.registerHotelInterestByCityCompleted += new localhost.registerHotelInterestByCityCompletedEventHandler(interestOnHotelCompleted);
-
             if (hotelCheckEmptyFields())
             {
+                String hotelName;
+                String cityName;
+
                 if (searchByHotelRadioButton.Checked)
                 {
-                    String hotelName = hotelTextBox.Text;
-                    String cityName = "";
-
-                    HotelInterest hotelInterest = new HotelInterest(cityName,
-                                                                    hotelName);
-
-                    hotelInterest.ShowDialog();
-
-                    AccommodationInterest hotelInt = hotelInterest.RegisteredInterest;
-
-                    registeredHotelInterests.Add(hotelInt);
+                    hotelName = hotelTextBox.Text;
+                    cityName = "";
                 }
                 else
                 {
-                    String hotelName = "";
-                    String cityName = cityHotelCombo.Text;
-
-                    HotelInterest hotelInterest = new HotelInterest(cityName,
-                                                                    hotelName);
-
-                    hotelInterest.ShowDialog();
-
-                    AccommodationInterest hotelInt = hotelInterest.RegisteredInterest;
-
-                    registeredHotelInterests.Add(hotelInt);
+                    hotelName = "";
+                    cityName = cityHotelCombo.Text;
                 }
+
+                HotelInterest hotelInterest = new HotelInterest(cityName,
+                                                                hotelName);
+
+                hotelInterest.ShowDialog();
+
+                AccommodationInterest hotelInt = hotelInterest.RegisteredInterest;
+
+                registeredHotelInterests.Add(hotelInt);
             }
             else
             {
@@ -710,7 +694,7 @@ namespace TravelAgencyClient
             interestDataGridView.ColumnCount = 5;
             interestDataGridView.Columns[0].Name = "Cidade";
             interestDataGridView.Columns[1].Name = "Nome do Hotel";
-            interestDataGridView.Columns[2].Name = "Capacidade";
+            interestDataGridView.Columns[2].Name = "Hóspedes / Quarto";
             interestDataGridView.Columns[3].Name = "Quantidade";
             interestDataGridView.Columns[4].Name = "Preço Máx";
 
@@ -746,7 +730,7 @@ namespace TravelAgencyClient
             interestDataGridView.Columns[2].Name = "Destino";
             interestDataGridView.Columns[3].Name = "Data ida";
             interestDataGridView.Columns[4].Name = "Data volta";
-            interestDataGridView.Columns[5].Name = "Capacidade";
+            interestDataGridView.Columns[5].Name = "Hóspedes / Quarto";
             interestDataGridView.Columns[6].Name = "Quantidade";
             interestDataGridView.Columns[7].Name = "Preço Total";
 
@@ -782,6 +766,32 @@ namespace TravelAgencyClient
             }
 
             return;
+        }
+        
+        private void interestDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            /*
+             if (e.ColumnIndex == 4)
+            {
+                String citySource = ticketDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                String cityDest   = ticketDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+                int    day        = goingTicketDate.Value.Day;
+                int    month      = goingTicketDate.Value.Month;
+                int    year       = goingTicketDate.Value.Year;
+                float  price      = (float) Convert.ToDouble(ticketDataGridView.Rows[e.RowIndex].Cells[3].Value);
+
+                ticketDetails ticketDet = new ticketDetails(citySource,
+                                                            cityDest,
+                                                            day,
+                                                            month,
+                                                            year,
+                                                            price);
+
+                ticketDet.Show();
+            }
+             */
+
+
         }
     }
 }

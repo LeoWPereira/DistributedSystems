@@ -20,10 +20,8 @@ import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-import Classes.Accommodation;
 import Classes.AccommodationInterest;
 import Classes.AccommodationManager;
-import Classes.FlightTicket;
 import Classes.FlightTicketInterest;
 import Classes.FlightTicketManager;
 import Classes.PackageInterest;
@@ -263,23 +261,6 @@ public interface TravelAgencyService
 								              int    			_returnYear,
 											  int 				_quantity,
 											  float 			_desiredPrice) throws RemoteException;
-
-   	/**
-    * @brief	
-    * 
-    * @param 	_cityName		:
-    * @param    _hotelName		:
-    * @param 	_quantity		:
-    * @param 	_numberOfGuests	:
-    * @param 	_desiredPrice	:
-    * 
-    * @throws 	RemoteException
-    */
-	@WebMethod void registerHotelInterest(String 	    _cityName, 
-										  String		_hotelName,
-										  int 			_quantity,
-										  int 			_numberOfGuests,
-										  float 		_desiredPrice) throws RemoteException;
    
    /**
     * @brief	
@@ -328,18 +309,18 @@ public interface TravelAgencyService
     * @param   _numberOfGuests :
     * @param   _clientName     :
     */
-   @WebMethod void registerPackageInterest(String 			_citySource,
-								           String 			_cityDest,
-								           int 				_goingDay,
-								           int 				_goingMonth,
-								           int 				_goingYear,
-								           boolean 			_isReturn,
-								           int 				_returnDay,
-								           int 				_returnMonth,
-								           int 				_returnYear,
-										   int 				_quantity, 
-										   float 			_desiredPrice, 
-										   int 				_numberOfGuests) throws RemoteException ;
+   @WebMethod String registerPackageInterest(String 	_citySource,
+								             String 	_cityDest,
+								             int 		_goingDay,
+								             int 		_goingMonth,
+								             int 		_goingYear,
+								             boolean	_isReturn,
+								             int 		_returnDay,
+								             int 		_returnMonth,
+								             int 		_returnYear,
+										     int 		_quantity, 
+										     float 		_desiredPrice, 
+										     int 		_numberOfGuests) throws RemoteException ;
    
    	/**
     * @brief	

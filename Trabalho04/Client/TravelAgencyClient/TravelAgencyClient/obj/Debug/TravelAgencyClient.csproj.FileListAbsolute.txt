@@ -31,3 +31,5 @@ D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgency
 D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.TicketInterest.resources
 >>>>>>> 882964cc79c2014cfbd87f2fdf77dd3ceaa68eb1
 D:\BKP Luis\UTFPR\7o Período\SD\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.PackageInterest.resources
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.HotelInterest.resources
+D:\Projects\DistributedSystems\Trabalho04\Client\TravelAgencyClient\TravelAgencyClient\obj\Debug\TravelAgencyClient.PackageInterest.resources

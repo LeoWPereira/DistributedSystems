@@ -106,6 +106,7 @@ namespace TravelAgencyClient
                                                          (float)Convert.ToDouble(priceText.Text));
 
                     MessageBox.Show("Interesse registrado com sucesso!");
+
                     Close();
             }
             else

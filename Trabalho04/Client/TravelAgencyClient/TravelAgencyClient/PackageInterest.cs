@@ -79,11 +79,21 @@ namespace TravelAgencyClient
             return returnValue;
         }
 
+        private void interestOnPackageCompleted(object arg, localhost.registerPackageInterestCompletedEventArgs e)
+        {
+            var result = MessageBox.Show(e.Result,
+                                         "Notificação",
+                                         MessageBoxButtons.OK,
+                                         MessageBoxIcon.Information);
+        }
+
         private void registerButton_Click(object sender, EventArgs e)
         {
             if (checkForEmptyFields())
             {
-                webService.registerPackageInterest(citySource,
+                webService.registerPackageInterestCompleted += new localhost.registerPackageInterestCompletedEventHandler(interestOnPackageCompleted);
+
+                webService.registerPackageInterestAsync(citySource,
                                                 cityDest,
                                                 goingDay,
                                                 goingMonth,
@@ -97,6 +107,7 @@ namespace TravelAgencyClient
                                                 Convert.ToInt32(guestsText.Text));
 
                 MessageBox.Show("Interesse registrado com sucesso!");
+
                 Close();
             }
             else

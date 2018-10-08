@@ -61,17 +61,48 @@ namespace TravelAgencyClient
             return returnValue;
         }
 
+        private void interestOnHotelByHotelCompleted(object arg, localhost.registerHotelInterestByHotelCompletedEventArgs e)
+        {
+            var result = MessageBox.Show(e.Result,
+                                         "Notificação",
+                                         MessageBoxButtons.OK,
+                                         MessageBoxIcon.Information);
+        }
+
+        private void interestOnHotelByCityCompleted(object arg, localhost.registerHotelInterestByCityCompletedEventArgs e)
+        {
+            var result = MessageBox.Show(e.Result,
+                                         "Notificação",
+                                         MessageBoxButtons.OK,
+                                         MessageBoxIcon.Information);
+        }
+
         private void registerButton_Click(object sender, EventArgs e)
         {
             if (checkForEmptyFields())
             {
-                webService.registerHotelInterest(cityName,
-                                                   hotelName,
-                                                   Convert.ToInt32(qtyText.Text),
-                                                   Convert.ToInt32(guestsText.Text),
-                                                   (float)Convert.ToDouble(priceText.Text));
+                // Checks if the interest is by hotel name
+                if (cityName.Equals(""))
+                {
+                    webService.registerHotelInterestByHotelCompleted += new localhost.registerHotelInterestByHotelCompletedEventHandler(interestOnHotelByHotelCompleted);
+                    
+                    webService.registerHotelInterestByHotelAsync(hotelName,
+                                                                 Convert.ToInt32(qtyText.Text),
+                                                                 Convert.ToInt32(guestsText.Text),
+                                                                 (float)Convert.ToDouble(priceText.Text));
+                }
+                else
+                {
+                    webService.registerHotelInterestByCityCompleted += new localhost.registerHotelInterestByCityCompletedEventHandler(interestOnHotelByCityCompleted);
 
+                    webService.registerHotelInterestByCityAsync(cityName,
+                                                                Convert.ToInt32(qtyText.Text),
+                                                                Convert.ToInt32(guestsText.Text),
+                                                                (float)Convert.ToDouble(priceText.Text));
+                }
+                
                 MessageBox.Show("Interesse registrado com sucesso!");
+
                 Close();
             }
             else
