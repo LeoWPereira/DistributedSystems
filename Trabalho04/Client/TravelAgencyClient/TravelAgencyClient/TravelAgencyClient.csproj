@@ -49,6 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CitiesBrazil.cs" />
+    <Compile Include="Classes\AccommodationInterest.cs" />
+    <Compile Include="Classes\FlightTicketInterest.cs" />
+    <Compile Include="Classes\PackageInt.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

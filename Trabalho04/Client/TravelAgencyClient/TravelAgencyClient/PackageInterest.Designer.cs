@@ -124,9 +124,9 @@
             // 
             // registerButton
             // 
-            this.registerButton.Location = new System.Drawing.Point(188, 585);
+            this.registerButton.Location = new System.Drawing.Point(170, 578);
             this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(208, 66);
+            this.registerButton.Size = new System.Drawing.Size(235, 66);
             this.registerButton.TabIndex = 32;
             this.registerButton.Text = "Registrar interesse";
             this.registerButton.UseVisualStyleBackColor = true;

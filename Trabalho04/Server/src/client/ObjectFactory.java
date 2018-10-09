@@ -44,12 +44,10 @@ public class ObjectFactory {
     private final static QName _LoadDBPassages_QNAME = new QName("http://tas.sd.br/", "loadDBPassages");
     private final static QName _LoadDBHotelsResponse_QNAME = new QName("http://tas.sd.br/", "loadDBHotelsResponse");
     private final static QName _InsertHotelEntryResponse_QNAME = new QName("http://tas.sd.br/", "insertHotelEntryResponse");
-    private final static QName _RegisterHotelInterestResponse_QNAME = new QName("http://tas.sd.br/", "registerHotelInterestResponse");
     private final static QName _GetPackageInterestList_QNAME = new QName("http://tas.sd.br/", "getPackageInterestList");
     private final static QName _RegisterHotelInterestByHotel_QNAME = new QName("http://tas.sd.br/", "registerHotelInterestByHotel");
     private final static QName _BuyPackage_QNAME = new QName("http://tas.sd.br/", "buyPackage");
     private final static QName _GetTicketInterestListResponse_QNAME = new QName("http://tas.sd.br/", "getTicketInterestListResponse");
-    private final static QName _RegisterHotelInterest_QNAME = new QName("http://tas.sd.br/", "registerHotelInterest");
     private final static QName _SearchPassagesResponse_QNAME = new QName("http://tas.sd.br/", "searchPassagesResponse");
     private final static QName _InsertPassageEntry_QNAME = new QName("http://tas.sd.br/", "insertPassageEntry");
     private final static QName _GetAccommodationInterestList_QNAME = new QName("http://tas.sd.br/", "getAccommodationInterestList");
@@ -143,27 +141,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RegisterHotelInterest }
-     * 
-     */
-    public RegisterHotelInterest createRegisterHotelInterest() {
-        return new RegisterHotelInterest();
-    }
-
-    /**
      * Create an instance of {@link SearchPassagesResponse }
      * 
      */
     public SearchPassagesResponse createSearchPassagesResponse() {
         return new SearchPassagesResponse();
-    }
-
-    /**
-     * Create an instance of {@link RegisterHotelInterestResponse }
-     * 
-     */
-    public RegisterHotelInterestResponse createRegisterHotelInterestResponse() {
-        return new RegisterHotelInterestResponse();
     }
 
     /**
@@ -619,15 +601,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterHotelInterestResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "registerHotelInterestResponse")
-    public JAXBElement<RegisterHotelInterestResponse> createRegisterHotelInterestResponse(RegisterHotelInterestResponse value) {
-        return new JAXBElement<RegisterHotelInterestResponse>(_RegisterHotelInterestResponse_QNAME, RegisterHotelInterestResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetPackageInterestList }{@code >}}
      * 
      */
@@ -661,15 +634,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://tas.sd.br/", name = "getTicketInterestListResponse")
     public JAXBElement<GetTicketInterestListResponse> createGetTicketInterestListResponse(GetTicketInterestListResponse value) {
         return new JAXBElement<GetTicketInterestListResponse>(_GetTicketInterestListResponse_QNAME, GetTicketInterestListResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterHotelInterest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tas.sd.br/", name = "registerHotelInterest")
-    public JAXBElement<RegisterHotelInterest> createRegisterHotelInterest(RegisterHotelInterest value) {
-        return new JAXBElement<RegisterHotelInterest>(_RegisterHotelInterest_QNAME, RegisterHotelInterest.class, null, value);
     }
 
     /**

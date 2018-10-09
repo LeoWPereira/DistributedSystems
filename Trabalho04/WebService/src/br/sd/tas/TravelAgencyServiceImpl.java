@@ -58,6 +58,8 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	
 	private static CountDownLatch countDownLatchTicketInterest = new CountDownLatch(1);
 	
+	private static CountDownLatch countDownLatchPackageInterest = new CountDownLatch(1);
+	
 	public TravelAgencyServiceImpl()
 	{
 		ctrlPassages				= new CtrlPassages();
@@ -143,6 +145,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		// looking if there is any interest
 		countDownLatchHotelByCityNameInterest.countDown();
 		countDownLatchHotelByHotelNameInterest.countDown();
+		countDownLatchPackageInterest.countDown();
 		
 		return success;
 	}
@@ -183,6 +186,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		// Finally, we will allow our latch to fire the action of
 		// looking if there is any interest
 		countDownLatchTicketInterest.countDown();
+		countDownLatchPackageInterest.countDown();
 		
 		return success;
 	}
@@ -404,6 +408,8 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 					}
 					else
 					{
+						float totalPrice = 0.0f;
+						
 						FlightTicketManager listReturn = this.searchPassages(_cityDest,
 																	         _citySource,
 																	         _returnDay,
@@ -416,9 +422,11 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 							{
 								if(ticketGoing.price <= _desiredPrice)
 								{
+									totalPrice = ticketGoing.price;
+									
 									for(FlightTicket ticketReturn : listReturn.flightTicketList)
 									{
-										if(ticketReturn.price <= _desiredPrice)
+										if(ticketReturn.price <= (_desiredPrice - totalPrice))
 										{
 											output = "Uma passagem de " + _citySource + " para " + _cityDest + " com preço <= R$" + _desiredPrice + " foi inserido no Banco de Dados";
 											
@@ -428,7 +436,10 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 										}
 									}
 									
-									break;
+									if(notified)
+									{
+										break;
+									}
 								}
 							}
 						}
@@ -442,22 +453,6 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		}
 		
 		return output;
-	}
-	
-	@Override
-	public void registerHotelInterest(String 	    _cityName, 
-									  String		_hotelName,
-									  int 			_quantity,
-									  int 			_numberOfGuests,
-									  float 		_desiredPrice) throws RemoteException
-	{
-		AccommodationInterest accommodationInterest = new AccommodationInterest(_cityName,
-																			    _hotelName,
-																			    _quantity, 
-																			    _numberOfGuests,
-																			    _desiredPrice);
-
-		this.listAccommodationInterest.add(accommodationInterest);
 	}
 	
 	@Override
@@ -786,32 +781,140 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 	}
 
 	@Override
-	public void registerPackageInterest(String 			_citySource,
-							            String 			_cityDest,
-							            int 			_goingDay,
-							            int 			_goingMonth,
-							            int 			_goingYear,
-							            boolean 		_isReturn,
-							            int 			_returnDay,
-							            int 			_returnMonth,
-							            int 			_returnYear,
-										int 			_quantity, 
-										float 			_desiredPrice, 
-										int 			_numberOfGuests) throws RemoteException 
+	public String registerPackageInterest(String 	_citySource,
+							              String 	_cityDest,
+							              int 		_goingDay,
+							              int 		_goingMonth,
+							              int 		_goingYear,
+							              boolean	_isReturn,
+							              int 		_returnDay,
+							              int 		_returnMonth,
+							              int 		_returnYear,
+										  int 		_quantity, 
+										  float 	_desiredPrice, 
+										  int 		_numberOfGuests) throws RemoteException 
 	{
-		PackageInterest packageInterest = new PackageInterest(_citySource,
-						            						  _cityDest,
-						            						  _goingDay,
-						            						  _goingMonth,
-						            						  _goingYear,
-						            						  _isReturn,
-						            						  _returnDay,
-						            						  _returnMonth,
-						            						  _returnYear,
-														      _quantity, 
-														      _desiredPrice,
-														      _numberOfGuests);
-
-		this.listPackageInterest.add(packageInterest);
+		String output = "Interesse ainda não encontrado no sistema";
+		
+		boolean notified = false;
+		
+		String infoString = "Registrado Interesse em Pacote com passagem de " + _citySource + " (data: "	+
+				   			_goingDay + "." + _goingMonth + "." + _goingYear + ") e destino em " + _cityDest;
+		
+		if(_isReturn)
+		{
+			infoString += " (data de retorno: " + _returnDay + "." + _returnMonth +
+						  "." + _returnYear + ")";
+		}
+		
+		infoString += " com preço máximo de R$" + _desiredPrice;
+		
+		System.out.println(infoString);
+		
+		while(!notified)
+		{
+			countDownLatchPackageInterest = new CountDownLatch(1);
+			
+			try
+			{
+				countDownLatchPackageInterest.await();
+				
+				FlightTicketManager listGoing = this.searchPassages(_citySource,
+															   		_cityDest,
+															   		_goingDay,
+															   		_goingMonth,
+															   		_goingYear);
+				
+				if(listGoing != null)
+				{
+					float totalPrice = 0.0f;
+					
+					if(!_isReturn)
+					{
+						for(FlightTicket ticket : listGoing.flightTicketList)
+						{
+							if(ticket.price <= _desiredPrice)
+							{
+								totalPrice = ticket.price;
+								
+								AccommodationManager listAccommodation = this.searchHotelByCity(_cityDest);
+								
+								for(Accommodation accommodation : listAccommodation.accommodationList)
+								{
+									if(accommodation.price <= (_desiredPrice - totalPrice))
+									{
+										output = "Um pacote de " + _citySource + " para " + _cityDest + " (somente ida) com o hotel " + accommodation.accommodationName + " e preço <= R$" + _desiredPrice + " foi inserido no Banco de Dados";
+										
+										notified = true;
+										
+										break;
+									}
+								}
+								
+								if(notified)
+								{
+									break;
+								}
+							}
+						}
+					}
+					else
+					{
+						FlightTicketManager listReturn = this.searchPassages(_cityDest,
+																	         _citySource,
+																	         _returnDay,
+																	         _returnMonth,
+																	         _returnYear);
+						
+						if(listReturn != null)
+						{
+							for(FlightTicket ticketGoing : listGoing.flightTicketList)
+							{
+								if(ticketGoing.price <= _desiredPrice)
+								{
+									totalPrice = ticketGoing.price;
+									
+									for(FlightTicket ticketReturn : listReturn.flightTicketList)
+									{
+										if(ticketReturn.price <= (_desiredPrice - totalPrice))
+										{
+											AccommodationManager listAccommodation = this.searchHotelByCity(_cityDest);
+											
+											for(Accommodation accommodation : listAccommodation.accommodationList)
+											{
+												if(accommodation.price <= (_desiredPrice - totalPrice))
+												{
+													output = "Um pacote de " + _citySource + " para " + _cityDest + " (ida e volta) com o hotel " + accommodation.accommodationName + " e preço <= R$" + _desiredPrice + " foi inserido no Banco de Dados";
+													
+													notified = true;
+													
+													break;
+												}
+											}
+											
+											if(notified)
+											{
+												break;
+											}
+										}
+									}
+									
+									if(notified)
+									{
+										break;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		return output;
 	}
 }

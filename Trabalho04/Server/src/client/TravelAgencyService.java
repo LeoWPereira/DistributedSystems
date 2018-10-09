@@ -29,51 +29,6 @@ public interface TravelAgencyService {
      * 
      * @param arg3
      * @param arg2
-     * @param arg5
-     * @param arg4
-     * @param arg1
-     * @param arg0
-     * @param arg6
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "insertPassageEntry", targetNamespace = "http://tas.sd.br/", className = "client.InsertPassageEntry")
-    @ResponseWrapper(localName = "insertPassageEntryResponse", targetNamespace = "http://tas.sd.br/", className = "client.InsertPassageEntryResponse")
-    @Action(input = "http://tas.sd.br/TravelAgencyService/insertPassageEntryRequest", output = "http://tas.sd.br/TravelAgencyService/insertPassageEntryResponse")
-    public boolean insertPassageEntry(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        int arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        int arg3,
-        @WebParam(name = "arg4", targetNamespace = "")
-        int arg4,
-        @WebParam(name = "arg5", targetNamespace = "")
-        int arg5,
-        @WebParam(name = "arg6", targetNamespace = "")
-        float arg6);
-
-    /**
-     * 
-     * @return
-     *     returns client.AccommodationManager
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "loadDBHotels", targetNamespace = "http://tas.sd.br/", className = "client.LoadDBHotels")
-    @ResponseWrapper(localName = "loadDBHotelsResponse", targetNamespace = "http://tas.sd.br/", className = "client.LoadDBHotelsResponse")
-    @Action(input = "http://tas.sd.br/TravelAgencyService/loadDBHotelsRequest", output = "http://tas.sd.br/TravelAgencyService/loadDBHotelsResponse")
-    public AccommodationManager loadDBHotels();
-
-    /**
-     * 
-     * @param arg3
-     * @param arg2
      * @param arg1
      * @param arg0
      * @return
@@ -93,6 +48,45 @@ public interface TravelAgencyService {
         int arg2,
         @WebParam(name = "arg3", targetNamespace = "")
         float arg3);
+
+    /**
+     * 
+     * @return
+     *     returns client.AccommodationManager
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "loadDBHotels", targetNamespace = "http://tas.sd.br/", className = "client.LoadDBHotels")
+    @ResponseWrapper(localName = "loadDBHotelsResponse", targetNamespace = "http://tas.sd.br/", className = "client.LoadDBHotelsResponse")
+    @Action(input = "http://tas.sd.br/TravelAgencyService/loadDBHotelsRequest", output = "http://tas.sd.br/TravelAgencyService/loadDBHotelsResponse")
+    public AccommodationManager loadDBHotels();
+
+    /**
+     * 
+     * @param arg3
+     * @param arg2
+     * @param arg4
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "insertHotelEntry", targetNamespace = "http://tas.sd.br/", className = "client.InsertHotelEntry")
+    @ResponseWrapper(localName = "insertHotelEntryResponse", targetNamespace = "http://tas.sd.br/", className = "client.InsertHotelEntryResponse")
+    @Action(input = "http://tas.sd.br/TravelAgencyService/insertHotelEntryRequest", output = "http://tas.sd.br/TravelAgencyService/insertHotelEntryResponse")
+    public boolean insertHotelEntry(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        int arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        int arg3,
+        @WebParam(name = "arg4", targetNamespace = "")
+        float arg4);
 
     /**
      * 
@@ -168,45 +162,27 @@ public interface TravelAgencyService {
 
     /**
      * 
-     * @param arg3
-     * @param arg2
-     * @param arg4
-     * @param arg1
-     * @param arg0
      * @return
-     *     returns boolean
+     *     returns java.util.List<client.AccommodationInterest>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "insertHotelEntry", targetNamespace = "http://tas.sd.br/", className = "client.InsertHotelEntry")
-    @ResponseWrapper(localName = "insertHotelEntryResponse", targetNamespace = "http://tas.sd.br/", className = "client.InsertHotelEntryResponse")
-    @Action(input = "http://tas.sd.br/TravelAgencyService/insertHotelEntryRequest", output = "http://tas.sd.br/TravelAgencyService/insertHotelEntryResponse")
-    public boolean insertHotelEntry(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        int arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        int arg3,
-        @WebParam(name = "arg4", targetNamespace = "")
-        float arg4);
+    @RequestWrapper(localName = "getAccommodationInterestList", targetNamespace = "http://tas.sd.br/", className = "client.GetAccommodationInterestList")
+    @ResponseWrapper(localName = "getAccommodationInterestListResponse", targetNamespace = "http://tas.sd.br/", className = "client.GetAccommodationInterestListResponse")
+    @Action(input = "http://tas.sd.br/TravelAgencyService/getAccommodationInterestListRequest", output = "http://tas.sd.br/TravelAgencyService/getAccommodationInterestListResponse")
+    public List<AccommodationInterest> getAccommodationInterestList();
 
     /**
      * 
-     * @param arg0
      * @return
-     *     returns client.AccommodationManager
+     *     returns java.util.List<client.PackageInterest>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "searchHotelByName", targetNamespace = "http://tas.sd.br/", className = "client.SearchHotelByName")
-    @ResponseWrapper(localName = "searchHotelByNameResponse", targetNamespace = "http://tas.sd.br/", className = "client.SearchHotelByNameResponse")
-    @Action(input = "http://tas.sd.br/TravelAgencyService/searchHotelByNameRequest", output = "http://tas.sd.br/TravelAgencyService/searchHotelByNameResponse")
-    public AccommodationManager searchHotelByName(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+    @RequestWrapper(localName = "getPackageInterestList", targetNamespace = "http://tas.sd.br/", className = "client.GetPackageInterestList")
+    @ResponseWrapper(localName = "getPackageInterestListResponse", targetNamespace = "http://tas.sd.br/", className = "client.GetPackageInterestListResponse")
+    @Action(input = "http://tas.sd.br/TravelAgencyService/getPackageInterestListRequest", output = "http://tas.sd.br/TravelAgencyService/getPackageInterestListResponse")
+    public List<PackageInterest> getPackageInterestList();
 
     /**
      * 
@@ -235,14 +211,62 @@ public interface TravelAgencyService {
     /**
      * 
      * @return
-     *     returns java.util.List<client.AccommodationInterest>
+     *     returns java.util.List<client.FlightTicketInterest>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAccommodationInterestList", targetNamespace = "http://tas.sd.br/", className = "client.GetAccommodationInterestList")
-    @ResponseWrapper(localName = "getAccommodationInterestListResponse", targetNamespace = "http://tas.sd.br/", className = "client.GetAccommodationInterestListResponse")
-    @Action(input = "http://tas.sd.br/TravelAgencyService/getAccommodationInterestListRequest", output = "http://tas.sd.br/TravelAgencyService/getAccommodationInterestListResponse")
-    public List<AccommodationInterest> getAccommodationInterestList();
+    @RequestWrapper(localName = "getTicketInterestList", targetNamespace = "http://tas.sd.br/", className = "client.GetTicketInterestList")
+    @ResponseWrapper(localName = "getTicketInterestListResponse", targetNamespace = "http://tas.sd.br/", className = "client.GetTicketInterestListResponse")
+    @Action(input = "http://tas.sd.br/TravelAgencyService/getTicketInterestListRequest", output = "http://tas.sd.br/TravelAgencyService/getTicketInterestListResponse")
+    public List<FlightTicketInterest> getTicketInterestList();
+
+    /**
+     * 
+     * @param arg3
+     * @param arg2
+     * @param arg5
+     * @param arg4
+     * @param arg1
+     * @param arg0
+     * @param arg10
+     * @param arg11
+     * @param arg7
+     * @param arg6
+     * @param arg9
+     * @param arg8
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "registerPackageInterest", targetNamespace = "http://tas.sd.br/", className = "client.RegisterPackageInterest")
+    @ResponseWrapper(localName = "registerPackageInterestResponse", targetNamespace = "http://tas.sd.br/", className = "client.RegisterPackageInterestResponse")
+    @Action(input = "http://tas.sd.br/TravelAgencyService/registerPackageInterestRequest", output = "http://tas.sd.br/TravelAgencyService/registerPackageInterestResponse")
+    public String registerPackageInterest(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        int arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        int arg3,
+        @WebParam(name = "arg4", targetNamespace = "")
+        int arg4,
+        @WebParam(name = "arg5", targetNamespace = "")
+        boolean arg5,
+        @WebParam(name = "arg6", targetNamespace = "")
+        int arg6,
+        @WebParam(name = "arg7", targetNamespace = "")
+        int arg7,
+        @WebParam(name = "arg8", targetNamespace = "")
+        int arg8,
+        @WebParam(name = "arg9", targetNamespace = "")
+        int arg9,
+        @WebParam(name = "arg10", targetNamespace = "")
+        float arg10,
+        @WebParam(name = "arg11", targetNamespace = "")
+        int arg11);
 
     /**
      * 
@@ -261,42 +285,6 @@ public interface TravelAgencyService {
 
     /**
      * 
-     * @return
-     *     returns java.util.List<client.FlightTicketInterest>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getTicketInterestList", targetNamespace = "http://tas.sd.br/", className = "client.GetTicketInterestList")
-    @ResponseWrapper(localName = "getTicketInterestListResponse", targetNamespace = "http://tas.sd.br/", className = "client.GetTicketInterestListResponse")
-    @Action(input = "http://tas.sd.br/TravelAgencyService/getTicketInterestListRequest", output = "http://tas.sd.br/TravelAgencyService/getTicketInterestListResponse")
-    public List<FlightTicketInterest> getTicketInterestList();
-
-    /**
-     * 
-     * @param arg3
-     * @param arg2
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "registerHotelInterestByCity", targetNamespace = "http://tas.sd.br/", className = "client.RegisterHotelInterestByCity")
-    @ResponseWrapper(localName = "registerHotelInterestByCityResponse", targetNamespace = "http://tas.sd.br/", className = "client.RegisterHotelInterestByCityResponse")
-    @Action(input = "http://tas.sd.br/TravelAgencyService/registerHotelInterestByCityRequest", output = "http://tas.sd.br/TravelAgencyService/registerHotelInterestByCityResponse")
-    public String registerHotelInterestByCity(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        int arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        int arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        float arg3);
-
-    /**
-     * 
      * @param arg3
      * @param arg2
      * @param arg5
@@ -304,38 +292,29 @@ public interface TravelAgencyService {
      * @param arg1
      * @param arg0
      * @param arg6
-     */
-    @WebMethod
-    @RequestWrapper(localName = "registerPackageInterest", targetNamespace = "http://tas.sd.br/", className = "client.RegisterPackageInterest")
-    @ResponseWrapper(localName = "registerPackageInterestResponse", targetNamespace = "http://tas.sd.br/", className = "client.RegisterPackageInterestResponse")
-    @Action(input = "http://tas.sd.br/TravelAgencyService/registerPackageInterestRequest", output = "http://tas.sd.br/TravelAgencyService/registerPackageInterestResponse")
-    public void registerPackageInterest(
-        @WebParam(name = "arg0", targetNamespace = "")
-        FlightTicket arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        FlightTicket arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        Accommodation arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        int arg3,
-        @WebParam(name = "arg4", targetNamespace = "")
-        float arg4,
-        @WebParam(name = "arg5", targetNamespace = "")
-        int arg5,
-        @WebParam(name = "arg6", targetNamespace = "")
-        String arg6);
-
-    /**
-     * 
      * @return
-     *     returns java.util.List<client.PackageInterest>
+     *     returns boolean
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getPackageInterestList", targetNamespace = "http://tas.sd.br/", className = "client.GetPackageInterestList")
-    @ResponseWrapper(localName = "getPackageInterestListResponse", targetNamespace = "http://tas.sd.br/", className = "client.GetPackageInterestListResponse")
-    @Action(input = "http://tas.sd.br/TravelAgencyService/getPackageInterestListRequest", output = "http://tas.sd.br/TravelAgencyService/getPackageInterestListResponse")
-    public List<PackageInterest> getPackageInterestList();
+    @RequestWrapper(localName = "insertPassageEntry", targetNamespace = "http://tas.sd.br/", className = "client.InsertPassageEntry")
+    @ResponseWrapper(localName = "insertPassageEntryResponse", targetNamespace = "http://tas.sd.br/", className = "client.InsertPassageEntryResponse")
+    @Action(input = "http://tas.sd.br/TravelAgencyService/insertPassageEntryRequest", output = "http://tas.sd.br/TravelAgencyService/insertPassageEntryResponse")
+    public boolean insertPassageEntry(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        int arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        int arg3,
+        @WebParam(name = "arg4", targetNamespace = "")
+        int arg4,
+        @WebParam(name = "arg5", targetNamespace = "")
+        int arg5,
+        @WebParam(name = "arg6", targetNamespace = "")
+        float arg6);
 
     /**
      * 
@@ -386,64 +365,40 @@ public interface TravelAgencyService {
      * 
      * @param arg3
      * @param arg2
-     * @param arg4
      * @param arg1
      * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "registerHotelInterest", targetNamespace = "http://tas.sd.br/", className = "client.RegisterHotelInterest")
-    @ResponseWrapper(localName = "registerHotelInterestResponse", targetNamespace = "http://tas.sd.br/", className = "client.RegisterHotelInterestResponse")
-    @Action(input = "http://tas.sd.br/TravelAgencyService/registerHotelInterestRequest", output = "http://tas.sd.br/TravelAgencyService/registerHotelInterestResponse")
-    public void registerHotelInterest(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        int arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        int arg3,
-        @WebParam(name = "arg4", targetNamespace = "")
-        float arg4);
-
-    /**
-     * 
-     * @param arg3
-     * @param arg2
-     * @param arg5
-     * @param arg4
-     * @param arg1
-     * @param arg0
-     * @param arg7
-     * @param arg6
-     * @param arg8
      * @return
-     *     returns java.util.List<client.Packages>
+     *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "searchPackages", targetNamespace = "http://tas.sd.br/", className = "client.SearchPackages")
-    @ResponseWrapper(localName = "searchPackagesResponse", targetNamespace = "http://tas.sd.br/", className = "client.SearchPackagesResponse")
-    @Action(input = "http://tas.sd.br/TravelAgencyService/searchPackagesRequest", output = "http://tas.sd.br/TravelAgencyService/searchPackagesResponse")
-    public List<Packages> searchPackages(
+    @RequestWrapper(localName = "registerHotelInterestByCity", targetNamespace = "http://tas.sd.br/", className = "client.RegisterHotelInterestByCity")
+    @ResponseWrapper(localName = "registerHotelInterestByCityResponse", targetNamespace = "http://tas.sd.br/", className = "client.RegisterHotelInterestByCityResponse")
+    @Action(input = "http://tas.sd.br/TravelAgencyService/registerHotelInterestByCityRequest", output = "http://tas.sd.br/TravelAgencyService/registerHotelInterestByCityResponse")
+    public String registerHotelInterestByCity(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
+        int arg1,
         @WebParam(name = "arg2", targetNamespace = "")
         int arg2,
         @WebParam(name = "arg3", targetNamespace = "")
-        int arg3,
-        @WebParam(name = "arg4", targetNamespace = "")
-        int arg4,
-        @WebParam(name = "arg5", targetNamespace = "")
-        boolean arg5,
-        @WebParam(name = "arg6", targetNamespace = "")
-        int arg6,
-        @WebParam(name = "arg7", targetNamespace = "")
-        int arg7,
-        @WebParam(name = "arg8", targetNamespace = "")
-        int arg8);
+        float arg3);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns client.AccommodationManager
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "searchHotelByName", targetNamespace = "http://tas.sd.br/", className = "client.SearchHotelByName")
+    @ResponseWrapper(localName = "searchHotelByNameResponse", targetNamespace = "http://tas.sd.br/", className = "client.SearchHotelByNameResponse")
+    @Action(input = "http://tas.sd.br/TravelAgencyService/searchHotelByNameRequest", output = "http://tas.sd.br/TravelAgencyService/searchHotelByNameResponse")
+    public AccommodationManager searchHotelByName(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
 
     /**
      * 
@@ -498,5 +453,44 @@ public interface TravelAgencyService {
         float arg12,
         @WebParam(name = "arg13", targetNamespace = "")
         int arg13);
+
+    /**
+     * 
+     * @param arg3
+     * @param arg2
+     * @param arg5
+     * @param arg4
+     * @param arg1
+     * @param arg0
+     * @param arg7
+     * @param arg6
+     * @param arg8
+     * @return
+     *     returns java.util.List<client.Packages>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "searchPackages", targetNamespace = "http://tas.sd.br/", className = "client.SearchPackages")
+    @ResponseWrapper(localName = "searchPackagesResponse", targetNamespace = "http://tas.sd.br/", className = "client.SearchPackagesResponse")
+    @Action(input = "http://tas.sd.br/TravelAgencyService/searchPackagesRequest", output = "http://tas.sd.br/TravelAgencyService/searchPackagesResponse")
+    public List<Packages> searchPackages(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        int arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        int arg3,
+        @WebParam(name = "arg4", targetNamespace = "")
+        int arg4,
+        @WebParam(name = "arg5", targetNamespace = "")
+        boolean arg5,
+        @WebParam(name = "arg6", targetNamespace = "")
+        int arg6,
+        @WebParam(name = "arg7", targetNamespace = "")
+        int arg7,
+        @WebParam(name = "arg8", targetNamespace = "")
+        int arg8);
 
 }
