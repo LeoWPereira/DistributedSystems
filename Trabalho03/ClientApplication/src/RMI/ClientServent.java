@@ -21,47 +21,20 @@ import Classes.PackageInterest;
 
 import javax.swing.JOptionPane;
 
-/**
- * @brief	Class responsible for  
- */
 public class ClientServent extends UnicastRemoteObject implements ClientInterface
 {
-	/**
-	 * @brief	Generated Serial Version ID
-	 */
 	private static final long serialVersionUID = -6179845856072812728L;
 
-	/**
-	 * @brief Name of the user
-	 */
 	private String name;
 
-	/**
-	 * @brief Local list of flight ticket interests
-	 */
 	private ArrayList<FlightTicketInterest> listTicketInterest;
 
-	/**
-	 * @brief Local list of flight ticket interests
-	 */
 	private ArrayList<AccommodationInterest> listAccommodationInterest;
 
-	/**
-	 * @brief Local list of flight ticket interests
-	 */
 	private ArrayList<PackageInterest> listPackageInterest;
 
-    /**
-     * @brief Server RMI object
-     */
     private ServerInterface serverRMI;
 
-	/**
-	 * @brief	
-	 * 
-	 * @param	_serverReference	:
-	 * @param	_name				:
-	 */
 	public ClientServent(ServerInterface 	_serverReference,
 						 String				_name) throws RemoteException
     {
@@ -76,14 +49,9 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
         serverRMI = _serverReference;
 
         serverRMI.call(_name,
-        					  this);
+        			   this);
     }
-    
-	/**
-	 * @brief
-	 * 
-	 * @param	value	:
-	 */
+
     @Override
     public void eventPopUp(String value) throws RemoteException 
     {
@@ -96,79 +64,41 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
     	});
     }
 
-    /**
-	 * @brief Default getter
-	 * 
-	 */
     public String getClientName()
     {
     	return this.name;
     }
 
-    /**
-	 * @brief Adds a flight ticket interest into the local array list
-	 * 
-	 */
     public void addFlightTicketInterest(FlightTicketInterest ticketInterest)
     {
     	listTicketInterest.add(ticketInterest);
-
-    	return;
     }
 
-    /**
-	 * @brief Adds an accommodation interest into the local array list
-	 * 
-	 */
     public void addAccommodationInterest(AccommodationInterest accommodationInterest)
     {
     	listAccommodationInterest.add(accommodationInterest);
-    	
-    	return;
     }
 
-    /**
-	 * @brief Adds a package interest into the local array list
-	 * 
-	 */
     public void addPackageInterest(PackageInterest packageInterest)
     {
     	listPackageInterest.add(packageInterest);
-    	
-    	return;
     }
 
-    /**
-	 * @brief Default getter
-	 * 
-	 */
     public ArrayList<FlightTicketInterest> getTicketInterestList()
     {
     	return this.listTicketInterest;
     }
 
-    /**
-	 * @brief Default getter
-	 * 
-	 */
     public ArrayList<AccommodationInterest> getAccommodationInterestList()
     {
     	return this.listAccommodationInterest;
     }
 
-    /**
-	 * @brief Default getter
-	 * 
-	 */
     public ArrayList<PackageInterest> getPackageInterestList()
     {
     	return this.listPackageInterest;
     }
     
-    /**
-	 * @brief Remove ticket interest from local array and from the server
-	 * 
-	 */
     public void removeTicketInterest(FlightTicketInterest ticketInterest)
     {
         FlightTicketInterest interest;
@@ -178,29 +108,24 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
             interest = listTicketInterest.get(i);
 
     		if((ticketInterest.getSource().compareToIgnoreCase(interest.getSource()) == 0)   &&
-              (ticketInterest.getDest().compareToIgnoreCase(interest.getDest()) == 0)       &&
-              (ticketInterest.isReturnTicket() == interest.isReturnTicket()                 &&
-              (ticketInterest.getMaxPrice() == interest.getMaxPrice())))
+               (ticketInterest.getDest().compareToIgnoreCase(interest.getDest()) == 0)       &&
+               (ticketInterest.isReturnTicket() == interest.isReturnTicket()                 &&
+               (ticketInterest.getMaxPrice() == interest.getMaxPrice())))
     		{
     			listTicketInterest.remove(i);
 
-                try {
+                try 
+                {
 					serverRMI.unregisterTicketInterest(interest);
 				} 
                 catch (RemoteException e) 
                 {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
     		}
     	}
-    	return;
     }
 
-    /**
-     * @brief Remove accommodation interest from local array and from the server
-     * 
-     */
     public void removeAccommodationInterest(AccommodationInterest accommodationInterest)
     {
         AccommodationInterest interest;
@@ -213,7 +138,7 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
             if(accommodationInterest.getAccommodationName().isEmpty())
             {
                 if((accommodationInterest.getAccommodationCityName().compareToIgnoreCase(interest.getAccommodationCityName()) == 0)   &&
-                  (accommodationInterest.getMaxPrice() == interest.getMaxPrice()))
+                   (accommodationInterest.getMaxPrice() == interest.getMaxPrice()))
                 {
                     listAccommodationInterest.remove(i);
 
@@ -223,16 +148,14 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
 					} 
                     catch (RemoteException e) 
                     {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
                 }
             }
             else
             {
-
                 if((accommodationInterest.getAccommodationName().compareToIgnoreCase(interest.getAccommodationName()) == 0)   &&
-                  (accommodationInterest.getMaxPrice() == interest.getMaxPrice()))
+                   (accommodationInterest.getMaxPrice() == interest.getMaxPrice()))
                 {
                     listAccommodationInterest.remove(i);
 
@@ -242,19 +165,13 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
 					} 
                     catch (RemoteException e) 
                     {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
                 }
             }
         }
-        return;
     }
 
-    /**
-     * @brief Remove package interest from local array and from the server
-     * 
-     */
     public void removePackageInterest(PackageInterest packageInterest)
     {
         PackageInterest interest;
@@ -264,9 +181,9 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
             interest = listPackageInterest.get(i);
 
             if((packageInterest.getSource().compareToIgnoreCase(interest.getSource()) == 0)   &&
-              (packageInterest.getDest().compareToIgnoreCase(interest.getDest()) == 0)       &&
-              (packageInterest.isReturnTicket() == interest.isReturnTicket()                 &&
-              (packageInterest.getMaxPrice() == interest.getMaxPrice())))
+               (packageInterest.getDest().compareToIgnoreCase(interest.getDest()) == 0)       &&
+               (packageInterest.isReturnTicket() == interest.isReturnTicket()                 &&
+               (packageInterest.getMaxPrice() == interest.getMaxPrice())))
             {
                 listPackageInterest.remove(i);
 
@@ -276,7 +193,6 @@ public class ClientServent extends UnicastRemoteObject implements ClientInterfac
 				} 
                 catch (RemoteException e) 
                 {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
             }

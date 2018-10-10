@@ -1,0 +1,10 @@
+<map id="Classes.AccommodationManager.getAccommodationList" name="Classes.AccommodationManager.getAccommodationList">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotels_panel.html#a6fb20c0b1acf3d0a7384ef23ed7a297e" title="GUI.HotelsPanel.insertTable\lField" alt="" coords="292,5,477,47"/>
+<area shape="rect" id="node3" href="$class_r_m_i_1_1_server_servent.html#a7cb189e0936a72ba836b7be9fe5cd01d" title="RMI.ServerServent.notify\lPackageInterests" alt="" coords="303,71,466,112"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143" title="GUI.HotelsPanel.processRegistry" alt="" coords="525,49,741,75"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_passages_panel.html#ae479ab4e58a40bea8baaed60eebfb56b" title="GUI.PassagesPanel.process\lRegistry" alt="" coords="539,100,728,141"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="789,49,984,75"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_hotels_panel.html#a0d35b266df47cc7ccbfa28287b06f580" title="Default Constructor. " alt="" coords="1037,49,1229,75"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="798,100,975,141"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_passages_panel.html#a5ac30f327213e2ba360a37266daf7a86" title="Default Constructor. " alt="" coords="1032,100,1233,141"/>
+</map>

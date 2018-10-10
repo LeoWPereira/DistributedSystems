@@ -17,6 +17,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.text.ParseException;
@@ -43,6 +44,7 @@ import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 import Classes.FlightTicket;
 import Classes.FlightTicketManager;
+import Database.DBConnection;
 import Database.Controller.CtrlPassages;
 import Extra.CitiesBrazil;
 import RMI.ServerServent;
@@ -156,7 +158,9 @@ public class PassagesPanel extends JPanel
 		
 		internalPanel 	= _panel;
 		
-		dbStatement 	= _stm;
+		Connection	dbConnection = null;
+		
+		dbStatement 	= DBConnection.configureDatabase(dbConnection);
 		
 		internalPanel.removeAll();
 		

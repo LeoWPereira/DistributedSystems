@@ -1,6 +1,6 @@
 <map id="RMI.ServerInterface.unregisterPackageInterest" name="RMI.ServerInterface.unregisterPackageInterest">
-<area shape="rect" id="node2" href="$class_r_m_i_1_1_client_servent.html#ab7acddccf466625ebf7b3bdb50c015b8" title="Remove package interest from local array and from the server. " alt="" coords="248,71,419,112"/>
-<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="467,71,668,112"/>
+<area shape="rect" id="node2" href="$class_r_m_i_1_1_client_servent.html#ab7acddccf466625ebf7b3bdb50c015b8" title="RMI.ClientServent.remove\lPackageInterest" alt="" coords="248,71,419,112"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="Process Table Selection. " alt="" coords="467,71,668,112"/>
 <area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="745,5,939,47"/>
 <area shape="rect" id="node8" href="$class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="716,71,968,112"/>
 <area shape="rect" id="node10" href="$class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="737,136,947,177"/>

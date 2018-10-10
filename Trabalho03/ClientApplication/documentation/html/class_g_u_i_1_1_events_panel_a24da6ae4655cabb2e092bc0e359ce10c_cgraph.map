@@ -4,39 +4,39 @@
 <area shape="rect" id="node30" href="$class_g_u_i_1_1_events_panel.html#ab89b241d6b46e5a749fe1d2f94aa8995" title="The method will show the accommodation interest list in the table. " alt="" coords="488,724,736,765"/>
 <area shape="rect" id="node36" href="$class_g_u_i_1_1_events_panel.html#aa9bba4186ee8c6a5555b1cae5a7ae529" title="The method will show the package interest list in the table. " alt="" coords="509,575,715,616"/>
 <area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="813,444,1007,485"/>
-<area shape="rect" id="node27" href="$class_r_m_i_1_1_client_servent.html#a56ead9b2ec220902e7cfa7c407a58b51" title="Default getter. " alt="" coords="819,379,1001,420"/>
-<area shape="rect" id="node28" href="$class_g_u_i_1_1_events_panel.html#a11f1b8efad175573fe369f97db913353" title="GUI.EventsPanel.insertTable\lFieldTicket" alt="" coords="1333,149,1520,191"/>
-<area shape="rect" id="node5" href="$class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="1084,512,1285,553"/>
-<area shape="rect" id="node6" href="$class_r_m_i_1_1_client_servent.html#a08b38c7af44c0f70d53bded070742ab6" title="Remove ticket interest from local array and from the server. " alt="" coords="1341,240,1512,281"/>
-<area shape="rect" id="node14" href="$class_r_m_i_1_1_client_servent.html#a6c867a8716dd2791a41a2df4cb8558b9" title="Remove accommodation interest from local array and from the server. " alt="" coords="1341,893,1512,935"/>
-<area shape="rect" id="node21" href="$class_r_m_i_1_1_client_servent.html#ab7acddccf466625ebf7b3bdb50c015b8" title="Remove package interest from local array and from the server. " alt="" coords="1341,513,1512,555"/>
+<area shape="rect" id="node27" href="$class_r_m_i_1_1_client_servent.html#a56ead9b2ec220902e7cfa7c407a58b51" title="RMI.ClientServent.getTicket\lInterestList" alt="" coords="819,379,1001,420"/>
+<area shape="rect" id="node28" href="$class_g_u_i_1_1_events_panel.html#a11f1b8efad175573fe369f97db913353" title="This method will handle the insertion of data inside the table. " alt="" coords="1333,149,1520,191"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="Process Table Selection. " alt="" coords="1084,512,1285,553"/>
+<area shape="rect" id="node6" href="$class_r_m_i_1_1_client_servent.html#a08b38c7af44c0f70d53bded070742ab6" title="RMI.ClientServent.remove\lTicketInterest" alt="" coords="1341,240,1512,281"/>
+<area shape="rect" id="node14" href="$class_r_m_i_1_1_client_servent.html#a6c867a8716dd2791a41a2df4cb8558b9" title="RMI.ClientServent.remove\lAccommodationInterest" alt="" coords="1341,893,1512,935"/>
+<area shape="rect" id="node21" href="$class_r_m_i_1_1_client_servent.html#ab7acddccf466625ebf7b3bdb50c015b8" title="RMI.ClientServent.remove\lPackageInterest" alt="" coords="1341,513,1512,555"/>
 <area shape="rect" id="node7" href="$class_classes_1_1_flight_ticket_interest.html#aae4b227a139661d0c4118b3891cb028a" title="Get the source of the ticket interest. " alt="" coords="1581,71,1787,112"/>
 <area shape="rect" id="node9" href="$class_classes_1_1_flight_ticket_interest.html#ae098cf51df1a0f1086069493b393185c" title="Get the destination of the ticket interest. " alt="" coords="1568,202,1800,229"/>
 <area shape="rect" id="node11" href="$class_classes_1_1_flight_ticket_interest.html#a6dce2f3875b134b6913c85dafcd2fcdb" title="Return if a ticket is a return ticket (not one&#45;way) " alt="" coords="1585,136,1783,177"/>
 <area shape="rect" id="node12" href="$class_classes_1_1_flight_ticket_interest.html#af9b8821dbcbab2dc5bc3ccbef69dc54a" title="Default getter. " alt="" coords="1581,253,1787,295"/>
-<area shape="rect" id="node13" href="$interface_r_m_i_1_1_server_interface.html#ad121093d35f68d8097a4d4c559035c84" title="RMI.ServerInterface.unregister\lTicketInterest" alt="" coords="1587,319,1781,360"/>
+<area shape="rect" id="node13" href="$interface_r_m_i_1_1_server_interface.html#ad121093d35f68d8097a4d4c559035c84" title="Cancel a registration in a Flight Ticket. " alt="" coords="1587,319,1781,360"/>
 <area shape="rect" id="node8" href="$class_classes_1_1_flight_ticket.html#ab9ac021ba2214ea1fa953f6819861a77" title="Default getter. " alt="" coords="1861,183,2024,224"/>
 <area shape="rect" id="node10" href="$class_classes_1_1_flight_ticket.html#ae999ed81960bb15dd8fabc885a027122" title="Default getter. " alt="" coords="1848,470,2037,497"/>
 <area shape="rect" id="node15" href="$class_classes_1_1_accommodation_interest.html#af109f985c3233c110e063081b5fdc036" title="Default getter. " alt="" coords="1568,893,1800,935"/>
 <area shape="rect" id="node17" href="$class_classes_1_1_accommodation_interest.html#a1562b82d0e0576b94108e746c598a421" title="Default getter. " alt="" coords="1568,1024,1800,1065"/>
 <area shape="rect" id="node19" href="$class_classes_1_1_accommodation_interest.html#a870c629ccf2c83173322211f1e76b0e9" title="Default getter. " alt="" coords="1568,959,1800,1000"/>
-<area shape="rect" id="node20" href="$interface_r_m_i_1_1_server_interface.html#a370ad2776334419dd2d7cc4e9fcd7338" title="RMI.ServerInterface.unregister\lAccommodationInterest" alt="" coords="1587,828,1781,869"/>
+<area shape="rect" id="node20" href="$interface_r_m_i_1_1_server_interface.html#a370ad2776334419dd2d7cc4e9fcd7338" title="Cancel a registration in an Accommodation. " alt="" coords="1587,828,1781,869"/>
 <area shape="rect" id="node16" href="$class_classes_1_1_accommodation.html#a70177d66378aa500361fe9479d06ae13" title="Default getter. " alt="" coords="1848,893,2037,935"/>
 <area shape="rect" id="node18" href="$class_classes_1_1_accommodation.html#a631dfa52e654cc57295dcd15ebb7b534" title="Default getter. " alt="" coords="1848,1024,2037,1065"/>
 <area shape="rect" id="node22" href="$class_classes_1_1_package_interest.html#a67eda797265e516c9a9c76340ff60547" title="Get the source of the ticket interest. " alt="" coords="1589,515,1779,556"/>
 <area shape="rect" id="node23" href="$class_classes_1_1_package_interest.html#a47f4427dca49a8e349f7dcc173c182e0" title="Get the destination of the ticket interest. " alt="" coords="1576,581,1792,607"/>
 <area shape="rect" id="node24" href="$class_classes_1_1_package_interest.html#ab756b8b3fd6ed10306f6d55d2633a385" title="Return if a ticket is a return ticket (not one&#45;way) " alt="" coords="1593,632,1775,673"/>
 <area shape="rect" id="node25" href="$class_classes_1_1_package_interest.html#aaa7f5285a2951b8ed01b4c00543804ec" title="Default getter. " alt="" coords="1589,449,1779,491"/>
-<area shape="rect" id="node26" href="$interface_r_m_i_1_1_server_interface.html#a757d59a905b201ae2fc62252127b52af" title="RMI.ServerInterface.unregister\lPackageInterest" alt="" coords="1587,384,1781,425"/>
+<area shape="rect" id="node26" href="$interface_r_m_i_1_1_server_interface.html#a757d59a905b201ae2fc62252127b52af" title="Cancel a registration in a Package. " alt="" coords="1587,384,1781,425"/>
 <area shape="rect" id="node29" href="$class_classes_1_1_flight_ticket_interest.html#a00ca4d156fe6852b34990afc227f9391" title="Default getter. " alt="" coords="1581,5,1787,47"/>
 <area shape="rect" id="node31" href="$class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="784,692,1036,733"/>
-<area shape="rect" id="node32" href="$class_r_m_i_1_1_client_servent.html#aa2b7655bd7a5597434742d16e6f9248b" title="Default getter. " alt="" coords="789,757,1031,799"/>
-<area shape="rect" id="node33" href="$class_g_u_i_1_1_events_panel.html#a3405a4a86e89cc527cb5578b0ff81f02" title="GUI.EventsPanel.insertTable\lFieldAccommodation" alt="" coords="1333,991,1520,1032"/>
+<area shape="rect" id="node32" href="$class_r_m_i_1_1_client_servent.html#aa2b7655bd7a5597434742d16e6f9248b" title="RMI.ClientServent.getAccommodation\lInterestList" alt="" coords="789,757,1031,799"/>
+<area shape="rect" id="node33" href="$class_g_u_i_1_1_events_panel.html#a3405a4a86e89cc527cb5578b0ff81f02" title="This method will handle the insertion of an Accommodation Interest inside the table. " alt="" coords="1333,991,1520,1032"/>
 <area shape="rect" id="node34" href="$class_classes_1_1_accommodation_interest.html#a80ed0a47cab0507357a7a5d92a7c5433" title="Default getter. " alt="" coords="1568,1089,1800,1131"/>
 <area shape="rect" id="node35" href="$class_classes_1_1_accommodation_interest.html#ad287f5ae4c99f72687317563c4a4c21f" title="Default getter. " alt="" coords="1568,1155,1800,1196"/>
 <area shape="rect" id="node37" href="$class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="805,509,1015,551"/>
-<area shape="rect" id="node38" href="$class_r_m_i_1_1_client_servent.html#afc72799b4214fa3edfb2d2ed369474c7" title="Default getter. " alt="" coords="811,575,1009,616"/>
-<area shape="rect" id="node39" href="$class_g_u_i_1_1_events_panel.html#a544e77969e5996a68d413fd7be21f78f" title="GUI.EventsPanel.insertTable\lFieldPackage" alt="" coords="1333,632,1520,673"/>
+<area shape="rect" id="node38" href="$class_r_m_i_1_1_client_servent.html#afc72799b4214fa3edfb2d2ed369474c7" title="RMI.ClientServent.getPackage\lInterestList" alt="" coords="811,575,1009,616"/>
+<area shape="rect" id="node39" href="$class_g_u_i_1_1_events_panel.html#a544e77969e5996a68d413fd7be21f78f" title="This method will handle the insertion of a Package interest inside the table. " alt="" coords="1333,632,1520,673"/>
 <area shape="rect" id="node40" href="$class_classes_1_1_package_interest.html#aef979cfdba473ba98e58f19495be5399" title="Default getter. " alt="" coords="1589,763,1779,804"/>
 <area shape="rect" id="node41" href="$class_classes_1_1_package_interest.html#a7956db7bd05b73e5d2836d78612296fa" title="Default getter. " alt="" coords="1589,697,1779,739"/>
 </map>

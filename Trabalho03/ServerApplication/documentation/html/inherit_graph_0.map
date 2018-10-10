@@ -1,3 +1,10 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_database_1_1_controller_1_1_ctrl_hotel.html" title="Database.Controller.Ctrl\lHotel" alt="" coords="5,5,165,47"/>
+<area shape="rect" id="node2" href="$class_classes_1_1_accommodation.html" title="Class responsible for storing the accommodation info. " alt="" coords="168,5,335,32"/>
+<area shape="rect" id="node3" href="$class_classes_1_1_accommodation_interest.html" title="Class responsible for storing the accommodation interest info from the clients. " alt="" coords="146,56,357,83"/>
+<area shape="rect" id="node4" href="$class_classes_1_1_accommodation_manager.html" title="Class responsible for the accommodations management. " alt="" coords="143,107,360,133"/>
+<area shape="rect" id="node5" href="$class_classes_1_1_flight_ticket.html" title="Classes.FlightTicket" alt="" coords="181,157,321,184"/>
+<area shape="rect" id="node6" href="$class_classes_1_1_flight_ticket_interest.html" title="Class responsible for storing the flight ticket interest info from the clients. " alt="" coords="160,208,343,235"/>
+<area shape="rect" id="node7" href="$class_classes_1_1_flight_ticket_manager.html" title="Class responsible for the flight ticket management. " alt="" coords="156,259,347,285"/>
+<area shape="rect" id="node8" href="$class_classes_1_1_package_interest.html" title="Class responsible for storing the package interest info from the clients. " alt="" coords="168,309,335,336"/>
+<area shape="rect" id="node9" href="$class_classes_1_1_packages.html" title="Classes.Packages" alt="" coords="186,360,317,387"/>
 </map>

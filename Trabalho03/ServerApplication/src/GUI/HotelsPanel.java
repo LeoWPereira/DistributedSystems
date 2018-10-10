@@ -17,6 +17,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 
@@ -43,6 +44,7 @@ import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 import Classes.Accommodation;
 import Classes.AccommodationManager;
+import Database.DBConnection;
 import Database.Controller.CtrlHotel;
 import Extra.CitiesBrazil;
 import RMI.ServerServent;
@@ -158,7 +160,9 @@ public class HotelsPanel extends JPanel
 		
 		internalPanel 	= _panel;
 		
-		dbStatement 	= _stm;
+		Connection	dbConnection = null;
+		
+		dbStatement 	= DBConnection.configureDatabase(dbConnection);
 
 		serverRMI 		= _server;
 		

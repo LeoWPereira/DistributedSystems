@@ -20,9 +20,6 @@ import Classes.FlightTicket;
 import Classes.FlightTicketManager;
 import Database.DAO.DAOPassages;
 
-/**
- * @brief
- */
 public class CtrlPassages
 {
 	/**

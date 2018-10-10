@@ -4,7 +4,7 @@
  * @author  Leonardo Winter Pereira
  * @author  Luis Felipe Mazzuchetti Ortiz
  * @version v1.0
- * @date    10 de out de 2018
+ * @date    01 de out de 2018
  * @brief
  ******************************************************************************
  */
@@ -20,8 +20,8 @@ namespace TravelAgencyClient
     class CitiesBrazil
     {
         /**
-	 * @brief Every State of Brazil
-	 */
+    	 * @brief Every State of Brazil
+    	 */
         String[] states = { "  ", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB",
             "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" };
 

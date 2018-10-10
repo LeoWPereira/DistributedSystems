@@ -1,0 +1,11 @@
+<map id="RMI.ServerServent.notifyAccommodationInterests" name="RMI.ServerServent.notifyAccommodationInterests">
+<area shape="rect" id="node2" href="$class_classes_1_1_accommodation_interest.html#a1562b82d0e0576b94108e746c598a421" title="Default getter. " alt="" coords="220,5,452,47"/>
+<area shape="rect" id="node4" href="$class_classes_1_1_accommodation_interest.html#af109f985c3233c110e063081b5fdc036" title="Default getter. " alt="" coords="220,71,452,112"/>
+<area shape="rect" id="node6" href="$class_classes_1_1_accommodation_interest.html#a870c629ccf2c83173322211f1e76b0e9" title="Default getter. " alt="" coords="220,136,452,177"/>
+<area shape="rect" id="node7" href="$class_classes_1_1_accommodation_interest.html#a80ed0a47cab0507357a7a5d92a7c5433" title="Default getter. " alt="" coords="220,201,452,243"/>
+<area shape="rect" id="node8" href="$class_classes_1_1_accommodation_interest.html#ad287f5ae4c99f72687317563c4a4c21f" title="Default getter. " alt="" coords="220,267,452,308"/>
+<area shape="rect" id="node9" href="$class_classes_1_1_accommodation_interest.html#ad43ee14f9c9300c5595b12059f6d82bd" title="Default getter. " alt="" coords="220,332,452,373"/>
+<area shape="rect" id="node10" href="$interface_r_m_i_1_1_client_interface.html#ab293e75c09b1575c4369c2ad7f628a06" title="Send a message from server to client. " alt="" coords="253,397,419,439"/>
+<area shape="rect" id="node3" href="$class_classes_1_1_accommodation.html#a631dfa52e654cc57295dcd15ebb7b534" title="Default getter. " alt="" coords="500,5,689,47"/>
+<area shape="rect" id="node5" href="$class_classes_1_1_accommodation.html#a70177d66378aa500361fe9479d06ae13" title="Default getter. " alt="" coords="500,71,689,112"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="Classes.FlightTicketInterest.getSource" name="Classes.FlightTicketInterest.getSource">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_events_panel.html#a11f1b8efad175573fe369f97db913353" title="GUI.EventsPanel.insertTable\lFieldTicket" alt="" coords="260,71,447,112"/>
+<area shape="rect" id="node7" href="$class_r_m_i_1_1_server_servent.html#ad7673097473e756449cc13674f17c071" title="RMI.ServerServent.notify\lTicketsInterests" alt="" coords="272,136,435,177"/>
+<area shape="rect" id="node11" href="$class_r_m_i_1_1_server_servent.html#af74f3cd6a48d6701325be55681bdad5a" title="Cancel a registration in a Flight Ticket. " alt="" coords="259,201,448,243"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html#abff1f9d90177b29b847a928c86e8025c" title="The method will show the flight ticket interest list in the table. " alt="" coords="496,5,692,47"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_events_panel.html#acb43b9521062abeeeef4a91018f44d14" title="GUI.EventsPanel.insertTable\lFieldTicket" alt="" coords="501,71,687,112"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#a9208fe7f420968feb736ad88a6abc8e2" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="740,5,931,47"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_events_panel.html#a889625708b56adb005fbe14a0ebc24e7" title="Default Constructor. " alt="" coords="981,13,1177,39"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_passages_panel.html#ae479ab4e58a40bea8baaed60eebfb56b" title="GUI.PassagesPanel.process\lRegistry" alt="" coords="499,136,689,177"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="747,136,924,177"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_passages_panel.html#a5ac30f327213e2ba360a37266daf7a86" title="Default Constructor. " alt="" coords="979,136,1180,177"/>
+</map>

@@ -21,7 +21,12 @@ import RMI.ClientInterface;
  */
 public class FlightTicketInterest implements Serializable
 {
-    /**
+	/**
+	 * @brief	Unique Version ID from Class
+	 */
+	private static final long serialVersionUID = -5908856134706151929L;
+
+	/**
      * @brief	Instance of flight ticket
      */
     private FlightTicket  flightTicketTo;

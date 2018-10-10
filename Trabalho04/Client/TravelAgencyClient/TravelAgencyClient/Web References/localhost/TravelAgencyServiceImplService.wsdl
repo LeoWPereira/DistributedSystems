@@ -5,29 +5,11 @@
       <xsd:import schemaLocation="http://localhost:9901/TravelAgencyService?xsd=1" namespace="http://tas.sd.br/" />
     </xsd:schema>
   </types>
-  <message name="buyPassage">
-    <part name="parameters" element="tns:buyPassage" />
+  <message name="searchHotelByName">
+    <part name="parameters" element="tns:searchHotelByName" />
   </message>
-  <message name="buyPassageResponse">
-    <part name="parameters" element="tns:buyPassageResponse" />
-  </message>
-  <message name="searchPassages">
-    <part name="parameters" element="tns:searchPassages" />
-  </message>
-  <message name="searchPassagesResponse">
-    <part name="parameters" element="tns:searchPassagesResponse" />
-  </message>
-  <message name="loadDBHotels">
-    <part name="parameters" element="tns:loadDBHotels" />
-  </message>
-  <message name="loadDBHotelsResponse">
-    <part name="parameters" element="tns:loadDBHotelsResponse" />
-  </message>
-  <message name="insertHotelEntry">
-    <part name="parameters" element="tns:insertHotelEntry" />
-  </message>
-  <message name="insertHotelEntryResponse">
-    <part name="parameters" element="tns:insertHotelEntryResponse" />
+  <message name="searchHotelByNameResponse">
+    <part name="parameters" element="tns:searchHotelByNameResponse" />
   </message>
   <message name="loadDBPassages">
     <part name="parameters" element="tns:loadDBPassages" />
@@ -35,41 +17,17 @@
   <message name="loadDBPassagesResponse">
     <part name="parameters" element="tns:loadDBPassagesResponse" />
   </message>
-  <message name="reserveHotel">
-    <part name="parameters" element="tns:reserveHotel" />
+  <message name="insertHotelEntry">
+    <part name="parameters" element="tns:insertHotelEntry" />
   </message>
-  <message name="reserveHotelResponse">
-    <part name="parameters" element="tns:reserveHotelResponse" />
+  <message name="insertHotelEntryResponse">
+    <part name="parameters" element="tns:insertHotelEntryResponse" />
   </message>
-  <message name="searchHotelByCity">
-    <part name="parameters" element="tns:searchHotelByCity" />
+  <message name="loadDBHotels">
+    <part name="parameters" element="tns:loadDBHotels" />
   </message>
-  <message name="searchHotelByCityResponse">
-    <part name="parameters" element="tns:searchHotelByCityResponse" />
-  </message>
-  <message name="getAccommodationInterestList">
-    <part name="parameters" element="tns:getAccommodationInterestList" />
-  </message>
-  <message name="getAccommodationInterestListResponse">
-    <part name="parameters" element="tns:getAccommodationInterestListResponse" />
-  </message>
-  <message name="registerHotelInterestByHotel">
-    <part name="parameters" element="tns:registerHotelInterestByHotel" />
-  </message>
-  <message name="registerHotelInterestByHotelResponse">
-    <part name="parameters" element="tns:registerHotelInterestByHotelResponse" />
-  </message>
-  <message name="registerPackageInterest">
-    <part name="parameters" element="tns:registerPackageInterest" />
-  </message>
-  <message name="registerPackageInterestResponse">
-    <part name="parameters" element="tns:registerPackageInterestResponse" />
-  </message>
-  <message name="registerPassageInterest">
-    <part name="parameters" element="tns:registerPassageInterest" />
-  </message>
-  <message name="registerPassageInterestResponse">
-    <part name="parameters" element="tns:registerPassageInterestResponse" />
+  <message name="loadDBHotelsResponse">
+    <part name="parameters" element="tns:loadDBHotelsResponse" />
   </message>
   <message name="insertPassageEntry">
     <part name="parameters" element="tns:insertPassageEntry" />
@@ -77,11 +35,35 @@
   <message name="insertPassageEntryResponse">
     <part name="parameters" element="tns:insertPassageEntryResponse" />
   </message>
-  <message name="getTicketInterestList">
-    <part name="parameters" element="tns:getTicketInterestList" />
+  <message name="searchHotelByCity">
+    <part name="parameters" element="tns:searchHotelByCity" />
   </message>
-  <message name="getTicketInterestListResponse">
-    <part name="parameters" element="tns:getTicketInterestListResponse" />
+  <message name="searchHotelByCityResponse">
+    <part name="parameters" element="tns:searchHotelByCityResponse" />
+  </message>
+  <message name="searchPassages">
+    <part name="parameters" element="tns:searchPassages" />
+  </message>
+  <message name="searchPassagesResponse">
+    <part name="parameters" element="tns:searchPassagesResponse" />
+  </message>
+  <message name="searchPackages">
+    <part name="parameters" element="tns:searchPackages" />
+  </message>
+  <message name="searchPackagesResponse">
+    <part name="parameters" element="tns:searchPackagesResponse" />
+  </message>
+  <message name="reserveHotel">
+    <part name="parameters" element="tns:reserveHotel" />
+  </message>
+  <message name="reserveHotelResponse">
+    <part name="parameters" element="tns:reserveHotelResponse" />
+  </message>
+  <message name="buyPassage">
+    <part name="parameters" element="tns:buyPassage" />
+  </message>
+  <message name="buyPassageResponse">
+    <part name="parameters" element="tns:buyPassageResponse" />
   </message>
   <message name="getPackageInterestList">
     <part name="parameters" element="tns:getPackageInterestList" />
@@ -89,23 +71,41 @@
   <message name="getPackageInterestListResponse">
     <part name="parameters" element="tns:getPackageInterestListResponse" />
   </message>
+  <message name="registerPackageInterest">
+    <part name="parameters" element="tns:registerPackageInterest" />
+  </message>
+  <message name="registerPackageInterestResponse">
+    <part name="parameters" element="tns:registerPackageInterestResponse" />
+  </message>
+  <message name="getAccommodationInterestList">
+    <part name="parameters" element="tns:getAccommodationInterestList" />
+  </message>
+  <message name="getAccommodationInterestListResponse">
+    <part name="parameters" element="tns:getAccommodationInterestListResponse" />
+  </message>
   <message name="registerHotelInterestByCity">
     <part name="parameters" element="tns:registerHotelInterestByCity" />
   </message>
   <message name="registerHotelInterestByCityResponse">
     <part name="parameters" element="tns:registerHotelInterestByCityResponse" />
   </message>
-  <message name="searchHotelByName">
-    <part name="parameters" element="tns:searchHotelByName" />
+  <message name="registerHotelInterestByHotel">
+    <part name="parameters" element="tns:registerHotelInterestByHotel" />
   </message>
-  <message name="searchHotelByNameResponse">
-    <part name="parameters" element="tns:searchHotelByNameResponse" />
+  <message name="registerHotelInterestByHotelResponse">
+    <part name="parameters" element="tns:registerHotelInterestByHotelResponse" />
   </message>
-  <message name="searchPackages">
-    <part name="parameters" element="tns:searchPackages" />
+  <message name="registerPassageInterest">
+    <part name="parameters" element="tns:registerPassageInterest" />
   </message>
-  <message name="searchPackagesResponse">
-    <part name="parameters" element="tns:searchPackagesResponse" />
+  <message name="registerPassageInterestResponse">
+    <part name="parameters" element="tns:registerPassageInterestResponse" />
+  </message>
+  <message name="getTicketInterestList">
+    <part name="parameters" element="tns:getTicketInterestList" />
+  </message>
+  <message name="getTicketInterestListResponse">
+    <part name="parameters" element="tns:getTicketInterestListResponse" />
   </message>
   <message name="buyPackage">
     <part name="parameters" element="tns:buyPackage" />
@@ -114,73 +114,73 @@
     <part name="parameters" element="tns:buyPackageResponse" />
   </message>
   <portType name="TravelAgencyService">
-    <operation name="buyPassage">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/buyPassageRequest" message="tns:buyPassage" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/buyPassageResponse" message="tns:buyPassageResponse" />
-    </operation>
-    <operation name="searchPassages">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/searchPassagesRequest" message="tns:searchPassages" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/searchPassagesResponse" message="tns:searchPassagesResponse" />
-    </operation>
-    <operation name="loadDBHotels">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/loadDBHotelsRequest" message="tns:loadDBHotels" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/loadDBHotelsResponse" message="tns:loadDBHotelsResponse" />
-    </operation>
-    <operation name="insertHotelEntry">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/insertHotelEntryRequest" message="tns:insertHotelEntry" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/insertHotelEntryResponse" message="tns:insertHotelEntryResponse" />
+    <operation name="searchHotelByName">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/searchHotelByNameRequest" message="tns:searchHotelByName" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/searchHotelByNameResponse" message="tns:searchHotelByNameResponse" />
     </operation>
     <operation name="loadDBPassages">
       <input wsam:Action="http://tas.sd.br/TravelAgencyService/loadDBPassagesRequest" message="tns:loadDBPassages" />
       <output wsam:Action="http://tas.sd.br/TravelAgencyService/loadDBPassagesResponse" message="tns:loadDBPassagesResponse" />
     </operation>
-    <operation name="reserveHotel">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/reserveHotelRequest" message="tns:reserveHotel" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/reserveHotelResponse" message="tns:reserveHotelResponse" />
+    <operation name="insertHotelEntry">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/insertHotelEntryRequest" message="tns:insertHotelEntry" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/insertHotelEntryResponse" message="tns:insertHotelEntryResponse" />
     </operation>
-    <operation name="searchHotelByCity">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/searchHotelByCityRequest" message="tns:searchHotelByCity" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/searchHotelByCityResponse" message="tns:searchHotelByCityResponse" />
-    </operation>
-    <operation name="getAccommodationInterestList">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/getAccommodationInterestListRequest" message="tns:getAccommodationInterestList" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/getAccommodationInterestListResponse" message="tns:getAccommodationInterestListResponse" />
-    </operation>
-    <operation name="registerHotelInterestByHotel">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/registerHotelInterestByHotelRequest" message="tns:registerHotelInterestByHotel" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/registerHotelInterestByHotelResponse" message="tns:registerHotelInterestByHotelResponse" />
-    </operation>
-    <operation name="registerPackageInterest">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/registerPackageInterestRequest" message="tns:registerPackageInterest" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/registerPackageInterestResponse" message="tns:registerPackageInterestResponse" />
-    </operation>
-    <operation name="registerPassageInterest">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/registerPassageInterestRequest" message="tns:registerPassageInterest" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/registerPassageInterestResponse" message="tns:registerPassageInterestResponse" />
+    <operation name="loadDBHotels">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/loadDBHotelsRequest" message="tns:loadDBHotels" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/loadDBHotelsResponse" message="tns:loadDBHotelsResponse" />
     </operation>
     <operation name="insertPassageEntry">
       <input wsam:Action="http://tas.sd.br/TravelAgencyService/insertPassageEntryRequest" message="tns:insertPassageEntry" />
       <output wsam:Action="http://tas.sd.br/TravelAgencyService/insertPassageEntryResponse" message="tns:insertPassageEntryResponse" />
     </operation>
-    <operation name="getTicketInterestList">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/getTicketInterestListRequest" message="tns:getTicketInterestList" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/getTicketInterestListResponse" message="tns:getTicketInterestListResponse" />
+    <operation name="searchHotelByCity">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/searchHotelByCityRequest" message="tns:searchHotelByCity" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/searchHotelByCityResponse" message="tns:searchHotelByCityResponse" />
+    </operation>
+    <operation name="searchPassages">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/searchPassagesRequest" message="tns:searchPassages" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/searchPassagesResponse" message="tns:searchPassagesResponse" />
+    </operation>
+    <operation name="searchPackages">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/searchPackagesRequest" message="tns:searchPackages" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/searchPackagesResponse" message="tns:searchPackagesResponse" />
+    </operation>
+    <operation name="reserveHotel">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/reserveHotelRequest" message="tns:reserveHotel" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/reserveHotelResponse" message="tns:reserveHotelResponse" />
+    </operation>
+    <operation name="buyPassage">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/buyPassageRequest" message="tns:buyPassage" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/buyPassageResponse" message="tns:buyPassageResponse" />
     </operation>
     <operation name="getPackageInterestList">
       <input wsam:Action="http://tas.sd.br/TravelAgencyService/getPackageInterestListRequest" message="tns:getPackageInterestList" />
       <output wsam:Action="http://tas.sd.br/TravelAgencyService/getPackageInterestListResponse" message="tns:getPackageInterestListResponse" />
     </operation>
+    <operation name="registerPackageInterest">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/registerPackageInterestRequest" message="tns:registerPackageInterest" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/registerPackageInterestResponse" message="tns:registerPackageInterestResponse" />
+    </operation>
+    <operation name="getAccommodationInterestList">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/getAccommodationInterestListRequest" message="tns:getAccommodationInterestList" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/getAccommodationInterestListResponse" message="tns:getAccommodationInterestListResponse" />
+    </operation>
     <operation name="registerHotelInterestByCity">
       <input wsam:Action="http://tas.sd.br/TravelAgencyService/registerHotelInterestByCityRequest" message="tns:registerHotelInterestByCity" />
       <output wsam:Action="http://tas.sd.br/TravelAgencyService/registerHotelInterestByCityResponse" message="tns:registerHotelInterestByCityResponse" />
     </operation>
-    <operation name="searchHotelByName">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/searchHotelByNameRequest" message="tns:searchHotelByName" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/searchHotelByNameResponse" message="tns:searchHotelByNameResponse" />
+    <operation name="registerHotelInterestByHotel">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/registerHotelInterestByHotelRequest" message="tns:registerHotelInterestByHotel" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/registerHotelInterestByHotelResponse" message="tns:registerHotelInterestByHotelResponse" />
     </operation>
-    <operation name="searchPackages">
-      <input wsam:Action="http://tas.sd.br/TravelAgencyService/searchPackagesRequest" message="tns:searchPackages" />
-      <output wsam:Action="http://tas.sd.br/TravelAgencyService/searchPackagesResponse" message="tns:searchPackagesResponse" />
+    <operation name="registerPassageInterest">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/registerPassageInterestRequest" message="tns:registerPassageInterest" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/registerPassageInterestResponse" message="tns:registerPassageInterestResponse" />
+    </operation>
+    <operation name="getTicketInterestList">
+      <input wsam:Action="http://tas.sd.br/TravelAgencyService/getTicketInterestListRequest" message="tns:getTicketInterestList" />
+      <output wsam:Action="http://tas.sd.br/TravelAgencyService/getTicketInterestListResponse" message="tns:getTicketInterestListResponse" />
     </operation>
     <operation name="buyPackage">
       <input wsam:Action="http://tas.sd.br/TravelAgencyService/buyPackageRequest" message="tns:buyPackage" />
@@ -189,34 +189,7 @@
   </portType>
   <binding name="TravelAgencyServiceImplPortBinding" type="tns:TravelAgencyService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="buyPassage">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="searchPassages">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="loadDBHotels">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertHotelEntry">
+    <operation name="searchHotelByName">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -234,7 +207,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="reserveHotel">
+    <operation name="insertHotelEntry">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -243,43 +216,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="searchHotelByCity">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="getAccommodationInterestList">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="registerHotelInterestByHotel">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="registerPackageInterest">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="registerPassageInterest">
+    <operation name="loadDBHotels">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -297,7 +234,43 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="getTicketInterestList">
+    <operation name="searchHotelByCity">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="searchPassages">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="searchPackages">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="reserveHotel">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buyPassage">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -315,6 +288,24 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="registerPackageInterest">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getAccommodationInterestList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="registerHotelInterestByCity">
       <soap:operation soapAction="" />
       <input>
@@ -324,7 +315,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="searchHotelByName">
+    <operation name="registerHotelInterestByHotel">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -333,7 +324,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="searchPackages">
+    <operation name="registerPassageInterest">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getTicketInterestList">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

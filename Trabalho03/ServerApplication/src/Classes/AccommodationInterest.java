@@ -20,7 +20,12 @@ import RMI.ClientInterface;
  */
 public class AccommodationInterest implements Serializable
 {
-    /**
+	/**
+	 * @brief	Unique Version ID from Class
+	 */
+	private static final long serialVersionUID = 6730259577100878319L;
+
+	/**
      * @brief	Member containing an instance of Accommodation
      */
     private Accommodation  accommodation;

@@ -40,44 +40,20 @@ import Database.Controller.CtrlPassages;
  */
 public class ServerServent extends UnicastRemoteObject implements ServerInterface
 {
-    /**
-	 * @brief
-	 */
 	private static final long serialVersionUID = -8288164692733086382L;
 	
-	/**
-	 * @brief
-	 */
 	private CtrlPassages ctrlPassages;
 	
-	/**
-	 * @brief
-	 */
 	private CtrlHotel ctrlHotel;
 
-	/**
-	 * @brief
-	 */
 	private ArrayList<FlightTicketInterest> listTicketInterest;
 
-	/**
-	 * @brief
-	 */
 	private ArrayList<AccommodationInterest> listAccommodationInterest;
 
-	/**
-	 * @brief
-	 */
 	private ArrayList<PackageInterest> listPackageInterest;
 	
-	/**
-	 * @brief	Member holding every info about the connection to the DB
-	 */
 	private static Connection	dbConnection;
 
-	/**
-	 * @brief	
-	 */
 	public ServerServent() throws RemoteException
     {
 		ctrlPassages	= new CtrlPassages();
@@ -239,15 +215,7 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 		return returnValue;
 	}
 
-	/**
-     * @brief
-     * 
-     * @param   flightTicketGoing    :
-     * @param   flightTicketReturn   :
-     * @param   accommodation        :
-     * 
-     * @return
-     */
+	@Override
     public ArrayList<Packages> searchPackages(FlightTicket   flightTicketGoing, 
                                               FlightTicket    flightTicketReturn, 
                                               Accommodation   accommodation)      throws RemoteException
@@ -330,16 +298,7 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 		return list;
     }
 
-    /**
-     * @brief   
-     * 
-     * @param   _package 	: Package
-     * 
-     * @return result int 	: 1 - Success
-     *						  2 - Not enough passages
-     *						  3 - Not enough rooms
-     *						  4 - Guests exceeded
-     */
+    @Override
     public int buyPackage(Packages  _package) throws RemoteException
     {
     	int result = 0;
@@ -1004,14 +963,11 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
 
     public void notifyPackageInterests(Accommodation accommodation) throws RemoteException
 	{
-        PackageInterest packageInterest;
-        // Creates a SimpleDateFormat to compare dates
-        SimpleDateFormat 		fmt = new SimpleDateFormat("yyyyMMdd");
+        PackageInterest 		packageInterest;
         FlightTicketManager 	listFlightTicket;
     	FlightTicket 			flightTicketGoingFound  = null;
-    	FlightTicket 			flightTicketReturnFound  = null;
+    	FlightTicket 			flightTicketReturnFound	= null;
     	boolean 				foundTicket 			= false;
-    	int 					quantity;
     	float 					sumPrice;
 
         for (int i = 0; i < this.listPackageInterest.size(); i++) 
@@ -1104,10 +1060,6 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
         return;
     }
 
-    /**
-	 * @brief Remove ticket interest from local array and from the server
-	 * 
-	 */
     @Override
     public void unregisterTicketInterest(FlightTicketInterest ticketInterest)  throws RemoteException
     {
@@ -1128,10 +1080,6 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
     	return;
     }
 
-    /**
-     * @brief Remove accommodation interest from local array and from the server
-     * 
-     */
     @Override
     public void unregisterAccommodationInterest(AccommodationInterest accommodationInterest)  throws RemoteException
     {
@@ -1163,10 +1111,6 @@ public class ServerServent extends UnicastRemoteObject implements ServerInterfac
         return;
     }
 
-    /**
-     * @brief Remove package interest from local array and from the server
-     * 
-     */
     @Override
     public synchronized void unregisterPackageInterest(PackageInterest packageInterest) throws RemoteException
     {
