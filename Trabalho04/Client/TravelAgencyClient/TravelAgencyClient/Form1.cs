@@ -1,18 +1,59 @@
-﻿using System;
+﻿/**
+ ******************************************************************************
+ * @file    Form1.cs
+ * @author  Leonardo Winter Pereira
+ * @author  Luis Felipe Mazzuchetti Ortiz
+ * @version v1.0
+ * @date    30 de set de 2018
+ * @brief
+ ******************************************************************************
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using TravelAgencyClient.Classes;
 
 namespace TravelAgencyClient
 {
+    /**
+     * @name    Form1
+     * @brief   Class responsible for showing the flight tickets, hotels
+     *          and packages available (GUI). As well as searching for each
+     *          of these and registering interests.
+     */
     public partial class Form1 : Form
     {
+        /**
+         * @name    webService
+         * @brief   WebService object used for calling the methods
+         *          of the web service.
+         */
         private localhost.TravelAgencyServiceImplService webService;
 
+        /**
+         * @name    registeredTicketInterests
+         * @brief   List of flight ticket interests that had been registered.
+         */
         private List<FlightTicketInterest>  registeredTicketInterests   = new List<FlightTicketInterest>();
+
+        /**
+         * @name    registeredHotelInterests
+         * @brief   List of hotel interests that had been registered.
+         */
         private List<AccommodationInterest> registeredHotelInterests    = new List<AccommodationInterest>();
+
+        /**
+         * @name    registeredPackageInterests
+         * @brief   List of package interests that had been registered.
+         */
         private List<PackageInt>            registeredPackageInterests  = new List<PackageInt>();
 
+        /**
+         * @name    Form1
+         * @brief   Default Class Constructor
+         *          Initializes the components, web service and states and cities combobox
+         */
         public Form1()
         {
             InitializeComponent();
@@ -20,9 +61,14 @@ namespace TravelAgencyClient
             // Firstly, configure the web service object
             webService = new localhost.TravelAgencyServiceImplService();
 
+            // Fill the state combobox
             configStatesAndCities();
         }
 
+        /**
+         * @name    configStatesAndCities
+         * @brief   Fill the state combo boxes
+         */
         private void configStatesAndCities()
         {
             CitiesBrazil citiesBrazil = new CitiesBrazil();
@@ -40,6 +86,11 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    returnRadioButton_CheckedChanged
+         * @brief   Process the change of the return ticket radio button
+         *          Shows the return ticket information
+         */
         private void returnRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             returnTicketDate.Visible = true;
@@ -48,6 +99,11 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    goingRadioButton_CheckedChanged
+         * @brief   Process the change of the return ticket radio button
+         *          Removes the return ticket information
+         */
         private void goingRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             returnTicketDate.Visible = false;
@@ -56,6 +112,11 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    searchByCityRadioButton_CheckedChanged
+         * @brief   Process the change of the return ticket radio button
+         *          Shows the city name of the hotel information
+         */
         private void searchByCityRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             hotelNameLabel.Visible = false;
@@ -67,6 +128,11 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    searchByHotelRadioButton_CheckedChanged
+         * @brief   Process the change of the return ticket radio button
+         *          Shows the hotel name information
+         */
         private void searchByHotelRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             hotelNameLabel.Visible = true;
@@ -78,6 +144,11 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    returnPackageRadioButton_CheckedChanged
+         * @brief   Process the change of the return ticket radio button
+         *          Shows the return ticket package information
+         */
         private void returnPackageRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             returnPackageDateLabel.Visible = true;
@@ -86,6 +157,11 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    goingPackageRadioButton_CheckedChanged
+         * @brief   Process the change of the going ticket package radio button
+         *          Remove the return ticket package information
+         */
         private void goingPackageRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             returnPackageDateLabel.Visible = false;
@@ -94,6 +170,10 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    stateSrcComboBox_SelectedIndexChanged
+         * @brief   Fill the city source combo box according to the choosen state
+         */
         private void stateSrcComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             CitiesBrazil citiesBrazil = new CitiesBrazil();
@@ -112,6 +192,10 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    stateDestComboBox_SelectedIndexChanged
+         * @brief   Fill the city destination combo box according to the choosen state
+         */
         private void stateDestComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             CitiesBrazil citiesBrazil = new CitiesBrazil();
@@ -130,6 +214,10 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    stateHotelCombo_SelectedIndexChanged
+         * @brief   Fill the city combo box according to the choosen state
+         */
         private void stateHotelCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             CitiesBrazil citiesBrazil = new CitiesBrazil();
@@ -148,6 +236,10 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    stateSrcPackCombo_SelectedIndexChanged
+         * @brief   Fill the city source package combo box according to the choosen state
+         */
         private void stateSrcPackCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             CitiesBrazil citiesBrazil = new CitiesBrazil();
@@ -166,6 +258,10 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    stateDestPackCombo_SelectedIndexChanged
+         * @brief   Fill the city destination package combo box according to the choosen state
+         */
         private void stateDestPackCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             CitiesBrazil citiesBrazil = new CitiesBrazil();
@@ -184,6 +280,11 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    ticketCheckEmptyFields
+         * @brief   Check if the text boxes are empty
+         * @return  returnValue : false if there is an empty text box
+         */
         private bool ticketCheckEmptyFields()
         {
             bool returnValue = true;
@@ -200,10 +301,16 @@ namespace TravelAgencyClient
 
         }
 
+        /**
+         * @name    hotelCheckEmptyFields
+         * @brief   Check if the text boxes are empty
+         * @return  returnValue : false if there is an empty text box
+         */
         private bool hotelCheckEmptyFields()
         {
             bool returnValue = true;
 
+            // Checks the text boxes according to the checked radiobutton
             if(searchByHotelRadioButton.Checked)
             {
                 if(hotelTextBox.Text.Equals(""))
@@ -224,6 +331,11 @@ namespace TravelAgencyClient
 
         }
 
+        /**
+         * @name    packageCheckEmptyFields
+         * @brief   Check if the text boxes are empty
+         * @return  returnValue : false if there is an empty text box
+         */
         private bool packageCheckEmptyFields()
         {
             bool returnValue = true;
@@ -240,6 +352,11 @@ namespace TravelAgencyClient
 
         }
 
+        /**
+         * @name    searchTicketButton_Click
+         * @brief   Search for flight ticket from the database
+         *          according to the user inputs
+         */
         private void searchTicketButton_Click(object sender, EventArgs e)
         {
             localhost.flightTicket[] goingList;
@@ -274,6 +391,11 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    configTicketDataGrid
+         * @brief   Configure the data grid according to the result
+         *          of the ticket search
+         */
         private void configTicketDataGrid(localhost.flightTicket[] goingTicket,
                                           localhost.flightTicket[] returnTicket)
         {
@@ -306,8 +428,14 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    ticketDataGridView_CellClick
+         * @brief   Process the cell click of the ticket data grid
+         *          Creates a ticket details window if the buy button was pressed
+         */
         private void ticketDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // If the cell is where the reserve button is located
             if (e.ColumnIndex == 4)
             {
                 String citySource = ticketDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -328,6 +456,11 @@ namespace TravelAgencyClient
             }
         }
 
+        /**
+         * @name    searchHotelButton_Click
+         * @brief   Search for hotels from the database
+         *          according to the user inputs
+         */
         private void searchHotelButton_Click(object sender, EventArgs e)
         {
             localhost.accommodation[] list;
@@ -353,6 +486,11 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    configHotelDataGrid
+         * @brief   Configure the data grid according to the result
+         *          of the ticket search
+         */
         private void configHotelDataGrid(localhost.accommodation[] accommodation)
         {
             string[] row;
@@ -383,8 +521,14 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    hotelDataGridView_CellClick_1
+         * @brief   Process the cell click of the hotel data grid
+         *          Creates a hotel details window if the buy button was pressed
+         */
         private void hotelDataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            // If the cell is where the reserve button is located
             if (e.ColumnIndex == 4)
             {
                 String cityName = hotelDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -401,6 +545,11 @@ namespace TravelAgencyClient
             }
         }
 
+        /**
+         * @name    searchPackagesButton_Click
+         * @brief   Search for packages from the database
+         *          according to the user inputs
+         */
         private void searchPackagesButton_Click(object sender, EventArgs e)
         {
             localhost.packages[] list;
@@ -434,6 +583,11 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    configPackageDataGrid
+         * @brief   Configure the data grid according to the result
+         *          of the package search
+         */
         private void configPackageDataGrid(localhost.packages[] packages)
         {
             string[] row;
@@ -498,8 +652,14 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    packageDataGridView_CellClick
+         * @brief   Process the cell click of the package data grid
+         *          Creates a package details window if the buy button was pressed
+         */
         private void packageDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // If the cell is where the buy button is located
             if(e.ColumnIndex == 9)
             {
                 String goingCityName = packageDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -537,6 +697,11 @@ namespace TravelAgencyClient
             }
         }
 
+        /**
+         * @name    interestTicketButton_Click
+         * @brief   Process the click of the register interest button
+         *          Creates a ticket interest window if the buy button was pressed
+         */
         private void interestTicketButton_Click(object sender, EventArgs e)
         {
             if (ticketCheckEmptyFields())
@@ -560,9 +725,12 @@ namespace TravelAgencyClient
 
                 ticketInterest.ShowDialog();
 
-                FlightTicketInterest ticketInt = ticketInterest.RegisteredInterest;
+                if(ticketInterest.RegisterCompleted)
+                {
+                    FlightTicketInterest ticketInt = ticketInterest.RegisteredInterest;
 
-                registeredTicketInterests.Add(ticketInt);
+                    registeredTicketInterests.Add(ticketInt);
+                }
             }
             else
             {
@@ -570,6 +738,11 @@ namespace TravelAgencyClient
             }
         }
 
+        /**
+         * @name    interestHotelButton_Click
+         * @brief   Process the click of the register interest button
+         *          Creates a hotel interest window if the buy button was pressed
+         */
         private void interestHotelButton_Click(object sender, EventArgs e)
         {
             if (hotelCheckEmptyFields())
@@ -577,6 +750,7 @@ namespace TravelAgencyClient
                 String hotelName;
                 String cityName;
 
+                // Create interest according to the checked radio button
                 if (searchByHotelRadioButton.Checked)
                 {
                     hotelName = hotelTextBox.Text;
@@ -593,9 +767,12 @@ namespace TravelAgencyClient
 
                 hotelInterest.ShowDialog();
 
-                AccommodationInterest hotelInt = hotelInterest.RegisteredInterest;
+                if(hotelInterest.RegisterCompleted)
+                {
+                    AccommodationInterest hotelInt = hotelInterest.RegisteredInterest;
 
-                registeredHotelInterests.Add(hotelInt);
+                    registeredHotelInterests.Add(hotelInt);
+                }
             }
             else
             {
@@ -606,6 +783,11 @@ namespace TravelAgencyClient
             }
         }
 
+        /**
+         * @name    interestPackageButton_Click
+         * @brief   Process the click of the register interest button
+         *          Creates a package interest window if the buy button was pressed
+         */
         private void interestPackageButton_Click(object sender, EventArgs e)
         {
             if (packageCheckEmptyFields())
@@ -629,9 +811,12 @@ namespace TravelAgencyClient
 
                 packageInterest.ShowDialog();
 
-                PackageInt packageInt = packageInterest.RegisteredInterest;
+                if(packageInterest.RegisterCompleted)
+                {
+                    PackageInt packageInt = packageInterest.RegisteredInterest;
 
-                registeredPackageInterests.Add(packageInt);
+                    registeredPackageInterests.Add(packageInt);
+                }
             }
             else
             {
@@ -639,6 +824,11 @@ namespace TravelAgencyClient
             }
         }
 
+        /**
+         * @name    ticketInterestRadioButton_CheckedChanged
+         * @brief   Process the change of the ticket interest radio button
+         *          Configure the interest data grid to show the registered ticket interests
+         */
         private void ticketInterestRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             string[] row;
@@ -684,6 +874,11 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    hotelInterestRadioButton_CheckedChanged
+         * @brief   Process the change of the hotel interest radio button
+         *          Configure the interest data grid to show the registered hotel interests
+         */
         private void hotelInterestRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             string[] row;
@@ -717,6 +912,11 @@ namespace TravelAgencyClient
             return;
         }
 
+        /**
+         * @name    packageInterestRadioButton_CheckedChanged
+         * @brief   Process the change of the ticpackageket interest radio button
+         *          Configure the interest data grid to show the registered package interests
+         */
         private void packageInterestRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             string[] row;
