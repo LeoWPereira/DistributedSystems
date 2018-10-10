@@ -27,15 +27,16 @@ import Classes.Packages;
  
 
 /**
- * @brief   
+ * @brief	This class is responsible for defining the
+ * 			the methods available in the server side
  */
 public interface ServerInterface extends Remote
 {
 	/**
-	 * @brief	
+	 * @brief	First communication between client and server
 	 * 
-	 * @param 	clientName
-	 * @param 	refCli
+	 * @param 	clientName	: String with the Client Name
+	 * @param 	refCli		: Reference to the client
 	 */
  	public void call(String 			clientName,
  				  	 ClientInterface	refCli) throws RemoteException;
@@ -112,13 +113,14 @@ public interface ServerInterface extends Remote
     public boolean reserveHotel(Accommodation	_hotel) throws RemoteException;
     
     /**
-     * @brief   
+     * @brief	Register Interest in a certain Passage
      * 
-     * @param   _ticket         :
-     * @param   _ticketFrom     :
-     * @param   _quantity       :
-     * @param   _desiredPrice   :
-     * @param   _refCli         :
+     * @param 	_ticket			: Instance of a Ticket
+     * @param   _ticketFrom     : Instance of a Ticket
+     * @param 	_quantity		: Quantity of desired tickets
+     * @param 	_desiredPrice	: Desired max price
+     * @param 	_refCli			: Reference to the client
+     * @param   _clientName     : Client name
      */
     public void registerPassageInterest(FlightTicket    _ticketTo,
                                         FlightTicket    _ticketFrom,
@@ -128,14 +130,14 @@ public interface ServerInterface extends Remote
                                         String          _clientName)        throws RemoteException;
     
     /**
-     * @brief   
+     * @brief	Register Interest in a certain Accommodation
      * 
-     * @param   _hotel          :
-     * @param   _quantity       :
-     * @param   _numberOfGuests :
-     * @param   _desiredPrice   :
-     * @param   _refCli         :
-     * @param   _clientName     :
+     * @param 	_hotel			: Instance of a Accommodation
+     * @param 	_quantity		: Quantity of desired rooms
+     * @param 	_numberOfGuests	: Number of Guests
+     * @param 	_desiredPrice	: Desired Max PRice
+     * @param 	_refCli			: Reference to the client
+     * @param   _clientName     : Client name
      */
     public void registerHotelInterest(Accommodation     _hotel, 
                                       int               _quantity,
@@ -145,44 +147,44 @@ public interface ServerInterface extends Remote
                                       String            _clientName)        throws RemoteException;
 
     /**
-     * @brief   
+     * @brief   Register Interest in a certain Package
      * 
-     * @param   _ticketTo       :
-     * @param   _ticketFrom     :
-     * @param   _accommodation  :
-     * @param   _quantity       :
-     * @param   _desiredPrice   :
-     * @param   _numberOfGuests :
-     * @param   _refCli         :
-     * @param   _clientName     :
+     * @param   _ticketTo       : Instance of a Ticket
+     * @param   _ticketFrom     : Instance of a Ticket
+     * @param   _accommodation  : Instance of an Accommodation
+     * @param   _quantity       : Quantity of desired tickets
+     * @param   _desiredPrice   : Desired Max Price
+     * @param   _numberOfGuests : Number of Desired Guests
+     * @param   _refCli         : Reference to the client
+     * @param   _clientName     : Client Name
      */
     public void registerPackageInterest(FlightTicket    _ticketTo,
-                                                     FlightTicket    _ticketFrom,
-                                                     Accommodation   _accommodation,
-                                                     int             _quantity,
-                                                     float           _desiredPrice,
-                                                     int             _numberOfGuests,
-                                                     ClientInterface _refCli,
-                                                     String          _clientName)       throws RemoteException;
+                                        FlightTicket    _ticketFrom,
+                                        Accommodation   _accommodation,
+                                        int             _quantity,
+                                        float           _desiredPrice,
+                                        int             _numberOfGuests,
+                                        ClientInterface _refCli,
+                                        String          _clientName)       throws RemoteException;
 
     /**
-     * @brief   
+     * @brief   Cancel a registration in a Flight Ticket
      * 
-     * @param   interest       :
+     * @param   interest	: Instance of a Flight Ticket
      */
     public void unregisterTicketInterest(FlightTicketInterest interest)  throws RemoteException;
 
     /**
-     * @brief   
+     * @brief   Cancel a registration in an Accommodation
      * 
-     * @param   interest       :
+     * @param   interest	: Instance of an Accommodation
      */
     public void unregisterAccommodationInterest(AccommodationInterest interest)  throws RemoteException;
 
     /**
-     * @brief   
+     * @brief   Cancel a registration in a Package
      * 
-     * @param   interest       :
+     * @param   interest	: Instance of a Package
      */
     public void unregisterPackageInterest(PackageInterest interest)  throws RemoteException;
 }

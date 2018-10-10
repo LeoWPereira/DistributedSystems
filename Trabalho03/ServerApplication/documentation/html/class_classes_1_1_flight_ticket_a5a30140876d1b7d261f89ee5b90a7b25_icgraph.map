@@ -1,0 +1,15 @@
+<map id="Classes.FlightTicket.getDate" name="Classes.FlightTicket.getDate">
+<area shape="rect" id="node2" href="$class_classes_1_1_flight_ticket_interest.html#aea65c08b20d3949a6c1f4b3253848314" title="Get the source date from the source ticket. " alt="" coords="243,5,448,47"/>
+<area shape="rect" id="node3" href="$class_r_m_i_1_1_server_servent.html#ad7673097473e756449cc13674f17c071" title="RMI.ServerServent.notify\lTicketsInterests" alt="" coords="496,93,659,135"/>
+<area shape="rect" id="node7" href="$class_classes_1_1_flight_ticket_interest.html#aa67b2a53b00fa7a9ab7ab1d4fd00b8f7" title="Get the return date from the return ticket. " alt="" coords="243,123,448,164"/>
+<area shape="rect" id="node8" href="$class_classes_1_1_package_interest.html#aeaacc4fb88961354aa4ab55cadca18c9" title="Get the source date from the source ticket. " alt="" coords="251,188,440,229"/>
+<area shape="rect" id="node9" href="$class_r_m_i_1_1_server_servent.html#a7cb189e0936a72ba836b7be9fe5cd01d" title="RMI.ServerServent.notify\lPackageInterests" alt="" coords="496,223,659,264"/>
+<area shape="rect" id="node13" href="$class_classes_1_1_package_interest.html#aa2fa628bbc540f056099744bba499d44" title="Get the return date from the return ticket. " alt="" coords="251,305,440,347"/>
+<area shape="rect" id="node14" href="$class_g_u_i_1_1_passages_panel.html#afdece3a10dd0199ff3b287de5e1dbcb8" title="GUI.PassagesPanel.insert\lTableField" alt="" coords="258,371,433,412"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_passages_panel.html#ae479ab4e58a40bea8baaed60eebfb56b" title="GUI.PassagesPanel.process\lRegistry" alt="" coords="720,117,909,159"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="979,117,1157,159"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_passages_panel.html#a5ac30f327213e2ba360a37266daf7a86" title="Default Constructor. " alt="" coords="1213,117,1415,159"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143" title="GUI.HotelsPanel.processRegistry" alt="" coords="707,230,923,257"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="971,230,1165,257"/>
+<area shape="rect" id="node12" href="$class_g_u_i_1_1_hotels_panel.html#a0d35b266df47cc7ccbfa28287b06f580" title="Default Constructor. " alt="" coords="1218,230,1410,257"/>
+</map>

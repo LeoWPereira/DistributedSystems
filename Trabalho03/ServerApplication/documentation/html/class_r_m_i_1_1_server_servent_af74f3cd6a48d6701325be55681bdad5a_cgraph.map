@@ -1,0 +1,8 @@
+<map id="RMI.ServerServent.unregisterTicketInterest" name="RMI.ServerServent.unregisterTicketInterest">
+<area shape="rect" id="node2" href="$class_classes_1_1_flight_ticket_interest.html#aae4b227a139661d0c4118b3891cb028a" title="Get the source of the ticket interest. " alt="" coords="256,5,461,47"/>
+<area shape="rect" id="node4" href="$class_classes_1_1_flight_ticket_interest.html#ae098cf51df1a0f1086069493b393185c" title="Get the destination of the ticket interest. " alt="" coords="243,71,475,98"/>
+<area shape="rect" id="node6" href="$class_classes_1_1_flight_ticket_interest.html#a6dce2f3875b134b6913c85dafcd2fcdb" title="Return if a ticket is a return ticket (not one&#45;way) " alt="" coords="260,123,457,164"/>
+<area shape="rect" id="node7" href="$class_classes_1_1_flight_ticket_interest.html#af9b8821dbcbab2dc5bc3ccbef69dc54a" title="Default getter. " alt="" coords="256,188,461,229"/>
+<area shape="rect" id="node3" href="$class_classes_1_1_flight_ticket.html#ab9ac021ba2214ea1fa953f6819861a77" title="Default getter. " alt="" coords="536,5,699,47"/>
+<area shape="rect" id="node5" href="$class_classes_1_1_flight_ticket.html#ae999ed81960bb15dd8fabc885a027122" title="Default getter. " alt="" coords="523,71,712,98"/>
+</map>

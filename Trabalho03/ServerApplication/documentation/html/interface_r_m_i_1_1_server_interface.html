@@ -51,6 +51,9 @@ $(function() {
 <div class="title">RMI.ServerInterface Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class is responsible for defining the the methods available in the server side.  
+ <a href="interface_r_m_i_1_1_server_interface.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for RMI.ServerInterface:</div>
 <div class="dyncontent">
@@ -68,35 +71,44 @@ Collaboration diagram for RMI.ServerInterface:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1f391f6a77c18d99ec90d3f6df3649d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a1f391f6a77c18d99ec90d3f6df3649d9">call</a> (String clientName, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> refCli)  throws RemoteException</td></tr>
+<tr class="memdesc:a1f391f6a77c18d99ec90d3f6df3649d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">First communication between client and server.  <a href="#a1f391f6a77c18d99ec90d3f6df3649d9">More...</a><br /></td></tr>
 <tr class="separator:a1f391f6a77c18d99ec90d3f6df3649d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a234d677924e2275ea9443abed0da212b"><td class="memItemLeft" align="right" valign="top">FlightTicketManager&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a234d677924e2275ea9443abed0da212b">searchPassages</a> (String _source, String _dest, Date _date)  throws RemoteException</td></tr>
+<tr class="memitem:a234d677924e2275ea9443abed0da212b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_classes_1_1_flight_ticket_manager.html">FlightTicketManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a234d677924e2275ea9443abed0da212b">searchPassages</a> (String _source, String _dest, Date _date)  throws RemoteException</td></tr>
 <tr class="separator:a234d677924e2275ea9443abed0da212b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e57e9f82229919754b12d24be7b0f7e"><td class="memItemLeft" align="right" valign="top">AccommodationManager&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a2e57e9f82229919754b12d24be7b0f7e">searchHotelByCity</a> (String _city)  throws RemoteException</td></tr>
+<tr class="memitem:a2e57e9f82229919754b12d24be7b0f7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_classes_1_1_accommodation_manager.html">AccommodationManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a2e57e9f82229919754b12d24be7b0f7e">searchHotelByCity</a> (String _city)  throws RemoteException</td></tr>
 <tr class="separator:a2e57e9f82229919754b12d24be7b0f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd4c7e0436bfc29dddc8bef389e833e2"><td class="memItemLeft" align="right" valign="top">AccommodationManager&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#abd4c7e0436bfc29dddc8bef389e833e2">searchHotelByName</a> (String _hotel)  throws RemoteException</td></tr>
+<tr class="memitem:abd4c7e0436bfc29dddc8bef389e833e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_classes_1_1_accommodation_manager.html">AccommodationManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#abd4c7e0436bfc29dddc8bef389e833e2">searchHotelByName</a> (String _hotel)  throws RemoteException</td></tr>
 <tr class="separator:abd4c7e0436bfc29dddc8bef389e833e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a232b714007b90ce85c09f1a2bca473d8"><td class="memItemLeft" align="right" valign="top">ArrayList&lt; Packages &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a232b714007b90ce85c09f1a2bca473d8">searchPackages</a> (FlightTicket flightTicketGoing, FlightTicket flightTicketReturn, Accommodation accommodation)  throws RemoteException</td></tr>
+<tr class="memitem:a232b714007b90ce85c09f1a2bca473d8"><td class="memItemLeft" align="right" valign="top">ArrayList&lt; <a class="el" href="class_classes_1_1_packages.html">Packages</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a232b714007b90ce85c09f1a2bca473d8">searchPackages</a> (<a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> flightTicketGoing, <a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> flightTicketReturn, <a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a> accommodation)  throws RemoteException</td></tr>
 <tr class="separator:a232b714007b90ce85c09f1a2bca473d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c04e790b3210776a303a0b35c5bcc7e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a7c04e790b3210776a303a0b35c5bcc7e">buyPackage</a> (Packages _package)  throws RemoteException</td></tr>
+<tr class="memitem:a7c04e790b3210776a303a0b35c5bcc7e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a7c04e790b3210776a303a0b35c5bcc7e">buyPackage</a> (<a class="el" href="class_classes_1_1_packages.html">Packages</a> _package)  throws RemoteException</td></tr>
 <tr class="separator:a7c04e790b3210776a303a0b35c5bcc7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad29724073bf40954e45ed7367973623"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#aad29724073bf40954e45ed7367973623">buyPassage</a> (FlightTicket _ticket)  throws RemoteException</td></tr>
+<tr class="memitem:aad29724073bf40954e45ed7367973623"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#aad29724073bf40954e45ed7367973623">buyPassage</a> (<a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticket)  throws RemoteException</td></tr>
 <tr class="separator:aad29724073bf40954e45ed7367973623"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e93cf1b9dded24a260f50ebdecad688"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a3e93cf1b9dded24a260f50ebdecad688">reserveHotel</a> (Accommodation _hotel)  throws RemoteException</td></tr>
+<tr class="memitem:a3e93cf1b9dded24a260f50ebdecad688"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a3e93cf1b9dded24a260f50ebdecad688">reserveHotel</a> (<a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a> _hotel)  throws RemoteException</td></tr>
 <tr class="separator:a3e93cf1b9dded24a260f50ebdecad688"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02641491638467608e377ddeb41adabb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a02641491638467608e377ddeb41adabb">registerPassageInterest</a> (FlightTicket _ticketTo, FlightTicket _ticketFrom, int _quantity, float _desiredPrice, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> _refCli, String _clientName)  throws RemoteException</td></tr>
+<tr class="memitem:a02641491638467608e377ddeb41adabb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a02641491638467608e377ddeb41adabb">registerPassageInterest</a> (<a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticketTo, <a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticketFrom, int _quantity, float _desiredPrice, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> _refCli, String _clientName)  throws RemoteException</td></tr>
+<tr class="memdesc:a02641491638467608e377ddeb41adabb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register Interest in a certain Passage.  <a href="#a02641491638467608e377ddeb41adabb">More...</a><br /></td></tr>
 <tr class="separator:a02641491638467608e377ddeb41adabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42a5aefb640971b653ed0ab79518794f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a42a5aefb640971b653ed0ab79518794f">registerHotelInterest</a> (Accommodation _hotel, int _quantity, int _numberOfGuests, float _desiredPrice, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> _refCli, String _clientName)  throws RemoteException</td></tr>
+<tr class="memitem:a42a5aefb640971b653ed0ab79518794f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a42a5aefb640971b653ed0ab79518794f">registerHotelInterest</a> (<a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a> _hotel, int _quantity, int _numberOfGuests, float _desiredPrice, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> _refCli, String _clientName)  throws RemoteException</td></tr>
+<tr class="memdesc:a42a5aefb640971b653ed0ab79518794f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register Interest in a certain Accommodation.  <a href="#a42a5aefb640971b653ed0ab79518794f">More...</a><br /></td></tr>
 <tr class="separator:a42a5aefb640971b653ed0ab79518794f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9d75d415cd3cd410828d19e3bb3933a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#ad9d75d415cd3cd410828d19e3bb3933a">registerPackageInterest</a> (FlightTicket _ticketTo, FlightTicket _ticketFrom, Accommodation _accommodation, int _quantity, float _desiredPrice, int _numberOfGuests, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> _refCli, String _clientName)  throws RemoteException</td></tr>
+<tr class="memitem:ad9d75d415cd3cd410828d19e3bb3933a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#ad9d75d415cd3cd410828d19e3bb3933a">registerPackageInterest</a> (<a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticketTo, <a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticketFrom, <a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a> _accommodation, int _quantity, float _desiredPrice, int _numberOfGuests, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> _refCli, String _clientName)  throws RemoteException</td></tr>
+<tr class="memdesc:ad9d75d415cd3cd410828d19e3bb3933a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register Interest in a certain Package.  <a href="#ad9d75d415cd3cd410828d19e3bb3933a">More...</a><br /></td></tr>
 <tr class="separator:ad9d75d415cd3cd410828d19e3bb3933a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad121093d35f68d8097a4d4c559035c84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#ad121093d35f68d8097a4d4c559035c84">unregisterTicketInterest</a> (FlightTicketInterest interest)  throws RemoteException</td></tr>
+<tr class="memitem:ad121093d35f68d8097a4d4c559035c84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#ad121093d35f68d8097a4d4c559035c84">unregisterTicketInterest</a> (<a class="el" href="class_classes_1_1_flight_ticket_interest.html">FlightTicketInterest</a> interest)  throws RemoteException</td></tr>
+<tr class="memdesc:ad121093d35f68d8097a4d4c559035c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancel a registration in a Flight Ticket.  <a href="#ad121093d35f68d8097a4d4c559035c84">More...</a><br /></td></tr>
 <tr class="separator:ad121093d35f68d8097a4d4c559035c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a370ad2776334419dd2d7cc4e9fcd7338"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a370ad2776334419dd2d7cc4e9fcd7338">unregisterAccommodationInterest</a> (AccommodationInterest interest)  throws RemoteException</td></tr>
+<tr class="memitem:a370ad2776334419dd2d7cc4e9fcd7338"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a370ad2776334419dd2d7cc4e9fcd7338">unregisterAccommodationInterest</a> (<a class="el" href="class_classes_1_1_accommodation_interest.html">AccommodationInterest</a> interest)  throws RemoteException</td></tr>
+<tr class="memdesc:a370ad2776334419dd2d7cc4e9fcd7338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancel a registration in an Accommodation.  <a href="#a370ad2776334419dd2d7cc4e9fcd7338">More...</a><br /></td></tr>
 <tr class="separator:a370ad2776334419dd2d7cc4e9fcd7338"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a757d59a905b201ae2fc62252127b52af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a757d59a905b201ae2fc62252127b52af">unregisterPackageInterest</a> (PackageInterest interest)  throws RemoteException</td></tr>
+<tr class="memitem:a757d59a905b201ae2fc62252127b52af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a757d59a905b201ae2fc62252127b52af">unregisterPackageInterest</a> (<a class="el" href="class_classes_1_1_package_interest.html">PackageInterest</a> interest)  throws RemoteException</td></tr>
+<tr class="memdesc:a757d59a905b201ae2fc62252127b52af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancel a registration in a Package.  <a href="#a757d59a905b201ae2fc62252127b52af">More...</a><br /></td></tr>
 <tr class="separator:a757d59a905b201ae2fc62252127b52af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class is responsible for defining the the methods available in the server side. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7c04e790b3210776a303a0b35c5bcc7e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7c04e790b3210776a303a0b35c5bcc7e">&#9670;&nbsp;</a></span>buyPackage()</h2>
 
@@ -106,7 +118,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">int RMI.ServerInterface.buyPackage </td>
           <td>(</td>
-          <td class="paramtype">Packages&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_packages.html">Packages</a>&#160;</td>
           <td class="paramname"><em>_package</em></td><td>)</td>
           <td> throws RemoteException</td>
         </tr>
@@ -133,7 +145,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">boolean RMI.ServerInterface.buyPassage </td>
           <td>(</td>
-          <td class="paramtype">FlightTicket&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
           <td class="paramname"><em>_ticket</em></td><td>)</td>
           <td> throws RemoteException</td>
         </tr>
@@ -176,10 +188,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>First communication between client and server. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">clientName</td><td></td></tr>
-    <tr><td class="paramname">refCli</td><td></td></tr>
+    <tr><td class="paramname">clientName</td><td>: String with the Client Name </td></tr>
+    <tr><td class="paramname">refCli</td><td>: Reference to the client </td></tr>
   </table>
   </dd>
 </dl>
@@ -197,7 +211,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void RMI.ServerInterface.registerHotelInterest </td>
           <td>(</td>
-          <td class="paramtype">Accommodation&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a>&#160;</td>
           <td class="paramname"><em>_hotel</em>, </td>
         </tr>
         <tr>
@@ -237,14 +251,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Register Interest in a certain Accommodation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_hotel</td><td>: </td></tr>
-    <tr><td class="paramname">_quantity</td><td>: </td></tr>
-    <tr><td class="paramname">_numberOfGuests</td><td>: </td></tr>
-    <tr><td class="paramname">_desiredPrice</td><td>: </td></tr>
-    <tr><td class="paramname">_refCli</td><td>: </td></tr>
-    <tr><td class="paramname">_clientName</td><td>: </td></tr>
+    <tr><td class="paramname">_hotel</td><td>: Instance of a Accommodation </td></tr>
+    <tr><td class="paramname">_quantity</td><td>: Quantity of desired rooms </td></tr>
+    <tr><td class="paramname">_numberOfGuests</td><td>: Number of Guests </td></tr>
+    <tr><td class="paramname">_desiredPrice</td><td>: Desired Max PRice </td></tr>
+    <tr><td class="paramname">_refCli</td><td>: Reference to the client </td></tr>
+    <tr><td class="paramname">_clientName</td><td>: Client name </td></tr>
   </table>
   </dd>
 </dl>
@@ -262,19 +278,19 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void RMI.ServerInterface.registerPackageInterest </td>
           <td>(</td>
-          <td class="paramtype">FlightTicket&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
           <td class="paramname"><em>_ticketTo</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">FlightTicket&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
           <td class="paramname"><em>_ticketFrom</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Accommodation&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a>&#160;</td>
           <td class="paramname"><em>_accommodation</em>, </td>
         </tr>
         <tr>
@@ -314,16 +330,18 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Register Interest in a certain Package. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_ticketTo</td><td>: </td></tr>
-    <tr><td class="paramname">_ticketFrom</td><td>: </td></tr>
-    <tr><td class="paramname">_accommodation</td><td>: </td></tr>
-    <tr><td class="paramname">_quantity</td><td>: </td></tr>
-    <tr><td class="paramname">_desiredPrice</td><td>: </td></tr>
-    <tr><td class="paramname">_numberOfGuests</td><td>: </td></tr>
-    <tr><td class="paramname">_refCli</td><td>: </td></tr>
-    <tr><td class="paramname">_clientName</td><td>: </td></tr>
+    <tr><td class="paramname">_ticketTo</td><td>: Instance of a Ticket </td></tr>
+    <tr><td class="paramname">_ticketFrom</td><td>: Instance of a Ticket </td></tr>
+    <tr><td class="paramname">_accommodation</td><td>: Instance of an Accommodation </td></tr>
+    <tr><td class="paramname">_quantity</td><td>: Quantity of desired tickets </td></tr>
+    <tr><td class="paramname">_desiredPrice</td><td>: Desired Max Price </td></tr>
+    <tr><td class="paramname">_numberOfGuests</td><td>: Number of Desired Guests </td></tr>
+    <tr><td class="paramname">_refCli</td><td>: Reference to the client </td></tr>
+    <tr><td class="paramname">_clientName</td><td>: Client Name </td></tr>
   </table>
   </dd>
 </dl>
@@ -341,13 +359,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void RMI.ServerInterface.registerPassageInterest </td>
           <td>(</td>
-          <td class="paramtype">FlightTicket&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
           <td class="paramname"><em>_ticketTo</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">FlightTicket&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
           <td class="paramname"><em>_ticketFrom</em>, </td>
         </tr>
         <tr>
@@ -381,13 +399,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Register Interest in a certain Passage. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_ticket</td><td>: </td></tr>
-    <tr><td class="paramname">_ticketFrom</td><td>: </td></tr>
-    <tr><td class="paramname">_quantity</td><td>: </td></tr>
-    <tr><td class="paramname">_desiredPrice</td><td>: </td></tr>
-    <tr><td class="paramname">_refCli</td><td>: </td></tr>
+    <tr><td class="paramname">_ticket</td><td>: Instance of a Ticket </td></tr>
+    <tr><td class="paramname">_ticketFrom</td><td>: Instance of a Ticket </td></tr>
+    <tr><td class="paramname">_quantity</td><td>: Quantity of desired tickets </td></tr>
+    <tr><td class="paramname">_desiredPrice</td><td>: Desired max price </td></tr>
+    <tr><td class="paramname">_refCli</td><td>: Reference to the client </td></tr>
+    <tr><td class="paramname">_clientName</td><td>: Client name </td></tr>
   </table>
   </dd>
 </dl>
@@ -405,7 +426,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">boolean RMI.ServerInterface.reserveHotel </td>
           <td>(</td>
-          <td class="paramtype">Accommodation&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a>&#160;</td>
           <td class="paramname"><em>_hotel</em></td><td>)</td>
           <td> throws RemoteException</td>
         </tr>
@@ -430,7 +451,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">AccommodationManager RMI.ServerInterface.searchHotelByCity </td>
+          <td class="memname"><a class="el" href="class_classes_1_1_accommodation_manager.html">AccommodationManager</a> RMI.ServerInterface.searchHotelByCity </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
           <td class="paramname"><em>_city</em></td><td>)</td>
@@ -457,7 +478,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">AccommodationManager RMI.ServerInterface.searchHotelByName </td>
+          <td class="memname"><a class="el" href="class_classes_1_1_accommodation_manager.html">AccommodationManager</a> RMI.ServerInterface.searchHotelByName </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
           <td class="paramname"><em>_hotel</em></td><td>)</td>
@@ -484,21 +505,21 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ArrayList&lt;Packages&gt; RMI.ServerInterface.searchPackages </td>
+          <td class="memname">ArrayList&lt;<a class="el" href="class_classes_1_1_packages.html">Packages</a>&gt; RMI.ServerInterface.searchPackages </td>
           <td>(</td>
-          <td class="paramtype">FlightTicket&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
           <td class="paramname"><em>flightTicketGoing</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">FlightTicket&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a>&#160;</td>
           <td class="paramname"><em>flightTicketReturn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Accommodation&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a>&#160;</td>
           <td class="paramname"><em>accommodation</em>&#160;</td>
         </tr>
         <tr>
@@ -529,7 +550,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">FlightTicketManager RMI.ServerInterface.searchPassages </td>
+          <td class="memname"><a class="el" href="class_classes_1_1_flight_ticket_manager.html">FlightTicketManager</a> RMI.ServerInterface.searchPassages </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
           <td class="paramname"><em>_source</em>, </td>
@@ -576,15 +597,17 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void RMI.ServerInterface.unregisterAccommodationInterest </td>
           <td>(</td>
-          <td class="paramtype">AccommodationInterest&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_accommodation_interest.html">AccommodationInterest</a>&#160;</td>
           <td class="paramname"><em>interest</em></td><td>)</td>
           <td> throws RemoteException</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Cancel a registration in an Accommodation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">interest</td><td>: </td></tr>
+    <tr><td class="paramname">interest</td><td>: Instance of an Accommodation </td></tr>
   </table>
   </dd>
 </dl>
@@ -602,15 +625,17 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void RMI.ServerInterface.unregisterPackageInterest </td>
           <td>(</td>
-          <td class="paramtype">PackageInterest&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_package_interest.html">PackageInterest</a>&#160;</td>
           <td class="paramname"><em>interest</em></td><td>)</td>
           <td> throws RemoteException</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Cancel a registration in a Package. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">interest</td><td>: </td></tr>
+    <tr><td class="paramname">interest</td><td>: Instance of a Package </td></tr>
   </table>
   </dd>
 </dl>
@@ -628,15 +653,17 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void RMI.ServerInterface.unregisterTicketInterest </td>
           <td>(</td>
-          <td class="paramtype">FlightTicketInterest&#160;</td>
+          <td class="paramtype"><a class="el" href="class_classes_1_1_flight_ticket_interest.html">FlightTicketInterest</a>&#160;</td>
           <td class="paramname"><em>interest</em></td><td>)</td>
           <td> throws RemoteException</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Cancel a registration in a Flight Ticket. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">interest</td><td>: </td></tr>
+    <tr><td class="paramname">interest</td><td>: Instance of a Flight Ticket </td></tr>
   </table>
   </dd>
 </dl>

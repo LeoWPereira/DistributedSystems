@@ -299,9 +299,9 @@ public class EventsPanel extends JPanel
 	}
 
 	/**
-	 * @brief
+	 * @brief	This method will handle the insertion of data inside the table
 	 * 
-	 * @param	_ticketInterest	:
+	 * @param	_ticketInterest		: Instance of a Ticket Interest
 	 * @param	_row				:
 	 */
 	public void insertTableFieldTicket(FlightTicketInterest	_ticketInterest,
@@ -343,9 +343,9 @@ public class EventsPanel extends JPanel
 	}
 
 	/**
-	 * @brief
+	 * @brief	This method will handle the insertion of a list of ticket interests
 	 * 
-	 * @param	_list	:
+	 * @param	_list	:	List of interest
 	 */
 	public void insertTableFieldTicket(ArrayList<FlightTicketInterest>	_list)
 	{
@@ -477,7 +477,7 @@ public class EventsPanel extends JPanel
 	}
 
 	/**
-	 * @brief
+	 * @brief	This method will handle the insertion of an Accommodation Interest inside the table
 	 * 
 	 * @param	_accommodationInterest	: AccommodationInterest
 	 * @param	_row					: int
@@ -512,13 +512,14 @@ public class EventsPanel extends JPanel
 	}
 
 	/**
-	 * @brief
+	 * @brief	This method will handle the insertion of a list of accommodations
 	 * 
-	 * @param	_list	:
+	 * @param	_list	: List of Accommodations
 	 */
 	public void insertTableFieldAccommodation(ArrayList<AccommodationInterest>	_list)
 	{
 		int row = 0;
+		
 		AccommodationInterest accommodationInterest;
 
 		for (int i = 0; i < _list.size(); i++) 
@@ -646,7 +647,7 @@ public class EventsPanel extends JPanel
 	}
 
 	/**
-	 * @brief
+	 * @brief	This method will handle the insertion of a Package interest inside the table
 	 * 
 	 * @param	_packageInterest	: PackageInterest
 	 * @param	_row				: int
@@ -694,9 +695,9 @@ public class EventsPanel extends JPanel
 	}
 
 	/**
-	 * @brief
+	 * @brief	This method will handle the insertion of a list of package interest
 	 * 
-	 * @param	_list	:
+	 * @param	_list	: List of package interests
 	 */
 	public void insertTableFieldPackage(ArrayList<PackageInterest>	_list)
 	{
@@ -713,7 +714,9 @@ public class EventsPanel extends JPanel
 	}
 
 	/**
-	 * @brief
+	 * @brief	Process Table Selection
+	 * 
+	 * This way, we will be able to analyse and show the user the relevant data
 	 */
 	public void processTableSelection()
 	{

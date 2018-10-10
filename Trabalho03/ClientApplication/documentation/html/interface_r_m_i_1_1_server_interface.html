@@ -51,6 +51,9 @@ $(function() {
 <div class="title">RMI.ServerInterface Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class is responsible for defining the the methods available in the server side.  
+ <a href="interface_r_m_i_1_1_server_interface.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for RMI.ServerInterface:</div>
 <div class="dyncontent">
@@ -65,6 +68,7 @@ Collaboration diagram for RMI.ServerInterface:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1f391f6a77c18d99ec90d3f6df3649d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a1f391f6a77c18d99ec90d3f6df3649d9">call</a> (String clientName, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> refCli)  throws RemoteException</td></tr>
+<tr class="memdesc:a1f391f6a77c18d99ec90d3f6df3649d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">First communication between client and server.  <a href="#a1f391f6a77c18d99ec90d3f6df3649d9">More...</a><br /></td></tr>
 <tr class="separator:a1f391f6a77c18d99ec90d3f6df3649d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a234d677924e2275ea9443abed0da212b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_classes_1_1_flight_ticket_manager.html">FlightTicketManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a234d677924e2275ea9443abed0da212b">searchPassages</a> (String _source, String _dest, Date _date)  throws RemoteException</td></tr>
 <tr class="separator:a234d677924e2275ea9443abed0da212b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -81,19 +85,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7c04e790b3210776a303a0b35c5bcc7e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a7c04e790b3210776a303a0b35c5bcc7e">buyPackage</a> (<a class="el" href="class_classes_1_1_packages.html">Packages</a> _package)  throws RemoteException</td></tr>
 <tr class="separator:a7c04e790b3210776a303a0b35c5bcc7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02641491638467608e377ddeb41adabb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a02641491638467608e377ddeb41adabb">registerPassageInterest</a> (<a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticketTo, <a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticketFrom, int _quantity, float _desiredPrice, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> _refCli, String _clientName)  throws RemoteException</td></tr>
+<tr class="memdesc:a02641491638467608e377ddeb41adabb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register Interest in a certain Passage.  <a href="#a02641491638467608e377ddeb41adabb">More...</a><br /></td></tr>
 <tr class="separator:a02641491638467608e377ddeb41adabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42a5aefb640971b653ed0ab79518794f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a42a5aefb640971b653ed0ab79518794f">registerHotelInterest</a> (<a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a> _hotel, int _quantity, int _numberOfGuests, float _desiredPrice, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> _refCli, String _clientName)  throws RemoteException</td></tr>
+<tr class="memdesc:a42a5aefb640971b653ed0ab79518794f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register Interest in a certain Accommodation.  <a href="#a42a5aefb640971b653ed0ab79518794f">More...</a><br /></td></tr>
 <tr class="separator:a42a5aefb640971b653ed0ab79518794f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9d75d415cd3cd410828d19e3bb3933a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#ad9d75d415cd3cd410828d19e3bb3933a">registerPackageInterest</a> (<a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticketTo, <a class="el" href="class_classes_1_1_flight_ticket.html">FlightTicket</a> _ticketFrom, <a class="el" href="class_classes_1_1_accommodation.html">Accommodation</a> _accommodation, int _quantity, float _desiredPrice, int _numberOfGuests, <a class="el" href="interface_r_m_i_1_1_client_interface.html">ClientInterface</a> _refCli, String _clientName)  throws RemoteException</td></tr>
+<tr class="memdesc:ad9d75d415cd3cd410828d19e3bb3933a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register Interest in a certain Package.  <a href="#ad9d75d415cd3cd410828d19e3bb3933a">More...</a><br /></td></tr>
 <tr class="separator:ad9d75d415cd3cd410828d19e3bb3933a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad121093d35f68d8097a4d4c559035c84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#ad121093d35f68d8097a4d4c559035c84">unregisterTicketInterest</a> (<a class="el" href="class_classes_1_1_flight_ticket_interest.html">FlightTicketInterest</a> interest)  throws RemoteException</td></tr>
+<tr class="memdesc:ad121093d35f68d8097a4d4c559035c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancel a registration in a Flight Ticket.  <a href="#ad121093d35f68d8097a4d4c559035c84">More...</a><br /></td></tr>
 <tr class="separator:ad121093d35f68d8097a4d4c559035c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a370ad2776334419dd2d7cc4e9fcd7338"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a370ad2776334419dd2d7cc4e9fcd7338">unregisterAccommodationInterest</a> (<a class="el" href="class_classes_1_1_accommodation_interest.html">AccommodationInterest</a> interest)  throws RemoteException</td></tr>
+<tr class="memdesc:a370ad2776334419dd2d7cc4e9fcd7338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancel a registration in an Accommodation.  <a href="#a370ad2776334419dd2d7cc4e9fcd7338">More...</a><br /></td></tr>
 <tr class="separator:a370ad2776334419dd2d7cc4e9fcd7338"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a757d59a905b201ae2fc62252127b52af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_r_m_i_1_1_server_interface.html#a757d59a905b201ae2fc62252127b52af">unregisterPackageInterest</a> (<a class="el" href="class_classes_1_1_package_interest.html">PackageInterest</a> interest)  throws RemoteException</td></tr>
+<tr class="memdesc:a757d59a905b201ae2fc62252127b52af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancel a registration in a Package.  <a href="#a757d59a905b201ae2fc62252127b52af">More...</a><br /></td></tr>
 <tr class="separator:a757d59a905b201ae2fc62252127b52af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class is responsible for defining the the methods available in the server side. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7c04e790b3210776a303a0b35c5bcc7e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7c04e790b3210776a303a0b35c5bcc7e">&#9670;&nbsp;</a></span>buyPackage()</h2>
 
@@ -189,10 +201,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>First communication between client and server. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">clientName</td><td></td></tr>
-    <tr><td class="paramname">refCli</td><td></td></tr>
+    <tr><td class="paramname">clientName</td><td>: String with the Client Name </td></tr>
+    <tr><td class="paramname">refCli</td><td>: Reference to the client </td></tr>
   </table>
   </dd>
 </dl>
@@ -256,14 +270,16 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Register Interest in a certain Accommodation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_hotel</td><td>: </td></tr>
-    <tr><td class="paramname">_quantity</td><td>: </td></tr>
-    <tr><td class="paramname">_numberOfGuests</td><td>: </td></tr>
-    <tr><td class="paramname">_desiredPrice</td><td>: </td></tr>
-    <tr><td class="paramname">_refCli</td><td>: </td></tr>
-    <tr><td class="paramname">_clientName</td><td>: </td></tr>
+    <tr><td class="paramname">_hotel</td><td>: Instance of a Accommodation </td></tr>
+    <tr><td class="paramname">_quantity</td><td>: Quantity of desired rooms </td></tr>
+    <tr><td class="paramname">_numberOfGuests</td><td>: Number of Guests </td></tr>
+    <tr><td class="paramname">_desiredPrice</td><td>: Desired Max PRice </td></tr>
+    <tr><td class="paramname">_refCli</td><td>: Reference to the client </td></tr>
+    <tr><td class="paramname">_clientName</td><td>: Client name </td></tr>
   </table>
   </dd>
 </dl>
@@ -331,16 +347,18 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Register Interest in a certain Package. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_ticketTo</td><td>: </td></tr>
-    <tr><td class="paramname">_ticketFrom</td><td>: </td></tr>
-    <tr><td class="paramname">_accommodation</td><td>: </td></tr>
-    <tr><td class="paramname">_quantity</td><td>: </td></tr>
-    <tr><td class="paramname">_desiredPrice</td><td>: </td></tr>
-    <tr><td class="paramname">_numberOfGuests</td><td>: </td></tr>
-    <tr><td class="paramname">_refCli</td><td>: </td></tr>
-    <tr><td class="paramname">_clientName</td><td>: </td></tr>
+    <tr><td class="paramname">_ticketTo</td><td>: Instance of a Ticket </td></tr>
+    <tr><td class="paramname">_ticketFrom</td><td>: Instance of a Ticket </td></tr>
+    <tr><td class="paramname">_accommodation</td><td>: Instance of an Accommodation </td></tr>
+    <tr><td class="paramname">_quantity</td><td>: Quantity of desired tickets </td></tr>
+    <tr><td class="paramname">_desiredPrice</td><td>: Desired Max Price </td></tr>
+    <tr><td class="paramname">_numberOfGuests</td><td>: Number of Desired Guests </td></tr>
+    <tr><td class="paramname">_refCli</td><td>: Reference to the client </td></tr>
+    <tr><td class="paramname">_clientName</td><td>: Client Name </td></tr>
   </table>
   </dd>
 </dl>
@@ -396,13 +414,16 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Register Interest in a certain Passage. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_ticket</td><td>: </td></tr>
-    <tr><td class="paramname">_ticketFrom</td><td>: </td></tr>
-    <tr><td class="paramname">_quantity</td><td>: </td></tr>
-    <tr><td class="paramname">_desiredPrice</td><td>: </td></tr>
-    <tr><td class="paramname">_refCli</td><td>: </td></tr>
+    <tr><td class="paramname">_ticket</td><td>: Instance of a Ticket </td></tr>
+    <tr><td class="paramname">_ticketFrom</td><td>: Instance of a Ticket </td></tr>
+    <tr><td class="paramname">_quantity</td><td>: Quantity of desired tickets </td></tr>
+    <tr><td class="paramname">_desiredPrice</td><td>: Desired max price </td></tr>
+    <tr><td class="paramname">_refCli</td><td>: Reference to the client </td></tr>
+    <tr><td class="paramname">_clientName</td><td>: Client name </td></tr>
   </table>
   </dd>
 </dl>
@@ -635,9 +656,11 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Cancel a registration in an Accommodation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">interest</td><td>: </td></tr>
+    <tr><td class="paramname">interest</td><td>: Instance of an Accommodation </td></tr>
   </table>
   </dd>
 </dl>
@@ -646,8 +669,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="interface_r_m_i_1_1_server_interface_a370ad2776334419dd2d7cc4e9fcd7338_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_a370ad2776334419dd2d7cc4e9fcd7338_icgraph" alt=""/></div>
 <map name="interface_r_m_i_1_1_server_interface_a370ad2776334419dd2d7cc4e9fcd7338_icgraph" id="interface_r_m_i_1_1_server_interface_a370ad2776334419dd2d7cc4e9fcd7338_icgraph">
-<area shape="rect" id="node2" href="class_r_m_i_1_1_client_servent.html#a6c867a8716dd2791a41a2df4cb8558b9" title="Remove accommodation interest from local array and from the server. " alt="" coords="248,71,419,112"/>
-<area shape="rect" id="node3" href="class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="467,71,668,112"/>
+<area shape="rect" id="node2" href="class_r_m_i_1_1_client_servent.html#a6c867a8716dd2791a41a2df4cb8558b9" title="RMI.ClientServent.remove\lAccommodationInterest" alt="" coords="248,71,419,112"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="Process Table Selection. " alt="" coords="467,71,668,112"/>
 <area shape="rect" id="node4" href="class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="745,5,939,47"/>
 <area shape="rect" id="node8" href="class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="716,71,968,112"/>
 <area shape="rect" id="node10" href="class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="737,136,947,177"/>
@@ -676,9 +699,11 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Cancel a registration in a Package. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">interest</td><td>: </td></tr>
+    <tr><td class="paramname">interest</td><td>: Instance of a Package </td></tr>
   </table>
   </dd>
 </dl>
@@ -687,8 +712,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="interface_r_m_i_1_1_server_interface_a757d59a905b201ae2fc62252127b52af_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_a757d59a905b201ae2fc62252127b52af_icgraph" alt=""/></div>
 <map name="interface_r_m_i_1_1_server_interface_a757d59a905b201ae2fc62252127b52af_icgraph" id="interface_r_m_i_1_1_server_interface_a757d59a905b201ae2fc62252127b52af_icgraph">
-<area shape="rect" id="node2" href="class_r_m_i_1_1_client_servent.html#ab7acddccf466625ebf7b3bdb50c015b8" title="Remove package interest from local array and from the server. " alt="" coords="248,71,419,112"/>
-<area shape="rect" id="node3" href="class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="467,71,668,112"/>
+<area shape="rect" id="node2" href="class_r_m_i_1_1_client_servent.html#ab7acddccf466625ebf7b3bdb50c015b8" title="RMI.ClientServent.remove\lPackageInterest" alt="" coords="248,71,419,112"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="Process Table Selection. " alt="" coords="467,71,668,112"/>
 <area shape="rect" id="node4" href="class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="745,5,939,47"/>
 <area shape="rect" id="node8" href="class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="716,71,968,112"/>
 <area shape="rect" id="node10" href="class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="737,136,947,177"/>
@@ -717,9 +742,11 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Cancel a registration in a Flight Ticket. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">interest</td><td>: </td></tr>
+    <tr><td class="paramname">interest</td><td>: Instance of a Flight Ticket </td></tr>
   </table>
   </dd>
 </dl>
@@ -728,8 +755,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="interface_r_m_i_1_1_server_interface_ad121093d35f68d8097a4d4c559035c84_icgraph.png" border="0" usemap="#interface_r_m_i_1_1_server_interface_ad121093d35f68d8097a4d4c559035c84_icgraph" alt=""/></div>
 <map name="interface_r_m_i_1_1_server_interface_ad121093d35f68d8097a4d4c559035c84_icgraph" id="interface_r_m_i_1_1_server_interface_ad121093d35f68d8097a4d4c559035c84_icgraph">
-<area shape="rect" id="node2" href="class_r_m_i_1_1_client_servent.html#a08b38c7af44c0f70d53bded070742ab6" title="Remove ticket interest from local array and from the server. " alt="" coords="248,71,419,112"/>
-<area shape="rect" id="node3" href="class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="467,71,668,112"/>
+<area shape="rect" id="node2" href="class_r_m_i_1_1_client_servent.html#a08b38c7af44c0f70d53bded070742ab6" title="RMI.ClientServent.remove\lTicketInterest" alt="" coords="248,71,419,112"/>
+<area shape="rect" id="node3" href="class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="Process Table Selection. " alt="" coords="467,71,668,112"/>
 <area shape="rect" id="node4" href="class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="745,5,939,47"/>
 <area shape="rect" id="node8" href="class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="716,71,968,112"/>
 <area shape="rect" id="node10" href="class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="737,136,947,177"/>

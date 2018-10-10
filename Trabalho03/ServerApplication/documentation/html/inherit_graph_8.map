@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$interface_r_m_i_1_1_client_interface.html" title="Interface responsible for defining every method of the client. " alt="" coords="129,5,260,32"/>
-<area shape="rect" id="node3" href="$interface_r_m_i_1_1_server_interface.html" title="RMI.ServerInterface" alt="" coords="127,56,262,83"/>
-<area shape="rect" id="node4" href="$class_r_m_i_1_1_server_servent.html" title="RMI.ServerServent" alt="" coords="317,81,445,108"/>
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_events_panel.html" title="This Class will Handle every method from GUI &quot;Events&quot;. " alt="" coords="124,5,244,32"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotels_panel.html" title="This Class will Handle every method from GUI &quot;Hotels&quot;. " alt="" coords="125,56,243,83"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_passages_panel.html" title="This Class will Handle every method from GUI &quot;Passages&quot;. " alt="" coords="115,107,253,133"/>
 </map>

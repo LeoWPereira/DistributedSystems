@@ -1,5 +1,6 @@
 <map id="Database.Controller.CtrlPassages.loadDBPassages" name="Database.Controller.CtrlPassages.loadDBPassages">
-<area shape="rect" id="node2" href="$class_database_1_1_d_a_o_1_1_d_a_o_passages.html#a107295581736dbff67c932b591f4b4f9" title="Database.DAO.DAOPassages.load\lDBPassages" alt="" coords="237,39,464,80"/>
+<area shape="rect" id="node2" href="$class_database_1_1_d_a_o_1_1_d_a_o_passages.html#a107295581736dbff67c932b591f4b4f9" title="Database.DAO.DAOPassages.load\lDBPassages" alt="" coords="237,37,464,79"/>
+<area shape="rect" id="node5" href="$class_classes_1_1_flight_ticket_manager.html#a7697686e8ba430a4b3ac78e9b376f9b8" title="Insert a flight ticket into the database. " alt="" coords="237,103,464,144"/>
 <area shape="rect" id="node3" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="512,5,699,47"/>
 <area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a68765d9f0ce16803dbde892c0567d12a" title="Database.DBConnection.get\lPassagesDBName" alt="" coords="512,71,699,112"/>
 </map>

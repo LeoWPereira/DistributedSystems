@@ -5,6 +5,8 @@
 </OBJECT>
 <UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_about_frame.html#aaaae8a8ada948678fc1ae88203bdd368"><param name="Name" value="AboutFrame"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a2646ec2246ca2c74cee56df5e422e765"><param name="Name" value="Accommodation"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#ab9bef1b1cf896f6b600e1f3b2d0bfa1e"><param name="Name" value="AccommodationInterest"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#af857039e0c125916d847ac94c8fa2cf2"><param name="Name" value="addUniqueValues"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#af857039e0c125916d847ac94c8fa2cf2"><param name="Name" value="Database::DAO::DAOHotel"></OBJECT>
@@ -36,6 +38,106 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#af6fd37e314368b6b1babe2f7aee7217a"><param name="Name" value="GUI::PassagesPanel"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_extra_1_1_cities_brazil.html#a4735442ae9d325db9dc4b1143b86cf44"><param name="Name" value="CitiesBrazil"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_classes.html"><param name="Name" value="Classes"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html"><param name="Name" value="Classes::Accommodation"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a2646ec2246ca2c74cee56df5e422e765"><param name="Name" value="Accommodation"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a70177d66378aa500361fe9479d06ae13"><param name="Name" value="getAccommodationName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a631dfa52e654cc57295dcd15ebb7b534"><param name="Name" value="getCityName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a9c6a221fca8ee2f665a5a04b5f56ecdc"><param name="Name" value="getMaxGuestsPerRoom"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a155d63b488a2037a6fc95095671e04f0"><param name="Name" value="getPrice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#abe6b4f37ef8dcedd1949cf91085fa18a"><param name="Name" value="getQuantity"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a3f57df85f08abb83f6a28702fbffd249"><param name="Name" value="setAccommodationName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#acba2bbe4c3767abd873f152ac229feab"><param name="Name" value="setCityName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a8c4fe6edf2d8bd9ac7cb2867283bcf9a"><param name="Name" value="setMaxGuestsPerRoom"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a665014a918d95e9fa016e9d4f53324af"><param name="Name" value="setPrice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#ab475d615be609fa50aea7811f25db0e0"><param name="Name" value="setQuantity"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html"><param name="Name" value="Classes::AccommodationInterest"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#ab9bef1b1cf896f6b600e1f3b2d0bfa1e"><param name="Name" value="AccommodationInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#a1562b82d0e0576b94108e746c598a421"><param name="Name" value="getAccommodationCityName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#af109f985c3233c110e063081b5fdc036"><param name="Name" value="getAccommodationName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#ad43ee14f9c9300c5595b12059f6d82bd"><param name="Name" value="getClientInterface"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#af3394f04a3c91f0ba289d524f0db907c"><param name="Name" value="getClientName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#a870c629ccf2c83173322211f1e76b0e9"><param name="Name" value="getMaxPrice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#ad287f5ae4c99f72687317563c4a4c21f"><param name="Name" value="getNumberOfGuests"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#a80ed0a47cab0507357a7a5d92a7c5433"><param name="Name" value="getQuantity"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html"><param name="Name" value="Classes::AccommodationManager"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#af95083b0cfa227ce8f195bbaa5418bee"><param name="Name" value="editPrice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#a09b01575c37ada94cdb4d9940d0a466e"><param name="Name" value="getAccommodation"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#ade915f06a8dd72ebbaea0c27eeec2a89"><param name="Name" value="getAccommodationList"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#adf9d8f6131cba90cf76a6acb673605c7"><param name="Name" value="getAccommodationListSize"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#a7283b45d52286191c09ab3d927bdd88e"><param name="Name" value="insertAccommodation"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#ac27d2be899e56816ee15ae0f731f0e84"><param name="Name" value="removeAccommodation"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#aa6c8d805b23a85af67825a79d682ae90"><param name="Name" value="removeAccommodationByIndex"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html"><param name="Name" value="Classes::FlightTicket"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#a4ab07420518c41e7cc1f3ece27707367"><param name="Name" value="FlightTicket"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#a5a30140876d1b7d261f89ee5b90a7b25"><param name="Name" value="getDate"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#ae999ed81960bb15dd8fabc885a027122"><param name="Name" value="getDest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#ae257c63626b37899d9358edf1b43a320"><param name="Name" value="getPrice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#a32a824e2f58ce1c76bc1b8329ac0f073"><param name="Name" value="getQuantity"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#ab9ac021ba2214ea1fa953f6819861a77"><param name="Name" value="getSource"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#ab9e9c8885b1e3ac39c5225c1e012afbd"><param name="Name" value="setDate"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#ab7055ceca9ba852446c564065232397d"><param name="Name" value="setDest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#af7a4b8c4c9969fbc123d171e63911fb5"><param name="Name" value="setPrice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#a0262ef24df702470a2acb12754ea8c43"><param name="Name" value="setQuantity"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#a6961028b90358df167902c0f31c70eb9"><param name="Name" value="setSource"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html"><param name="Name" value="Classes::FlightTicketInterest"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#a0c75658751fed5efd6adaf6306aed611"><param name="Name" value="FlightTicketInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#a59d91d224829d50f8e5b59ec3871fa20"><param name="Name" value="getClientInterface"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#a7a96c164187c24e4f171f2ad93872e3d"><param name="Name" value="getClientName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#ae098cf51df1a0f1086069493b393185c"><param name="Name" value="getDest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#af9b8821dbcbab2dc5bc3ccbef69dc54a"><param name="Name" value="getMaxPrice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#a00ca4d156fe6852b34990afc227f9391"><param name="Name" value="getQuantity"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#aa67b2a53b00fa7a9ab7ab1d4fd00b8f7"><param name="Name" value="getReturnDate"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#aae4b227a139661d0c4118b3891cb028a"><param name="Name" value="getSource"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#aea65c08b20d3949a6c1f4b3253848314"><param name="Name" value="getSourceDate"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#a6dce2f3875b134b6913c85dafcd2fcdb"><param name="Name" value="isReturnTicket"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html"><param name="Name" value="Classes::FlightTicketManager"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#a33513cecc244de611a4cff7cb0616893"><param name="Name" value="editPrice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#a8447fdd75dd829ba0a94a9cda36d058e"><param name="Name" value="getFlightTicket"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#a342e10320c2f276ad184cbac62ce2979"><param name="Name" value="getFlightTicketList"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#ab646869151b4553f4a05dc1024423ca3"><param name="Name" value="getFlightTicketListSize"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#a7697686e8ba430a4b3ac78e9b376f9b8"><param name="Name" value="insertFlightTicket"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#a43f96b91c5106644680e4e0bec3a3031"><param name="Name" value="removeFlightTicket"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#ab15a003de2f2377c9599390004021f22"><param name="Name" value="removeFlightTicketByIndex"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html"><param name="Name" value="Classes::PackageInterest"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#aba31ed5c0375b19ad7399e1b586dd0d7"><param name="Name" value="getAccommodationCityName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#a1922961983f122115001c632f98d54cf"><param name="Name" value="getAccommodationName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#a1d5a2cfcba99aa6edb7b3bb9a4c24ada"><param name="Name" value="getClientInterface"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#af8b1e41a2d9e618dfcb98d72ea0cd7d3"><param name="Name" value="getClientName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#a47f4427dca49a8e349f7dcc173c182e0"><param name="Name" value="getDest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#aaa7f5285a2951b8ed01b4c00543804ec"><param name="Name" value="getMaxPrice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#a7956db7bd05b73e5d2836d78612296fa"><param name="Name" value="getNumberOfGuests"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#aef979cfdba473ba98e58f19495be5399"><param name="Name" value="getQuantity"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#aa2fa628bbc540f056099744bba499d44"><param name="Name" value="getReturnDate"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#a67eda797265e516c9a9c76340ff60547"><param name="Name" value="getSource"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#aeaacc4fb88961354aa4ab55cadca18c9"><param name="Name" value="getSourceDate"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#ab756b8b3fd6ed10306f6d55d2633a385"><param name="Name" value="isReturnTicket"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#af7b74397f6c30cff41d27aa9f89bb744"><param name="Name" value="PackageInterest"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html"><param name="Name" value="Classes::Packages"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#a489cccc35b66334b76082f22ea0066e5"><param name="Name" value="getAccommodation"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#a9f4d08b67683ae5eb556366a75b95134"><param name="Name" value="getFlightTicketGoing"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#a01402e57faaa90bf795d4850fdf608b6"><param name="Name" value="getFlightTicketReturn"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#ab771142598cb7d980b02f21f07c61a86"><param name="Name" value="getTotalPrice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#a463bcfb571c82dd5a6e38ec477e7bc45"><param name="Name" value="Packages"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#a1fa935352f6c92cae248db98b685f5ab"><param name="Name" value="setAccommodation"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#a3fb6fa490450a9c0a4afa1209c0e9118"><param name="Name" value="setFlightTicketGoing"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#aee3e7b6755b6cd5ec590488bb6bf0166"><param name="Name" value="setFlightTicketReturn"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f"><param name="Name" value="configAccommodationInterestTable"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4"><param name="Name" value="configButton"></OBJECT>
   <UL>
@@ -164,6 +266,11 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a5cc316be274bdd944576819c6efe3db4"><param name="Name" value="Database::DAO::DAOHotel"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_d_a_o_1_1_d_a_o_passages.html#a68bc92ad249b0cf5b3e67985f7dedeed"><param name="Name" value="Database::DAO::DAOPassages"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#af95083b0cfa227ce8f195bbaa5418bee"><param name="Name" value="editPrice"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#af95083b0cfa227ce8f195bbaa5418bee"><param name="Name" value="Classes::AccommodationManager"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#a33513cecc244de611a4cff7cb0616893"><param name="Name" value="Classes::FlightTicketManager"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_r_m_i_1_1_client_interface.html#ab293e75c09b1575c4369c2ad7f628a06"><param name="Name" value="eventPopUp"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_events_panel.html#a889625708b56adb005fbe14a0ebc24e7"><param name="Name" value="EventsPanel"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_extra.html"><param name="Name" value="Extra"></OBJECT>
@@ -173,19 +280,105 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d"><param name="Name" value="getCities"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b"><param name="Name" value="getStates"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#a4ab07420518c41e7cc1f3ece27707367"><param name="Name" value="FlightTicket"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#a0c75658751fed5efd6adaf6306aed611"><param name="Name" value="FlightTicketInterest"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#a09b01575c37ada94cdb4d9940d0a466e"><param name="Name" value="getAccommodation"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#a09b01575c37ada94cdb4d9940d0a466e"><param name="Name" value="Classes::AccommodationManager"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#a489cccc35b66334b76082f22ea0066e5"><param name="Name" value="Classes::Packages"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#a1562b82d0e0576b94108e746c598a421"><param name="Name" value="getAccommodationCityName"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#a1562b82d0e0576b94108e746c598a421"><param name="Name" value="Classes::AccommodationInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#aba31ed5c0375b19ad7399e1b586dd0d7"><param name="Name" value="Classes::PackageInterest"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_server_servent.html#a6a9bea26ffcb148b3bcfe2bd093b5819"><param name="Name" value="getAccommodationInterestList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#ade915f06a8dd72ebbaea0c27eeec2a89"><param name="Name" value="getAccommodationList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#adf9d8f6131cba90cf76a6acb673605c7"><param name="Name" value="getAccommodationListSize"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a70177d66378aa500361fe9479d06ae13"><param name="Name" value="getAccommodationName"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a70177d66378aa500361fe9479d06ae13"><param name="Name" value="Classes::Accommodation"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#af109f985c3233c110e063081b5fdc036"><param name="Name" value="Classes::AccommodationInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#a1922961983f122115001c632f98d54cf"><param name="Name" value="Classes::PackageInterest"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d"><param name="Name" value="getCities"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a631dfa52e654cc57295dcd15ebb7b534"><param name="Name" value="getCityName"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#ad43ee14f9c9300c5595b12059f6d82bd"><param name="Name" value="getClientInterface"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#ad43ee14f9c9300c5595b12059f6d82bd"><param name="Name" value="Classes::AccommodationInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#a59d91d224829d50f8e5b59ec3871fa20"><param name="Name" value="Classes::FlightTicketInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#a1d5a2cfcba99aa6edb7b3bb9a4c24ada"><param name="Name" value="Classes::PackageInterest"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#af3394f04a3c91f0ba289d524f0db907c"><param name="Name" value="getClientName"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#af3394f04a3c91f0ba289d524f0db907c"><param name="Name" value="Classes::AccommodationInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#a7a96c164187c24e4f171f2ad93872e3d"><param name="Name" value="Classes::FlightTicketInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#af8b1e41a2d9e618dfcb98d72ea0cd7d3"><param name="Name" value="Classes::PackageInterest"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f"><param name="Name" value="getDatabaseName"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#a5a30140876d1b7d261f89ee5b90a7b25"><param name="Name" value="getDate"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#ae999ed81960bb15dd8fabc885a027122"><param name="Name" value="getDest"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#ae999ed81960bb15dd8fabc885a027122"><param name="Name" value="Classes::FlightTicket"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#ae098cf51df1a0f1086069493b393185c"><param name="Name" value="Classes::FlightTicketInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#a47f4427dca49a8e349f7dcc173c182e0"><param name="Name" value="Classes::PackageInterest"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#a8447fdd75dd829ba0a94a9cda36d058e"><param name="Name" value="getFlightTicket"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#a9f4d08b67683ae5eb556366a75b95134"><param name="Name" value="getFlightTicketGoing"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#a342e10320c2f276ad184cbac62ce2979"><param name="Name" value="getFlightTicketList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#ab646869151b4553f4a05dc1024423ca3"><param name="Name" value="getFlightTicketListSize"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#a01402e57faaa90bf795d4850fdf608b6"><param name="Name" value="getFlightTicketReturn"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_d_b_connection.html#a385dfe5fc7d14047401a41c1d3c3aee6"><param name="Name" value="getHotelDBName"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a9c6a221fca8ee2f665a5a04b5f56ecdc"><param name="Name" value="getMaxGuestsPerRoom"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#a870c629ccf2c83173322211f1e76b0e9"><param name="Name" value="getMaxPrice"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#a870c629ccf2c83173322211f1e76b0e9"><param name="Name" value="Classes::AccommodationInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#af9b8821dbcbab2dc5bc3ccbef69dc54a"><param name="Name" value="Classes::FlightTicketInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#aaa7f5285a2951b8ed01b4c00543804ec"><param name="Name" value="Classes::PackageInterest"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#ad287f5ae4c99f72687317563c4a4c21f"><param name="Name" value="getNumberOfGuests"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#ad287f5ae4c99f72687317563c4a4c21f"><param name="Name" value="Classes::AccommodationInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#a7956db7bd05b73e5d2836d78612296fa"><param name="Name" value="Classes::PackageInterest"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_server_servent.html#abcf964cce3b906b834776588f3ce96c0"><param name="Name" value="getPackageInterestList"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_d_b_connection.html#a07faac0abe1903b8346b0e2287fd9c33"><param name="Name" value="getPackagesDBName"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_d_b_connection.html#a68765d9f0ce16803dbde892c0567d12a"><param name="Name" value="getPassagesDBName"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a155d63b488a2037a6fc95095671e04f0"><param name="Name" value="getPrice"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a155d63b488a2037a6fc95095671e04f0"><param name="Name" value="Classes::Accommodation"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#ae257c63626b37899d9358edf1b43a320"><param name="Name" value="Classes::FlightTicket"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#abe6b4f37ef8dcedd1949cf91085fa18a"><param name="Name" value="getQuantity"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#abe6b4f37ef8dcedd1949cf91085fa18a"><param name="Name" value="Classes::Accommodation"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_interest.html#a80ed0a47cab0507357a7a5d92a7c5433"><param name="Name" value="Classes::AccommodationInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#a32a824e2f58ce1c76bc1b8329ac0f073"><param name="Name" value="Classes::FlightTicket"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#a00ca4d156fe6852b34990afc227f9391"><param name="Name" value="Classes::FlightTicketInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#aef979cfdba473ba98e58f19495be5399"><param name="Name" value="Classes::PackageInterest"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_controller_1_1_ctrl_hotel.html#a17c2ccd0c25e605ced62242b3268f471"><param name="Name" value="getQuantityLeft"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_controller_1_1_ctrl_hotel.html#a17c2ccd0c25e605ced62242b3268f471"><param name="Name" value="Database::Controller::CtrlHotel"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_controller_1_1_ctrl_passages.html#a0539f55045130fa4b3a161130e72f505"><param name="Name" value="Database::Controller::CtrlPassages"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a94d3971af9d110eae5f8ec137b38c031"><param name="Name" value="Database::DAO::DAOHotel"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_d_a_o_1_1_d_a_o_passages.html#ac973fef6dc94f03a32b05bdd3ee93b12"><param name="Name" value="Database::DAO::DAOPassages"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#aa67b2a53b00fa7a9ab7ab1d4fd00b8f7"><param name="Name" value="getReturnDate"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#aa67b2a53b00fa7a9ab7ab1d4fd00b8f7"><param name="Name" value="Classes::FlightTicketInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#aa2fa628bbc540f056099744bba499d44"><param name="Name" value="Classes::PackageInterest"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#ab9ac021ba2214ea1fa953f6819861a77"><param name="Name" value="getSource"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#ab9ac021ba2214ea1fa953f6819861a77"><param name="Name" value="Classes::FlightTicket"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#aae4b227a139661d0c4118b3891cb028a"><param name="Name" value="Classes::FlightTicketInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#a67eda797265e516c9a9c76340ff60547"><param name="Name" value="Classes::PackageInterest"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#aea65c08b20d3949a6c1f4b3253848314"><param name="Name" value="getSourceDate"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#aea65c08b20d3949a6c1f4b3253848314"><param name="Name" value="Classes::FlightTicketInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#aeaacc4fb88961354aa4ab55cadca18c9"><param name="Name" value="Classes::PackageInterest"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b"><param name="Name" value="getStates"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#afaf8f10cfea2f3b17d71f2dccef77b83"><param name="Name" value="getTableField"></OBJECT>
@@ -194,6 +387,7 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a7d1ee8400b04a7cd4f56447c5c8a5d31"><param name="Name" value="GUI::PassagesPanel"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_server_servent.html#abca4135110d2770c144e3a4692849817"><param name="Name" value="getTicketInterestList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#ab771142598cb7d980b02f21f07c61a86"><param name="Name" value="getTotalPrice"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_g_u_i.html"><param name="Name" value="GUI"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_about_frame.html"><param name="Name" value="GUI::AboutFrame"></OBJECT>
   <UL>
@@ -257,6 +451,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a0d35b266df47cc7ccbfa28287b06f580"><param name="Name" value="HotelsPanel"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#accd966b5f269560671a3d7cf2c855a0f"><param name="Name" value="initRMI"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#a7283b45d52286191c09ab3d927bdd88e"><param name="Name" value="insertAccommodation"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_controller_1_1_ctrl_hotel.html#ab2989ebbee6ee02b0ac31712c41091b9"><param name="Name" value="insertEntry"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_controller_1_1_ctrl_hotel.html#ab2989ebbee6ee02b0ac31712c41091b9"><param name="Name" value="Database::Controller::CtrlHotel"></OBJECT>
@@ -264,6 +459,7 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a7d3279be042a9208a8e42d4314f5f4ab"><param name="Name" value="Database::DAO::DAOHotel"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_d_a_o_1_1_d_a_o_passages.html#ae129860fdbe712c88ca61a34e139d6e9"><param name="Name" value="Database::DAO::DAOPassages"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#a7697686e8ba430a4b3ac78e9b376f9b8"><param name="Name" value="insertFlightTicket"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#af6804623d54a1e298cab45f4208ebacf"><param name="Name" value="insertTableField"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#af6804623d54a1e298cab45f4208ebacf"><param name="Name" value="GUI::HotelsPanel"></OBJECT>
@@ -272,6 +468,11 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_events_panel.html#a3405a4a86e89cc527cb5578b0ff81f02"><param name="Name" value="insertTableFieldAccommodation"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_events_panel.html#a544e77969e5996a68d413fd7be21f78f"><param name="Name" value="insertTableFieldPackage"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_events_panel.html#a11f1b8efad175573fe369f97db913353"><param name="Name" value="insertTableFieldTicket"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#a6dce2f3875b134b6913c85dafcd2fcdb"><param name="Name" value="isReturnTicket"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_interest.html#a6dce2f3875b134b6913c85dafcd2fcdb"><param name="Name" value="Classes::FlightTicketInterest"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#ab756b8b3fd6ed10306f6d55d2633a385"><param name="Name" value="Classes::PackageInterest"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_controller_1_1_ctrl_hotel.html#a8df89417d3301ebdca4f1cbeb16eaba4"><param name="Name" value="loadDBHotels"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_database_1_1_controller_1_1_ctrl_hotel.html#a8df89417d3301ebdca4f1cbeb16eaba4"><param name="Name" value="Database::Controller::CtrlHotel"></OBJECT>
@@ -287,6 +488,8 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_server_servent.html#ad2299dd8ad7ac1f0d05a7599395da1e1"><param name="Name" value="notifyAccommodationInterests"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_server_servent.html#a7cb189e0936a72ba836b7be9fe5cd01d"><param name="Name" value="notifyPackageInterests"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_server_servent.html#ad7673097473e756449cc13674f17c071"><param name="Name" value="notifyTicketsInterests"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_package_interest.html#af7b74397f6c30cff41d27aa9f89bb744"><param name="Name" value="PackageInterest"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#a463bcfb571c82dd5a6e38ec477e7bc45"><param name="Name" value="Packages"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_passages_panel.html#a5ac30f327213e2ba360a37266daf7a86"><param name="Name" value="PassagesPanel"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143"><param name="Name" value="processRegistry"></OBJECT>
   <UL>
@@ -308,6 +511,10 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_r_m_i_1_1_server_interface.html#a02641491638467608e377ddeb41adabb"><param name="Name" value="RMI::ServerInterface"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_server_servent.html#ae7e192fc691199f48d0584ecd2e2ab0c"><param name="Name" value="RMI::ServerServent"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#ac27d2be899e56816ee15ae0f731f0e84"><param name="Name" value="removeAccommodation"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation_manager.html#aa6c8d805b23a85af67825a79d682ae90"><param name="Name" value="removeAccommodationByIndex"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#a43f96b91c5106644680e4e0bec3a3031"><param name="Name" value="removeFlightTicket"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket_manager.html#ab15a003de2f2377c9599390004021f22"><param name="Name" value="removeFlightTicketByIndex"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_r_m_i_1_1_server_interface.html#a3e93cf1b9dded24a260f50ebdecad688"><param name="Name" value="reserveHotel"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="interface_r_m_i_1_1_server_interface.html#a3e93cf1b9dded24a260f50ebdecad688"><param name="Name" value="RMI::ServerInterface"></OBJECT>
@@ -394,11 +601,30 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_server_servent.html#ad5de80ac74f4ca1757334d7155ff4f40"><param name="Name" value="RMI::ServerServent"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_r_m_i_1_1_server_servent.html#a2c2e1e2413fc94688ecfcad58ad2cb74"><param name="Name" value="ServerServent"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#a1fa935352f6c92cae248db98b685f5ab"><param name="Name" value="setAccommodation"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a3f57df85f08abb83f6a28702fbffd249"><param name="Name" value="setAccommodationName"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#acba2bbe4c3767abd873f152ac229feab"><param name="Name" value="setCityName"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#ab9e9c8885b1e3ac39c5225c1e012afbd"><param name="Name" value="setDate"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#ab7055ceca9ba852446c564065232397d"><param name="Name" value="setDest"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#a3fb6fa490450a9c0a4afa1209c0e9118"><param name="Name" value="setFlightTicketGoing"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_packages.html#aee3e7b6755b6cd5ec590488bb6bf0166"><param name="Name" value="setFlightTicketReturn"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_about_frame.html#aa6683a54c53f495b2ad92b576e69752d"><param name="Name" value="setFrameSettings"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_about_frame.html#aa6683a54c53f495b2ad92b576e69752d"><param name="Name" value="GUI::AboutFrame"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_main_j_frame.html#af53a45f7671b9fad05de521cac3a4236"><param name="Name" value="GUI::MainJFrame"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a8c4fe6edf2d8bd9ac7cb2867283bcf9a"><param name="Name" value="setMaxGuestsPerRoom"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a665014a918d95e9fa016e9d4f53324af"><param name="Name" value="setPrice"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#a665014a918d95e9fa016e9d4f53324af"><param name="Name" value="Classes::Accommodation"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#af7a4b8c4c9969fbc123d171e63911fb5"><param name="Name" value="Classes::FlightTicket"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#ab475d615be609fa50aea7811f25db0e0"><param name="Name" value="setQuantity"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_accommodation.html#ab475d615be609fa50aea7811f25db0e0"><param name="Name" value="Classes::Accommodation"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#a0262ef24df702470a2acb12754ea8c43"><param name="Name" value="Classes::FlightTicket"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_classes_1_1_flight_ticket.html#a6961028b90358df167902c0f31c70eb9"><param name="Name" value="setSource"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_events_panel.html#ab89b241d6b46e5a749fe1d2f94aa8995"><param name="Name" value="showAccommodationInterest"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_events_panel.html#aa9bba4186ee8c6a5555b1cae5a7ae529"><param name="Name" value="showPackageInterest"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_g_u_i_1_1_events_panel.html#abff1f9d90177b29b847a928c86e8025c"><param name="Name" value="showTicketsInterest"></OBJECT>

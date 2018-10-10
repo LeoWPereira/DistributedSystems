@@ -1,5 +1,5 @@
 <map id="GUI.EventsPanel.insertTableFieldPackage" name="GUI.EventsPanel.insertTableFieldPackage">
-<area shape="rect" id="node2" href="$class_g_u_i_1_1_events_panel.html#a544e77969e5996a68d413fd7be21f78f" title="GUI.EventsPanel.insertTable\lFieldPackage" alt="" coords="240,159,427,200"/>
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_events_panel.html#a544e77969e5996a68d413fd7be21f78f" title="This method will handle the insertion of a Package interest inside the table. " alt="" coords="240,159,427,200"/>
 <area shape="rect" id="node3" href="$class_classes_1_1_package_interest.html#ab756b8b3fd6ed10306f6d55d2633a385" title="Return if a ticket is a return ticket (not one&#45;way) " alt="" coords="492,5,673,47"/>
 <area shape="rect" id="node4" href="$class_classes_1_1_package_interest.html#a67eda797265e516c9a9c76340ff60547" title="Get the source of the ticket interest. " alt="" coords="488,71,677,112"/>
 <area shape="rect" id="node6" href="$class_classes_1_1_package_interest.html#a47f4427dca49a8e349f7dcc173c182e0" title="Get the destination of the ticket interest. " alt="" coords="475,137,691,163"/>

@@ -317,7 +317,7 @@ public class HotelDetailsPanel extends JFrame
 				if(checkForEmptyFields())
 				{
 					JOptionPane.showMessageDialog(new JFrame(),
-												  "Existem Campos n√£o preenchidos!", 
+												  "Existem Campos n„o preenchidos!", 
 												  "Erro",
 												  JOptionPane.ERROR_MESSAGE);
 				}
@@ -379,7 +379,7 @@ public class HotelDetailsPanel extends JFrame
 			else
 			{
 				JOptionPane.showMessageDialog(new JFrame(),
-											  "N√£o h√° quartos suficientes!", 
+											  "N„o h· quartos suficientes!", 
 											  "Erro",
 											  JOptionPane.ERROR_MESSAGE);
 			}

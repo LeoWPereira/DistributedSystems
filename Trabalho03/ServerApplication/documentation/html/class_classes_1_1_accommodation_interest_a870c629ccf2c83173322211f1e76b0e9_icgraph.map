@@ -1,0 +1,12 @@
+<map id="Classes.AccommodationInterest.getMaxPrice" name="Classes.AccommodationInterest.getMaxPrice">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_events_panel.html#a3405a4a86e89cc527cb5578b0ff81f02" title="GUI.EventsPanel.insertTable\lFieldAccommodation" alt="" coords="287,67,473,108"/>
+<area shape="rect" id="node7" href="$class_r_m_i_1_1_server_servent.html#ad2299dd8ad7ac1f0d05a7599395da1e1" title="RMI.ServerServent.notify\lAccommodationInterests" alt="" coords="297,132,463,173"/>
+<area shape="rect" id="node11" href="$class_r_m_i_1_1_server_servent.html#a50add20a7e6829f297101efcfe4cf16b" title="Cancel a registration in an Accommodation. " alt="" coords="285,197,475,239"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html#ab89b241d6b46e5a749fe1d2f94aa8995" title="The method will show the accommodation interest list in the table. " alt="" coords="523,5,771,47"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_events_panel.html#a3e3c4075134ffe86751ceec1f225c924" title="GUI.EventsPanel.insertTable\lFieldAccommodation" alt="" coords="553,71,740,112"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#a9208fe7f420968feb736ad88a6abc8e2" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="821,5,1011,47"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_events_panel.html#a889625708b56adb005fbe14a0ebc24e7" title="Default Constructor. " alt="" coords="1061,13,1257,39"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143" title="GUI.HotelsPanel.processRegistry" alt="" coords="539,139,755,166"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="819,139,1013,166"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_hotels_panel.html#a0d35b266df47cc7ccbfa28287b06f580" title="Default Constructor. " alt="" coords="1063,139,1255,166"/>
+</map>

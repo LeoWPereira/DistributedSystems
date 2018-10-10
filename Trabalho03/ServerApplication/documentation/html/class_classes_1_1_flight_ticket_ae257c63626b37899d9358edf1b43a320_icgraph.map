@@ -1,0 +1,12 @@
+<map id="Classes.FlightTicket.getPrice" name="Classes.FlightTicket.getPrice">
+<area shape="rect" id="node2" href="$class_classes_1_1_packages.html#ab771142598cb7d980b02f21f07c61a86" title="Get the total price of the package. " alt="" coords="216,5,397,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_passages_panel.html#afdece3a10dd0199ff3b287de5e1dbcb8" title="GUI.PassagesPanel.insert\lTableField" alt="" coords="219,71,394,112"/>
+<area shape="rect" id="node4" href="$class_r_m_i_1_1_server_servent.html#ad7673097473e756449cc13674f17c071" title="RMI.ServerServent.notify\lTicketsInterests" alt="" coords="225,136,388,177"/>
+<area shape="rect" id="node8" href="$class_r_m_i_1_1_server_servent.html#a7cb189e0936a72ba836b7be9fe5cd01d" title="RMI.ServerServent.notify\lPackageInterests" alt="" coords="225,201,388,243"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_passages_panel.html#ae479ab4e58a40bea8baaed60eebfb56b" title="GUI.PassagesPanel.process\lRegistry" alt="" coords="459,140,648,181"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="718,140,895,181"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_passages_panel.html#a5ac30f327213e2ba360a37266daf7a86" title="Default Constructor. " alt="" coords="952,140,1153,181"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143" title="GUI.HotelsPanel.processRegistry" alt="" coords="445,209,661,235"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="709,209,904,235"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_hotels_panel.html#a0d35b266df47cc7ccbfa28287b06f580" title="Default Constructor. " alt="" coords="957,209,1149,235"/>
+</map>

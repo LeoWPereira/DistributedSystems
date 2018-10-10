@@ -3,13 +3,13 @@
 <area shape="rect" id="node15" href="$class_classes_1_1_package_interest.html#a1922961983f122115001c632f98d54cf" title="Get the accommodation name from the accommodation. " alt="" coords="264,117,453,159"/>
 <area shape="rect" id="node16" href="$class_g_u_i_1_1_hotels_panel.html#adc7916069a2e61d1033dc655ed1d86fe" title="GUI.HotelsPanel.insertTable\lField" alt="" coords="266,183,451,224"/>
 <area shape="rect" id="node17" href="$class_g_u_i_1_1_packages_panel.html#ad566e3c89978694bdf3abd936e2f422e" title="GUI.PackagesPanel.insert\lTableField" alt="" coords="271,248,446,289"/>
-<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html#a3405a4a86e89cc527cb5578b0ff81f02" title="GUI.EventsPanel.insertTable\lFieldAccommodation" alt="" coords="524,36,711,77"/>
-<area shape="rect" id="node8" href="$class_r_m_i_1_1_client_servent.html#a6c867a8716dd2791a41a2df4cb8558b9" title="Remove accommodation interest from local array and from the server. " alt="" coords="532,101,703,143"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html#a3405a4a86e89cc527cb5578b0ff81f02" title="This method will handle the insertion of an Accommodation Interest inside the table. " alt="" coords="524,36,711,77"/>
+<area shape="rect" id="node8" href="$class_r_m_i_1_1_client_servent.html#a6c867a8716dd2791a41a2df4cb8558b9" title="RMI.ClientServent.remove\lAccommodationInterest" alt="" coords="532,101,703,143"/>
 <area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#ab89b241d6b46e5a749fe1d2f94aa8995" title="The method will show the accommodation interest list in the table. " alt="" coords="1309,36,1557,77"/>
-<area shape="rect" id="node7" href="$class_g_u_i_1_1_events_panel.html#a3e3c4075134ffe86751ceec1f225c924" title="GUI.EventsPanel.insertTable\lFieldAccommodation" alt="" coords="767,36,954,77"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_events_panel.html#a3e3c4075134ffe86751ceec1f225c924" title="This method will handle the insertion of a list of accommodations. " alt="" coords="767,36,954,77"/>
 <area shape="rect" id="node5" href="$class_g_u_i_1_1_events_panel.html#a9208fe7f420968feb736ad88a6abc8e2" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="1605,101,1796,143"/>
 <area shape="rect" id="node6" href="$class_g_u_i_1_1_events_panel.html#a24da6ae4655cabb2e092bc0e359ce10c" title="Default Constructor. " alt="" coords="1844,109,2040,135"/>
-<area shape="rect" id="node9" href="$class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="760,101,961,143"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="Process Table Selection. " alt="" coords="760,101,961,143"/>
 <area shape="rect" id="node10" href="$class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="1039,101,1232,143"/>
 <area shape="rect" id="node12" href="$class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="1009,36,1261,77"/>
 <area shape="rect" id="node13" href="$class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="1031,167,1240,208"/>

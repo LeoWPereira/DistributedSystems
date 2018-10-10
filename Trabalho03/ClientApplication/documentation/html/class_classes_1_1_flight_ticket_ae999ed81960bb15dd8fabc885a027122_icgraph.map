@@ -3,21 +3,21 @@
 <area shape="rect" id="node15" href="$class_classes_1_1_package_interest.html#a47f4427dca49a8e349f7dcc173c182e0" title="Get the destination of the ticket interest. " alt="" coords="251,234,467,261"/>
 <area shape="rect" id="node19" href="$class_g_u_i_1_1_packages_panel.html#ad566e3c89978694bdf3abd936e2f422e" title="GUI.PackagesPanel.insert\lTableField" alt="" coords="271,288,446,329"/>
 <area shape="rect" id="node24" href="$class_g_u_i_1_1_passages_panel.html#afdece3a10dd0199ff3b287de5e1dbcb8" title="GUI.PassagesPanel.insert\lTableField" alt="" coords="271,353,446,395"/>
-<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html#a11f1b8efad175573fe369f97db913353" title="GUI.EventsPanel.insertTable\lFieldTicket" alt="" coords="524,31,711,72"/>
-<area shape="rect" id="node8" href="$class_r_m_i_1_1_client_servent.html#a08b38c7af44c0f70d53bded070742ab6" title="Remove ticket interest from local array and from the server. " alt="" coords="532,96,703,137"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_events_panel.html#a11f1b8efad175573fe369f97db913353" title="This method will handle the insertion of data inside the table. " alt="" coords="524,31,711,72"/>
+<area shape="rect" id="node8" href="$class_r_m_i_1_1_client_servent.html#a08b38c7af44c0f70d53bded070742ab6" title="RMI.ClientServent.remove\lTicketInterest" alt="" coords="532,96,703,137"/>
 <area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#abff1f9d90177b29b847a928c86e8025c" title="The method will show the flight ticket interest list in the table. " alt="" coords="1335,35,1531,76"/>
-<area shape="rect" id="node7" href="$class_g_u_i_1_1_events_panel.html#acb43b9521062abeeeef4a91018f44d14" title="GUI.EventsPanel.insertTable\lFieldTicket" alt="" coords="767,35,954,76"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_events_panel.html#acb43b9521062abeeeef4a91018f44d14" title="This method will handle the insertion of a list of ticket interests. " alt="" coords="767,35,954,76"/>
 <area shape="rect" id="node5" href="$class_g_u_i_1_1_events_panel.html#a9208fe7f420968feb736ad88a6abc8e2" title="Initial settings for the radio buttons and radio buttons group. " alt="" coords="1605,100,1796,141"/>
 <area shape="rect" id="node6" href="$class_g_u_i_1_1_events_panel.html#a24da6ae4655cabb2e092bc0e359ce10c" title="Default Constructor. " alt="" coords="1844,107,2040,134"/>
-<area shape="rect" id="node9" href="$class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="GUI.EventsPanel.processTable\lSelection" alt="" coords="760,100,961,141"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_events_panel.html#a46ae3131fe13b132eb5859fb7d4012f9" title="Process Table Selection. " alt="" coords="760,100,961,141"/>
 <area shape="rect" id="node10" href="$class_g_u_i_1_1_events_panel.html#ab1042f336080cdd9f62aead98b09f678" title="The method will handle the initial settings for the table. " alt="" coords="1039,35,1232,76"/>
 <area shape="rect" id="node11" href="$class_g_u_i_1_1_events_panel.html#ad64626311e1d1fcb5ab21bd9fe93d50f" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="1009,100,1261,141"/>
 <area shape="rect" id="node13" href="$class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="1031,165,1240,207"/>
 <area shape="rect" id="node12" href="$class_g_u_i_1_1_events_panel.html#ab89b241d6b46e5a749fe1d2f94aa8995" title="The method will show the accommodation interest list in the table. " alt="" coords="1309,100,1557,141"/>
 <area shape="rect" id="node14" href="$class_g_u_i_1_1_events_panel.html#aa9bba4186ee8c6a5555b1cae5a7ae529" title="The method will show the package interest list in the table. " alt="" coords="1331,165,1536,207"/>
-<area shape="rect" id="node16" href="$class_g_u_i_1_1_events_panel.html#a544e77969e5996a68d413fd7be21f78f" title="GUI.EventsPanel.insertTable\lFieldPackage" alt="" coords="524,227,711,268"/>
-<area shape="rect" id="node18" href="$class_r_m_i_1_1_client_servent.html#ab7acddccf466625ebf7b3bdb50c015b8" title="Remove package interest from local array and from the server. " alt="" coords="532,161,703,203"/>
-<area shape="rect" id="node17" href="$class_g_u_i_1_1_events_panel.html#a528d021a79b2fd4e285ef0398bc6263d" title="GUI.EventsPanel.insertTable\lFieldPackage" alt="" coords="767,283,954,324"/>
+<area shape="rect" id="node16" href="$class_g_u_i_1_1_events_panel.html#a544e77969e5996a68d413fd7be21f78f" title="This method will handle the insertion of a Package interest inside the table. " alt="" coords="524,227,711,268"/>
+<area shape="rect" id="node18" href="$class_r_m_i_1_1_client_servent.html#ab7acddccf466625ebf7b3bdb50c015b8" title="RMI.ClientServent.remove\lPackageInterest" alt="" coords="532,161,703,203"/>
+<area shape="rect" id="node17" href="$class_g_u_i_1_1_events_panel.html#a528d021a79b2fd4e285ef0398bc6263d" title="This method will handle the insertion of a list of package interest. " alt="" coords="767,283,954,324"/>
 <area shape="rect" id="node20" href="$class_g_u_i_1_1_packages_panel.html#acfbe1faedf2f2e74218ba8c201429f85" title="GUI.PackagesPanel.insert\lTableField" alt="" coords="530,292,705,333"/>
 <area shape="rect" id="node21" href="$class_g_u_i_1_1_packages_panel.html#af208e95e50804a59ab9ad7a50bdeb185" title="GUI.PackagesPanel.process\lSearchButton" alt="" coords="523,357,712,399"/>
 <area shape="rect" id="node22" href="$class_g_u_i_1_1_packages_panel.html#a8aaa2e65f62b9c58c70b01eefa4edd7e" title="This method will handle the initial configurations to the Search Button. " alt="" coords="772,357,949,399"/>

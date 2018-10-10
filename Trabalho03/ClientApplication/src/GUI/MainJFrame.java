@@ -181,7 +181,7 @@ public class MainJFrame extends JFrame
 			{
 				 try 
 				 {
-					Runtime.getRuntime().exec("hh.exe documentation/html/doc.chm");
+					Runtime.getRuntime().exec("hh.exe doc.chm");
 				 }
 				 catch (IOException e) 
 				 {

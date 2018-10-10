@@ -24,7 +24,6 @@ import java.util.Date;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -512,7 +511,6 @@ public class PackagesPanel extends JPanel
 					} 
 					catch (RemoteException e) 
 					{
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -752,7 +750,6 @@ public class PackagesPanel extends JPanel
     	}
 		catch (java.text.ParseException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

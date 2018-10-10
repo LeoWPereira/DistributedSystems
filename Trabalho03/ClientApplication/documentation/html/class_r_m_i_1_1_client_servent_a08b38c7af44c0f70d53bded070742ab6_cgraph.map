@@ -3,7 +3,7 @@
 <area shape="rect" id="node4" href="$class_classes_1_1_flight_ticket_interest.html#ae098cf51df1a0f1086069493b393185c" title="Get the destination of the ticket interest. " alt="" coords="224,71,456,98"/>
 <area shape="rect" id="node6" href="$class_classes_1_1_flight_ticket_interest.html#a6dce2f3875b134b6913c85dafcd2fcdb" title="Return if a ticket is a return ticket (not one&#45;way) " alt="" coords="241,123,439,164"/>
 <area shape="rect" id="node7" href="$class_classes_1_1_flight_ticket_interest.html#af9b8821dbcbab2dc5bc3ccbef69dc54a" title="Default getter. " alt="" coords="237,188,443,229"/>
-<area shape="rect" id="node8" href="$interface_r_m_i_1_1_server_interface.html#ad121093d35f68d8097a4d4c559035c84" title="RMI.ServerInterface.unregister\lTicketInterest" alt="" coords="243,253,437,295"/>
+<area shape="rect" id="node8" href="$interface_r_m_i_1_1_server_interface.html#ad121093d35f68d8097a4d4c559035c84" title="Cancel a registration in a Flight Ticket. " alt="" coords="243,253,437,295"/>
 <area shape="rect" id="node3" href="$class_classes_1_1_flight_ticket.html#ab9ac021ba2214ea1fa953f6819861a77" title="Default getter. " alt="" coords="517,5,680,47"/>
 <area shape="rect" id="node5" href="$class_classes_1_1_flight_ticket.html#ae999ed81960bb15dd8fabc885a027122" title="Default getter. " alt="" coords="504,71,693,98"/>
 </map>

@@ -1,16 +1,45 @@
 <map id="GUI.HotelsPanel.processRegistry" name="GUI.HotelsPanel.processRegistry">
-<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#ab2989ebbee6ee02b0ac31712c41091b9" title="Database.Controller.Ctrl\lHotel.insertEntry" alt="" coords="282,7,442,48"/>
-<area shape="rect" id="node6" href="$class_g_u_i_1_1_hotels_panel.html#af6804623d54a1e298cab45f4208ebacf" title="The method will handle the insertion of data into the table. " alt="" coords="269,139,455,180"/>
-<area shape="rect" id="node7" href="$class_r_m_i_1_1_server_servent.html#ad2299dd8ad7ac1f0d05a7599395da1e1" title="RMI.ServerServent.notify\lAccommodationInterests" alt="" coords="279,204,445,245"/>
-<area shape="rect" id="node8" href="$class_r_m_i_1_1_server_servent.html#a7cb189e0936a72ba836b7be9fe5cd01d" title="RMI.ServerServent.notify\lPackageInterests" alt="" coords="281,73,443,115"/>
-<area shape="rect" id="node3" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a7d3279be042a9208a8e42d4314f5f4ab" title="Database.DAO.DAOHotel.insert\lEntry" alt="" coords="789,5,995,47"/>
-<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="1061,71,1248,112"/>
-<area shape="rect" id="node5" href="$class_database_1_1_d_b_connection.html#a385dfe5fc7d14047401a41c1d3c3aee6" title="Database.DBConnection.get\lHotelDBName" alt="" coords="1061,5,1248,47"/>
-<area shape="rect" id="node9" href="$class_database_1_1_d_b_connection.html#a56e17be5b4c6592d2fcb58490be46690" title="Database.DBConnection.configure\lDatabase" alt="" coords="503,201,723,243"/>
-<area shape="rect" id="node11" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a360b6e3176c2836b61d174c93b8c05bf" title="Database.Controller.Ctrl\lHotel.searchHotelByCity" alt="" coords="531,71,695,112"/>
-<area shape="rect" id="node13" href="$class_database_1_1_controller_1_1_ctrl_passages.html#aea284b9d52a97eeaa707a99bd203f1ca" title="Database.Controller.Ctrl\lPassages.searchPassages" alt="" coords="522,136,703,177"/>
-<area shape="rect" id="node10" href="$class_database_1_1_d_b_connection.html#a9c7fe69d5e2603941a839a47fb62a6a1" title="Database.DBConnection.connect\lToDatabase" alt="" coords="785,201,999,243"/>
-<area shape="rect" id="node12" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#af7e1dba8dafe9d7d7c7807352af2a2cd" title="Database.DAO.DAOHotel.search\lHotelByCity" alt="" coords="785,71,999,112"/>
-<area shape="rect" id="node14" href="$class_database_1_1_d_a_o_1_1_d_a_o_passages.html#aea8fe8d811cc68d1fbb4e744f2de6400" title="Database.DAO.DAOPassages.search\lPassages" alt="" coords="771,136,1013,177"/>
-<area shape="rect" id="node15" href="$class_database_1_1_d_b_connection.html#a68765d9f0ce16803dbde892c0567d12a" title="Database.DBConnection.get\lPassagesDBName" alt="" coords="1061,136,1248,177"/>
+<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#ab2989ebbee6ee02b0ac31712c41091b9" title="Database.Controller.Ctrl\lHotel.insertEntry" alt="" coords="309,75,469,116"/>
+<area shape="rect" id="node6" href="$class_classes_1_1_accommodation_manager.html#a7283b45d52286191c09ab3d927bdd88e" title="Insert an accommodation into the database. " alt="" coords="843,500,1096,542"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_hotels_panel.html#af6804623d54a1e298cab45f4208ebacf" title="The method will handle the insertion of data into the table. " alt="" coords="296,364,481,406"/>
+<area shape="rect" id="node8" href="$class_classes_1_1_accommodation_manager.html#adf9d8f6131cba90cf76a6acb673605c7" title="Get the accommodation list size. " alt="" coords="269,430,508,471"/>
+<area shape="rect" id="node9" href="$class_r_m_i_1_1_server_servent.html#ad2299dd8ad7ac1f0d05a7599395da1e1" title="RMI.ServerServent.notify\lAccommodationInterests" alt="" coords="305,267,472,308"/>
+<area shape="rect" id="node19" href="$class_r_m_i_1_1_server_servent.html#a7cb189e0936a72ba836b7be9fe5cd01d" title="RMI.ServerServent.notify\lPackageInterests" alt="" coords="307,1079,470,1120"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a7d3279be042a9208a8e42d4314f5f4ab" title="Database.DAO.DAOHotel.insert\lEntry" alt="" coords="866,116,1073,158"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="1144,587,1331,628"/>
+<area shape="rect" id="node5" href="$class_database_1_1_d_b_connection.html#a385dfe5fc7d14047401a41c1d3c3aee6" title="Database.DBConnection.get\lHotelDBName" alt="" coords="1144,319,1331,360"/>
+<area shape="rect" id="node10" href="$class_classes_1_1_accommodation_interest.html#a1562b82d0e0576b94108e746c598a421" title="Default getter. " alt="" coords="559,38,791,79"/>
+<area shape="rect" id="node12" href="$class_classes_1_1_accommodation_interest.html#af109f985c3233c110e063081b5fdc036" title="Default getter. " alt="" coords="559,364,791,406"/>
+<area shape="rect" id="node14" href="$class_classes_1_1_accommodation_interest.html#a870c629ccf2c83173322211f1e76b0e9" title="Default getter. " alt="" coords="559,103,791,144"/>
+<area shape="rect" id="node15" href="$class_classes_1_1_accommodation_interest.html#a80ed0a47cab0507357a7a5d92a7c5433" title="Default getter. " alt="" coords="559,168,791,210"/>
+<area shape="rect" id="node16" href="$class_classes_1_1_accommodation_interest.html#ad287f5ae4c99f72687317563c4a4c21f" title="Default getter. " alt="" coords="559,234,791,275"/>
+<area shape="rect" id="node17" href="$class_classes_1_1_accommodation_interest.html#ad43ee14f9c9300c5595b12059f6d82bd" title="Default getter. " alt="" coords="559,299,791,340"/>
+<area shape="rect" id="node18" href="$interface_r_m_i_1_1_client_interface.html#ab293e75c09b1575c4369c2ad7f628a06" title="Send a message from server to client. " alt="" coords="593,430,758,471"/>
+<area shape="rect" id="node11" href="$class_classes_1_1_accommodation.html#a631dfa52e654cc57295dcd15ebb7b534" title="Default getter. " alt="" coords="875,182,1064,223"/>
+<area shape="rect" id="node13" href="$class_classes_1_1_accommodation.html#a70177d66378aa500361fe9479d06ae13" title="Default getter. " alt="" coords="875,395,1064,436"/>
+<area shape="rect" id="node20" href="$class_classes_1_1_package_interest.html#ab756b8b3fd6ed10306f6d55d2633a385" title="Return if a ticket is a return ticket (not one&#45;way) " alt="" coords="585,1719,766,1760"/>
+<area shape="rect" id="node21" href="$class_classes_1_1_package_interest.html#a67eda797265e516c9a9c76340ff60547" title="Get the source of the ticket interest. " alt="" coords="581,1654,770,1695"/>
+<area shape="rect" id="node22" href="$class_classes_1_1_flight_ticket.html#ab9ac021ba2214ea1fa953f6819861a77" title="Default getter. " alt="" coords="888,1271,1051,1312"/>
+<area shape="rect" id="node23" href="$class_classes_1_1_package_interest.html#a47f4427dca49a8e349f7dcc173c182e0" title="Get the destination of the ticket interest. " alt="" coords="567,714,783,741"/>
+<area shape="rect" id="node24" href="$class_classes_1_1_flight_ticket.html#ae999ed81960bb15dd8fabc885a027122" title="Default getter. " alt="" coords="875,689,1064,716"/>
+<area shape="rect" id="node25" href="$class_classes_1_1_package_interest.html#aeaacc4fb88961354aa4ab55cadca18c9" title="Get the source date from the source ticket. " alt="" coords="581,766,770,807"/>
+<area shape="rect" id="node26" href="$class_classes_1_1_flight_ticket.html#a5a30140876d1b7d261f89ee5b90a7b25" title="Default getter. " alt="" coords="875,838,1064,865"/>
+<area shape="rect" id="node27" href="$class_classes_1_1_package_interest.html#aaa7f5285a2951b8ed01b4c00543804ec" title="Default getter. " alt="" coords="581,948,770,990"/>
+<area shape="rect" id="node28" href="$class_classes_1_1_package_interest.html#aef979cfdba473ba98e58f19495be5399" title="Default getter. " alt="" coords="581,1014,770,1055"/>
+<area shape="rect" id="node29" href="$class_database_1_1_d_b_connection.html#a56e17be5b4c6592d2fcb58490be46690" title="Database.DBConnection.configure\lDatabase" alt="" coords="565,1079,785,1120"/>
+<area shape="rect" id="node31" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a360b6e3176c2836b61d174c93b8c05bf" title="Database.Controller.Ctrl\lHotel.searchHotelByCity" alt="" coords="593,598,757,639"/>
+<area shape="rect" id="node33" href="$class_classes_1_1_accommodation_manager.html#ade915f06a8dd72ebbaea0c27eeec2a89" title="Get the accommodation list. " alt="" coords="556,1196,795,1238"/>
+<area shape="rect" id="node34" href="$class_classes_1_1_package_interest.html#a7956db7bd05b73e5d2836d78612296fa" title="Default getter. " alt="" coords="581,1262,770,1303"/>
+<area shape="rect" id="node35" href="$class_classes_1_1_accommodation.html#a155d63b488a2037a6fc95095671e04f0" title="Default getter. " alt="" coords="581,1327,770,1368"/>
+<area shape="rect" id="node36" href="$class_classes_1_1_package_interest.html#a1d5a2cfcba99aa6edb7b3bb9a4c24ada" title="Default getter. " alt="" coords="581,1392,770,1434"/>
+<area shape="rect" id="node37" href="$class_database_1_1_controller_1_1_ctrl_passages.html#aea284b9d52a97eeaa707a99bd203f1ca" title="Database.Controller.Ctrl\lPassages.searchPassages" alt="" coords="585,1784,766,1826"/>
+<area shape="rect" id="node41" href="$class_classes_1_1_package_interest.html#aa2fa628bbc540f056099744bba499d44" title="Get the return date from the return ticket. " alt="" coords="581,831,770,872"/>
+<area shape="rect" id="node42" href="$class_classes_1_1_flight_ticket_manager.html#a342e10320c2f276ad184cbac62ce2979" title="Get the flight ticket list. " alt="" coords="569,1458,781,1499"/>
+<area shape="rect" id="node43" href="$class_classes_1_1_flight_ticket.html#ae257c63626b37899d9358edf1b43a320" title="Default getter. " alt="" coords="594,1523,757,1564"/>
+<area shape="rect" id="node44" href="$class_classes_1_1_flight_ticket.html#a32a824e2f58ce1c76bc1b8329ac0f073" title="Default getter. " alt="" coords="594,1588,757,1630"/>
+<area shape="rect" id="node30" href="$class_database_1_1_d_b_connection.html#a9c7fe69d5e2603941a839a47fb62a6a1" title="Database.DBConnection.connect\lToDatabase" alt="" coords="862,1079,1077,1120"/>
+<area shape="rect" id="node32" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#af7e1dba8dafe9d7d7c7807352af2a2cd" title="Database.DAO.DAOHotel.search\lHotelByCity" alt="" coords="862,587,1077,628"/>
+<area shape="rect" id="node38" href="$class_database_1_1_d_a_o_1_1_d_a_o_passages.html#aea8fe8d811cc68d1fbb4e744f2de6400" title="Database.DAO.DAOPassages.search\lPassages" alt="" coords="848,1591,1091,1632"/>
+<area shape="rect" id="node40" href="$class_classes_1_1_flight_ticket_manager.html#a7697686e8ba430a4b3ac78e9b376f9b8" title="Insert a flight ticket into the database. " alt="" coords="856,1784,1083,1826"/>
+<area shape="rect" id="node39" href="$class_database_1_1_d_b_connection.html#a68765d9f0ce16803dbde892c0567d12a" title="Database.DBConnection.get\lPassagesDBName" alt="" coords="1144,1591,1331,1632"/>
 </map>

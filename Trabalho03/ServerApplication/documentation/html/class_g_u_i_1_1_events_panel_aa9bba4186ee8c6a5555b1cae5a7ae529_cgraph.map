@@ -1,5 +1,14 @@
 <map id="GUI.EventsPanel.showPackageInterest" name="GUI.EventsPanel.showPackageInterest">
-<area shape="rect" id="node2" href="$class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="259,5,468,47"/>
-<area shape="rect" id="node3" href="$class_r_m_i_1_1_server_servent.html#abcf964cce3b906b834776588f3ce96c0" title="RMI.ServerServent.getPackage\lInterestList" alt="" coords="263,71,464,112"/>
-<area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#a544e77969e5996a68d413fd7be21f78f" title="GUI.EventsPanel.insertTable\lFieldPackage" alt="" coords="270,136,457,177"/>
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_events_panel.html#ae535ade36d286d4a1a78f8bf7a0baf3a" title="The method will handle the initial settings for the table of accommodation interests. " alt="" coords="259,64,468,105"/>
+<area shape="rect" id="node3" href="$class_r_m_i_1_1_server_servent.html#abcf964cce3b906b834776588f3ce96c0" title="RMI.ServerServent.getPackage\lInterestList" alt="" coords="263,129,464,171"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_events_panel.html#a544e77969e5996a68d413fd7be21f78f" title="GUI.EventsPanel.insertTable\lFieldPackage" alt="" coords="270,195,457,236"/>
+<area shape="rect" id="node5" href="$class_classes_1_1_package_interest.html#af8b1e41a2d9e618dfcb98d72ea0cd7d3" title="Default getter. " alt="" coords="529,5,719,47"/>
+<area shape="rect" id="node6" href="$class_classes_1_1_package_interest.html#ab756b8b3fd6ed10306f6d55d2633a385" title="Return if a ticket is a return ticket (not one&#45;way) " alt="" coords="533,71,715,112"/>
+<area shape="rect" id="node7" href="$class_classes_1_1_package_interest.html#a67eda797265e516c9a9c76340ff60547" title="Get the source of the ticket interest. " alt="" coords="529,136,719,177"/>
+<area shape="rect" id="node9" href="$class_classes_1_1_package_interest.html#a47f4427dca49a8e349f7dcc173c182e0" title="Get the destination of the ticket interest. " alt="" coords="516,202,732,229"/>
+<area shape="rect" id="node11" href="$class_classes_1_1_package_interest.html#aef979cfdba473ba98e58f19495be5399" title="Default getter. " alt="" coords="529,253,719,295"/>
+<area shape="rect" id="node12" href="$class_classes_1_1_package_interest.html#a7956db7bd05b73e5d2836d78612296fa" title="Default getter. " alt="" coords="529,319,719,360"/>
+<area shape="rect" id="node13" href="$class_classes_1_1_package_interest.html#aaa7f5285a2951b8ed01b4c00543804ec" title="Default getter. " alt="" coords="529,384,719,425"/>
+<area shape="rect" id="node8" href="$class_classes_1_1_flight_ticket.html#ab9ac021ba2214ea1fa953f6819861a77" title="Default getter. " alt="" coords="793,136,956,177"/>
+<area shape="rect" id="node10" href="$class_classes_1_1_flight_ticket.html#ae999ed81960bb15dd8fabc885a027122" title="Default getter. " alt="" coords="780,202,969,229"/>
 </map>
