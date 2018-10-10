@@ -318,6 +318,16 @@
       <xs:element minOccurs="0" name="return" type="tns:accommodationManager" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="searchHotelByName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="searchHotelByNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:accommodationManager" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="searchPassages">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="xs:string" />
@@ -343,16 +353,6 @@
   <xs:complexType name="reserveHotelResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="searchHotelByName">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="searchHotelByNameResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:accommodationManager" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
