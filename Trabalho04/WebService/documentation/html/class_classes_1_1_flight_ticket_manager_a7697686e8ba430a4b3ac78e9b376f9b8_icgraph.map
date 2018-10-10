@@ -1,0 +1,7 @@
+<map id="Classes.FlightTicketManager.insertFlightTicket" name="Classes.FlightTicketManager.insertFlightTicket">
+<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_passages.html#ae2a33e4dd799f50602cd1c0ebf879574" title="Database.Controller.Ctrl\lPassages.loadDBPassages" alt="" coords="280,5,464,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_controller_1_1_ctrl_passages.html#aea284b9d52a97eeaa707a99bd203f1ca" title="Database.Controller.Ctrl\lPassages.searchPassages" alt="" coords="281,71,463,112"/>
+<area shape="rect" id="node3" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#ac2758aa430871e639fb292761fdb239c" title="br.sd.tas.TravelAgencyService\lImpl.loadDBPassages" alt="" coords="512,5,708,47"/>
+<area shape="rect" id="node5" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#ac284e02d091b6cb24c692420900605eb" title="br.sd.tas.TravelAgencyService\lImpl.searchPassages" alt="" coords="512,71,708,112"/>
+<area shape="rect" id="node6" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a82420e946049738b9ae5ae5c5b410598" title="br.sd.tas.TravelAgencyService\lImpl.searchPackages" alt="" coords="512,136,708,177"/>
+</map>

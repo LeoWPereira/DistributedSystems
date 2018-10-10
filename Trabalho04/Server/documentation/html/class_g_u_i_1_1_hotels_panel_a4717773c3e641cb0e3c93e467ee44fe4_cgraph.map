@@ -1,0 +1,12 @@
+<map id="GUI.HotelsPanel.configButton" name="GUI.HotelsPanel.configButton">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotels_panel.html#ad16d941850b9bfaa494c7e9b452e2f9c" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="268,176,444,217"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143" title="GUI.HotelsPanel.processRegistry" alt="" coords="248,242,464,269"/>
+<area shape="rect" id="node4" href="$interfaceclient_1_1_travel_agency_service.html#a7c852cd6f1d431db23f18983a4a62aa9" title="client.TravelAgencyService.insert\lHotelEntry" alt="" coords="517,5,729,47"/>
+<area shape="rect" id="node5" href="$classclient_1_1_accommodation.html#acb80e39b057a50f01f363e0b470805d4" title="client.Accommodation.set\lCityName" alt="" coords="537,71,710,112"/>
+<area shape="rect" id="node6" href="$classclient_1_1_accommodation.html#a69381dbff7c538be52974c1ee0ccad10" title="client.Accommodation.set\lAccommodationName" alt="" coords="537,136,710,177"/>
+<area shape="rect" id="node7" href="$classclient_1_1_accommodation.html#a2cb950ee729b5e1199bf28e15868bc2b" title="client.Accommodation.set\lQuantity" alt="" coords="537,201,710,243"/>
+<area shape="rect" id="node8" href="$classclient_1_1_accommodation.html#ad3e624f5b4bf7dc8827acaf4fd31892e" title="client.Accommodation.set\lMaxGuestsPerRoom" alt="" coords="537,267,710,308"/>
+<area shape="rect" id="node9" href="$classclient_1_1_accommodation.html#a303dc1105213ac043a3750728a4afa7e" title="client.Accommodation.set\lPrice" alt="" coords="537,332,710,373"/>
+<area shape="rect" id="node10" href="$classclient_1_1_accommodation_manager.html#a1fab06871a35911432fe323bf92e9f86" title="client.AccommodationManager.get\lAccommodationList" alt="" coords="512,397,735,439"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_hotels_panel.html#af6804623d54a1e298cab45f4208ebacf" title="The method will handle the insertion of data into the table. " alt="" coords="531,463,716,504"/>
+</map>

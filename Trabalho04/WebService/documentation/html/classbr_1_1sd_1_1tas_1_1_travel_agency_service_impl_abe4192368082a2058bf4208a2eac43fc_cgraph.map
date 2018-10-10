@@ -1,0 +1,7 @@
+<map id="br.sd.tas.TravelAgencyServiceImpl.searchHotelByCity" name="br.sd.tas.TravelAgencyServiceImpl.searchHotelByCity">
+<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a360b6e3176c2836b61d174c93b8c05bf" title="Database.Controller.Ctrl\lHotel.searchHotelByCity" alt="" coords="249,71,413,112"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#af7e1dba8dafe9d7d7c7807352af2a2cd" title="Database.DAO.DAOHotel.search\lHotelByCity" alt="" coords="481,37,695,79"/>
+<area shape="rect" id="node6" href="$class_classes_1_1_accommodation_manager.html#a7283b45d52286191c09ab3d927bdd88e" title="Insert an accommodation into the database. " alt="" coords="461,103,715,144"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="763,5,949,47"/>
+<area shape="rect" id="node5" href="$class_database_1_1_d_b_connection.html#a385dfe5fc7d14047401a41c1d3c3aee6" title="Database.DBConnection.get\lHotelDBName" alt="" coords="763,71,949,112"/>
+</map>

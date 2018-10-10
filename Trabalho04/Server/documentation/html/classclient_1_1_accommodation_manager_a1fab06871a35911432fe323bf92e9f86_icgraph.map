@@ -1,0 +1,6 @@
+<map id="client.AccommodationManager.getAccommodationList" name="client.AccommodationManager.getAccommodationList">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotels_panel.html#a6fb20c0b1acf3d0a7384ef23ed7a297e" title="GUI.HotelsPanel.insertTable\lField" alt="" coords="291,5,477,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143" title="GUI.HotelsPanel.processRegistry" alt="" coords="276,71,492,98"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="540,71,735,98"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_hotels_panel.html#a3b5ac67e49832ddb98fac8a09cc21e6f" title="Default Constructor. " alt="" coords="783,71,975,98"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="Classes.AccommodationManager.insertAccommodation" name="Classes.AccommodationManager.insertAccommodation">
+<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a8df89417d3301ebdca4f1cbeb16eaba4" title="Database.Controller.Ctrl\lHotel.loadDBHotels" alt="" coords="312,5,472,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#ab993c7f87970e7d4ff36b7ccf6100829" title="Database.Controller.Ctrl\lHotel.searchHotel" alt="" coords="312,71,472,112"/>
+<area shape="rect" id="node5" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a360b6e3176c2836b61d174c93b8c05bf" title="Database.Controller.Ctrl\lHotel.searchHotelByCity" alt="" coords="310,136,474,177"/>
+<area shape="rect" id="node8" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a0bec7f86acb2c6f156e1326d4977de1b" title="Database.Controller.Ctrl\lHotel.searchHotelByHotel" alt="" coords="307,201,477,243"/>
+<area shape="rect" id="node3" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a41e3afe220244a182a51e2c7080d3486" title="br.sd.tas.TravelAgencyService\lImpl.loadDBHotels" alt="" coords="525,5,721,47"/>
+<area shape="rect" id="node6" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#abe4192368082a2058bf4208a2eac43fc" title="br.sd.tas.TravelAgencyService\lImpl.searchHotelByCity" alt="" coords="525,71,721,112"/>
+<area shape="rect" id="node7" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a82420e946049738b9ae5ae5c5b410598" title="br.sd.tas.TravelAgencyService\lImpl.searchPackages" alt="" coords="525,136,721,177"/>
+<area shape="rect" id="node9" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a8190399b9cf0066aed95aab40a0d160c" title="br.sd.tas.TravelAgencyService\lImpl.searchHotelByName" alt="" coords="525,201,721,243"/>
+</map>

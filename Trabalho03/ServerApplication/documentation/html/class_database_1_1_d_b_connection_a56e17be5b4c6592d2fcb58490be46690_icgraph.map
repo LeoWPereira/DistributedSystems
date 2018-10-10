@@ -1,18 +1,18 @@
 <map id="Database.DBConnection.configureDatabase" name="Database.DBConnection.configureDatabase">
-<area shape="rect" id="node2" href="$class_g_u_i_1_1_main_j_frame.html#a5c1de53ae3550fb89b648b15fa8604d6" title="Main method of the application. " alt="" coords="300,5,451,32"/>
-<area shape="rect" id="node3" href="$class_r_m_i_1_1_server_servent.html#ad5de80ac74f4ca1757334d7155ff4f40" title="RMI.ServerServent.search\lPassages" alt="" coords="290,57,461,98"/>
-<area shape="rect" id="node4" href="$class_r_m_i_1_1_server_servent.html#a97247b9897e33cd867fca57c87e64547" title="RMI.ServerServent.search\lHotelByCity" alt="" coords="290,122,461,163"/>
-<area shape="rect" id="node5" href="$class_r_m_i_1_1_server_servent.html#a95846f4a273edc357995b497e4334d96" title="RMI.ServerServent.search\lHotelByName" alt="" coords="290,187,461,229"/>
-<area shape="rect" id="node6" href="$class_r_m_i_1_1_server_servent.html#a74b5b269df93e78502d8ea5dd7a51458" title="RMI.ServerServent.buyPassage" alt="" coords="273,253,477,280"/>
-<area shape="rect" id="node7" href="$class_r_m_i_1_1_server_servent.html#ab90feee3495520880d46f35a0f15d81d" title="RMI.ServerServent.reserve\lHotel" alt="" coords="289,305,462,346"/>
-<area shape="rect" id="node8" href="$class_r_m_i_1_1_server_servent.html#a5b72ac79548be0c93d3fe4ebf4b92b31" title="RMI.ServerServent.search\lPackages" alt="" coords="290,370,461,411"/>
-<area shape="rect" id="node9" href="$class_r_m_i_1_1_server_servent.html#af8fc64094194a59fa83f69d0898ced99" title="RMI.ServerServent.buyPackage" alt="" coords="273,436,477,463"/>
-<area shape="rect" id="node10" href="$class_r_m_i_1_1_server_servent.html#ad7673097473e756449cc13674f17c071" title="RMI.ServerServent.notify\lTicketsInterests" alt="" coords="294,487,457,529"/>
-<area shape="rect" id="node14" href="$class_r_m_i_1_1_server_servent.html#a7cb189e0936a72ba836b7be9fe5cd01d" title="RMI.ServerServent.notify\lPackageInterests" alt="" coords="294,553,457,594"/>
-<area shape="rect" id="node11" href="$class_g_u_i_1_1_passages_panel.html#ae479ab4e58a40bea8baaed60eebfb56b" title="GUI.PassagesPanel.process\lRegistry" alt="" coords="539,491,728,533"/>
-<area shape="rect" id="node12" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="798,491,975,533"/>
-<area shape="rect" id="node13" href="$class_g_u_i_1_1_passages_panel.html#a5ac30f327213e2ba360a37266daf7a86" title="Default Constructor. " alt="" coords="1032,491,1233,533"/>
-<area shape="rect" id="node15" href="$class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143" title="GUI.HotelsPanel.processRegistry" alt="" coords="525,560,741,587"/>
-<area shape="rect" id="node16" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="789,560,984,587"/>
-<area shape="rect" id="node17" href="$class_g_u_i_1_1_hotels_panel.html#a0d35b266df47cc7ccbfa28287b06f580" title="Default Constructor. " alt="" coords="1037,560,1229,587"/>
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotels_panel.html#a0d35b266df47cc7ccbfa28287b06f580" title="Default Constructor. " alt="" coords="1037,75,1229,101"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_main_j_frame.html#a5c1de53ae3550fb89b648b15fa8604d6" title="Main method of the application. " alt="" coords="300,111,451,137"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_passages_panel.html#a5ac30f327213e2ba360a37266daf7a86" title="Default Constructor. " alt="" coords="1032,687,1233,729"/>
+<area shape="rect" id="node5" href="$class_r_m_i_1_1_server_servent.html#ad5de80ac74f4ca1757334d7155ff4f40" title="RMI.ServerServent.search\lPassages" alt="" coords="290,227,461,269"/>
+<area shape="rect" id="node6" href="$class_r_m_i_1_1_server_servent.html#a97247b9897e33cd867fca57c87e64547" title="RMI.ServerServent.search\lHotelByCity" alt="" coords="290,293,461,334"/>
+<area shape="rect" id="node7" href="$class_r_m_i_1_1_server_servent.html#a95846f4a273edc357995b497e4334d96" title="RMI.ServerServent.search\lHotelByName" alt="" coords="290,358,461,399"/>
+<area shape="rect" id="node8" href="$class_r_m_i_1_1_server_servent.html#a74b5b269df93e78502d8ea5dd7a51458" title="RMI.ServerServent.buyPassage" alt="" coords="273,424,477,451"/>
+<area shape="rect" id="node9" href="$class_r_m_i_1_1_server_servent.html#ab90feee3495520880d46f35a0f15d81d" title="RMI.ServerServent.reserve\lHotel" alt="" coords="289,475,462,517"/>
+<area shape="rect" id="node10" href="$class_r_m_i_1_1_server_servent.html#a5b72ac79548be0c93d3fe4ebf4b92b31" title="RMI.ServerServent.search\lPackages" alt="" coords="290,541,461,582"/>
+<area shape="rect" id="node11" href="$class_r_m_i_1_1_server_servent.html#af8fc64094194a59fa83f69d0898ced99" title="RMI.ServerServent.buyPackage" alt="" coords="273,607,477,633"/>
+<area shape="rect" id="node12" href="$class_r_m_i_1_1_server_servent.html#ad7673097473e756449cc13674f17c071" title="RMI.ServerServent.notify\lTicketsInterests" alt="" coords="294,658,457,699"/>
+<area shape="rect" id="node15" href="$class_r_m_i_1_1_server_servent.html#a7cb189e0936a72ba836b7be9fe5cd01d" title="RMI.ServerServent.notify\lPackageInterests" alt="" coords="294,162,457,203"/>
+<area shape="rect" id="node13" href="$class_g_u_i_1_1_passages_panel.html#ae479ab4e58a40bea8baaed60eebfb56b" title="GUI.PassagesPanel.process\lRegistry" alt="" coords="539,658,728,699"/>
+<area shape="rect" id="node14" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="798,658,975,699"/>
+<area shape="rect" id="node16" href="$class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143" title="GUI.HotelsPanel.processRegistry" alt="" coords="525,156,741,183"/>
+<area shape="rect" id="node17" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="789,129,984,156"/>
 </map>

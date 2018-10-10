@@ -1,0 +1,5 @@
+<map id="Database.DAO.DAOHotel.updateQuantity" name="Database.DAO.DAOHotel.updateQuantity">
+<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#af2c203105337b96a2ab4670b896fff69" title="Database.Controller.Ctrl\lHotel.updateQuantity" alt="" coords="268,39,428,80"/>
+<area shape="rect" id="node3" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a751f0c1669c6988f6b1d32be42321240" title="br.sd.tas.TravelAgencyService\lImpl.reserveHotel" alt="" coords="476,5,672,47"/>
+<area shape="rect" id="node4" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a418c5386676012f23e12b245aca092e2" title="br.sd.tas.TravelAgencyService\lImpl.buyPackage" alt="" coords="476,71,672,112"/>
+</map>

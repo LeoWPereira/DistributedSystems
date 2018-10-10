@@ -1,0 +1,5 @@
+<map id="client.Accommodation.setMaxGuestsPerRoom" name="client.Accommodation.setMaxGuestsPerRoom">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143" title="GUI.HotelsPanel.processRegistry" alt="" coords="227,13,443,39"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="491,13,685,39"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_hotels_panel.html#a3b5ac67e49832ddb98fac8a09cc21e6f" title="Default Constructor. " alt="" coords="733,13,925,39"/>
+</map>

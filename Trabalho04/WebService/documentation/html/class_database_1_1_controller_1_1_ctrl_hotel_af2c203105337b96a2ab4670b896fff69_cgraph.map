@@ -1,0 +1,5 @@
+<map id="Database.Controller.CtrlHotel.updateQuantity" name="Database.Controller.CtrlHotel.updateQuantity">
+<area shape="rect" id="node2" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a4630e672e708eedc039d49f199287857" title="Database.DAO.DAOHotel.update\lQuantity" alt="" coords="213,39,428,80"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="476,5,663,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a385dfe5fc7d14047401a41c1d3c3aee6" title="Database.DBConnection.get\lHotelDBName" alt="" coords="476,71,663,112"/>
+</map>

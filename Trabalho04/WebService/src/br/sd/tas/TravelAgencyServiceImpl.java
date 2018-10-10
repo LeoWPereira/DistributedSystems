@@ -20,6 +20,8 @@ import java.util.concurrent.CountDownLatch;
 
 import javax.jws.WebService;
 
+import com.mysql.jdbc.exceptions.MySQLNonTransientConnectionException;
+
 import java.sql.Connection;
 import java.sql.Statement;
 
@@ -76,7 +78,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
         {
 			dbStatement 			= DBConnection.configureDatabase(dbConnection);
 		}
-        catch (SQLException e)
+        catch(SQLException e)
         {
 			e.printStackTrace();
 		}
@@ -91,6 +93,19 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		{
 			list = ctrlHotel.loadDBHotels(dbStatement);
 		}
+		catch(MySQLNonTransientConnectionException e)
+        {
+        	try 
+        	{
+				dbStatement 			= DBConnection.configureDatabase(dbConnection);
+				
+				list = ctrlHotel.loadDBHotels(dbStatement);
+			}
+        	catch(SQLException e1)
+        	{
+				e1.printStackTrace();
+			}
+        }
 		catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -108,6 +123,19 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		{
 			list = ctrlPassages.loadDBPassages(dbStatement);
 		}
+		catch(MySQLNonTransientConnectionException e)
+        {
+        	try 
+        	{
+				dbStatement 			= DBConnection.configureDatabase(dbConnection);
+				
+				list = ctrlPassages.loadDBPassages(dbStatement);
+			}
+        	catch(SQLException e1)
+        	{
+				e1.printStackTrace();
+			}
+        }
 		catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -123,7 +151,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 								    int			_maxGuestsPerRoom,
 								    float		_price) throws RemoteException
 	{
-		boolean success;
+		boolean success = false;
 		
 		try
 		{
@@ -136,6 +164,26 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 			
 			success = true;
 		}
+		catch(MySQLNonTransientConnectionException e)
+        {
+        	try 
+        	{
+				dbStatement 			= DBConnection.configureDatabase(dbConnection);
+				
+				ctrlHotel.insertEntry(dbStatement,
+									  _city, 
+									  _hotel, 
+									  _quantity, 
+									  _maxGuestsPerRoom, 
+									  _price);
+	
+				success = true;
+			}
+        	catch(SQLException e1)
+        	{
+				e1.printStackTrace();
+			}
+        }
 		catch(SQLException e)
 		{
 			success = false;
@@ -159,7 +207,7 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 								      int			_quantity,
 								      float			_price) throws RemoteException
 	{
-		boolean success;
+		boolean success = false;
 		
 		Calendar calendar = Calendar.getInstance();
 	    
@@ -178,6 +226,26 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 			
 			success = true;
 		}
+		catch(MySQLNonTransientConnectionException e)
+        {
+        	try 
+        	{
+				dbStatement 			= DBConnection.configureDatabase(dbConnection);
+				
+				ctrlPassages.insertEntry(dbStatement,
+										 _source,
+										 _dest, 
+										 new java.sql.Date(calendar.getTime().getTime()), 
+										 _quantity, 
+										 _price);
+				
+				success = true;
+			}
+        	catch(SQLException e1)
+        	{
+				e1.printStackTrace();
+			}
+        }
 		catch(SQLException e)
 		{
 			success = false;
@@ -212,7 +280,23 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 											   _source, 
 											   _dest, 
 											   new java.sql.Date(calendar.getTime().getTime()));
-		} 
+		}
+		catch(MySQLNonTransientConnectionException e)
+        {
+        	try 
+        	{
+				dbStatement 			= DBConnection.configureDatabase(dbConnection);
+				
+				list = ctrlPassages.searchPassages(dbStatement,
+												   _source, 
+												   _dest, 
+												   new java.sql.Date(calendar.getTime().getTime()));
+			}
+        	catch(SQLException e1)
+        	{
+				e1.printStackTrace();
+			}
+        }
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
@@ -231,6 +315,20 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 			list = ctrlHotel.searchHotelByCity(dbStatement,
 											   _city);
 		} 
+		catch(MySQLNonTransientConnectionException e)
+        {
+        	try 
+        	{
+				dbStatement 			= DBConnection.configureDatabase(dbConnection);
+				
+				list = ctrlHotel.searchHotelByCity(dbStatement,
+						   							_city);
+			}
+        	catch(SQLException e1)
+        	{
+				e1.printStackTrace();
+			}
+        }
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
@@ -248,7 +346,21 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 		{
 			list = ctrlHotel.searchHotelByHotel(dbStatement,
 												_hotel);
-		} 
+		}
+		catch(MySQLNonTransientConnectionException e)
+        {
+        	try 
+        	{
+				dbStatement 			= DBConnection.configureDatabase(dbConnection);
+				
+				list = ctrlHotel.searchHotelByHotel(dbStatement,
+													_hotel);
+			}
+        	catch(SQLException e1)
+        	{
+				e1.printStackTrace();
+			}
+        }
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
@@ -297,8 +409,40 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 			{
 				returnValue = false;
 			}
-			
-		} 
+		}
+		catch(MySQLNonTransientConnectionException e)
+        {
+        	try 
+        	{
+				dbStatement 			= DBConnection.configureDatabase(dbConnection);
+				
+				int ticketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
+															   _source,
+															   _dest,
+															   new java.sql.Date(calendar.getTime().getTime()),
+															   _price);
+				
+				if(ticketsLeft >= _quantity)
+				{
+					ctrlPassages.updateQuantity(dbStatement,
+												_source,
+												_dest,
+												new java.sql.Date(calendar.getTime().getTime()),
+											    _price,
+											    ticketsLeft - _quantity);
+					
+					returnValue = true;
+				}
+				else
+				{
+					returnValue = false;
+				}
+			}
+        	catch(SQLException e1)
+        	{
+				e1.printStackTrace();
+			}
+        }
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
@@ -336,8 +480,38 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 			{
 				returnValue = false;
 			}
-			
 		}
+		catch(MySQLNonTransientConnectionException e)
+        {
+        	try 
+        	{
+				dbStatement 			= DBConnection.configureDatabase(dbConnection);
+				
+				int roomsLeft = ctrlHotel.getQuantityLeft(dbStatement,
+														  _cityName,
+														  _accommodationName,
+														  _price);
+				
+				if(roomsLeft >= _quantity)
+				{
+					ctrlHotel.updateQuantity(dbStatement,
+											 _cityName,
+											 _accommodationName,
+											 _price,
+											 roomsLeft - _quantity);
+					
+					returnValue = true;
+				}
+				else
+				{
+					returnValue = false;
+				}
+			}
+        	catch(SQLException e1)
+        	{
+				e1.printStackTrace();
+			}
+        }
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
@@ -618,6 +792,46 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 			listAccommodation = ctrlHotel.searchHotelByCity(dbStatement,
 															_dest);
 		}
+		catch(MySQLNonTransientConnectionException e)
+        {
+        	try 
+        	{
+				dbStatement 			= DBConnection.configureDatabase(dbConnection);
+				
+				Calendar calendar = Calendar.getInstance();
+			    
+				calendar.set(_goingYear,
+						     _goingMonth - 1,
+						     _goingDay);
+				
+				listTicketGoing = ctrlPassages.searchPassages(dbStatement,
+															  _source, 
+															  _dest, 
+															  new java.sql.Date(calendar.getTime().getTime()));
+				
+				// Verifies if there is a return ticket
+				if(_isReturn)
+				{
+					calendar.set(_returnYear,
+								 _returnMonth - 1,
+								 _returnDay);
+					
+					// search for the return ticket					
+					listTicketReturn = ctrlPassages.searchPassages(dbStatement,
+																   _dest, 
+																   _source, 
+																   new java.sql.Date(calendar.getTime().getTime()));
+				}
+				
+				// search for accommodation by city name
+				listAccommodation = ctrlHotel.searchHotelByCity(dbStatement,
+																_dest);
+			}
+        	catch(SQLException e1)
+        	{
+				e1.printStackTrace();
+			}
+        }
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
@@ -743,6 +957,10 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 					
 					if(_isReturn)
 					{
+						calendar.set(_returnYear,
+									 _returnMonth - 1,
+									 _returnDay);
+						
 						ctrlPassages.updateQuantity(dbStatement,
 													_dest,
 											    	_source,
@@ -770,8 +988,104 @@ public class TravelAgencyServiceImpl implements TravelAgencyService
 			{
 				// Not enough passages
 				result = 2;
-			}			
+			}
 		}
+    	catch(MySQLNonTransientConnectionException e)
+        {
+        	try 
+        	{
+				dbStatement 			= DBConnection.configureDatabase(dbConnection);
+				
+				Calendar calendar = Calendar.getInstance();
+			    
+				calendar.set(_goingYear,
+						     _goingMonth - 1,
+						     _goingDay);
+				
+	    		goingTicketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
+	    														_source,
+	    														_dest,
+	    														new java.sql.Date(calendar.getTime().getTime()),
+	    														_goingTicketPrice);
+
+				if(_isReturn)
+				{
+					calendar.set(_returnYear,
+								 _returnMonth - 1,
+								 _returnDay);
+					
+					returnTicketsLeft = ctrlPassages.getQuantityLeft(dbStatement,
+																	 _dest,
+																	 _source,
+																	 new java.sql.Date(calendar.getTime().getTime()),
+																     _returnTicketPrice);
+					
+					if(returnTicketsLeft <= _quantity)
+					{
+						returnTicketAvailability = false;
+					}
+				}
+
+				roomsLeft = ctrlHotel.getQuantityLeft(dbStatement,
+													  _dest,
+													  _hotelName,
+													  _hotelPrice);
+
+				// checks if there are enough going tickets
+				if((goingTicketsLeft >= _quantity) &&
+				   (returnTicketAvailability))
+				{
+					// checks if there are enough rooms left
+					if(roomsLeft >= _quantity)
+					{
+						calendar.set(_goingYear,
+							     _goingMonth - 1,
+							     _goingDay);
+						
+						// Finally, buy the package and update database
+						ctrlPassages.updateQuantity(dbStatement,
+											    	_source,
+											    	_dest,
+											    	new java.sql.Date(calendar.getTime().getTime()),
+											    	_goingTicketPrice,
+											    	goingTicketsLeft - _quantity);
+						
+						if(_isReturn)
+						{
+							ctrlPassages.updateQuantity(dbStatement,
+														_dest,
+												    	_source,
+												    	new java.sql.Date(calendar.getTime().getTime()),
+												    	_returnTicketPrice,
+												    	returnTicketsLeft - _quantity);
+						}
+
+						ctrlHotel.updateQuantity(dbStatement,
+												 _dest,
+											 	 _hotelName,
+											 	 _hotelPrice,
+											 	 roomsLeft - _quantity);
+
+						// Succeded
+						result = 1;
+					}
+					else
+					{
+						// Not enough rooms
+						result = 3;
+					}
+				}
+				else
+				{
+					// Not enough passages
+					result = 2;
+				}
+			}
+        	catch(SQLException e1)
+        	{
+				e1.printStackTrace();
+			}
+        }
 		catch (SQLException e) 
 		{
 			e.printStackTrace();

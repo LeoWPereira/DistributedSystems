@@ -1,0 +1,5 @@
+<map id="client.FlightTicket.setQuantity" name="client.FlightTicket.setQuantity">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_passages_panel.html#ae479ab4e58a40bea8baaed60eebfb56b" title="GUI.PassagesPanel.process\lRegistry" alt="" coords="248,5,437,47"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="485,5,663,47"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_passages_panel.html#a07716193bc4d49c94c18305ef22d57c2" title="Default Constructor. " alt="" coords="711,5,912,47"/>
+</map>

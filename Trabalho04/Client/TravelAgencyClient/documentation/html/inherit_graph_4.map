@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$class_travel_agency_client_1_1_form1.html" title="TravelAgencyClient.Form1" alt="" coords="112,5,285,32"/>
+<area shape="rect" id="node3" href="$class_travel_agency_client_1_1_hotel_details.html" title="TravelAgencyClient.Hotel\lDetails" alt="" coords="115,57,282,98"/>
+<area shape="rect" id="node4" href="$class_travel_agency_client_1_1_hotel_interest.html" title="TravelAgencyClient.Hotel\lInterest" alt="" coords="115,122,282,163"/>
+<area shape="rect" id="node5" href="$class_travel_agency_client_1_1_package_details.html" title="TravelAgencyClient.Package\lDetails" alt="" coords="105,187,292,229"/>
+<area shape="rect" id="node6" href="$class_travel_agency_client_1_1_package_interest.html" title="TravelAgencyClient.Package\lInterest" alt="" coords="105,253,292,294"/>
+<area shape="rect" id="node7" href="$class_travel_agency_client_1_1ticket_details.html" title="TravelAgencyClient.ticket\lDetails" alt="" coords="115,318,283,359"/>
+<area shape="rect" id="node8" href="$class_travel_agency_client_1_1_ticket_interest.html" title="TravelAgencyClient.Ticket\lInterest" alt="" coords="113,383,284,425"/>
+</map>

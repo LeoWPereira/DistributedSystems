@@ -1,0 +1,14 @@
+<map id="GUI.PassagesPanel.configButton" name="GUI.PassagesPanel.configButton">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_passages_panel.html#af6fd37e314368b6b1babe2f7aee7217a" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="231,188,428,229"/>
+<area shape="rect" id="node3" href="$class_g_u_i_1_1_passages_panel.html#ae479ab4e58a40bea8baaed60eebfb56b" title="GUI.PassagesPanel.process\lRegistry" alt="" coords="235,253,424,295"/>
+<area shape="rect" id="node4" href="$interfaceclient_1_1_travel_agency_service.html#a1613a7fe57c9151c76da94435e98f1fc" title="client.TravelAgencyService.insert\lPassageEntry" alt="" coords="476,5,688,47"/>
+<area shape="rect" id="node5" href="$classclient_1_1_flight_ticket.html#a035aa987353c9e94b7ebf6746ab14e1b" title="client.FlightTicket.setSource" alt="" coords="489,71,675,98"/>
+<area shape="rect" id="node6" href="$classclient_1_1_flight_ticket.html#a58f215eac2f7b28c8bf46c77abbcb416" title="client.FlightTicket.setDest" alt="" coords="495,122,669,149"/>
+<area shape="rect" id="node7" href="$classclient_1_1_flight_ticket.html#a4e58d34ea1ce2c9840d39173c3b2a5cd" title="client.FlightTicket.setDateDay" alt="" coords="484,173,680,199"/>
+<area shape="rect" id="node8" href="$classclient_1_1_flight_ticket.html#aa37749607d618455cb43988b780b5a8b" title="client.FlightTicket.setDate\lMonth" alt="" coords="495,224,669,265"/>
+<area shape="rect" id="node9" href="$classclient_1_1_flight_ticket.html#acd8d12891734c27af37589fdc80207f2" title="client.FlightTicket.setDateYear" alt="" coords="482,290,682,317"/>
+<area shape="rect" id="node10" href="$classclient_1_1_flight_ticket.html#a1ed08486cecd7fb2aae4938107b3a0dc" title="client.FlightTicket.setQuantity" alt="" coords="485,341,679,367"/>
+<area shape="rect" id="node11" href="$classclient_1_1_flight_ticket.html#a6c39b561579de67fc839b8f0070f0149" title="client.FlightTicket.setPrice" alt="" coords="494,391,670,418"/>
+<area shape="rect" id="node12" href="$classclient_1_1_flight_ticket_manager.html#aae80cffe85e90b76fdb6a333e21b020d" title="client.FlightTicketManager.get\lFlightTicketList" alt="" coords="484,443,680,484"/>
+<area shape="rect" id="node13" href="$class_g_u_i_1_1_passages_panel.html#a915b280d7f5cf63f7ee17edee4df225b" title="The method will handle the insertion of data into the table. " alt="" coords="495,508,669,549"/>
+</map>

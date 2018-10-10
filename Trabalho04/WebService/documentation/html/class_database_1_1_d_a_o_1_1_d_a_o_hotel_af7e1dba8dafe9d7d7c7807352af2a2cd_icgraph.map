@@ -1,0 +1,5 @@
+<map id="Database.DAO.DAOHotel.searchHotelByCity" name="Database.DAO.DAOHotel.searchHotelByCity">
+<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a360b6e3176c2836b61d174c93b8c05bf" title="Database.Controller.Ctrl\lHotel.searchHotelByCity" alt="" coords="268,39,432,80"/>
+<area shape="rect" id="node3" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#abe4192368082a2058bf4208a2eac43fc" title="br.sd.tas.TravelAgencyService\lImpl.searchHotelByCity" alt="" coords="480,5,676,47"/>
+<area shape="rect" id="node4" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a82420e946049738b9ae5ae5c5b410598" title="br.sd.tas.TravelAgencyService\lImpl.searchPackages" alt="" coords="480,71,676,112"/>
+</map>

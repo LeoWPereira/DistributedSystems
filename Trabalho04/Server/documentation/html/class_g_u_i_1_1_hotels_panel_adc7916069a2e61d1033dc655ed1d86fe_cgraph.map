@@ -1,0 +1,7 @@
+<map id="GUI.HotelsPanel.insertTableField" name="GUI.HotelsPanel.insertTableField">
+<area shape="rect" id="node2" href="$classclient_1_1_accommodation.html#af3c158a0cad05edc14c9e10292ac6b4f" title="client.Accommodation.get\lCityName" alt="" coords="239,5,412,47"/>
+<area shape="rect" id="node3" href="$classclient_1_1_accommodation.html#a3922c9c24c8c62ab9a498fe58581b4c1" title="client.Accommodation.get\lAccommodationName" alt="" coords="239,71,412,112"/>
+<area shape="rect" id="node4" href="$classclient_1_1_accommodation.html#a9b28021619481f17c940576a5dcf88f0" title="client.Accommodation.get\lQuantity" alt="" coords="239,136,412,177"/>
+<area shape="rect" id="node5" href="$classclient_1_1_accommodation.html#a60650d79f0e744fedc948b8ca73d9ddf" title="client.Accommodation.get\lMaxGuestsPerRoom" alt="" coords="239,201,412,243"/>
+<area shape="rect" id="node6" href="$classclient_1_1_accommodation.html#abeae55edfc896331e937649eb71a9056" title="client.Accommodation.get\lPrice" alt="" coords="239,267,412,308"/>
+</map>

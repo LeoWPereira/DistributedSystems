@@ -1,0 +1,5 @@
+<map id="Database.Controller.CtrlPassages.dropTable" name="Database.Controller.CtrlPassages.dropTable">
+<area shape="rect" id="node2" href="$class_database_1_1_d_a_o_1_1_d_a_o_passages.html#a68bc92ad249b0cf5b3e67985f7dedeed" title="Database.DAO.DAOPassages.drop\lTable" alt="" coords="213,39,441,80"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="489,5,676,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a68765d9f0ce16803dbde892c0567d12a" title="Database.DBConnection.get\lPassagesDBName" alt="" coords="489,71,676,112"/>
+</map>

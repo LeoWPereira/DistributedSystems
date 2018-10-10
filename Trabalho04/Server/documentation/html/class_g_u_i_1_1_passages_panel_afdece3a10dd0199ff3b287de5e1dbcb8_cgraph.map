@@ -1,0 +1,9 @@
+<map id="GUI.PassagesPanel.insertTableField" name="GUI.PassagesPanel.insertTableField">
+<area shape="rect" id="node2" href="$classclient_1_1_flight_ticket.html#aba8cec5d400522da82abb14fa53a9ae6" title="client.FlightTicket.getSource" alt="" coords="235,5,421,32"/>
+<area shape="rect" id="node3" href="$classclient_1_1_flight_ticket.html#a08addc6e4434e9879fa459cbb0ce06f2" title="client.FlightTicket.getDest" alt="" coords="241,56,415,83"/>
+<area shape="rect" id="node4" href="$classclient_1_1_flight_ticket.html#ac4acff8218f9132ca1590c67231eb7e0" title="client.FlightTicket.getDateYear" alt="" coords="228,107,428,133"/>
+<area shape="rect" id="node5" href="$classclient_1_1_flight_ticket.html#a6027bd36c2a01f761fb499a429a6d562" title="client.FlightTicket.getDate\lMonth" alt="" coords="241,158,415,199"/>
+<area shape="rect" id="node6" href="$classclient_1_1_flight_ticket.html#a987226ec7989339550d5955a4b41bcab" title="client.FlightTicket.getDateDay" alt="" coords="230,224,426,251"/>
+<area shape="rect" id="node7" href="$classclient_1_1_flight_ticket.html#a3dda0e40e66bcd550aa9f79dbe202627" title="client.FlightTicket.getQuantity" alt="" coords="231,275,425,301"/>
+<area shape="rect" id="node8" href="$classclient_1_1_flight_ticket.html#abbdec5a64ecc1b893e36aed3aae32145" title="client.FlightTicket.getPrice" alt="" coords="240,325,416,352"/>
+</map>

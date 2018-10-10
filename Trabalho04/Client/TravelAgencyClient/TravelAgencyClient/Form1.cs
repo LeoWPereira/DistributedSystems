@@ -417,12 +417,35 @@ namespace TravelAgencyClient
             btn.Name = "btn";
             btn.UseColumnTextForButtonValue = true;
 
-            for (int i = 0; i < goingTicket.Length; i++)
+            if (returnRadioButton.Checked)
             {
-                int month = goingTicket[i].dateMonth + 1;
-                row = new string[] { goingTicket[i].source, goingTicket[i].dest, goingTicket[i].dateDay + "-" + month + "-" + 
+                if ((goingTicket.Length > 0) && ((returnTicket.Length > 0)))
+                {
+                    for (int i = 0; i < goingTicket.Length; i++)
+                    {
+                        int month = goingTicket[i].dateMonth + 1;
+                        row = new string[] { goingTicket[i].source, goingTicket[i].dest, goingTicket[i].dateDay + "-" + month + "-" +
                                      goingTicket[i].dateYear, goingTicket[i].price.ToString()};
-                ticketDataGridView.Rows.Add(row);
+                        ticketDataGridView.Rows.Add(row);
+                    }
+                    for (int i = 0; i < returnTicket.Length; i++)
+                    {
+                        int month = returnTicket[i].dateMonth + 1;
+                        row = new string[] { returnTicket[i].source, returnTicket[i].dest, returnTicket[i].dateDay + "-" + month + "-" +
+                                     returnTicket[i].dateYear, returnTicket[i].price.ToString()};
+                        ticketDataGridView.Rows.Add(row);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < goingTicket.Length; i++)
+                {
+                    int month = goingTicket[i].dateMonth + 1;
+                    row = new string[] { goingTicket[i].source, goingTicket[i].dest, goingTicket[i].dateDay + "-" + month + "-" +
+                                     goingTicket[i].dateYear, goingTicket[i].price.ToString()};
+                    ticketDataGridView.Rows.Add(row);
+                }
             }
 
             return;
@@ -440,10 +463,25 @@ namespace TravelAgencyClient
             {
                 String citySource = ticketDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
                 String cityDest   = ticketDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
-                int    day        = goingTicketDate.Value.Day;
-                int    month      = goingTicketDate.Value.Month;
-                int    year       = goingTicketDate.Value.Year;
                 float  price      = (float) Convert.ToDouble(ticketDataGridView.Rows[e.RowIndex].Cells[3].Value);
+
+                int day;
+                int month;
+                int year;
+
+                // If Its a going passage
+                if(citySource.Equals(citySrcComboBox.Text.ToString()))
+                {
+                    day = goingTicketDate.Value.Day;
+                    month = goingTicketDate.Value.Month;
+                    year = goingTicketDate.Value.Year;
+                }
+                else
+                {
+                    day = returnTicketDate.Value.Day;
+                    month = returnTicketDate.Value.Month;
+                    year = returnTicketDate.Value.Year;
+                }
 
                 ticketDetails ticketDet = new ticketDetails(citySource,
                                                             cityDest,

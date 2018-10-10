@@ -1,0 +1,5 @@
+<map id="Database.Controller.CtrlPassages.getQuantityLeft" name="Database.Controller.CtrlPassages.getQuantityLeft">
+<area shape="rect" id="node2" href="$class_database_1_1_d_a_o_1_1_d_a_o_passages.html#ac973fef6dc94f03a32b05bdd3ee93b12" title="Database.DAO.DAOPassages.get\lQuantityLeft" alt="" coords="225,39,447,80"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="495,5,681,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a68765d9f0ce16803dbde892c0567d12a" title="Database.DBConnection.get\lPassagesDBName" alt="" coords="495,71,681,112"/>
+</map>

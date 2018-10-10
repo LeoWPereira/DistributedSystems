@@ -1,0 +1,9 @@
+<map id="GUI.MainJFrame.main" name="GUI.MainJFrame.main">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_main_j_frame.html#a0c2c64e8156f68cd28cae52f1da5fadc" title="GUI.MainJFrame.initWebService\lConnection" alt="" coords="204,42,413,83"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_main_j_frame.html#a6a84c5025c5d37bc74670619dcec8606" title="Create the Frame and defines its initial settings. " alt="" coords="211,136,406,163"/>
+<area shape="rect" id="node3" href="$classclient_1_1_travel_agency_service_impl_service.html#acaf442f84d5fa84c97f32bd33e406538" title="client.TravelAgencyService\lImplService.getTravelAgencyService\lImplPort" alt="" coords="463,5,693,61"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_main_j_frame.html#af53a45f7671b9fad05de521cac3a4236" title="Main Frame initial settings. " alt="" coords="465,85,691,112"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_main_j_frame.html#a44c3eb96ec29be5f6135c85a27a298bc" title="Create and configure the Main Menu (Upper Menu) " alt="" coords="483,136,673,163"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_main_j_frame.html#aa714de048e3171306e72cfb772220d45" title="Create and configure the Internal Menu. " alt="" coords="461,187,695,213"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_main_j_frame.html#a8cf1e8bd16c2cdaa40a557fe23fb1681" title="Create and configure the Internal Panel. " alt="" coords="477,238,679,279"/>
+</map>

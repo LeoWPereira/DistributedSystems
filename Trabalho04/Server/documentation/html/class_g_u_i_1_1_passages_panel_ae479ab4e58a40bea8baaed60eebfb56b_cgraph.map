@@ -1,0 +1,12 @@
+<map id="GUI.PassagesPanel.processRegistry" name="GUI.PassagesPanel.processRegistry">
+<area shape="rect" id="node2" href="$interfaceclient_1_1_travel_agency_service.html#a1613a7fe57c9151c76da94435e98f1fc" title="client.TravelAgencyService.insert\lPassageEntry" alt="" coords="243,5,455,47"/>
+<area shape="rect" id="node3" href="$classclient_1_1_flight_ticket.html#a035aa987353c9e94b7ebf6746ab14e1b" title="client.FlightTicket.setSource" alt="" coords="255,71,442,98"/>
+<area shape="rect" id="node4" href="$classclient_1_1_flight_ticket.html#a58f215eac2f7b28c8bf46c77abbcb416" title="client.FlightTicket.setDest" alt="" coords="262,122,435,149"/>
+<area shape="rect" id="node5" href="$classclient_1_1_flight_ticket.html#a4e58d34ea1ce2c9840d39173c3b2a5cd" title="client.FlightTicket.setDateDay" alt="" coords="251,173,447,199"/>
+<area shape="rect" id="node6" href="$classclient_1_1_flight_ticket.html#aa37749607d618455cb43988b780b5a8b" title="client.FlightTicket.setDate\lMonth" alt="" coords="262,224,435,265"/>
+<area shape="rect" id="node7" href="$classclient_1_1_flight_ticket.html#acd8d12891734c27af37589fdc80207f2" title="client.FlightTicket.setDateYear" alt="" coords="249,290,449,317"/>
+<area shape="rect" id="node8" href="$classclient_1_1_flight_ticket.html#a1ed08486cecd7fb2aae4938107b3a0dc" title="client.FlightTicket.setQuantity" alt="" coords="251,341,446,367"/>
+<area shape="rect" id="node9" href="$classclient_1_1_flight_ticket.html#a6c39b561579de67fc839b8f0070f0149" title="client.FlightTicket.setPrice" alt="" coords="261,391,437,418"/>
+<area shape="rect" id="node10" href="$classclient_1_1_flight_ticket_manager.html#aae80cffe85e90b76fdb6a333e21b020d" title="client.FlightTicketManager.get\lFlightTicketList" alt="" coords="251,443,447,484"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_passages_panel.html#a915b280d7f5cf63f7ee17edee4df225b" title="The method will handle the insertion of data into the table. " alt="" coords="261,508,436,549"/>
+</map>

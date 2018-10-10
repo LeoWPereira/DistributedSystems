@@ -1,0 +1,24 @@
+<map id="GUI.PassagesPanel.PassagesPanel" name="GUI.PassagesPanel.PassagesPanel">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_passages_panel.html#afc9c5e361a5cf9d8e7dc8b5ae93dd654" title="Initial settings for the several ComboBox of the Panel. " alt="" coords="268,86,445,127"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_passages_panel.html#a4b2249fbc1ca893df92015513e73c672" title="This method will handle the initial setup to the Dates Labels and Calendars. " alt="" coords="268,174,445,215"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_passages_panel.html#a96e638003e5766e362dfe20798a0c840" title="GUI.PassagesPanel.config\lQuantity" alt="" coords="268,239,445,281"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_passages_panel.html#ad0a8b7d33d46e3e4bc5be5dabbaf8661" title="GUI.PassagesPanel.config\lPrice" alt="" coords="268,305,445,346"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_passages_panel.html#a43f764da84d0aa7e252a44f974399aec" title="This method will handle the initial configurations to the Search Button. " alt="" coords="268,370,445,411"/>
+<area shape="rect" id="node21" href="$class_g_u_i_1_1_passages_panel.html#a915b280d7f5cf63f7ee17edee4df225b" title="The method will handle the insertion of data into the table. " alt="" coords="771,618,945,659"/>
+<area shape="rect" id="node22" href="$class_g_u_i_1_1_passages_panel.html#ac4f61a92d8f602b26a10d7d58b757235" title="The method will handle the initial settings for the table. " alt="" coords="268,487,445,529"/>
+<area shape="rect" id="node23" href="$interfaceclient_1_1_travel_agency_service.html#ac7c6c9a306f4b6b47de23f97a409e6cf" title="client.TravelAgencyService.load\lDBPassages" alt="" coords="255,553,459,594"/>
+<area shape="rect" id="node3" href="$class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b" title="Get the States from Brazil. " alt="" coords="514,5,697,32"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_passages_panel.html#afd0ebeb8f2c9b93574ff82f353b711ca" title="The method will handle changes if the State ComboBox. " alt="" coords="513,57,698,98"/>
+<area shape="rect" id="node5" href="$class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d" title="Get the list of Cities of an State of Brazil. " alt="" coords="769,64,947,91"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_passages_panel.html#af6fd37e314368b6b1babe2f7aee7217a" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="507,305,704,346"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_passages_panel.html#ae479ab4e58a40bea8baaed60eebfb56b" title="GUI.PassagesPanel.process\lRegistry" alt="" coords="511,370,700,411"/>
+<area shape="rect" id="node12" href="$interfaceclient_1_1_travel_agency_service.html#a1613a7fe57c9151c76da94435e98f1fc" title="client.TravelAgencyService.insert\lPassageEntry" alt="" coords="752,115,964,157"/>
+<area shape="rect" id="node13" href="$classclient_1_1_flight_ticket.html#a035aa987353c9e94b7ebf6746ab14e1b" title="client.FlightTicket.setSource" alt="" coords="765,181,951,208"/>
+<area shape="rect" id="node14" href="$classclient_1_1_flight_ticket.html#a58f215eac2f7b28c8bf46c77abbcb416" title="client.FlightTicket.setDest" alt="" coords="771,232,945,259"/>
+<area shape="rect" id="node15" href="$classclient_1_1_flight_ticket.html#a4e58d34ea1ce2c9840d39173c3b2a5cd" title="client.FlightTicket.setDateDay" alt="" coords="760,283,956,309"/>
+<area shape="rect" id="node16" href="$classclient_1_1_flight_ticket.html#aa37749607d618455cb43988b780b5a8b" title="client.FlightTicket.setDate\lMonth" alt="" coords="771,334,945,375"/>
+<area shape="rect" id="node17" href="$classclient_1_1_flight_ticket.html#acd8d12891734c27af37589fdc80207f2" title="client.FlightTicket.setDateYear" alt="" coords="758,400,958,427"/>
+<area shape="rect" id="node18" href="$classclient_1_1_flight_ticket.html#a1ed08486cecd7fb2aae4938107b3a0dc" title="client.FlightTicket.setQuantity" alt="" coords="761,451,955,477"/>
+<area shape="rect" id="node19" href="$classclient_1_1_flight_ticket.html#a6c39b561579de67fc839b8f0070f0149" title="client.FlightTicket.setPrice" alt="" coords="770,501,946,528"/>
+<area shape="rect" id="node20" href="$classclient_1_1_flight_ticket_manager.html#aae80cffe85e90b76fdb6a333e21b020d" title="client.FlightTicketManager.get\lFlightTicketList" alt="" coords="760,553,956,594"/>
+</map>

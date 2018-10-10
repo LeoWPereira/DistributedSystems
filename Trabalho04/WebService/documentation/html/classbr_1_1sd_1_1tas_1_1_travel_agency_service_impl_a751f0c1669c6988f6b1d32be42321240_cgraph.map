@@ -1,0 +1,8 @@
+<map id="br.sd.tas.TravelAgencyServiceImpl.reserveHotel" name="br.sd.tas.TravelAgencyServiceImpl.reserveHotel">
+<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a17c2ccd0c25e605ced62242b3268f471" title="Database.Controller.Ctrl\lHotel.getQuantityLeft" alt="" coords="249,5,409,47"/>
+<area shape="rect" id="node6" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#af2c203105337b96a2ab4670b896fff69" title="Database.Controller.Ctrl\lHotel.updateQuantity" alt="" coords="249,71,409,112"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a94d3971af9d110eae5f8ec137b38c031" title="Database.DAO.DAOHotel.get\lQuantityLeft" alt="" coords="468,5,661,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="720,5,907,47"/>
+<area shape="rect" id="node5" href="$class_database_1_1_d_b_connection.html#a385dfe5fc7d14047401a41c1d3c3aee6" title="Database.DBConnection.get\lHotelDBName" alt="" coords="720,71,907,112"/>
+<area shape="rect" id="node7" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a4630e672e708eedc039d49f199287857" title="Database.DAO.DAOHotel.update\lQuantity" alt="" coords="457,71,672,112"/>
+</map>

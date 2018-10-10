@@ -1,0 +1,8 @@
+<map id="br.sd.tas.TravelAgencyServiceImpl.buyPassage" name="br.sd.tas.TravelAgencyServiceImpl.buyPassage">
+<area shape="rect" id="node2" href="$class_database_1_1_controller_1_1_ctrl_passages.html#a0539f55045130fa4b3a161130e72f505" title="Database.Controller.Ctrl\lPassages.getQuantityLeft" alt="" coords="249,5,421,47"/>
+<area shape="rect" id="node6" href="$class_database_1_1_controller_1_1_ctrl_passages.html#ad8764b08ed3b244e1a341e0bd86d9e44" title="Database.Controller.Ctrl\lPassages.updateQuantity" alt="" coords="249,71,421,112"/>
+<area shape="rect" id="node3" href="$class_database_1_1_d_a_o_1_1_d_a_o_passages.html#ac973fef6dc94f03a32b05bdd3ee93b12" title="Database.DAO.DAOPassages.get\lQuantityLeft" alt="" coords="480,5,701,47"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_b_connection.html#a4ab8cadc941df21d974f56f6002fef6f" title="Database.DBConnection.get\lDatabaseName" alt="" coords="760,5,947,47"/>
+<area shape="rect" id="node5" href="$class_database_1_1_d_b_connection.html#a68765d9f0ce16803dbde892c0567d12a" title="Database.DBConnection.get\lPassagesDBName" alt="" coords="760,71,947,112"/>
+<area shape="rect" id="node7" href="$class_database_1_1_d_a_o_1_1_d_a_o_passages.html#a9b640e01aaa1217538eac5281a3c172c" title="Database.DAO.DAOPassages.update\lQuantity" alt="" coords="469,71,712,112"/>
+</map>

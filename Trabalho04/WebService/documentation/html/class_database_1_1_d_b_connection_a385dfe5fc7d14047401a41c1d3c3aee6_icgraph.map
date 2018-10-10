@@ -1,0 +1,30 @@
+<map id="Database.DBConnection.getHotelDBName" name="Database.DBConnection.getHotelDBName">
+<area shape="rect" id="node2" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a0ba6b7521c7469b66b05d35d1834e694" title="Database.DAO.DAOHotel.create\lTable" alt="" coords="242,71,453,112"/>
+<area shape="rect" id="node4" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#af857039e0c125916d847ac94c8fa2cf2" title="Database.DAO.DAOHotel.add\lUniqueValues" alt="" coords="249,5,445,47"/>
+<area shape="rect" id="node5" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a5cc316be274bdd944576819c6efe3db4" title="Database.DAO.DAOHotel.drop\lTable" alt="" coords="247,136,447,177"/>
+<area shape="rect" id="node7" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a7d3279be042a9208a8e42d4314f5f4ab" title="Database.DAO.DAOHotel.insert\lEntry" alt="" coords="244,201,451,243"/>
+<area shape="rect" id="node10" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a7cb2c53b643ce0730a843d99718a161a" title="Database.DAO.DAOHotel.delete\lEntry" alt="" coords="242,267,453,308"/>
+<area shape="rect" id="node12" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#aa56f3f570c972f4311aa7228efa3ce61" title="Database.DAO.DAOHotel.load\lDBHotels" alt="" coords="248,332,447,373"/>
+<area shape="rect" id="node15" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a3288e527f28f640de7da1e236f7c01dd" title="Database.DAO.DAOHotel.search\lHotel" alt="" coords="240,397,455,439"/>
+<area shape="rect" id="node17" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#af7e1dba8dafe9d7d7c7807352af2a2cd" title="Database.DAO.DAOHotel.search\lHotelByCity" alt="" coords="240,463,455,504"/>
+<area shape="rect" id="node21" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#ad23730669c452be1f2ca08b847a54809" title="Database.DAO.DAOHotel.search\lHotelByHotel" alt="" coords="240,528,455,569"/>
+<area shape="rect" id="node24" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a94d3971af9d110eae5f8ec137b38c031" title="Database.DAO.DAOHotel.get\lQuantityLeft" alt="" coords="251,593,444,635"/>
+<area shape="rect" id="node28" href="$class_database_1_1_d_a_o_1_1_d_a_o_hotel.html#a4630e672e708eedc039d49f199287857" title="Database.DAO.DAOHotel.update\lQuantity" alt="" coords="240,659,455,700"/>
+<area shape="rect" id="node3" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a58000534193b4595d7d865258e3a736b" title="Database.Controller.Ctrl\lHotel.createTable" alt="" coords="508,39,668,80"/>
+<area shape="rect" id="node6" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#ac306046cea3bd369137aaa3f80b0b13b" title="Database.Controller.Ctrl\lHotel.dropTable" alt="" coords="508,136,668,177"/>
+<area shape="rect" id="node8" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#ab2989ebbee6ee02b0ac31712c41091b9" title="Database.Controller.Ctrl\lHotel.insertEntry" alt="" coords="508,201,668,243"/>
+<area shape="rect" id="node9" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a7b3853ed57b986ef38cdd1ebe5b7f442" title="br.sd.tas.TravelAgencyService\lImpl.insertHotelEntry" alt="" coords="721,201,917,243"/>
+<area shape="rect" id="node11" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a7e0ee56940bf00a0d716d0829263def6" title="Database.Controller.Ctrl\lHotel.deleteEntry" alt="" coords="508,267,668,308"/>
+<area shape="rect" id="node13" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a8df89417d3301ebdca4f1cbeb16eaba4" title="Database.Controller.Ctrl\lHotel.loadDBHotels" alt="" coords="508,332,668,373"/>
+<area shape="rect" id="node14" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a41e3afe220244a182a51e2c7080d3486" title="br.sd.tas.TravelAgencyService\lImpl.loadDBHotels" alt="" coords="721,332,917,373"/>
+<area shape="rect" id="node16" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#ab993c7f87970e7d4ff36b7ccf6100829" title="Database.Controller.Ctrl\lHotel.searchHotel" alt="" coords="508,397,668,439"/>
+<area shape="rect" id="node18" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a360b6e3176c2836b61d174c93b8c05bf" title="Database.Controller.Ctrl\lHotel.searchHotelByCity" alt="" coords="506,463,670,504"/>
+<area shape="rect" id="node19" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#abe4192368082a2058bf4208a2eac43fc" title="br.sd.tas.TravelAgencyService\lImpl.searchHotelByCity" alt="" coords="721,463,917,504"/>
+<area shape="rect" id="node20" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a82420e946049738b9ae5ae5c5b410598" title="br.sd.tas.TravelAgencyService\lImpl.searchPackages" alt="" coords="721,397,917,439"/>
+<area shape="rect" id="node22" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a0bec7f86acb2c6f156e1326d4977de1b" title="Database.Controller.Ctrl\lHotel.searchHotelByHotel" alt="" coords="503,528,673,569"/>
+<area shape="rect" id="node23" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a8190399b9cf0066aed95aab40a0d160c" title="br.sd.tas.TravelAgencyService\lImpl.searchHotelByName" alt="" coords="721,528,917,569"/>
+<area shape="rect" id="node25" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#a17c2ccd0c25e605ced62242b3268f471" title="Database.Controller.Ctrl\lHotel.getQuantityLeft" alt="" coords="508,593,668,635"/>
+<area shape="rect" id="node26" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a751f0c1669c6988f6b1d32be42321240" title="br.sd.tas.TravelAgencyService\lImpl.reserveHotel" alt="" coords="721,659,917,700"/>
+<area shape="rect" id="node27" href="$classbr_1_1sd_1_1tas_1_1_travel_agency_service_impl.html#a418c5386676012f23e12b245aca092e2" title="br.sd.tas.TravelAgencyService\lImpl.buyPackage" alt="" coords="721,593,917,635"/>
+<area shape="rect" id="node29" href="$class_database_1_1_controller_1_1_ctrl_hotel.html#af2c203105337b96a2ab4670b896fff69" title="Database.Controller.Ctrl\lHotel.updateQuantity" alt="" coords="508,659,668,700"/>
+</map>

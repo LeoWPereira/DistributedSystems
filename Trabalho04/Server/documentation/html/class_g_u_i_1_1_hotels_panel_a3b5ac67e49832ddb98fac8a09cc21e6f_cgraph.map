@@ -1,0 +1,23 @@
+<map id="GUI.HotelsPanel.HotelsPanel" name="GUI.HotelsPanel.HotelsPanel">
+<area shape="rect" id="node2" href="$class_g_u_i_1_1_hotels_panel.html#a77527a68f80ce855de413f53d8126913" title="Initial settings for the several ComboBox of the Panel. " alt="" coords="255,65,441,106"/>
+<area shape="rect" id="node6" href="$class_g_u_i_1_1_hotels_panel.html#abde7cdceca40f5b4c9453e7dd2e7d59d" title="Initial settings for the Hotel name Search feature. " alt="" coords="255,143,441,185"/>
+<area shape="rect" id="node7" href="$class_g_u_i_1_1_hotels_panel.html#a2c8b91a323049915dc2ef29b30fb6737" title="GUI.HotelsPanel.configQuantity" alt="" coords="245,209,451,236"/>
+<area shape="rect" id="node8" href="$class_g_u_i_1_1_hotels_panel.html#a6a937ee65f909b892910f313091f47a1" title="GUI.HotelsPanel.configMax\lGuestsByRoom" alt="" coords="257,261,439,302"/>
+<area shape="rect" id="node9" href="$class_g_u_i_1_1_hotels_panel.html#a16e9ee4ba4f2976d8d7375179e6a0b98" title="GUI.HotelsPanel.configPrice" alt="" coords="255,327,441,353"/>
+<area shape="rect" id="node10" href="$class_g_u_i_1_1_hotels_panel.html#a4717773c3e641cb0e3c93e467ee44fe4" title="This method will handle the initial configurations to the Search Button. " alt="" coords="251,377,445,404"/>
+<area shape="rect" id="node20" href="$class_g_u_i_1_1_hotels_panel.html#af6804623d54a1e298cab45f4208ebacf" title="The method will handle the insertion of data into the table. " alt="" coords="781,573,967,614"/>
+<area shape="rect" id="node21" href="$class_g_u_i_1_1_hotels_panel.html#a70f0004b0be1f38cf938cfdd702b91ec" title="The method will handle the initial settings for the table. " alt="" coords="255,479,441,505"/>
+<area shape="rect" id="node22" href="$interfaceclient_1_1_travel_agency_service.html#a44b36813354f4cd3960add775563798e" title="client.TravelAgencyService.load\lDBHotels" alt="" coords="246,530,450,571"/>
+<area shape="rect" id="node3" href="$class_extra_1_1_cities_brazil.html#a9c5b820cde29cc26db5a099dd306cd4b" title="Get the States from Brazil. " alt="" coords="515,5,698,32"/>
+<area shape="rect" id="node4" href="$class_g_u_i_1_1_hotels_panel.html#aa44f0307d1b191a80cbd12948f284185" title="The method will handle changes if the State ComboBox. " alt="" coords="508,57,705,98"/>
+<area shape="rect" id="node5" href="$class_extra_1_1_cities_brazil.html#a577202957c94b8fe2e48cb2af353945d" title="Get the list of Cities of an State of Brazil. " alt="" coords="785,64,963,91"/>
+<area shape="rect" id="node11" href="$class_g_u_i_1_1_hotels_panel.html#ad16d941850b9bfaa494c7e9b452e2f9c" title="Check whether or not there is an (or more) empty field(s) to be filled. " alt="" coords="519,311,695,353"/>
+<area shape="rect" id="node12" href="$class_g_u_i_1_1_hotels_panel.html#a0a422d15c90667c487900e46e7774143" title="GUI.HotelsPanel.processRegistry" alt="" coords="499,377,715,404"/>
+<area shape="rect" id="node13" href="$interfaceclient_1_1_travel_agency_service.html#a7c852cd6f1d431db23f18983a4a62aa9" title="client.TravelAgencyService.insert\lHotelEntry" alt="" coords="768,115,980,157"/>
+<area shape="rect" id="node14" href="$classclient_1_1_accommodation.html#acb80e39b057a50f01f363e0b470805d4" title="client.Accommodation.set\lCityName" alt="" coords="787,181,961,222"/>
+<area shape="rect" id="node15" href="$classclient_1_1_accommodation.html#a69381dbff7c538be52974c1ee0ccad10" title="client.Accommodation.set\lAccommodationName" alt="" coords="787,246,961,287"/>
+<area shape="rect" id="node16" href="$classclient_1_1_accommodation.html#a2cb950ee729b5e1199bf28e15868bc2b" title="client.Accommodation.set\lQuantity" alt="" coords="787,311,961,353"/>
+<area shape="rect" id="node17" href="$classclient_1_1_accommodation.html#ad3e624f5b4bf7dc8827acaf4fd31892e" title="client.Accommodation.set\lMaxGuestsPerRoom" alt="" coords="787,377,961,418"/>
+<area shape="rect" id="node18" href="$classclient_1_1_accommodation.html#a303dc1105213ac043a3750728a4afa7e" title="client.Accommodation.set\lPrice" alt="" coords="787,442,961,483"/>
+<area shape="rect" id="node19" href="$classclient_1_1_accommodation_manager.html#a1fab06871a35911432fe323bf92e9f86" title="client.AccommodationManager.get\lAccommodationList" alt="" coords="763,507,985,549"/>
+</map>
